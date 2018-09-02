@@ -1,0 +1,17 @@
+PROMGEN: Xilinx Prom Generator P.20131013
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+promgen -w -p mcs -c FF -o G:\sp6_lpddr_led_uart//LX45 -s 4096 -u 0000 G:/sp6_lpddr_led_uart/sp6_lpddr/top.bit -spi 
+
+PROM G:\sp6_lpddr_led_uart\LX45.prm map: Thu Aug 23 22:39:09 2018
+
+Calculating PROM checksum with fill value ff
+
+Format        Mcs86 (32-bit)
+Size          4096K
+PROM start    0000:0000
+PROM end      003f:ffff
+PROM checksum 29410358
+
+        Addr1        Addr2                     Date File(s)
+    0000:0000    0016:a673     Aug 23 22:35:45 2018 G:/sp6_lpddr_led_uart/sp6_lpddr/top.bit

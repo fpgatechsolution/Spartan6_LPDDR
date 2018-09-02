@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"G:\sp6_lpddr_led_uart\sp6_lpddr\pico.v" Line 125: &lt;<arg fmt="%s" index="1">wr_empty_b</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"G:\sp6_lpddr_led_uart\sp6_lpddr\pico.v" Line 127: &lt;<arg fmt="%s" index="1">data_usb_out</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"G:\sp6_lpddr_led_uart\sp6_lpddr\pico.v" Line 157: &lt;<arg fmt="%s" index="1">usb_rd_pulse1</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="598" delta="new" >"G:\sp6_lpddr_led_uart\sp6_lpddr\pico.v" Line 3: Module &lt;<arg fmt="%s" index="1">pico</arg>&gt; ignored due to previous errors.
+</msg>
+
+</messages>
+

@@ -1,0 +1,11 @@
+# PROMGEN: Xilinx Prom Generator P.20131013
+# Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+SOFTWARE_VERSION P.20131013
+DATE            08/23/2018 - 22:43
+SOURCE          G:\sp6_lpddr_led_uart\LX25.mcs
+DEVICE          1024K
+DATA_WIDTH      1
+FILL_DATA       0xFF
+SIGNATURE       0x03CF6984
+START_ADDRESS   0x00000000 END_ADDRESS 0x000C3AB5 DIRECTION_UP   "G:/sp6_lpddr_led_uart/sp6_lpddr/LX25 top.bit" 6slx25csg324

@@ -1,0 +1,7 @@
+vhdl work "Transmitter.vhd"
+vhdl work "Receiver.vhd"
+vhdl work "UART.vhd"
+vhdl work "l_to_p.vhd"
+vhdl work "UART_CONTROL.vhd"
+verilog work "LPDDR.v"
+vhdl work "TOP.vhd"

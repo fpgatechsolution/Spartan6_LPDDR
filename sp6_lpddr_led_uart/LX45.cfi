@@ -1,0 +1,11 @@
+# PROMGEN: Xilinx Prom Generator P.20131013
+# Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+SOFTWARE_VERSION P.20131013
+DATE            08/23/2018 - 22:39
+SOURCE          G:\sp6_lpddr_led_uart\LX45.mcs
+DEVICE          4096K
+DATA_WIDTH      1
+FILL_DATA       0xFF
+SIGNATURE       0x29410358
+START_ADDRESS   0x00000000 END_ADDRESS 0x0016A673 DIRECTION_UP   "G:/sp6_lpddr_led_uart/sp6_lpddr/top.bit" 6slx45csg324

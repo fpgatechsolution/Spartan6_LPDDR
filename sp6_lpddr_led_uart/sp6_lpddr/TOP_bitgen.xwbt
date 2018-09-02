@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=G:\sp6_lpddr_led_uart\sp6_lpddr\TOP.ncd
+OUTFILE=G:\sp6_lpddr_led_uart\sp6_lpddr\TOP.bit
+FAMILY=Spartan6
+PART=xc6slx45-2csg324
+WORKINGDIR=G:\sp6_lpddr_led_uart\sp6_lpddr
+LICENSE=WebPack
+USER_INFO=__0_0_0

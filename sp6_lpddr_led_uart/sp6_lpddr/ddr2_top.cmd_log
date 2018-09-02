@@ -1,0 +1,2 @@
+vhdtdtfi -lang verilog -prj sp6_lpddr -o G:/sp6_lpddr_led_uart/sp6_lpddr/ddr2_top.vhi -lib work G:/sp6_lpddr_led_uart/sp6_lpddr//LPDDR.v -module ddr2_top -template C:/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror 
+vhdtdtfi -lang verilog -prj sp6_lpddr -o G:/sp6_lpddr_led_uart/sp6_lpddr/ddr2_top.vhi -lib work G:/sp6_lpddr_led_uart/sp6_lpddr//LPDDR.v -module ddr2_top -template C:/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror 
