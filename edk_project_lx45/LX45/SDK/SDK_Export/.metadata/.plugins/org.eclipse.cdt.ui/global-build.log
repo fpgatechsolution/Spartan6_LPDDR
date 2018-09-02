@@ -1,0 +1,392 @@
+17:42:22 **** Incremental Build of configuration Release for project all_test ****
+make all 
+'Building file: ../src/testperiph.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O2 -c -fmessage-length=0 -I../../all_test_bsp/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/testperiph.d" -MT"src/testperiph.d" -o "src/testperiph.o" "../src/testperiph.c"
+'Finished building: ../src/testperiph.c'
+' '
+'Building file: ../src/xgpio_tapp_example.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O2 -c -fmessage-length=0 -I../../all_test_bsp/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/xgpio_tapp_example.d" -MT"src/xgpio_tapp_example.d" -o "src/xgpio_tapp_example.o" "../src/xgpio_tapp_example.c"
+../src/xgpio_tapp_example.c: In function 'GpioOutputExample':
+../src/xgpio_tapp_example.c:182:6: warning: unused variable 'Data' [-Wunused-variable]
+'Finished building: ../src/xgpio_tapp_example.c'
+' '
+'Building file: ../src/xuartlite_selftest_example.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O2 -c -fmessage-length=0 -I../../all_test_bsp/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/xuartlite_selftest_example.d" -MT"src/xuartlite_selftest_example.d" -o "src/xuartlite_selftest_example.o" "../src/xuartlite_selftest_example.c"
+'Finished building: ../src/xuartlite_selftest_example.c'
+' '
+'Building target: all_test.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../all_test_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "all_test.elf"  ./src/testperiph.o ./src/xgpio_tapp_example.o ./src/xuartlite_selftest_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: all_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size all_test.elf  |tee "all_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   4978	    320	   2206	   7504	   1d50	all_test.elf
+'Finished building: all_test.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck all_test.elf -hw ../../LX45_hw_platform/system.xml -pe microblaze_0  |tee "all_test.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../LX45_hw_platform/system.xml -pe microblaze_0
+all_test.elf 
+
+ELF file	: all_test.elf
+elfcheck passed.
+'Finished building: all_test.elf.elfcheck'
+' '
+
+17:42:27 Build Finished (took 4s.531ms)
+
+17:42:27 **** Incremental Build of configuration Debug for project all_test ****
+make all 
+make: Nothing to be done for `all'.
+17:44:09 **** Clean-only build of configuration Debug for project all_test ****
+make clean 
+rm -rf  ./src/testperiph.o ./src/xgpio_tapp_example.o ./src/xuartlite_selftest_example.o  ./src/testperiph.d ./src/xgpio_tapp_example.d ./src/xuartlite_selftest_example.d  all_test.elf.size  all_test.elf.elfcheck  all_test.elf
+' '
+17:44:09 **** Auto Build of configuration Debug for project all_test ****
+make all 
+'Building file: ../src/testperiph.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../all_test_bsp/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/testperiph.d" -MT"src/testperiph.d" -o "src/testperiph.o" "../src/testperiph.c"
+'Finished building: ../src/testperiph.c'
+' '
+'Building file: ../src/xgpio_tapp_example.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../all_test_bsp/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/xgpio_tapp_example.d" -MT"src/xgpio_tapp_example.d" -o "src/xgpio_tapp_example.o" "../src/xgpio_tapp_example.c"
+../src/xgpio_tapp_example.c: In function 'GpioOutputExample':
+../src/xgpio_tapp_example.c:182:6: warning: unused variable 'Data' [-Wunused-variable]
+'Finished building: ../src/xgpio_tapp_example.c'
+' '
+'Building file: ../src/xuartlite_selftest_example.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../all_test_bsp/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/xuartlite_selftest_example.d" -MT"src/xuartlite_selftest_example.d" -o "src/xuartlite_selftest_example.o" "../src/xuartlite_selftest_example.c"
+'Finished building: ../src/xuartlite_selftest_example.c'
+' '
+'Building target: all_test.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../all_test_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "all_test.elf"  ./src/testperiph.o ./src/xgpio_tapp_example.o ./src/xuartlite_selftest_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: all_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size all_test.elf  |tee "all_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   5130	    320	   2206	   7656	   1de8	all_test.elf
+'Finished building: all_test.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck all_test.elf -hw ../../LX45_hw_platform/system.xml -pe microblaze_0  |tee "all_test.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../LX45_hw_platform/system.xml -pe microblaze_0
+all_test.elf 
+
+ELF file	: all_test.elf
+elfcheck passed.
+'Finished building: all_test.elf.elfcheck'
+' '
+17:44:37 **** Auto Build of project all_test_bsp ****
+make -k all 
+'Finished building libraries'
+17:44:37 **** Auto Build of project lpddr_test_bsp ****
+make -k all 
+'Finished building libraries'
+17:55:12 **** Auto Build of configuration Debug for project all_test ****
+make all 
+'Building file: ../src/testperiph.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../all_test_bsp/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/testperiph.d" -MT"src/testperiph.d" -o "src/testperiph.o" "../src/testperiph.c"
+'Finished building: ../src/testperiph.c'
+' '
+'Building target: all_test.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../all_test_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "all_test.elf"  ./src/testperiph.o ./src/xgpio_tapp_example.o ./src/xuartlite_selftest_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: all_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size all_test.elf  |tee "all_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   5386	    320	   2206	   7912	   1ee8	all_test.elf
+'Finished building: all_test.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck all_test.elf -hw ../../LX45_hw_platform/system.xml -pe microblaze_0  |tee "all_test.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../LX45_hw_platform/system.xml -pe microblaze_0
+all_test.elf 
+
+ELF file	: all_test.elf
+elfcheck passed.
+'Finished building: all_test.elf.elfcheck'
+' '
+17:55:32 **** Auto Build of project all_test_bsp ****
+make -k all 
+'Finished building libraries'
+17:55:32 **** Auto Build of project lpddr_test_bsp ****
+make -k all 
+'Finished building libraries'
+17:56:00 **** Auto Build of configuration Debug for project all_test ****
+make all 
+'Building file: ../src/testperiph.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../all_test_bsp/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/testperiph.d" -MT"src/testperiph.d" -o "src/testperiph.o" "../src/testperiph.c"
+'Finished building: ../src/testperiph.c'
+' '
+'Building target: all_test.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../all_test_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "all_test.elf"  ./src/testperiph.o ./src/xgpio_tapp_example.o ./src/xuartlite_selftest_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: all_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size all_test.elf  |tee "all_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   5386	    320	   2206	   7912	   1ee8	all_test.elf
+'Finished building: all_test.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck all_test.elf -hw ../../LX45_hw_platform/system.xml -pe microblaze_0  |tee "all_test.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../LX45_hw_platform/system.xml -pe microblaze_0
+all_test.elf 
+
+ELF file	: all_test.elf
+elfcheck passed.
+'Finished building: all_test.elf.elfcheck'
+' '
+17:56:14 **** Auto Build of configuration Debug for project all_test ****
+make all 
+'Building file: ../src/testperiph.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../all_test_bsp/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/testperiph.d" -MT"src/testperiph.d" -o "src/testperiph.o" "../src/testperiph.c"
+'Finished building: ../src/testperiph.c'
+' '
+'Building target: all_test.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../all_test_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "all_test.elf"  ./src/testperiph.o ./src/xgpio_tapp_example.o ./src/xuartlite_selftest_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: all_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size all_test.elf  |tee "all_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   5398	    320	   2200	   7918	   1eee	all_test.elf
+'Finished building: all_test.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck all_test.elf -hw ../../LX45_hw_platform/system.xml -pe microblaze_0  |tee "all_test.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../LX45_hw_platform/system.xml -pe microblaze_0
+all_test.elf 
+
+ELF file	: all_test.elf
+elfcheck passed.
+'Finished building: all_test.elf.elfcheck'
+' '
+17:56:22 **** Auto Build of project all_test_bsp ****
+make -k all 
+'Finished building libraries'
+17:56:23 **** Auto Build of project lpddr_test_bsp ****
+make -k all 
+'Finished building libraries'
+17:56:53 **** Auto Build of configuration Debug for project all_test ****
+make all 
+'Building file: ../src/testperiph.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../all_test_bsp/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/testperiph.d" -MT"src/testperiph.d" -o "src/testperiph.o" "../src/testperiph.c"
+'Finished building: ../src/testperiph.c'
+' '
+'Building target: all_test.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../all_test_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "all_test.elf"  ./src/testperiph.o ./src/xgpio_tapp_example.o ./src/xuartlite_selftest_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: all_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size all_test.elf  |tee "all_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   5454	    320	   2200	   7974	   1f26	all_test.elf
+'Finished building: all_test.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck all_test.elf -hw ../../LX45_hw_platform/system.xml -pe microblaze_0  |tee "all_test.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../LX45_hw_platform/system.xml -pe microblaze_0
+all_test.elf 
+
+ELF file	: all_test.elf
+elfcheck passed.
+'Finished building: all_test.elf.elfcheck'
+' '
+17:57:01 **** Auto Build of project all_test_bsp ****
+make -k all 
+'Finished building libraries'
+17:57:02 **** Auto Build of project lpddr_test_bsp ****
+make -k all 
+'Finished building libraries'
+17:59:39 **** Auto Build of configuration Debug for project lpddr_test ****
+make all 
+'Building file: ../src/memorytest.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../lpddr_test_bsp/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/memorytest.d" -MT"src/memorytest.d" -o "src/memorytest.o" "../src/memorytest.c"
+'Finished building: ../src/memorytest.c'
+' '
+'Building target: lpddr_test.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../lpddr_test_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "lpddr_test.elf"  ./src/memory_config_g.o ./src/memorytest.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: lpddr_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size lpddr_test.elf  |tee "lpddr_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   6650	    292	   1074	   8016	   1f50	lpddr_test.elf
+'Finished building: lpddr_test.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck lpddr_test.elf -hw ../../LX45_hw_platform/system.xml -pe microblaze_0  |tee "lpddr_test.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../LX45_hw_platform/system.xml -pe microblaze_0
+lpddr_test.elf 
+
+ELF file	: lpddr_test.elf
+elfcheck passed.
+'Finished building: lpddr_test.elf.elfcheck'
+' '
+17:59:50 **** Auto Build of project all_test_bsp ****
+make -k all 
+'Finished building libraries'
+17:59:51 **** Auto Build of project lpddr_test_bsp ****
+make -k all 
+'Finished building libraries'
+18:00:14 **** Auto Build of configuration Debug for project lpddr_test ****
+make all 
+'Building file: ../src/memorytest.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../lpddr_test_bsp/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/memorytest.d" -MT"src/memorytest.d" -o "src/memorytest.o" "../src/memorytest.c"
+'Finished building: ../src/memorytest.c'
+' '
+'Building target: lpddr_test.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../lpddr_test_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "lpddr_test.elf"  ./src/memory_config_g.o ./src/memorytest.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: lpddr_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size lpddr_test.elf  |tee "lpddr_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   6650	    292	   1074	   8016	   1f50	lpddr_test.elf
+'Finished building: lpddr_test.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck lpddr_test.elf -hw ../../LX45_hw_platform/system.xml -pe microblaze_0  |tee "lpddr_test.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../LX45_hw_platform/system.xml -pe microblaze_0
+lpddr_test.elf 
+
+ELF file	: lpddr_test.elf
+elfcheck passed.
+'Finished building: lpddr_test.elf.elfcheck'
+' '
+18:00:25 **** Auto Build of project all_test_bsp ****
+make -k all 
+'Finished building libraries'
+18:00:25 **** Auto Build of project lpddr_test_bsp ****
+make -k all 
+'Finished building libraries'
+18:01:07 **** Auto Build of configuration Debug for project lpddr_test ****
+make all 
+'Building file: ../src/memorytest.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../lpddr_test_bsp/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/memorytest.d" -MT"src/memorytest.d" -o "src/memorytest.o" "../src/memorytest.c"
+'Finished building: ../src/memorytest.c'
+' '
+'Building target: lpddr_test.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../lpddr_test_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "lpddr_test.elf"  ./src/memory_config_g.o ./src/memorytest.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: lpddr_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size lpddr_test.elf  |tee "lpddr_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   6650	    292	   1074	   8016	   1f50	lpddr_test.elf
+'Finished building: lpddr_test.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck lpddr_test.elf -hw ../../LX45_hw_platform/system.xml -pe microblaze_0  |tee "lpddr_test.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../LX45_hw_platform/system.xml -pe microblaze_0
+lpddr_test.elf 
+
+ELF file	: lpddr_test.elf
+elfcheck passed.
+'Finished building: lpddr_test.elf.elfcheck'
+' '
+18:01:14 **** Auto Build of project all_test_bsp ****
+make -k all 
+'Finished building libraries'
+18:01:14 **** Auto Build of project lpddr_test_bsp ****
+make -k all 
+'Finished building libraries'
+18:03:54 **** Auto Build of configuration Debug for project all_test ****
+make all 
+'Building file: ../src/testperiph.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../all_test_bsp/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/testperiph.d" -MT"src/testperiph.d" -o "src/testperiph.o" "../src/testperiph.c"
+'Finished building: ../src/testperiph.c'
+' '
+'Building target: all_test.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../all_test_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "all_test.elf"  ./src/testperiph.o ./src/xgpio_tapp_example.o ./src/xuartlite_selftest_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: all_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size all_test.elf  |tee "all_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   5502	    320	   2200	   8022	   1f56	all_test.elf
+'Finished building: all_test.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck all_test.elf -hw ../../LX45_hw_platform/system.xml -pe microblaze_0  |tee "all_test.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../LX45_hw_platform/system.xml -pe microblaze_0
+all_test.elf 
+
+ELF file	: all_test.elf
+elfcheck passed.
+'Finished building: all_test.elf.elfcheck'
+' '
+18:04:06 **** Auto Build of project all_test_bsp ****
+make -k all 
+'Finished building libraries'
+18:04:06 **** Auto Build of project lpddr_test_bsp ****
+make -k all 
+'Finished building libraries'

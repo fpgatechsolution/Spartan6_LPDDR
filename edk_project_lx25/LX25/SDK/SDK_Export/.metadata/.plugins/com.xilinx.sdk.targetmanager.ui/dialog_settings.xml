@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="D:\nish_test_project\sp6_bga\prj\LX45\SDK\SDK_Export\lpddr_test\Debug\lpddr_test.elf" key="LX45_hw_platform-microblaze_0-initElf"/>
+	<item value="D:\nish_test_project\sp6_bga\prj\LX25\SDK\SDK_Export\lpddr_test\Debug\lpddr_test.elf" key="LX25_hw_platform-microblaze_0-initElf"/>
+	<item value="system_bd.bmm" key="LX25_hw_platform-bmmFile"/>
+	<item value="system.bit" key="LX45_hw_platform-bitFile"/>
+	<item value="system.bit" key="LX25_hw_platform-bitFile"/>
+	<item value="system_bd.bmm" key="LX45_hw_platform-bmmFile"/>
+</section>

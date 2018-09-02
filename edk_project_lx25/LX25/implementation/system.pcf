@@ -1,0 +1,132 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Tue Aug 28 18:09:36 2018
+//! **************************************************************************
+
+SCHEMATIC START;
+PROHIBIT = SITE "P1" SITE "L3";
+CONFIG VCCAUX = "3.3";
+COMP "MCB_DDR3_dram_addr<0>" LOCATE = SITE "J7" LEVEL 1;
+COMP "MCB_DDR3_dram_addr<1>" LOCATE = SITE "J6" LEVEL 1;
+COMP "MCB_DDR3_dram_addr<2>" LOCATE = SITE "H5" LEVEL 1;
+COMP "MCB_DDR3_dram_addr<3>" LOCATE = SITE "L7" LEVEL 1;
+COMP "MCB_DDR3_dram_addr<4>" LOCATE = SITE "F3" LEVEL 1;
+COMP "MCB_DDR3_dram_addr<5>" LOCATE = SITE "H4" LEVEL 1;
+COMP "MCB_DDR3_dram_addr<6>" LOCATE = SITE "H3" LEVEL 1;
+COMP "MCB_DDR3_dram_addr<7>" LOCATE = SITE "H6" LEVEL 1;
+COMP "MCB_DDR3_dram_addr<8>" LOCATE = SITE "D2" LEVEL 1;
+COMP "MCB_DDR3_dram_addr<9>" LOCATE = SITE "D1" LEVEL 1;
+COMP "MCB_DDR3_rzq" LOCATE = SITE "N4" LEVEL 1;
+COMP "RESET" LOCATE = SITE "U16" LEVEL 1;
+COMP "MCB_DDR3_dram_ba<0>" LOCATE = SITE "F2" LEVEL 1;
+COMP "MCB_DDR3_dram_ba<1>" LOCATE = SITE "F1" LEVEL 1;
+COMP "MCB_DDR3_dram_dq<0>" LOCATE = SITE "L2" LEVEL 1;
+COMP "MCB_DDR3_dram_addr<10>" LOCATE = SITE "F4" LEVEL 1;
+COMP "MCB_DDR3_dram_dq<1>" LOCATE = SITE "L1" LEVEL 1;
+COMP "MCB_DDR3_dram_addr<11>" LOCATE = SITE "D3" LEVEL 1;
+COMP "MCB_DDR3_dram_dq<2>" LOCATE = SITE "K2" LEVEL 1;
+COMP "MCB_DDR3_dram_addr<12>" LOCATE = SITE "G6" LEVEL 1;
+COMP "MCB_DDR3_dram_dq<3>" LOCATE = SITE "K1" LEVEL 1;
+COMP "MCB_DDR3_dram_dq<4>" LOCATE = SITE "H2" LEVEL 1;
+COMP "MCB_DDR3_dram_dq<5>" LOCATE = SITE "H1" LEVEL 1;
+COMP "MCB_DDR3_dram_dq<6>" LOCATE = SITE "J3" LEVEL 1;
+COMP "MCB_DDR3_dram_dq<7>" LOCATE = SITE "J1" LEVEL 1;
+COMP "MCB_DDR3_dram_dq<8>" LOCATE = SITE "M3" LEVEL 1;
+COMP "MCB_DDR3_dram_dq<9>" LOCATE = SITE "M1" LEVEL 1;
+COMP "MCB_DDR3_dram_cas_n" LOCATE = SITE "K5" LEVEL 1;
+COMP "MCB_DDR3_dram_clk_n" LOCATE = SITE "G1" LEVEL 1;
+COMP "MCB_DDR3_dram_ras_n" LOCATE = SITE "L5" LEVEL 1;
+COMP "MCB_DDR3_dram_cke" LOCATE = SITE "H7" LEVEL 1;
+COMP "MCB_DDR3_dram_clk" LOCATE = SITE "G3" LEVEL 1;
+COMP "MCB_DDR3_dram_ldm" LOCATE = SITE "K3" LEVEL 1;
+COMP "MCB_DDR3_dram_dqs" LOCATE = SITE "L4" LEVEL 1;
+COMP "MCB_DDR3_dram_udm" LOCATE = SITE "K4" LEVEL 1;
+COMP "RS232_Uart_1_sout" LOCATE = SITE "C18" LEVEL 1;
+COMP "MCB_DDR3_dram_dq<10>" LOCATE = SITE "N2" LEVEL 1;
+COMP "MCB_DDR3_dram_dq<11>" LOCATE = SITE "N1" LEVEL 1;
+COMP "MCB_DDR3_dram_dq<12>" LOCATE = SITE "T2" LEVEL 1;
+COMP "MCB_DDR3_dram_dq<13>" LOCATE = SITE "T1" LEVEL 1;
+COMP "MCB_DDR3_dram_dq<14>" LOCATE = SITE "U2" LEVEL 1;
+COMP "MCB_DDR3_dram_dq<15>" LOCATE = SITE "U1" LEVEL 1;
+COMP "clock_generator_0_CLKIN_pin" LOCATE = SITE "V10" LEVEL 1;
+COMP "MCB_DDR3_dram_we_n" LOCATE = SITE "E3" LEVEL 1;
+COMP "MCB_DDR3_dram_udqs" LOCATE = SITE "P2" LEVEL 1;
+COMP "RS232_Uart_1_sin" LOCATE = SITE "C17" LEVEL 1;
+COMP "LEDS_TRI_O<0>" LOCATE = SITE "L6" LEVEL 1;
+COMP "LEDS_TRI_O<1>" LOCATE = SITE "M5" LEVEL 1;
+COMP "LEDS_TRI_O<2>" LOCATE = SITE "E4" LEVEL 1;
+COMP "LEDS_TRI_O<3>" LOCATE = SITE "C2" LEVEL 1;
+COMP "LEDS_TRI_O<4>" LOCATE = SITE "C1" LEVEL 1;
+COMP "LEDS_TRI_O<5>" LOCATE = SITE "P4" LEVEL 1;
+COMP "LEDS_TRI_O<6>" LOCATE = SITE "P3" LEVEL 1;
+COMP "LEDS_TRI_O<7>" LOCATE = SITE "N3" LEVEL 1;
+COMP "LEDS_TRI_O<8>" LOCATE = SITE "P16" LEVEL 1;
+COMP "LEDS_TRI_O<9>" LOCATE = SITE "P15" LEVEL 1;
+TIMEGRP microblaze_0_ilmb_POR_FF_I_dst = BEL
+        "microblaze_0_ilmb/microblaze_0_ilmb/POR_FF_I";
+TIMEGRP microblaze_0_dlmb_POR_FF_I_dst = BEL
+        "microblaze_0_dlmb/microblaze_0_dlmb/POR_FF_I";
+TIMEGRP TNM_TIG_MCB_DDR3_SYS_RST_SYNCH = BEL
+        "MCB_DDR3/MCB_DDR3/sys_rst_synch/synch_d1_0";
+TIMEGRP TNM_TIG_MCB_DDR3_CALIB_DONE_SYNCH = BEL
+        "MCB_DDR3/MCB_DDR3/mcb_ui_top_0/P0_UI_AXI.axi_mcb_synch/synch_d1_0";
+TIMEGRP axi4lite_0_reset_resync = BEL
+        "axi4lite_0/axi4lite_0/si_converter_bank/gen_conv_slot[0].clock_conv_inst/interconnect_aresetn_resync_0"
+        BEL
+        "axi4lite_0/axi4lite_0/si_converter_bank/gen_conv_slot[0].clock_conv_inst/interconnect_aresetn_resync_1"
+        BEL
+        "axi4lite_0/axi4lite_0/si_converter_bank/gen_conv_slot[0].clock_conv_inst/interconnect_aresetn_resync_2";
+TIMEGRP axi4_0_reset_resync = BEL
+        "axi4_0/axi4_0/si_converter_bank/gen_conv_slot[0].clock_conv_inst/interconnect_aresetn_resync_0"
+        BEL
+        "axi4_0/axi4_0/si_converter_bank/gen_conv_slot[0].clock_conv_inst/interconnect_aresetn_resync_1"
+        BEL
+        "axi4_0/axi4_0/si_converter_bank/gen_conv_slot[0].clock_conv_inst/interconnect_aresetn_resync_2";
+TIMEGRP microblaze_0_Reset_dst = BEL
+        "microblaze_0/microblaze_0/MicroBlaze_Core_I/Reset_DFF.reset_temp";
+TIMEGRP axi4lite_0_reset_source = FFS(*) PADS(*);
+TIMEGRP axi4_0_reset_source = FFS(*) PADS(*);
+TIMEGRP "FFS" = FFS(*);
+PATH TS_TIG_microblaze_0_Reset_path = FROM TIMEGRP "FFS" TO TIMEGRP
+        "microblaze_0_Reset_dst";
+PATH "TS_TIG_microblaze_0_Reset_path" TIG;
+PATH TS_axi4_0_reset_resync_path = FROM TIMEGRP "axi4_0_reset_source" TO
+        TIMEGRP "axi4_0_reset_resync";
+PATH "TS_axi4_0_reset_resync_path" TIG;
+PATH TS_axi4lite_0_reset_resync_path = FROM TIMEGRP "axi4lite_0_reset_source"
+        TO TIMEGRP "axi4lite_0_reset_resync";
+PATH "TS_axi4lite_0_reset_resync_path" TIG;
+PATH TS_TIG_MCB_DDR3_CALIB_DONE_SYNCH_path = FROM TIMEGRP "FFS" TO TIMEGRP
+        "TNM_TIG_MCB_DDR3_CALIB_DONE_SYNCH";
+PATH "TS_TIG_MCB_DDR3_CALIB_DONE_SYNCH_path" TIG;
+PATH TS_TIG_MCB_DDR3_SYS_RST_SYNCH_path = FROM TIMEGRP "FFS" TO TIMEGRP
+        "TNM_TIG_MCB_DDR3_SYS_RST_SYNCH";
+PATH "TS_TIG_MCB_DDR3_SYS_RST_SYNCH_path" TIG;
+PATH TS_TIG_microblaze_0_dlmb_POR_FF_I_path = FROM TIMEGRP "FFS" TO TIMEGRP
+        "microblaze_0_dlmb_POR_FF_I_dst";
+PATH "TS_TIG_microblaze_0_dlmb_POR_FF_I_path" TIG;
+PATH TS_TIG_microblaze_0_ilmb_POR_FF_I_path = FROM TIMEGRP "FFS" TO TIMEGRP
+        "microblaze_0_ilmb_POR_FF_I_dst";
+PATH "TS_TIG_microblaze_0_ilmb_POR_FF_I_path" TIG;
+PIN
+        MCB_DDR3/MCB_DDR3/mcb_ui_top_0/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/DONE_SOFTANDHARD_CAL_pins<2>
+        = BEL
+        "MCB_DDR3/MCB_DDR3/mcb_ui_top_0/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/DONE_SOFTANDHARD_CAL"
+        PINNAME Q;
+PIN
+        MCB_DDR3/MCB_DDR3/mcb_ui_top_0/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/DONE_SOFTANDHARD_CAL_rstpot_pins<2>
+        = BEL
+        "MCB_DDR3/MCB_DDR3/mcb_ui_top_0/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/DONE_SOFTANDHARD_CAL_rstpot"
+        PINNAME O6;
+PIN MCB_DDR3/MCB_DDR3/mcb_ui_top_0/mcb_raw_wrapper_inst/samc_0_pins<617> = BEL
+        "MCB_DDR3/MCB_DDR3/mcb_ui_top_0/mcb_raw_wrapper_inst/samc_0" PINNAME
+        SELFREFRESHMODE;
+PIN
+        "MCB_DDR3/MCB_DDR3/mcb_ui_top_0/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/DONE_SOFTANDHARD_CAL_pins<2>"
+        TIG;
+PIN
+        "MCB_DDR3/MCB_DDR3/mcb_ui_top_0/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/DONE_SOFTANDHARD_CAL_rstpot_pins<2>"
+        TIG;
+PIN "MCB_DDR3/MCB_DDR3/mcb_ui_top_0/mcb_raw_wrapper_inst/samc_0_pins<617>"
+        TIG;
+SCHEMATIC END;
+

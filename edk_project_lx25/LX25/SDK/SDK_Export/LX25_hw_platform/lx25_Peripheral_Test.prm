@@ -1,0 +1,17 @@
+PROMGEN: Xilinx Prom Generator P.20131013
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+promgen -w -p mcs -c FF -o G:\prj\LX25\SDK\SDK_Export\LX25_hw_platform//lx25_Peripheral_Test -s 2048 -u 0000 G:/prj/LX25/SDK/SDK_Export/LX25_hw_platform/download_cclktemp.bit -spi 
+
+PROM G:\prj\LX25\SDK\SDK_Export\LX25_hw_platform\lx25_Peripheral_Test.prm map: Tue Aug 28 22:55:10 2018
+
+Calculating PROM checksum with fill value ff
+
+Format        Mcs86 (32-bit)
+Size          2048K
+PROM start    0000:0000
+PROM end      001f:ffff
+PROM checksum 1422f130
+
+        Addr1        Addr2                     Date File(s)
+    0000:0000    000c:3ab5     Aug 28 22:54:54 2018 G:/prj/LX25/SDK/SDK_Export/LX25_hw_platform/download_cclktemp.bit

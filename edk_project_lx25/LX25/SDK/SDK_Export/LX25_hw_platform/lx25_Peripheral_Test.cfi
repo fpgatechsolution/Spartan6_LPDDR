@@ -1,0 +1,11 @@
+# PROMGEN: Xilinx Prom Generator P.20131013
+# Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+SOFTWARE_VERSION P.20131013
+DATE            08/28/2018 - 22:55
+SOURCE          G:\prj\LX25\SDK\SDK_Export\LX25_hw_platform\lx25_Peripheral_Test.mcs
+DEVICE          2048K
+DATA_WIDTH      1
+FILL_DATA       0xFF
+SIGNATURE       0x1422F130
+START_ADDRESS   0x00000000 END_ADDRESS 0x000C3AB5 DIRECTION_UP   "G:/prj/LX25/SDK/SDK_Export/LX25_hw_platform/download_cclktemp.bit" 6slx25csg324

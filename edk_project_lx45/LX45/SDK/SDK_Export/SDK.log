@@ -1,0 +1,47 @@
+16:48:43.126 INFO  - Processing command line option -hwspec D:\nish_test_project\sp6_bga\prj\LX45\SDK\SDK_Export\hw\system.xml. 
+16:51:04.014 ERROR - FPGA Configuration failed.Connection to Board Failed
+
+
+    Failed to Open JTAG Cable
+    Cable target is not connected to the host
+ 
+16:55:34.125 ERROR - FPGA Configuration failed.Connection to Board Failed
+
+
+    Failed to Open JTAG Cable
+    Cable target is not connected to the host
+ 
+16:56:00.664 ERROR - FPGA Configuration failed.Connection to Board Failed
+
+
+    Failed to Open JTAG Cable
+    Unknown Error
+ 
+17:00:32.916 ERROR - FPGA Configuration failed.Connection to Board Failed
+
+
+    Failed to Open JTAG Cable
+    Unknown Error
+ 
+17:02:23.195 ERROR - Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near  
+17:04:58.787 INFO  - Processing command line option -hwspec D:\nish_test_project\sp6_bga\prj\LX45\SDK\SDK_Export\hw\system.xml. 
+17:39:10.623 INFO  - FPGA configured successfully with bitstream "D:/nish_test_project/sp6_bga/prj/LX45/SDK/SDK_Export/LX45_hw_platform/download.bit" 
+17:41:53.675 INFO  - FPGA configured successfully with bitstream "D:/nish_test_project/sp6_bga/prj/LX45/SDK/SDK_Export/LX45_hw_platform/download.bit" 
+17:44:09.276 INFO  - Successfully generated D:\nish_test_project\sp6_bga\prj\LX45\SDK\SDK_Export\all_test\src\lscript.ld. 
+17:44:09.276 INFO  - Applying linker script to all configurations of project all_test. 
+17:44:09.276 INFO  - Setting rebuild state to true for all configurations of project all_test. 
+17:44:36.619 INFO  - FPGA configured successfully with bitstream "D:/nish_test_project/sp6_bga/prj/LX45/SDK/SDK_Export/LX45_hw_platform/download.bit" 
+17:55:19.588 ERROR - FPGA Configuration failed.Connection to Board Failed
+
+
+    Failed to Open JTAG Cable
+    Unknown Error
+ 
+17:55:31.425 INFO  - FPGA configured successfully with bitstream "D:/nish_test_project/sp6_bga/prj/LX45/SDK/SDK_Export/LX45_hw_platform/download.bit" 
+17:56:21.948 INFO  - FPGA configured successfully with bitstream "D:/nish_test_project/sp6_bga/prj/LX45/SDK/SDK_Export/LX45_hw_platform/download.bit" 
+17:57:00.947 INFO  - FPGA configured successfully with bitstream "D:/nish_test_project/sp6_bga/prj/LX45/SDK/SDK_Export/LX45_hw_platform/download.bit" 
+17:59:49.862 INFO  - FPGA configured successfully with bitstream "D:/nish_test_project/sp6_bga/prj/LX45/SDK/SDK_Export/LX45_hw_platform/download.bit" 
+18:00:24.166 INFO  - FPGA configured successfully with bitstream "D:/nish_test_project/sp6_bga/prj/LX45/SDK/SDK_Export/LX45_hw_platform/download.bit" 
+18:01:13.826 INFO  - FPGA configured successfully with bitstream "D:/nish_test_project/sp6_bga/prj/LX45/SDK/SDK_Export/LX45_hw_platform/download.bit" 
+18:04:05.322 INFO  - FPGA configured successfully with bitstream "D:/nish_test_project/sp6_bga/prj/LX45/SDK/SDK_Export/LX45_hw_platform/download.bit" 
+18:06:56.863 ERROR - Unexpected error while parsing XMD response ?: com.google.gson.JsonSyntaxException: com.google.gson.stream.MalformedJsonException: invalid number or unquoted string near  

@@ -1,0 +1,7 @@
+INFILE=D:\nish_test_project\sp6_bga\prj\LX45\implementation\system.ncd
+OUTFILE=D:\nish_test_project\sp6_bga\prj\LX45\implementation\system.bit
+FAMILY=Spartan6
+PART=xc6slx45-2csg324
+WORKINGDIR=D:\nish_test_project\sp6_bga\prj\LX45\implementation
+LICENSE=ISE
+USER_INFO=210850477_1777497875_210574257_546

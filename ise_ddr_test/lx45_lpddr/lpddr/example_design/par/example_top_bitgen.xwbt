@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=E:\KITCODE\sp6_lpddr_v1\prj\lx45_lpddr\lpddr\example_design\par\example_top.ncd
+OUTFILE=E:\KITCODE\sp6_lpddr_v1\prj\lx45_lpddr\lpddr\example_design\par\example_top.bit
+FAMILY=Spartan6
+PART=xc6slx45-2csg324
+WORKINGDIR=E:\KITCODE\sp6_lpddr_v1\prj\lx45_lpddr\lpddr\example_design\par
+LICENSE=WebPack
+USER_INFO=__0_0_0

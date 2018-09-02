@@ -1,0 +1,34 @@
+18:03:54 **** Auto Build of configuration Debug for project all_test ****
+make all 
+'Building file: ../src/testperiph.c'
+'Invoking: MicroBlaze gcc compiler'
+mb-gcc -Wall -O0 -g3 -c -fmessage-length=0 -I../../all_test_bsp/microblaze_0/include -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -ffunction-sections -fdata-sections -MMD -MP -MF"src/testperiph.d" -MT"src/testperiph.d" -o "src/testperiph.o" "../src/testperiph.c"
+'Finished building: ../src/testperiph.c'
+' '
+'Building target: all_test.elf'
+'Invoking: MicroBlaze gcc linker'
+mb-gcc -Wl,-T -Wl,../src/lscript.ld -L../../all_test_bsp/microblaze_0/lib -mlittle-endian -mxl-barrel-shift -mxl-pattern-compare -mcpu=v8.50.c -mno-xl-soft-mul -Wl,--no-relax -Wl,--gc-sections -o "all_test.elf"  ./src/testperiph.o ./src/xgpio_tapp_example.o ./src/xuartlite_selftest_example.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: all_test.elf'
+' '
+'Invoking: MicroBlaze Print Size'
+mb-size all_test.elf  |tee "all_test.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+   5502	    320	   2200	   8022	   1f56	all_test.elf
+'Finished building: all_test.elf.size'
+' '
+'Invoking: Xilinx ELF Check'
+elfcheck all_test.elf -hw ../../LX45_hw_platform/system.xml -pe microblaze_0  |tee "all_test.elf.elfcheck"
+elfcheck
+Xilinx EDK 14.7 Build EDK_P.20131013
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: elfcheck -hw ../../LX45_hw_platform/system.xml -pe microblaze_0
+all_test.elf 
+
+ELF file	: all_test.elf
+elfcheck passed.
+'Finished building: all_test.elf.elfcheck'
+' '
+
+18:03:56 Build Finished (took 2s.757ms)
+

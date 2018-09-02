@@ -1,0 +1,584 @@
+Release 14.7 ngdbuild P.20131013 (nt)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Command Line: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt\unwrapped\ngdbuild.exe -p
+xc6slx45csg324-2 -nt timestamp -bm system.bmm
+D:/nish_test_project/sp6_bga/prj/LX45/implementation/system.ngc -uc system.ucf
+system.ngd
+
+Reading NGO file
+"D:/nish_test_project/sp6_bga/prj/LX45/implementation/system.ngc" ...
+Loading design module
+"D:/nish_test_project/sp6_bga/prj/LX45/implementation/system_rs232_wrapper.ngc".
+..
+Loading design module
+"D:/nish_test_project/sp6_bga/prj/LX45/implementation/system_proc_sys_reset_0_wr
+apper.ngc"...
+Loading design module
+"D:/nish_test_project/sp6_bga/prj/LX45/implementation/system_clock_generator_0_w
+rapper.ngc"...
+Loading design module
+"D:/nish_test_project/sp6_bga/prj/LX45/implementation/system_microblaze_0_ilmb_w
+rapper.ngc"...
+Loading design module
+"D:/nish_test_project/sp6_bga/prj/LX45/implementation/system_microblaze_0_dlmb_w
+rapper.ngc"...
+Loading design module
+"D:/nish_test_project/sp6_bga/prj/LX45/implementation/system_mcb_ddr3_wrapper.ng
+c"...
+Loading design module
+"D:/nish_test_project/sp6_bga/prj/LX45/implementation/system_axi4lite_0_wrapper.
+ngc"...
+Loading design module
+"D:/nish_test_project/sp6_bga/prj/LX45/implementation/system_axi4_0_wrapper.ngc"
+...
+Loading design module
+"D:/nish_test_project/sp6_bga/prj/LX45/implementation/system_microblaze_0_wrappe
+r.ngc"...
+Loading design module
+"D:/nish_test_project/sp6_bga/prj/LX45/implementation/system_microblaze_0_i_bram
+_ctrl_wrapper.ngc"...
+Loading design module
+"D:/nish_test_project/sp6_bga/prj/LX45/implementation/system_microblaze_0_d_bram
+_ctrl_wrapper.ngc"...
+Loading design module
+"D:/nish_test_project/sp6_bga/prj/LX45/implementation/system_debug_module_wrappe
+r.ngc"...
+Loading design module
+"D:/nish_test_project/sp6_bga/prj/LX45/implementation/system_leds_wrapper.ngc"..
+.
+Loading design module
+"D:/nish_test_project/sp6_bga/prj/LX45/implementation/system_microblaze_0_bram_b
+lock_wrapper.ngc"...
+Applying constraints in
+"D:/nish_test_project/sp6_bga/prj/LX45/implementation/system_microblaze_0_ilmb_w
+rapper.ncf" to module "microblaze_0_ilmb"...
+Checking Constraint Associations...
+Applying constraints in
+"D:/nish_test_project/sp6_bga/prj/LX45/implementation/system_microblaze_0_dlmb_w
+rapper.ncf" to module "microblaze_0_dlmb"...
+Checking Constraint Associations...
+Applying constraints in
+"D:/nish_test_project/sp6_bga/prj/LX45/implementation/system_mcb_ddr3_wrapper.nc
+f" to module "MCB_DDR3"...
+Checking Constraint Associations...
+Applying constraints in
+"D:/nish_test_project/sp6_bga/prj/LX45/implementation/system_axi4lite_0_wrapper.
+ncf" to module "axi4lite_0"...
+Checking Constraint Associations...
+Applying constraints in
+"D:/nish_test_project/sp6_bga/prj/LX45/implementation/system_axi4_0_wrapper.ncf"
+to module "axi4_0"...
+Checking Constraint Associations...
+Applying constraints in
+"D:/nish_test_project/sp6_bga/prj/LX45/implementation/system_microblaze_0_wrappe
+r.ncf" to module "microblaze_0"...
+Checking Constraint Associations...
+Gathering constraint information from source properties...
+Done.
+
+Annotating constraints to design from ucf file "system.ucf" ...
+Resolving constraint associations...
+Checking Constraint Associations...
+WARNING:ConstraintSystem:135 - Constraint <INST
+   /system/EXPANDED/system/axi4_0/axi4_0\/si_converter_bank\/gen_conv_slot[0].cl
+   ock_conv_inst\/interconnect_aresetn_resync<2>_inv1_INV_0 TNM =
+   FFS:axi4_0_reset_resync>: No instances of type FFS were found under block
+   "axi4_0/axi4_0/si_converter_bank/gen_conv_slot[0].clock_conv_inst/interconnec
+   t_aresetn_resync<2>_inv1_INV_0" (type=INV).
+
+WARNING:ConstraintSystem:135 - Constraint <INST
+   /system/EXPANDED/system/axi4lite_0/axi4lite_0\/si_converter_bank\/gen_conv_sl
+   ot[0].clock_conv_inst\/interconnect_aresetn_resync<2>_inv1_INV_0 TNM =
+   FFS:axi4lite_0_reset_resync>: No instances of type FFS were found under block
+   "axi4lite_0/axi4lite_0/si_converter_bank/gen_conv_slot[0].clock_conv_inst/int
+   erconnect_aresetn_resync<2>_inv1_INV_0" (type=INV).
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_rzq" LOC = N4>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_ldm" LOC = K3>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_udm" LOC = K4>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_udqs" LOC = P2>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_dqs" LOC = L4>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_clk_n" LOC = G1>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_clk" LOC = G3>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_cke" LOC = H7>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_we_n" LOC = E3>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_cas_n" LOC = K5>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_ras_n" LOC = L5>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_dq<0>" LOC = L2>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_dq<1>" LOC = L1>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_dq<2>" LOC = K2>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_dq<3>" LOC = K1>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_dq<4>" LOC = H2>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_dq<5>" LOC = H1>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_dq<6>" LOC = J3>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_dq<7>" LOC = J1>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_dq<8>" LOC = M3>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_dq<9>" LOC = M1>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_dq<10>" LOC = N2>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_dq<11>" LOC = N1>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_dq<12>" LOC = T2>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_dq<13>" LOC = T1>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_dq<14>" LOC = U2>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_dq<15>" LOC = U1>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_ba<0>" LOC = F2>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_ba<1>" LOC = F1>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_addr<0>" LOC = J7>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_addr<1>" LOC = J6>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_addr<2>" LOC = H5>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_addr<3>" LOC = L7>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_addr<4>" LOC = F3>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_addr<5>" LOC = H4>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_addr<6>" LOC = H3>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_addr<7>" LOC = H6>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_addr<8>" LOC = D2>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_addr<9>" LOC = D1>' could not be found and so the Locate
+   constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_addr<10>" LOC = F4>' could not be found and so the
+   Locate constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_addr<11>" LOC = D3>' could not be found and so the
+   Locate constraint will be removed.
+
+WARNING:ConstraintSystem - A target design object for the Locate constraint
+   '<NET "MCB_DDR3_dram_addr<12>" LOC = G6>' could not be found and so the
+   Locate constraint will be removed.
+
+WARNING:ConstraintSystem:58 - Constraint <TIMEGRP axi4lite_0_reset_source = FFS
+   PADS CPUS;>: CPUS "*" does not match any design objects.
+
+WARNING:ConstraintSystem:58 - Constraint <TIMEGRP axi4_0_reset_source = FFS PADS
+   CPUS;>: CPUS "*" does not match any design objects.
+
+WARNING:ConstraintSystem:56 - Constraint <TIMESPEC TS_CLK = PERIOD
+   "clock_generator_0_CLKIN_pin" 100 MHz HIGH 50%;> [system.ucf(5)]: Unable to
+   find an active 'TNM' or 'TimeGrp' constraint named
+   'clock_generator_0_CLKIN_pin'.
+
+WARNING:ConstraintSystem:194 - The TNM 'axi4_0_reset_resync', does not directly
+   or indirectly drive any flip-flops, latches and/or RAMs and is not actively
+   used by any referencing constraint.
+
+WARNING:ConstraintSystem:194 - The TNM 'axi4lite_0_reset_resync', does not
+   directly or indirectly drive any flip-flops, latches and/or RAMs and is not
+   actively used by any referencing constraint.
+
+WARNING:NgdBuild:1012 - The constraint <CONFIG VCCAUX = "2.5"> is overridden on
+   the design object system by the constraint <CONFIG VCCAUX=3.3;>
+   [system.ucf(2)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_rzq" LOC = N4> is
+   overridden on the design object MCB_DDR3_rzq by the constraint <NET 
+   "MCB_DDR3_rzq"       LOC = "N4"  |> [system.ucf(79)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_rzq" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_rzq by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(79)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_ldm" LOC = K3> is
+   overridden on the design object MCB_DDR3_dram_ldm by the constraint <NET 
+   "MCB_DDR3_dram_ldm"   LOC = "K3"  |> [system.ucf(74)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_ldm" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_ldm by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(74)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_udm" LOC = K4> is
+   overridden on the design object MCB_DDR3_dram_udm by the constraint <NET 
+   "MCB_DDR3_dram_udm"  LOC = "K4"  |> [system.ucf(76)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_udm" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_udm by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(76)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_udqs" LOC = P2> is
+   overridden on the design object MCB_DDR3_dram_udqs by the constraint <NET 
+   "MCB_DDR3_dram_udqs" LOC = "P2"  |> [system.ucf(77)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_udqs" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_udqs by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(77)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_dqs" LOC = L4> is
+   overridden on the design object MCB_DDR3_dram_dqs by the constraint <NET 
+   "MCB_DDR3_dram_dqs"  LOC = "L4"  |> [system.ucf(75)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_dqs" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_dqs by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(75)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_clk_n" LOC = G1> is
+   overridden on the design object MCB_DDR3_dram_clk_n by the constraint <NET 
+   "MCB_DDR3_dram_clk_n" LOC = "G1"  |> [system.ucf(71)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_clk_n" IOSTANDARD =
+   "DIFF_MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_clk_n by
+   the constraint <IOSTANDARD = DIFF_MOBILE_DDR;> [system.ucf(71)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_clk" LOC = G3> is
+   overridden on the design object MCB_DDR3_dram_clk by the constraint <NET 
+   "MCB_DDR3_dram_clk"   LOC = "G3"  |> [system.ucf(70)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_clk" IOSTANDARD =
+   "DIFF_MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_clk by
+   the constraint <IOSTANDARD = DIFF_MOBILE_DDR;> [system.ucf(70)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_cke" LOC = H7> is
+   overridden on the design object MCB_DDR3_dram_cke by the constraint <NET 
+   "MCB_DDR3_dram_cke"  LOC = "H7"  |> [system.ucf(72)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_cke" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_cke by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(72)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_we_n" LOC = E3> is
+   overridden on the design object MCB_DDR3_dram_we_n by the constraint <NET 
+   "MCB_DDR3_dram_we_n" LOC = "E3"  |> [system.ucf(68)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_we_n" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_we_n by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(68)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_cas_n" LOC = K5> is
+   overridden on the design object MCB_DDR3_dram_cas_n by the constraint <NET 
+   "MCB_DDR3_dram_cas_n"LOC = "K5"  |> [system.ucf(67)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_cas_n" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_cas_n by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(67)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_ras_n" LOC = L5> is
+   overridden on the design object MCB_DDR3_dram_ras_n by the constraint <NET 
+   "MCB_DDR3_dram_ras_n"LOC = "L5"  |> [system.ucf(66)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_ras_n" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_ras_n by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(66)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_dq<0>" LOC = L2> is
+   overridden on the design object MCB_DDR3_dram_dq<0> by the constraint <NET 
+   "MCB_DDR3_dram_dq[0]" LOC = "L2"  |> [system.ucf(46)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_dq<0>" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_dq<0> by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(46)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_dq<1>" LOC = L1> is
+   overridden on the design object MCB_DDR3_dram_dq<1> by the constraint <NET 
+   "MCB_DDR3_dram_dq[1]" LOC = "L1"  |> [system.ucf(47)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_dq<1>" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_dq<1> by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(47)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_dq<2>" LOC = K2> is
+   overridden on the design object MCB_DDR3_dram_dq<2> by the constraint <NET 
+   "MCB_DDR3_dram_dq[2]" LOC = "K2"  |> [system.ucf(48)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_dq<2>" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_dq<2> by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(48)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_dq<3>" LOC = K1> is
+   overridden on the design object MCB_DDR3_dram_dq<3> by the constraint <NET 
+   "MCB_DDR3_dram_dq[3]" LOC = "K1"  |> [system.ucf(49)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_dq<3>" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_dq<3> by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(49)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_dq<4>" LOC = H2> is
+   overridden on the design object MCB_DDR3_dram_dq<4> by the constraint <NET 
+   "MCB_DDR3_dram_dq[4]" LOC = "H2"  |> [system.ucf(50)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_dq<4>" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_dq<4> by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(50)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_dq<5>" LOC = H1> is
+   overridden on the design object MCB_DDR3_dram_dq<5> by the constraint <NET 
+   "MCB_DDR3_dram_dq[5]" LOC = "H1"  |> [system.ucf(51)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_dq<5>" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_dq<5> by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(51)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_dq<6>" LOC = J3> is
+   overridden on the design object MCB_DDR3_dram_dq<6> by the constraint <NET 
+   "MCB_DDR3_dram_dq[6]" LOC = "J3"  |> [system.ucf(52)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_dq<6>" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_dq<6> by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(52)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_dq<7>" LOC = J1> is
+   overridden on the design object MCB_DDR3_dram_dq<7> by the constraint <NET 
+   "MCB_DDR3_dram_dq[7]" LOC = "J1"  |> [system.ucf(53)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_dq<7>" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_dq<7> by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(53)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_dq<8>" LOC = M3> is
+   overridden on the design object MCB_DDR3_dram_dq<8> by the constraint <NET 
+   "MCB_DDR3_dram_dq[8]" LOC = "M3"  |> [system.ucf(54)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_dq<8>" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_dq<8> by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(54)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_dq<9>" LOC = M1> is
+   overridden on the design object MCB_DDR3_dram_dq<9> by the constraint <NET 
+   "MCB_DDR3_dram_dq[9]" LOC = "M1"  |> [system.ucf(55)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_dq<9>" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_dq<9> by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(55)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_dq<10>" LOC = N2> is
+   overridden on the design object MCB_DDR3_dram_dq<10> by the constraint <NET 
+   "MCB_DDR3_dram_dq[10]" LOC = "N2"  |> [system.ucf(56)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_dq<10>" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_dq<10> by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(56)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_dq<11>" LOC = N1> is
+   overridden on the design object MCB_DDR3_dram_dq<11> by the constraint <NET 
+   "MCB_DDR3_dram_dq[11]" LOC = "N1"  |> [system.ucf(57)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_dq<11>" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_dq<11> by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(57)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_dq<12>" LOC = T2> is
+   overridden on the design object MCB_DDR3_dram_dq<12> by the constraint <NET 
+   "MCB_DDR3_dram_dq[12]" LOC = "T2"  |> [system.ucf(58)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_dq<12>" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_dq<12> by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(58)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_dq<13>" LOC = T1> is
+   overridden on the design object MCB_DDR3_dram_dq<13> by the constraint <NET 
+   "MCB_DDR3_dram_dq[13]" LOC = "T1"  |> [system.ucf(59)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_dq<13>" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_dq<13> by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(59)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_dq<14>" LOC = U2> is
+   overridden on the design object MCB_DDR3_dram_dq<14> by the constraint <NET 
+   "MCB_DDR3_dram_dq[14]" LOC = "U2"  |> [system.ucf(60)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_dq<14>" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_dq<14> by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(60)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_dq<15>" LOC = U1> is
+   overridden on the design object MCB_DDR3_dram_dq<15> by the constraint <NET 
+   "MCB_DDR3_dram_dq[15]" LOC = "U1"  |> [system.ucf(61)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_dq<15>" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_dq<15> by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(61)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_ba<0>" LOC = F2> is
+   overridden on the design object MCB_DDR3_dram_ba<0> by the constraint <NET 
+   "MCB_DDR3_dram_ba[0]"LOC = "F2"  |> [system.ucf(63)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_ba<0>" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_ba<0> by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(63)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_ba<1>" LOC = F1> is
+   overridden on the design object MCB_DDR3_dram_ba<1> by the constraint <NET 
+   "MCB_DDR3_dram_ba[1]"LOC = "F1"  |> [system.ucf(64)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_ba<1>" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_ba<1> by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(64)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_addr<0>" LOC = J7> is
+   overridden on the design object MCB_DDR3_dram_addr<0> by the constraint <NET 
+   "MCB_DDR3_dram_addr[0]" LOC = "J7" |> [system.ucf(32)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_addr<0>" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_addr<0> by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(32)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_addr<1>" LOC = J6> is
+   overridden on the design object MCB_DDR3_dram_addr<1> by the constraint <NET 
+   "MCB_DDR3_dram_addr[1]" LOC = "J6" |> [system.ucf(33)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_addr<1>" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_addr<1> by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(33)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_addr<2>" LOC = H5> is
+   overridden on the design object MCB_DDR3_dram_addr<2> by the constraint <NET 
+   "MCB_DDR3_dram_addr[2]" LOC = "H5" |> [system.ucf(34)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_addr<2>" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_addr<2> by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(34)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_addr<3>" LOC = L7> is
+   overridden on the design object MCB_DDR3_dram_addr<3> by the constraint <NET 
+   "MCB_DDR3_dram_addr[3]" LOC = "L7" |> [system.ucf(35)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_addr<3>" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_addr<3> by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(35)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_addr<4>" LOC = F3> is
+   overridden on the design object MCB_DDR3_dram_addr<4> by the constraint <NET 
+   "MCB_DDR3_dram_addr[4]" LOC = "F3" |> [system.ucf(36)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_addr<4>" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_addr<4> by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(36)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_addr<5>" LOC = H4> is
+   overridden on the design object MCB_DDR3_dram_addr<5> by the constraint <NET 
+   "MCB_DDR3_dram_addr[5]" LOC = "H4" |> [system.ucf(37)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_addr<5>" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_addr<5> by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(37)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_addr<6>" LOC = H3> is
+   overridden on the design object MCB_DDR3_dram_addr<6> by the constraint <NET 
+   "MCB_DDR3_dram_addr[6]" LOC = "H3" |> [system.ucf(38)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_addr<6>" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_addr<6> by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(38)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_addr<7>" LOC = H6> is
+   overridden on the design object MCB_DDR3_dram_addr<7> by the constraint <NET 
+   "MCB_DDR3_dram_addr[7]" LOC = "H6" |> [system.ucf(39)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_addr<7>" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_addr<7> by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(39)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_addr<8>" LOC = D2> is
+   overridden on the design object MCB_DDR3_dram_addr<8> by the constraint <NET 
+   "MCB_DDR3_dram_addr[8]" LOC = "D2" |> [system.ucf(40)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_addr<8>" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_addr<8> by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(40)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_addr<9>" LOC = D1> is
+   overridden on the design object MCB_DDR3_dram_addr<9> by the constraint <NET 
+   "MCB_DDR3_dram_addr[9]" LOC = "D1" |> [system.ucf(41)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_addr<9>" IOSTANDARD =
+   "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_addr<9> by the
+   constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(41)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_addr<10>" LOC = F4>
+   is overridden on the design object MCB_DDR3_dram_addr<10> by the constraint
+   <NET  "MCB_DDR3_dram_addr[10]"LOC = "F4" |> [system.ucf(42)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_addr<10>" IOSTANDARD
+   = "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_addr<10> by
+   the constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(42)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_addr<11>" LOC = D3>
+   is overridden on the design object MCB_DDR3_dram_addr<11> by the constraint
+   <NET  "MCB_DDR3_dram_addr[11]"LOC = "D3" |> [system.ucf(43)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_addr<11>" IOSTANDARD
+   = "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_addr<11> by
+   the constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(43)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_addr<12>" LOC = G6>
+   is overridden on the design object MCB_DDR3_dram_addr<12> by the constraint
+   <NET  "MCB_DDR3_dram_addr[12]"LOC = "G6" |> [system.ucf(44)].
+WARNING:NgdBuild:1012 - The constraint <NET "MCB_DDR3_dram_addr<12>" IOSTANDARD
+   = "MOBILE_DDR"> is overridden on the design object MCB_DDR3_dram_addr<12> by
+   the constraint <IOSTANDARD = MOBILE_DDR;> [system.ucf(44)].
+Done...
+
+Processing BMM file "system.bmm" ...
+
+Checking expanded design ...
+WARNING:NgdBuild:443 - SFF primitive
+   'microblaze_0/microblaze_0/MicroBlaze_Core_I/Performance.Decode_I/Using_FPGA.
+   Gen_Bits[27].MEM_EX_Result_Inst' has unconnected output pin
+WARNING:NgdBuild:452 - logical net 'N21' has no driver
+WARNING:NgdBuild:452 - logical net 'N22' has no driver
+WARNING:NgdBuild:452 - logical net 'N23' has no driver
+WARNING:NgdBuild:452 - logical net 'N24' has no driver
+WARNING:NgdBuild:452 - logical net 'N25' has no driver
+WARNING:NgdBuild:452 - logical net 'N26' has no driver
+WARNING:NgdBuild:452 - logical net 'N27' has no driver
+WARNING:NgdBuild:452 - logical net 'N28' has no driver
+WARNING:NgdBuild:452 - logical net 'N29' has no driver
+WARNING:NgdBuild:452 - logical net 'N30' has no driver
+WARNING:NgdBuild:452 - logical net 'N31' has no driver
+WARNING:NgdBuild:452 - logical net 'N32' has no driver
+WARNING:NgdBuild:452 - logical net 'N33' has no driver
+WARNING:NgdBuild:452 - logical net 'N34' has no driver
+WARNING:NgdBuild:452 - logical net 'N35' has no driver
+WARNING:NgdBuild:452 - logical net 'N36' has no driver
+WARNING:NgdBuild:452 - logical net 'N37' has no driver
+WARNING:NgdBuild:452 - logical net 'N38' has no driver
+WARNING:NgdBuild:452 - logical net 'N39' has no driver
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+NGDBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings: 154
+
+Total memory usage is 198536 kilobytes
+
+Writing NGD file "system.ngd" ...
+Total REAL time to NGDBUILD completion:  30 sec
+Total CPU time to NGDBUILD completion:   30 sec
+
+Writing NGDBUILD log file "system.bld"...

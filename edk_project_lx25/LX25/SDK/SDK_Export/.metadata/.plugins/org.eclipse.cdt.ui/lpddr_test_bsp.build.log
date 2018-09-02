@@ -1,0 +1,6 @@
+18:16:35 **** Auto Build of project lpddr_test_bsp ****
+make -k all 
+'Finished building libraries'
+
+18:16:35 Build Finished (took 234ms)
+
