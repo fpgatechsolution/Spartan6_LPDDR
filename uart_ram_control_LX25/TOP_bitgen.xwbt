@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=E:\KITCODE\sp6_lpddr_v1\uart_ram_control\TOP.ncd
+OUTFILE=E:\KITCODE\sp6_lpddr_v1\uart_ram_control\TOP.bit
+FAMILY=Spartan6
+PART=xc6slx25-2csg324
+WORKINGDIR=E:\KITCODE\sp6_lpddr_v1\uart_ram_control
+LICENSE=WebPack
+USER_INFO=__0_0_0
