@@ -1,23 +1,18 @@
 Release 14.7 par P.20131013 (nt)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-DESKTOP-EL4LBPN::  Fri Aug 24 10:06:02 2018
+DESKTOP-7ASG104::  Sat Jul 04 15:07:59 2020
 
 par -w -intstyle ise -ol high -mt off TOP_map.ncd TOP.ncd TOP.pcf 
 
 
 Constraints file: TOP.pcf.
-Loading device for application Rf_Device from file '6slx45.nph' in environment C:\Xilinx\14.7\ISE_DS\ISE\.
-   "TOP" is an NCD, version 3.2, device xc6slx45, package csg324, speed -2
+Loading device for application Rf_Device from file '6slx25.nph' in environment C:\Xilinx\14.7\ISE_DS\ISE\.
+   "TOP" is an NCD, version 3.2, device xc6slx25, package csg324, speed -2
 
 Initializing temperature to 85.000 Celsius. (default - Range: 0.000 to 85.000 Celsius)
 Initializing voltage to 1.140 Volts. (default - Range: 1.140 to 1.260 Volts)
 
-INFO:Par:282 - No user timing constraints were detected or you have set the option to ignore timing constraints ("par
-   -x"). Place and Route will run in "Performance Evaluation Mode" to automatically improve the performance of all
-   internal clocks in this design. Because there are not defined timing requirements, a timing score will not be
-   reported in the PAR report in this mode. The PAR timing summary will list the performance achieved for each clock.
-   Note: For the fastest runtime, set the effort level to "std".  For best performance, set the effort level to "high".
 
 Device speed data version:  "PRODUCTION 1.23 2013-10-13".
 
@@ -26,32 +21,32 @@ Device speed data version:  "PRODUCTION 1.23 2013-10-13".
 Device Utilization Summary:
 
 Slice Logic Utilization:
-  Number of Slice Registers:                   139 out of  54,576    1%
-    Number used as Flip Flops:                 136
+  Number of Slice Registers:                   317 out of  30,064    1%
+    Number used as Flip Flops:                 315
     Number used as Latches:                      2
     Number used as Latch-thrus:                  0
-    Number used as AND/OR logics:                1
-  Number of Slice LUTs:                        364 out of  27,288    1%
-    Number used as logic:                      359 out of  27,288    1%
-      Number using O6 output only:             207
-      Number using O5 output only:              92
-      Number using O5 and O6:                   60
+    Number used as AND/OR logics:                0
+  Number of Slice LUTs:                        612 out of  15,032    4%
+    Number used as logic:                      608 out of  15,032    4%
+      Number using O6 output only:             391
+      Number using O5 output only:              84
+      Number using O5 and O6:                  133
       Number used as ROM:                        0
-    Number used as Memory:                       0 out of   6,408    0%
-    Number used exclusively as route-thrus:      5
+    Number used as Memory:                       0 out of   3,664    0%
+    Number used exclusively as route-thrus:      4
       Number with same-slice register load:      0
-      Number with same-slice carry load:         5
+      Number with same-slice carry load:         4
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   110 out of   6,822    1%
-  Number of MUXCYs used:                       156 out of  13,644    1%
-  Number of LUT Flip Flop pairs used:          368
-    Number with an unused Flip Flop:           247 out of     368   67%
-    Number with an unused LUT:                   4 out of     368    1%
-    Number of fully used LUT-FF pairs:         117 out of     368   31%
+  Number of occupied Slices:                   226 out of   3,758    6%
+  Number of MUXCYs used:                       192 out of   7,516    2%
+  Number of LUT Flip Flop pairs used:          659
+    Number with an unused Flip Flop:           377 out of     659   57%
+    Number with an unused LUT:                  47 out of     659    7%
+    Number of fully used LUT-FF pairs:         235 out of     659   35%
     Number of slice register sites lost
-      to control set restrictions:               0 out of  54,576    0%
+      to control set restrictions:               0 out of  30,064    0%
 
   A LUT Flip Flop pair for this architecture represents one LUT paired with
   one Flip Flop within a slice.  A control set is a unique combination of
@@ -60,30 +55,37 @@ Slice Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
 
 IO Utilization:
-  Number of bonded IOBs:                        15 out of     218    6%
-    Number of LOCed IOBs:                       15 out of      15  100%
+  Number of bonded IOBs:                        57 out of     226   25%
+    Number of LOCed IOBs:                       57 out of      57  100%
 
 Specific Feature Utilization:
-  Number of RAMB16BWERs:                         0 out of     116    0%
-  Number of RAMB8BWERs:                          0 out of     232    0%
-  Number of BUFIO2/BUFIO2_2CLKs:                 0 out of      32    0%
+  Number of RAMB16BWERs:                         0 out of      52    0%
+  Number of RAMB8BWERs:                          0 out of     104    0%
+  Number of BUFIO2/BUFIO2_2CLKs:                 1 out of      32    3%
+    Number used as BUFIO2s:                      1
+    Number used as BUFIO2_2CLKs:                 0
   Number of BUFIO2FB/BUFIO2FB_2CLKs:             0 out of      32    0%
-  Number of BUFG/BUFGMUXs:                       3 out of      16   18%
-    Number used as BUFGs:                        3
-    Number used as BUFGMUX:                      0
-  Number of DCM/DCM_CLKGENs:                     0 out of       8    0%
-  Number of ILOGIC2/ISERDES2s:                   0 out of     376    0%
-  Number of IODELAY2/IODRP2/IODRP2_MCBs:         0 out of     376    0%
-  Number of OLOGIC2/OSERDES2s:                   0 out of     376    0%
+  Number of BUFG/BUFGMUXs:                       5 out of      16   31%
+    Number used as BUFGs:                        4
+    Number used as BUFGMUX:                      1
+  Number of DCM/DCM_CLKGENs:                     0 out of       4    0%
+  Number of ILOGIC2/ISERDES2s:                   0 out of     272    0%
+  Number of IODELAY2/IODRP2/IODRP2_MCBs:        23 out of     272    8%
+    Number used as IODELAY2s:                    0
+    Number used as IODRP2s:                      1
+    Number used as IODRP2_MCBs:                 22
+  Number of OLOGIC2/OSERDES2s:                  43 out of     272   15%
+    Number used as OLOGIC2s:                     0
+    Number used as OSERDES2s:                   43
   Number of BSCANs:                              0 out of       4    0%
-  Number of BUFHs:                               0 out of     256    0%
+  Number of BUFHs:                               0 out of     160    0%
   Number of BUFPLLs:                             0 out of       8    0%
-  Number of BUFPLL_MCBs:                         0 out of       4    0%
-  Number of DSP48A1s:                            0 out of      58    0%
+  Number of BUFPLL_MCBs:                         1 out of       4   25%
+  Number of DSP48A1s:                            0 out of      38    0%
   Number of ICAPs:                               0 out of       1    0%
-  Number of MCBs:                                0 out of       2    0%
+  Number of MCBs:                                1 out of       2   50%
   Number of PCILOGICSEs:                         0 out of       2    0%
-  Number of PLL_ADVs:                            0 out of       4    0%
+  Number of PLL_ADVs:                            1 out of       2   50%
   Number of PMVs:                                0 out of       1    0%
   Number of STARTUPs:                            0 out of       1    0%
   Number of SUSPEND_SYNCs:                       0 out of       1    0%
@@ -92,36 +94,36 @@ Specific Feature Utilization:
 Overall effort level (-ol):   High 
 Router effort level (-rl):    High 
 
-Starting initial Timing Analysis.  REAL time: 9 secs 
-Finished initial Timing Analysis.  REAL time: 9 secs 
+Starting initial Timing Analysis.  REAL time: 10 secs 
+Finished initial Timing Analysis.  REAL time: 10 secs 
 
 WARNING:Par:288 - The signal USB_UART_RX_IBUF has no load.  PAR will not attempt to route this signal.
 Starting Router
 
 
-Phase  1  : 1741 unrouted;      REAL time: 10 secs 
+Phase  1  : 4627 unrouted;      REAL time: 11 secs 
 
-Phase  2  : 1538 unrouted;      REAL time: 13 secs 
+Phase  2  : 3629 unrouted;      REAL time: 13 secs 
 
-Phase  3  : 606 unrouted;      REAL time: 14 secs 
+Phase  3  : 1255 unrouted;      REAL time: 16 secs 
 
-Phase  4  : 606 unrouted; (Par is working to improve performance)     REAL time: 17 secs 
+Phase  4  : 1255 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 18 secs 
 
 Updating file: TOP.ncd with current fully routed design.
 
-Phase  5  : 0 unrouted; (Par is working to improve performance)     REAL time: 19 secs 
+Phase  5  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 20 secs 
 
-Phase  6  : 0 unrouted; (Par is working to improve performance)     REAL time: 19 secs 
+Phase  6  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 20 secs 
 
-Phase  7  : 0 unrouted; (Par is working to improve performance)     REAL time: 19 secs 
+Phase  7  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 20 secs 
 
-Phase  8  : 0 unrouted; (Par is working to improve performance)     REAL time: 19 secs 
+Phase  8  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 20 secs 
 
-Phase  9  : 0 unrouted; (Par is working to improve performance)     REAL time: 19 secs 
+Phase  9  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 20 secs 
 
-Phase 10  : 0 unrouted; (Par is working to improve performance)     REAL time: 20 secs 
+Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 20 secs 
 Total REAL time to Router completion: 20 secs 
-Total CPU time to Router completion: 18 secs 
+Total CPU time to Router completion: 20 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -131,8 +133,77 @@ Partition Implementation Status
 -------------------------------
 
 Generating "PAR" statistics.
-INFO:Par:459 - The Clock Report is not displayed in the non timing-driven mode.
-Timing Score: 0 (Setup: 0, Hold: 0)
+
+**************************
+Generating Clock Report
+**************************
+
++---------------------+--------------+------+------+------------+-------------+
+|        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
++---------------------+--------------+------+------+------------+-------------+
+|Inst_ddr_control/ins |              |      |      |            |             |
+|t_ddr/c3_mcb_drp_clk |              |      |      |            |             |
+|                     | BUFGMUX_X2Y10| No   |   83 |  0.197     |  1.786      |
++---------------------+--------------+------+------+------------+-------------+
+|INST_UART_CONTROL/_i |              |      |      |            |             |
+|       000426_1_BUFG |  BUFGMUX_X3Y5| No   |    7 |  0.016     |  1.566      |
++---------------------+--------------+------+------+------------+-------------+
+|   CLOCK_12MHZ_BUFGP |  BUFGMUX_X3Y7| No   |   28 |  0.114     |  1.645      |
++---------------------+--------------+------+------+------------+-------------+
+|     RESET_IBUF_BUFG | BUFGMUX_X3Y15| No   |    2 |  0.027     |  1.580      |
++---------------------+--------------+------+------+------------+-------------+
+|Inst_ddr_control/clk |              |      |      |            |             |
+|           _ddr_fifo |  BUFGMUX_X3Y6| No   |    6 |  0.014     |  1.751      |
++---------------------+--------------+------+------+------------+-------------+
+|Inst_ddr_control/ins |              |      |      |            |             |
+|  t_ddr/c3_sysclk_2x |         Local|      |   31 |  0.704     |  1.740      |
++---------------------+--------------+------+------+------------+-------------+
+|Inst_ddr_control/ins |              |      |      |            |             |
+|t_ddr/memc3_wrapper_ |              |      |      |            |             |
+|inst/memc3_mcb_raw_w |              |      |      |            |             |
+|rapper_inst/ioi_drp_ |              |      |      |            |             |
+|                 clk |         Local|      |   22 |  0.000     |  0.002      |
++---------------------+--------------+------+------+------------+-------------+
+|Inst_ddr_control/ins |              |      |      |            |             |
+|t_ddr/c3_sysclk_2x_1 |              |      |      |            |             |
+|                  80 |         Local|      |   37 |  0.723     |  1.759      |
++---------------------+--------------+------+------+------------+-------------+
+|Inst_ddr_control/ins |              |      |      |            |             |
+|t_ddr/memc3_wrapper_ |              |      |      |            |             |
+|inst/memc3_mcb_raw_w |              |      |      |            |             |
+|rapper_inst/idelay_d |              |      |      |            |             |
+|            qs_ioi_m |         Local|      |    1 |  0.000     |  0.002      |
++---------------------+--------------+------+------+------------+-------------+
+|Inst_ddr_control/ins |              |      |      |            |             |
+|t_ddr/memc3_wrapper_ |              |      |      |            |             |
+|inst/memc3_mcb_raw_w |              |      |      |            |             |
+|rapper_inst/idelay_u |              |      |      |            |             |
+|           dqs_ioi_m |         Local|      |    1 |  0.000     |  0.002      |
++---------------------+--------------+------+------+------------+-------------+
+|Inst_ddr_control/ins |              |      |      |            |             |
+|t_ddr/memc3_wrapper_ |              |      |      |            |             |
+|inst/memc3_mcb_raw_w |              |      |      |            |             |
+|rapper_inst/idelay_d |              |      |      |            |             |
+|            qs_ioi_s |         Local|      |    1 |  0.000     |  0.002      |
++---------------------+--------------+------+------+------------+-------------+
+|Inst_ddr_control/ins |              |      |      |            |             |
+|t_ddr/memc3_wrapper_ |              |      |      |            |             |
+|inst/memc3_mcb_raw_w |              |      |      |            |             |
+|rapper_inst/idelay_u |              |      |      |            |             |
+|           dqs_ioi_s |         Local|      |    1 |  0.000     |  0.002      |
++---------------------+--------------+------+------+------------+-------------+
+
+* Net Skew is the difference between the minimum and maximum routing
+only delays for the net. Note this is different from Clock Skew which
+is reported in TRCE timing report. Clock Skew is the difference between
+the minimum and maximum path delays which includes logic delays.
+
+* The fanout is the number of component pins not the individual BEL loads,
+for example SLICE loads not FF loads.
+
+Timing Score: 0 (Setup: 0, Hold: 0, Component Switching Limit: 0)
+
+Number of Timing Constraints that were not applied: 11
 
 Asterisk (*) preceding a constraint indicates it was not met.
    This may be due to a setup or hold violation.
@@ -141,23 +212,135 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net INS | SETUP       |         N/A|     4.623ns|     N/A|           0
-  T_UART_CONTROL/_i000426_1_BUFG            | HOLD        |     0.754ns|            |       0|           0
+  PERIOD analysis for net "Inst_ddr_control | MINPERIOD   |     3.401ns|     1.599ns|       0|           0
+  /inst_ddr/c3_sysclk_2x" derived from  PER |             |            |            |        |            
+  IOD analysis for net "Inst_ddr_control/in |             |            |            |        |            
+  st_ddr/memc3_infrastructure_inst/clk_2x_0 |             |            |            |        |            
+  " derived from NET "Inst_ddr_control/inst |             |            |            |        |            
+  _ddr/memc3_infrastructure_inst/sys_clk_ib |             |            |            |        |            
+  ufg" PERIOD        = 10 ns HIGH 50%       |             |            |            |        |            
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net CLO | SETUP       |         N/A|     7.810ns|     N/A|           0
-  CK_12MHZ_BUFGP                            | HOLD        |     0.454ns|            |       0|           0
+  PERIOD analysis for net "Inst_ddr_control | MINPERIOD   |     3.401ns|     1.599ns|       0|           0
+  /inst_ddr/c3_sysclk_2x_180" derived from  |             |            |            |        |            
+   PERIOD analysis for net "Inst_ddr_contro |             |            |            |        |            
+  l/inst_ddr/memc3_infrastructure_inst/clk_ |             |            |            |        |            
+  2x_180" derived from NET "Inst_ddr_contro |             |            |            |        |            
+  l/inst_ddr/memc3_infrastructure_inst/sys_ |             |            |            |        |            
+  clk_ibufg" PERIOD        = 10 ns HIGH 50% |             |            |            |        |            
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net COU | SETUP       |         N/A|     1.607ns|     N/A|           0
-  NT<22>                                    | HOLD        |     0.530ns|            |       0|           0
+  TS_Inst_ddr_control_inst_ddr_memc3_infras | MINPERIOD   |     3.401ns|     1.599ns|       0|           0
+  tructure_inst_clk_2x_180 = PERIOD         |             |            |            |        |            
+   TIMEGRP         "Inst_ddr_control_inst_d |             |            |            |        |            
+  dr_memc3_infrastructure_inst_clk_2x_180"  |             |            |            |        |            
+          TS_SYS_CLK3 / 2 PHASE 2.5 ns HIGH |             |            |            |        |            
+   50%                                      |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_Inst_ddr_control_inst_ddr_memc3_infras | MINPERIOD   |     3.401ns|     1.599ns|       0|           0
+  tructure_inst_clk_2x_0 = PERIOD         T |             |            |            |        |            
+  IMEGRP "Inst_ddr_control_inst_ddr_memc3_i |             |            |            |        |            
+  nfrastructure_inst_clk_2x_0"         TS_S |             |            |            |        |            
+  YS_CLK3 / 2 HIGH 50%                      |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  PERIOD analysis for net "Inst_ddr_control | MINPERIOD   |     3.948ns|     1.052ns|       0|           0
+  /inst_ddr/memc3_infrastructure_inst/clk_2 |             |            |            |        |            
+  x_0" derived from  NET "Inst_ddr_control/ |             |            |            |        |            
+  inst_ddr/memc3_infrastructure_inst/sys_cl |             |            |            |        |            
+  k_ibufg" PERIOD        = 10 ns HIGH 50%   |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  PERIOD analysis for net "Inst_ddr_control | MINPERIOD   |     3.948ns|     1.052ns|       0|           0
+  /inst_ddr/memc3_infrastructure_inst/clk_2 |             |            |            |        |            
+  x_180" derived from  NET "Inst_ddr_contro |             |            |            |        |            
+  l/inst_ddr/memc3_infrastructure_inst/sys_ |             |            |            |        |            
+  clk_ibufg" PERIOD        = 10 ns HIGH 50% |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_SYS_CLK3 = PERIOD TIMEGRP "SYS_CLK3" 1 | MINLOWPULSE |     6.666ns|     3.334ns|       0|           0
+  0 ns HIGH 50%                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  NET "Inst_ddr_control/inst_ddr/memc3_infr | MINLOWPULSE |     6.666ns|     3.334ns|       0|           0
+  astructure_inst/sys_clk_ibufg" PERIOD     |             |            |            |        |            
+       = 10 ns HIGH 50%                     |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  PERIOD analysis for net "Inst_ddr_control | SETUP       |    11.668ns|     8.332ns|       0|           0
+  /inst_ddr/memc3_infrastructure_inst/mcb_d | HOLD        |     0.251ns|            |       0|           0
+  rp_clk_bufg_in" derived from  NET "Inst_d |             |            |            |        |            
+  dr_control/inst_ddr/memc3_infrastructure_ |             |            |            |        |            
+  inst/sys_clk_ibufg" PERIOD        = 10 ns |             |            |            |        |            
+   HIGH 50%                                 |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_Inst_ddr_control_inst_ddr_memc3_infras | MINPERIOD   |    17.334ns|     2.666ns|       0|           0
+  tructure_inst_mcb_drp_clk_bufg_in =       |             |            |            |        |            
+     PERIOD TIMEGRP         "Inst_ddr_contr |             |            |            |        |            
+  ol_inst_ddr_memc3_infrastructure_inst_mcb |             |            |            |        |            
+  _drp_clk_bufg_in"         TS_SYS_CLK3 / 0 |             |            |            |        |            
+  .5 HIGH 50%                               |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  PERIOD analysis for net "Inst_ddr_control | MINPERIOD   |    37.334ns|     2.666ns|       0|           0
+  /inst_ddr/memc3_infrastructure_inst/clk0_ |             |            |            |        |            
+  bufg_in" derived from  NET "Inst_ddr_cont |             |            |            |        |            
+  rol/inst_ddr/memc3_infrastructure_inst/sy |             |            |            |        |            
+  s_clk_ibufg" PERIOD        = 10 ns HIGH 5 |             |            |            |        |            
+  0%                                        |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_Inst_ddr_control_inst_ddr_memc3_infras | MINPERIOD   |    37.334ns|     2.666ns|       0|           0
+  tructure_inst_clk0_bufg_in = PERIOD       |             |            |            |        |            
+     TIMEGRP         "Inst_ddr_control_inst |             |            |            |        |            
+  _ddr_memc3_infrastructure_inst_clk0_bufg_ |             |            |            |        |            
+  in"         TS_SYS_CLK3 / 0.25 HIGH 50%   |             |            |            |        |            
 ----------------------------------------------------------------------------------------------------------
 
+
+Derived Constraint Report
+Review Timing Report for more details on the following derived constraints.
+To create a Timing Report, run "trce -v 12 -fastpaths -o design_timing_report design.ncd design.pcf"
+or "Run Timing Analysis" from Timing Analyzer (timingan).
+Derived Constraints for Inst_ddr_control/inst_ddr/memc3_infrastructure_inst/sys_clk_ibufg
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|                               |   Period    |       Actual Period       |      Timing Errors        |      Paths Analyzed       |
+|           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
+|                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|Inst_ddr_control/inst_ddr/memc3|     10.000ns|      3.334ns|      4.166ns|            0|            0|            0|        11055|
+|_infrastructure_inst/sys_clk_ib|             |             |             |             |             |             |             |
+|ufg                            |             |             |             |             |             |             |             |
+| Inst_ddr_control/inst_ddr/memc|      5.000ns|      1.052ns|      1.599ns|            0|            0|            0|            0|
+| 3_infrastructure_inst/clk_2x_0|             |             |             |             |             |             |             |
+|  Inst_ddr_control/inst_ddr/c3_|      5.000ns|      1.599ns|          N/A|            0|            0|            0|            0|
+|  sysclk_2x                    |             |             |             |             |             |             |             |
+| Inst_ddr_control/inst_ddr/memc|      5.000ns|      1.052ns|      1.599ns|            0|            0|            0|            0|
+| 3_infrastructure_inst/clk_2x_1|             |             |             |             |             |             |             |
+| 80                            |             |             |             |             |             |             |             |
+|  Inst_ddr_control/inst_ddr/c3_|      5.000ns|      1.599ns|          N/A|            0|            0|            0|            0|
+|  sysclk_2x_180                |             |             |             |             |             |             |             |
+| Inst_ddr_control/inst_ddr/memc|     40.000ns|      2.666ns|          N/A|            0|            0|            0|            0|
+| 3_infrastructure_inst/clk0_buf|             |             |             |             |             |             |             |
+| g_in                          |             |             |             |             |             |             |             |
+| Inst_ddr_control/inst_ddr/memc|     20.000ns|      8.332ns|          N/A|            0|            0|        11055|            0|
+| 3_infrastructure_inst/mcb_drp_|             |             |             |             |             |             |             |
+| clk_bufg_in                   |             |             |             |             |             |             |             |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+Derived Constraints for TS_SYS_CLK3
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|                               |   Period    |       Actual Period       |      Timing Errors        |      Paths Analyzed       |
+|           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
+|                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|TS_SYS_CLK3                    |     10.000ns|      3.334ns|      3.198ns|            0|            0|            0|            0|
+| TS_Inst_ddr_control_inst_ddr_m|     20.000ns|      2.666ns|          N/A|            0|            0|            0|            0|
+| emc3_infrastructure_inst_mcb_d|             |             |             |             |             |             |             |
+| rp_clk_bufg_in                |             |             |             |             |             |             |             |
+| TS_Inst_ddr_control_inst_ddr_m|      5.000ns|      1.599ns|          N/A|            0|            0|            0|            0|
+| emc3_infrastructure_inst_clk_2|             |             |             |             |             |             |             |
+| x_180                         |             |             |             |             |             |             |             |
+| TS_Inst_ddr_control_inst_ddr_m|      5.000ns|      1.599ns|          N/A|            0|            0|            0|            0|
+| emc3_infrastructure_inst_clk_2|             |             |             |             |             |             |             |
+| x_0                           |             |             |             |             |             |             |             |
+| TS_Inst_ddr_control_inst_ddr_m|     40.000ns|      2.666ns|          N/A|            0|            0|            0|            0|
+| emc3_infrastructure_inst_clk0_|             |             |             |             |             |             |             |
+| bufg_in                       |             |             |             |             |             |             |             |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 
 All constraints were met.
-INFO:Timing:2761 - N/A entries in the Constraints List may indicate that the 
-   constraint is not analyzed due to the following: No paths covered by this 
-   constraint; Other constraints intersect with this constraint; or This 
-   constraint was disabled by a Path Tracing Control. Please run the Timespec 
-   Interaction Report (TSI) via command line (trce tsi) or Timing Analyzer GUI.
 
 
 Generating Pad Report.
@@ -166,17 +349,18 @@ All signals are completely routed.
 
 WARNING:Par:283 - There are 1 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
 
-Total REAL time to PAR completion: 23 secs 
-Total CPU time to PAR completion: 19 secs 
+Total REAL time to PAR completion: 22 secs 
+Total CPU time to PAR completion: 21 secs 
 
-Peak Memory Usage:  370 MB
+Peak Memory Usage:  535 MB
 
 Placer: Placement generated during map.
 Routing: Completed - No errors found.
+Timing: Completed - No errors found.
 
 Number of error messages: 0
 Number of warning messages: 3
-Number of info messages: 2
+Number of info messages: 0
 
 Writing design to file TOP.ncd
 

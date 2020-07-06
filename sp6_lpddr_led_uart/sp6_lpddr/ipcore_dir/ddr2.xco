@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version 14.7
-# Date: Fri Aug 24 04:48:00 2018
+# Date: Sat Jul 04 07:33:33 2020
 #
 ##############################################################
 #
@@ -22,7 +22,7 @@ SET asysymbol = true
 SET busformat = BusFormatAngleBracketNotRipped
 SET createndf = false
 SET designentry = VHDL
-SET device = xc6slx45
+SET device = xc6slx25
 SET devicefamily = spartan6
 SET flowvendor = Other
 SET formalverification = false
@@ -46,4 +46,4 @@ CSET xml_input_file=./ddr2/user_design/mig.prj
 MISC pkg_timestamp=2013-10-13T18:46:09Z
 # END Extra information
 GENERATE
-# CRC:  83ff45d
+# CRC: 60c4a43b

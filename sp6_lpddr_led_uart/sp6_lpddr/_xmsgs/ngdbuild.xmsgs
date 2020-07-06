@@ -5,5 +5,24 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
+<msg type="info" file="ConstraintSystem" num="178" delta="old" ><arg fmt="%s" index="1">TNM</arg> &apos;<arg fmt="%s" index="2">SYS_CLK3</arg>&apos;, used in period specification &apos;<arg fmt="%s" index="3">TS_SYS_CLK3</arg>&apos;, was traced into <arg fmt="%s" index="4">PLL_ADV</arg> instance <arg fmt="%s" index="5">Inst_ddr_control/inst_ddr/memc3_infrastructure_inst/u_pll_adv</arg>. The following new TNM groups and period specifications were generated at the <arg fmt="%s" index="6">PLL_ADV</arg> output(s): 
+<arg fmt="%s" index="7">CLKOUT3</arg>: <arg fmt="%s" index="8">&lt;TIMESPEC TS_Inst_ddr_control_inst_ddr_memc3_infrastructure_inst_mcb_drp_clk_bufg_in = PERIOD &quot;Inst_ddr_control_inst_ddr_memc3_infrastructure_inst_mcb_drp_clk_bufg_in&quot; TS_SYS_CLK3 / 0.5 HIGH 50%&gt;</arg>
+</msg>
+
+<msg type="info" file="ConstraintSystem" num="178" delta="old" ><arg fmt="%s" index="1">TNM</arg> &apos;<arg fmt="%s" index="2">SYS_CLK3</arg>&apos;, used in period specification &apos;<arg fmt="%s" index="3">TS_SYS_CLK3</arg>&apos;, was traced into <arg fmt="%s" index="4">PLL_ADV</arg> instance <arg fmt="%s" index="5">Inst_ddr_control/inst_ddr/memc3_infrastructure_inst/u_pll_adv</arg>. The following new TNM groups and period specifications were generated at the <arg fmt="%s" index="6">PLL_ADV</arg> output(s): 
+<arg fmt="%s" index="7">CLKOUT1</arg>: <arg fmt="%s" index="8">&lt;TIMESPEC TS_Inst_ddr_control_inst_ddr_memc3_infrastructure_inst_clk_2x_180 = PERIOD &quot;Inst_ddr_control_inst_ddr_memc3_infrastructure_inst_clk_2x_180&quot; TS_SYS_CLK3 / 2 PHASE 2.5 ns HIGH 50%&gt;</arg>
+</msg>
+
+<msg type="info" file="ConstraintSystem" num="178" delta="old" ><arg fmt="%s" index="1">TNM</arg> &apos;<arg fmt="%s" index="2">SYS_CLK3</arg>&apos;, used in period specification &apos;<arg fmt="%s" index="3">TS_SYS_CLK3</arg>&apos;, was traced into <arg fmt="%s" index="4">PLL_ADV</arg> instance <arg fmt="%s" index="5">Inst_ddr_control/inst_ddr/memc3_infrastructure_inst/u_pll_adv</arg>. The following new TNM groups and period specifications were generated at the <arg fmt="%s" index="6">PLL_ADV</arg> output(s): 
+<arg fmt="%s" index="7">CLKOUT0</arg>: <arg fmt="%s" index="8">&lt;TIMESPEC TS_Inst_ddr_control_inst_ddr_memc3_infrastructure_inst_clk_2x_0 = PERIOD &quot;Inst_ddr_control_inst_ddr_memc3_infrastructure_inst_clk_2x_0&quot; TS_SYS_CLK3 / 2 HIGH 50%&gt;</arg>
+</msg>
+
+<msg type="info" file="ConstraintSystem" num="178" delta="old" ><arg fmt="%s" index="1">TNM</arg> &apos;<arg fmt="%s" index="2">SYS_CLK3</arg>&apos;, used in period specification &apos;<arg fmt="%s" index="3">TS_SYS_CLK3</arg>&apos;, was traced into <arg fmt="%s" index="4">PLL_ADV</arg> instance <arg fmt="%s" index="5">Inst_ddr_control/inst_ddr/memc3_infrastructure_inst/u_pll_adv</arg>. The following new TNM groups and period specifications were generated at the <arg fmt="%s" index="6">PLL_ADV</arg> output(s): 
+<arg fmt="%s" index="7">CLKOUT2</arg>: <arg fmt="%s" index="8">&lt;TIMESPEC TS_Inst_ddr_control_inst_ddr_memc3_infrastructure_inst_clk0_bufg_in = PERIOD &quot;Inst_ddr_control_inst_ddr_memc3_infrastructure_inst_clk0_bufg_in&quot; TS_SYS_CLK3 / 0.25 HIGH 50%&gt;</arg>
+</msg>
+
+<msg type="info" file="ConstraintSystem" num="0" >The Period constraint &lt;Net clk_100mhz PERIOD = 10000 ps;&gt; [MINI_SP6_UCF.ucf(33)], is specified using the Net Period method which is not recommended. Please use the Timespec PERIOD method.
+</msg>
+
 </messages>
 

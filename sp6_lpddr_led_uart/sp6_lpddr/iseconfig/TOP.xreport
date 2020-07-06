@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2018-08-31T21:19:04</DateModified>
+  <DateModified>2020-07-04T15:01:31</DateModified>
   <ModuleName>TOP</ModuleName>
-  <SummaryTimeStamp>2018-08-24T10:07:16</SummaryTimeStamp>
-  <SavedFilePath>E:/KITCODE/sp6_lpddr_v1/sp6_lpddr_led_uart/sp6_lpddr/iseconfig/TOP.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>E:/KITCODE/sp6_lpddr_v1/sp6_lpddr_led_uart/sp6_lpddr\</ImplementationReportsDirectory>
+  <SummaryTimeStamp>2020-07-04T14:11:04</SummaryTimeStamp>
+  <SavedFilePath>E:/KITCODE/sp6_lpddr_v1/prj/sp6_lpddr/iseconfig/TOP.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>E:/KITCODE/sp6_lpddr_v1/prj/sp6_lpddr\</ImplementationReportsDirectory>
   <DateInitialized>2018-08-23T18:54:00</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

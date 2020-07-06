@@ -22,7 +22,7 @@ proc findRtfPath { relativePath } {
 
 source [ findRtfPath "data/projnav/scripts/dpm_cgUtils.tcl" ]
 
-set result [ run_cg_edit "ddr2" xc6slx45-2csg324 VHDL ]
+set result [ run_cg_edit "ddr2" xc6slx25-2csg324 VHDL ]
 
 if { $result == 0 } {
    puts "Core Generator edit command completed successfully."

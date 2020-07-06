@@ -19,7 +19,7 @@ ENTITY TOP IS
 		clk_100mhz : IN  STD_LOGIC;
     	LED1_R  	: OUT  STD_LOGIC;
 		LED1_G 	: OUT  STD_LOGIC;
-		LED1_B 	: OUT  STD_LOGIC;		
+		--LED1_B 	: OUT  STD_LOGIC;		
 		
 		LED2_R  	: OUT  STD_LOGIC;
 		LED2_G 	: OUT  STD_LOGIC;
@@ -43,7 +43,7 @@ ENTITY TOP IS
 		mcb3_dram_dqs : INOUT std_logic;
 		mcb3_rzq : INOUT std_logic;      
 		mcb3_dram_a : OUT std_logic_vector(12 downto 0);
-		mcb3_dram_ba : OUT std_logic_vector(2 downto 0);
+		mcb3_dram_ba : OUT std_logic_vector(1 downto 0);
 		mcb3_dram_ras_n : OUT std_logic;
 		mcb3_dram_cas_n : OUT std_logic;
 		mcb3_dram_we_n : OUT std_logic;
@@ -51,8 +51,8 @@ ENTITY TOP IS
 		mcb3_dram_dm : OUT std_logic;
 		mcb3_dram_udm : OUT std_logic;
 		mcb3_dram_ck : OUT std_logic;
-		mcb3_dram_ck_n : OUT std_logic;
-		c3_calib_done : OUT std_logic
+		mcb3_dram_ck_n : OUT std_logic
+	
 
 		
 	
@@ -85,61 +85,61 @@ SIGNAL CLK_1S	 : STD_LOGIC;
   SIGNAL  LED_BLUE : STD_LOGIC;
 
 
-	COMPONENT lpddr_control
+	COMPONENT ddr_control
 	PORT(
-		clk_100mhz : IN std_logic;
-		sys_rst_h : IN std_logic;
-		cmd_en_wr_a : IN std_logic;
-		wr_en_pls_a : IN std_logic;
-		wr_data_a : IN std_logic_vector(31 downto 0);
-		addr_rstA_wr : IN std_logic;
-		addr_incA_wr : IN std_logic;
-		cmd_en_rd_a : IN std_logic;
-		rd_en_pls_a : IN std_logic;
-		addr_rstA_rd : IN std_logic;
-		addr_incA_rd : IN std_logic;    
+		clk_100Mhz : IN std_logic;
+		sys_reset : IN std_logic;
+		ddr_addr_wr : IN std_logic_vector(29 downto 0);
+		ddr_addr_rd : IN std_logic_vector(29 downto 0);
+		ddr_data_wr : IN std_logic_vector(31 downto 0);
+		wr_en_pls : IN std_logic;
+		rd_en_pls : IN std_logic;    
 		mcb3_dram_dq : INOUT std_logic_vector(15 downto 0);
 		mcb3_dram_udqs : INOUT std_logic;
-		mcb3_dram_dqs : INOUT std_logic;
-		mcb3_rzq : INOUT std_logic;      
+		mcb3_rzq : INOUT std_logic;
+		mcb3_dram_dqs : INOUT std_logic;      
+		c3_calib_done : OUT std_logic;
+--		c3_clk0 : OUT std_logic;
+		c3_rst0 : OUT std_logic;
 		mcb3_dram_a : OUT std_logic_vector(12 downto 0);
-		mcb3_dram_ba : OUT std_logic_vector(2 downto 0);
+		mcb3_dram_ba : OUT std_logic_vector(1 downto 0);
+		mcb3_dram_cke : OUT std_logic;
 		mcb3_dram_ras_n : OUT std_logic;
 		mcb3_dram_cas_n : OUT std_logic;
 		mcb3_dram_we_n : OUT std_logic;
-		mcb3_dram_cke : OUT std_logic;
 		mcb3_dram_dm : OUT std_logic;
 		mcb3_dram_udm : OUT std_logic;
 		mcb3_dram_ck : OUT std_logic;
 		mcb3_dram_ck_n : OUT std_logic;
-		c3_calib_done : OUT std_logic;
-		wr_empty_a : OUT std_logic;
-		wr_full_a : OUT std_logic;
-		rd_data_a : OUT std_logic_vector(31 downto 0);
-		rd_empty_a : OUT std_logic;
-		test_led : OUT std_logic
+		ddr_data_rd : INOUT std_logic_vector(31 downto 0);
+		clk_ddr_fifo_out: OUT std_logic;
+		cmd_en_wr : in std_logic;
+		cmd_en_rd : in std_logic;
+		wr_full : OUT std_logic;
+		wr_empty : OUT std_logic;
+		rd_empty : OUT std_logic;
+		ddr_error : OUT std_logic
 		);
 	END COMPONENT;
 
  
+      signal ddr_addr_wr :  std_logic_vector(29 downto 0);
+		signal ddr_addr_rd :  std_logic_vector(29 downto 0);
+		signal ddr_data_wr :  std_logic_vector(31 downto 0);
+		signal ddr_data_rd :  std_logic_vector(31 downto 0);
+		signal cmd_en_wr :  std_logic;
+		signal cmd_en_rd :  std_logic;
+		signal wr_full   :  std_logic;
+		signal wr_empty  :  std_logic;
+		signal rd_empty  :  std_logic;
+		signal ddr_error :  std_logic;		
+		signal wr_en_pls :  std_logic;
+		signal rd_en_pls :  std_logic;    
  
- 
- 
+ signal clk_ddr_fifo:  std_logic;
+ signal c3_calib_done:  std_logic;
 
-	SIGNAL	cmd_en_wr_a  : std_logic;
-	SIGNAL	wr_en_pls_a  : std_logic;
-	SIGNAL	wr_data_a 	 : std_logic_vector(31 downto 0);
-	SIGNAL	addr_rstA_wr : std_logic;
-	SIGNAL	addr_incA_wr : std_logic;
-	SIGNAL	cmd_en_rd_a  : std_logic;
-	SIGNAL	rd_en_pls_a  : std_logic;
-	SIGNAL	addr_rstA_rd : std_logic;
-	SIGNAL	addr_incA_rd : std_logic;    
-	SIGNAL	wr_empty_a   :  std_logic;
-	SIGNAL	wr_full_a    :  std_logic;
-	SIGNAL	rd_data_a    :  std_logic_vector(31 downto 0);
-	SIGNAL	rd_empty_a   :  std_logic;
-	SIGNAL	test_led :  std_logic;
+
 		
 	 
 BEGIN
@@ -178,14 +178,14 @@ BEGIN
 
 
 	  
-    LED_RED <=COUNT_RGB(0)  ;
-    LED_GREEN<=COUNT_RGB(1)  ;
-    LED_BLUE<=COUNT_RGB(2); 
+    LED_RED <= '0';--COUNT_RGB(0)  ;
+    LED_GREEN<='0';--COUNT_RGB(1)  ;
+    LED_BLUE<='0';--COUNT_RGB(2); 
 
 
-	   LED1_R  <=LED_RED;
+	  LED1_R  <=c3_calib_done;--LED_RED;
 		LED1_G 	<=LED_GREEN;
-		LED1_B 	<=	LED_BLUE;
+		--LED1_B 	<=	LED_BLUE;
 		
 		LED2_R  <=LED_RED;
 		LED2_G 	<=LED_GREEN;
@@ -202,44 +202,42 @@ BEGIN
 		
 
 
-	Inst_ddr2_top: lpddr_control PORT MAP(
-		clk_100mhz 		=> clk_100mhz 		,
-		sys_rst_h 		=> RESET 		,
-		
-		mcb3_dram_dq 	=> mcb3_dram_dq 	,
-		mcb3_dram_a 	=> mcb3_dram_a 	,
-		mcb3_dram_ba 	=> mcb3_dram_ba 	,
-		mcb3_dram_ras_n => mcb3_dram_ras_n ,
-		mcb3_dram_cas_n => mcb3_dram_cas_n ,
-		mcb3_dram_we_n 	=> mcb3_dram_we_n 	,
-		mcb3_dram_cke 	=> mcb3_dram_cke 	,
-		mcb3_dram_dm 	=> mcb3_dram_dm 	,
-		mcb3_dram_udqs 	=> mcb3_dram_udqs 	,
-		mcb3_dram_udm 	=> mcb3_dram_udm 	,
-		mcb3_dram_dqs 	=> mcb3_dram_dqs 	,
-		mcb3_dram_ck 	=> mcb3_dram_ck 	,
-		mcb3_dram_ck_n 	=> mcb3_dram_ck_n 	,
-		c3_calib_done 	=> c3_calib_done 	,
-		mcb3_rzq 		=> mcb3_rzq 		,
-		
-		cmd_en_wr_a 	=> cmd_en_wr_a 	,
-		wr_en_pls_a 	=> wr_en_pls_a 	,
-		wr_data_a 		=> wr_data_a 		,
-		wr_empty_a 		=> wr_empty_a 		,
-		wr_full_a 		=> wr_full_a 		,
-		addr_rstA_wr 	=> addr_rstA_wr 	,
-		addr_incA_wr 	=> addr_incA_wr 	,
-		cmd_en_rd_a 	=> cmd_en_rd_a 	,
-		rd_en_pls_a 	=> rd_en_pls_a 	,
-		rd_data_a 		=> rd_data_a 		,
-		rd_empty_a 		=> rd_empty_a 		,
-		addr_rstA_rd 	=> addr_rstA_rd 	,
-		addr_incA_rd 	=> addr_incA_rd 	,
-		test_led 		=> test_led 		
+		Inst_ddr_control: ddr_control PORT MAP(
+		clk_100Mhz =>clk_100mhz ,
+		sys_reset =>RESET ,
+		c3_calib_done =>c3_calib_done,
+		clk_ddr_fifo_out =>clk_ddr_fifo ,
+		c3_rst0 =>open ,
+		mcb3_dram_dq =>mcb3_dram_dq ,
+		mcb3_dram_a =>mcb3_dram_a ,
+		mcb3_dram_ba =>mcb3_dram_ba ,
+		mcb3_dram_cke =>mcb3_dram_cke ,
+		mcb3_dram_ras_n =>mcb3_dram_ras_n ,
+		mcb3_dram_cas_n =>mcb3_dram_cas_n ,
+		mcb3_dram_we_n =>mcb3_dram_we_n ,
+		mcb3_dram_dm =>mcb3_dram_dm ,
+		mcb3_dram_udqs =>mcb3_dram_udqs ,
+		mcb3_dram_udm =>mcb3_dram_udm ,
+		mcb3_dram_dqs =>mcb3_dram_dqs ,
+		mcb3_dram_ck =>mcb3_dram_ck ,
+		mcb3_dram_ck_n =>mcb3_dram_ck_n ,
+		mcb3_rzq=>mcb3_rzq,
+		ddr_addr_wr =>ddr_addr_wr ,
+		ddr_addr_rd =>ddr_addr_rd ,
+		ddr_data_wr =>ddr_data_wr ,
+		ddr_data_rd =>ddr_data_rd ,
+		cmd_en_wr =>cmd_en_wr ,
+		cmd_en_rd =>cmd_en_rd ,
+		wr_full =>wr_full ,
+		wr_en_pls =>wr_en_pls ,
+		rd_en_pls =>rd_en_pls,
+		wr_empty =>wr_empty ,
+		rd_empty =>rd_empty ,
+		ddr_error =>ddr_error 
 	);
 
-	
-	
+
+
 	
 	
 END BEHAVIORAL;

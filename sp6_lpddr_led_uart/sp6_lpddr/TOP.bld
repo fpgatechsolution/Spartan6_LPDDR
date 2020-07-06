@@ -2,16 +2,61 @@ Release 14.7 ngdbuild P.20131013 (nt)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 Command Line: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt\unwrapped\ngdbuild.exe -intstyle
-ise -dd _ngo -nt timestamp -uc MINI_SP6_UCF.ucf -p xc6slx45-csg324-2 TOP.ngc
-TOP.ngd
+ise -dd _ngo -sd ipcore_dir -nt timestamp -uc MINI_SP6_UCF.ucf -p
+xc6slx25-csg324-2 TOP.ngc TOP.ngd
 
-Reading NGO file "G:/sp6_lpddr_led_uart/sp6_lpddr/TOP.ngc" ...
+Reading NGO file "E:/KITCODE/sp6_lpddr_v1/prj/sp6_lpddr/TOP.ngc" ...
 Gathering constraint information from source properties...
 Done.
 
 Annotating constraints to design from ucf file "MINI_SP6_UCF.ucf" ...
 Resolving constraint associations...
 Checking Constraint Associations...
+INFO:ConstraintSystem:178 - TNM 'SYS_CLK3', used in period specification
+   'TS_SYS_CLK3', was traced into PLL_ADV instance
+   Inst_ddr_control/inst_ddr/memc3_infrastructure_inst/u_pll_adv. The following
+   new TNM groups and period specifications were generated at the PLL_ADV
+   output(s): 
+   CLKOUT3: <TIMESPEC
+   TS_Inst_ddr_control_inst_ddr_memc3_infrastructure_inst_mcb_drp_clk_bufg_in =
+   PERIOD
+   "Inst_ddr_control_inst_ddr_memc3_infrastructure_inst_mcb_drp_clk_bufg_in"
+   TS_SYS_CLK3 / 0.5 HIGH 50%>
+
+INFO:ConstraintSystem:178 - TNM 'SYS_CLK3', used in period specification
+   'TS_SYS_CLK3', was traced into PLL_ADV instance
+   Inst_ddr_control/inst_ddr/memc3_infrastructure_inst/u_pll_adv. The following
+   new TNM groups and period specifications were generated at the PLL_ADV
+   output(s): 
+   CLKOUT1: <TIMESPEC
+   TS_Inst_ddr_control_inst_ddr_memc3_infrastructure_inst_clk_2x_180 = PERIOD
+   "Inst_ddr_control_inst_ddr_memc3_infrastructure_inst_clk_2x_180" TS_SYS_CLK3
+   / 2 PHASE 2.5 ns HIGH 50%>
+
+INFO:ConstraintSystem:178 - TNM 'SYS_CLK3', used in period specification
+   'TS_SYS_CLK3', was traced into PLL_ADV instance
+   Inst_ddr_control/inst_ddr/memc3_infrastructure_inst/u_pll_adv. The following
+   new TNM groups and period specifications were generated at the PLL_ADV
+   output(s): 
+   CLKOUT0: <TIMESPEC
+   TS_Inst_ddr_control_inst_ddr_memc3_infrastructure_inst_clk_2x_0 = PERIOD
+   "Inst_ddr_control_inst_ddr_memc3_infrastructure_inst_clk_2x_0" TS_SYS_CLK3 /
+   2 HIGH 50%>
+
+INFO:ConstraintSystem:178 - TNM 'SYS_CLK3', used in period specification
+   'TS_SYS_CLK3', was traced into PLL_ADV instance
+   Inst_ddr_control/inst_ddr/memc3_infrastructure_inst/u_pll_adv. The following
+   new TNM groups and period specifications were generated at the PLL_ADV
+   output(s): 
+   CLKOUT2: <TIMESPEC
+   TS_Inst_ddr_control_inst_ddr_memc3_infrastructure_inst_clk0_bufg_in = PERIOD
+   "Inst_ddr_control_inst_ddr_memc3_infrastructure_inst_clk0_bufg_in"
+   TS_SYS_CLK3 / 0.25 HIGH 50%>
+
+INFO:ConstraintSystem - The Period constraint <Net clk_100mhz PERIOD = 10000
+   ps;> [MINI_SP6_UCF.ucf(33)], is specified using the Net Period method which
+   is not recommended. Please use the Timespec PERIOD method.
+
 Done...
 
 Checking expanded design ...
@@ -27,10 +72,10 @@ NGDBUILD Design Results Summary:
   Number of errors:     0
   Number of warnings:   0
 
-Total memory usage is 158344 kilobytes
+Total memory usage is 144640 kilobytes
 
 Writing NGD file "TOP.ngd" ...
-Total REAL time to NGDBUILD completion:  5 sec
-Total CPU time to NGDBUILD completion:   5 sec
+Total REAL time to NGDBUILD completion:  6 sec
+Total CPU time to NGDBUILD completion:   6 sec
 
 Writing NGDBUILD log file "TOP.bld"...

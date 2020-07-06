@@ -71,7 +71,7 @@ component ddr2
     C3_P0_DATA_PORT_SIZE      : integer := 32;
     C3_P1_MASK_SIZE           : integer := 4;
     C3_P1_DATA_PORT_SIZE      : integer := 32;
-    C3_MEMCLK_PERIOD          : integer := 5000;
+    C3_MEMCLK_PERIOD          : integer := 10000;
     C3_RST_ACT_LOW            : integer := 0;
     C3_INPUT_CLK_TYPE         : string := "SINGLE_ENDED";
     C3_CALIB_SOFT_IP          : string := "TRUE";
@@ -149,55 +149,7 @@ component ddr2
    c3_p1_rd_empty                          : out std_logic;
    c3_p1_rd_count                          : out std_logic_vector(6 downto 0);
    c3_p1_rd_overflow                       : out std_logic;
-   c3_p1_rd_error                          : out std_logic;
-   c3_p2_cmd_clk                           : in std_logic;
-   c3_p2_cmd_en                            : in std_logic;
-   c3_p2_cmd_instr                         : in std_logic_vector(2 downto 0);
-   c3_p2_cmd_bl                            : in std_logic_vector(5 downto 0);
-   c3_p2_cmd_byte_addr                     : in std_logic_vector(29 downto 0);
-   c3_p2_cmd_empty                         : out std_logic;
-   c3_p2_cmd_full                          : out std_logic;
-   c3_p2_wr_clk                            : in std_logic;
-   c3_p2_wr_en                             : in std_logic;
-   c3_p2_wr_mask                           : in std_logic_vector(3 downto 0);
-   c3_p2_wr_data                           : in std_logic_vector(31 downto 0);
-   c3_p2_wr_full                           : out std_logic;
-   c3_p2_wr_empty                          : out std_logic;
-   c3_p2_wr_count                          : out std_logic_vector(6 downto 0);
-   c3_p2_wr_underrun                       : out std_logic;
-   c3_p2_wr_error                          : out std_logic;
-   c3_p2_rd_clk                            : in std_logic;
-   c3_p2_rd_en                             : in std_logic;
-   c3_p2_rd_data                           : out std_logic_vector(31 downto 0);
-   c3_p2_rd_full                           : out std_logic;
-   c3_p2_rd_empty                          : out std_logic;
-   c3_p2_rd_count                          : out std_logic_vector(6 downto 0);
-   c3_p2_rd_overflow                       : out std_logic;
-   c3_p2_rd_error                          : out std_logic;
-   c3_p3_cmd_clk                           : in std_logic;
-   c3_p3_cmd_en                            : in std_logic;
-   c3_p3_cmd_instr                         : in std_logic_vector(2 downto 0);
-   c3_p3_cmd_bl                            : in std_logic_vector(5 downto 0);
-   c3_p3_cmd_byte_addr                     : in std_logic_vector(29 downto 0);
-   c3_p3_cmd_empty                         : out std_logic;
-   c3_p3_cmd_full                          : out std_logic;
-   c3_p3_wr_clk                            : in std_logic;
-   c3_p3_wr_en                             : in std_logic;
-   c3_p3_wr_mask                           : in std_logic_vector(3 downto 0);
-   c3_p3_wr_data                           : in std_logic_vector(31 downto 0);
-   c3_p3_wr_full                           : out std_logic;
-   c3_p3_wr_empty                          : out std_logic;
-   c3_p3_wr_count                          : out std_logic_vector(6 downto 0);
-   c3_p3_wr_underrun                       : out std_logic;
-   c3_p3_wr_error                          : out std_logic;
-   c3_p3_rd_clk                            : in std_logic;
-   c3_p3_rd_en                             : in std_logic;
-   c3_p3_rd_data                           : out std_logic_vector(31 downto 0);
-   c3_p3_rd_full                           : out std_logic;
-   c3_p3_rd_empty                          : out std_logic;
-   c3_p3_rd_count                          : out std_logic_vector(6 downto 0);
-   c3_p3_rd_overflow                       : out std_logic;
-   c3_p3_rd_error                          : out std_logic
+   c3_p1_rd_error                          : out std_logic
 );
 end component;
 
@@ -297,55 +249,7 @@ end component;
    c3_p1_rd_empty                          =>  c3_p1_rd_empty,
    c3_p1_rd_count                          =>  c3_p1_rd_count,
    c3_p1_rd_overflow                       =>  c3_p1_rd_overflow,
-   c3_p1_rd_error                          =>  c3_p1_rd_error,
-   c3_p2_cmd_clk                           =>  c3_p2_cmd_clk,
-   c3_p2_cmd_en                            =>  c3_p2_cmd_en,
-   c3_p2_cmd_instr                         =>  c3_p2_cmd_instr,
-   c3_p2_cmd_bl                            =>  c3_p2_cmd_bl,
-   c3_p2_cmd_byte_addr                     =>  c3_p2_cmd_byte_addr,
-   c3_p2_cmd_empty                         =>  c3_p2_cmd_empty,
-   c3_p2_cmd_full                          =>  c3_p2_cmd_full,
-   c3_p2_wr_clk                            =>  c3_p2_wr_clk,
-   c3_p2_wr_en                             =>  c3_p2_wr_en,
-   c3_p2_wr_mask                           =>  c3_p2_wr_mask,
-   c3_p2_wr_data                           =>  c3_p2_wr_data,
-   c3_p2_wr_full                           =>  c3_p2_wr_full,
-   c3_p2_wr_empty                          =>  c3_p2_wr_empty,
-   c3_p2_wr_count                          =>  c3_p2_wr_count,
-   c3_p2_wr_underrun                       =>  c3_p2_wr_underrun,
-   c3_p2_wr_error                          =>  c3_p2_wr_error,
-   c3_p2_rd_clk                            =>  c3_p2_rd_clk,
-   c3_p2_rd_en                             =>  c3_p2_rd_en,
-   c3_p2_rd_data                           =>  c3_p2_rd_data,
-   c3_p2_rd_full                           =>  c3_p2_rd_full,
-   c3_p2_rd_empty                          =>  c3_p2_rd_empty,
-   c3_p2_rd_count                          =>  c3_p2_rd_count,
-   c3_p2_rd_overflow                       =>  c3_p2_rd_overflow,
-   c3_p2_rd_error                          =>  c3_p2_rd_error,
-   c3_p3_cmd_clk                           =>  c3_p3_cmd_clk,
-   c3_p3_cmd_en                            =>  c3_p3_cmd_en,
-   c3_p3_cmd_instr                         =>  c3_p3_cmd_instr,
-   c3_p3_cmd_bl                            =>  c3_p3_cmd_bl,
-   c3_p3_cmd_byte_addr                     =>  c3_p3_cmd_byte_addr,
-   c3_p3_cmd_empty                         =>  c3_p3_cmd_empty,
-   c3_p3_cmd_full                          =>  c3_p3_cmd_full,
-   c3_p3_wr_clk                            =>  c3_p3_wr_clk,
-   c3_p3_wr_en                             =>  c3_p3_wr_en,
-   c3_p3_wr_mask                           =>  c3_p3_wr_mask,
-   c3_p3_wr_data                           =>  c3_p3_wr_data,
-   c3_p3_wr_full                           =>  c3_p3_wr_full,
-   c3_p3_wr_empty                          =>  c3_p3_wr_empty,
-   c3_p3_wr_count                          =>  c3_p3_wr_count,
-   c3_p3_wr_underrun                       =>  c3_p3_wr_underrun,
-   c3_p3_wr_error                          =>  c3_p3_wr_error,
-   c3_p3_rd_clk                            =>  c3_p3_rd_clk,
-   c3_p3_rd_en                             =>  c3_p3_rd_en,
-   c3_p3_rd_data                           =>  c3_p3_rd_data,
-   c3_p3_rd_full                           =>  c3_p3_rd_full,
-   c3_p3_rd_empty                          =>  c3_p3_rd_empty,
-   c3_p3_rd_count                          =>  c3_p3_rd_count,
-   c3_p3_rd_overflow                       =>  c3_p3_rd_overflow,
-   c3_p3_rd_error                          =>  c3_p3_rd_error
+   c3_p1_rd_error                          =>  c3_p1_rd_error
 );
 
 -- INST_TAG_END ------ End INSTANTIATION Template ------------

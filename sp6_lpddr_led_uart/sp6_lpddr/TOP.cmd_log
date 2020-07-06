@@ -1,25 +1,8 @@
-xst -intstyle ise -ifn "G:/sp6_lpddr_led_uart/sp6_lpddr/TOP.xst" -ofn "G:/sp6_lpddr_led_uart/sp6_lpddr/TOP.syr" 
-xst -intstyle ise -ifn "G:/sp6_lpddr_led_uart/sp6_lpddr/TOP.xst" -ofn "G:/sp6_lpddr_led_uart/sp6_lpddr/TOP.syr" 
-ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MINI_SP6_UCF.ucf -p xc6slx25-csg324-2 TOP.ngc TOP.ngd  
+xst -intstyle ise -ifn "E:/KITCODE/sp6_lpddr_v1/prj/sp6_lpddr/TOP.xst" -ofn "E:/KITCODE/sp6_lpddr_v1/prj/sp6_lpddr/TOP.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc MINI_SP6_UCF.ucf -p xc6slx25-csg324-2 TOP.ngc TOP.ngd  
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc MINI_SP6_UCF.ucf -p xc6slx25-csg324-2 TOP.ngc TOP.ngd  
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc MINI_SP6_UCF.ucf -p xc6slx25-csg324-2 TOP.ngc TOP.ngd  
 map -intstyle ise -p xc6slx25-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o TOP_map.ncd TOP.ngd TOP.pcf 
-xst -intstyle ise -ifn "G:/sp6_lpddr_led_uart/sp6_lpddr/TOP.xst" -ofn "G:/sp6_lpddr_led_uart/sp6_lpddr/TOP.syr" 
-ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MINI_SP6_UCF.ucf -p xc6slx25-csg324-2 TOP.ngc TOP.ngd  
-map -intstyle ise -p xc6slx25-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o TOP_map.ncd TOP.ngd TOP.pcf 
-ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MINI_SP6_UCF.ucf -p xc6slx25-csg324-2 TOP.ngc TOP.ngd  
-map -intstyle ise -p xc6slx25-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o TOP_map.ncd TOP.ngd TOP.pcf 
-ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MINI_SP6_UCF.ucf -p xc6slx25-csg324-2 TOP.ngc TOP.ngd  
-map -intstyle ise -p xc6slx25-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o TOP_map.ncd TOP.ngd TOP.pcf 
-par -w -intstyle ise -ol high -mt off TOP_map.ncd TOP.ncd TOP.pcf 
-trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml TOP.twx TOP.ncd -o TOP.twr TOP.pcf -ucf MINI_SP6_UCF.ucf 
-bitgen -intstyle ise -f TOP.ut TOP.ncd 
-xst -intstyle ise -ifn "G:/sp6_lpddr_led_uart/sp6_lpddr/TOP.xst" -ofn "G:/sp6_lpddr_led_uart/sp6_lpddr/TOP.syr" 
-ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MINI_SP6_UCF.ucf -p xc6slx45-csg324-2 TOP.ngc TOP.ngd  
-map -intstyle ise -p xc6slx45-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o TOP_map.ncd TOP.ngd TOP.pcf 
-par -w -intstyle ise -ol high -mt off TOP_map.ncd TOP.ncd TOP.pcf 
-trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml TOP.twx TOP.ncd -o TOP.twr TOP.pcf -ucf MINI_SP6_UCF.ucf 
-bitgen -intstyle ise -f TOP.ut TOP.ncd 
-ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc MINI_SP6_UCF.ucf -p xc6slx45-csg324-2 TOP.ngc TOP.ngd  
-map -intstyle ise -p xc6slx45-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o TOP_map.ncd TOP.ngd TOP.pcf 
 par -w -intstyle ise -ol high -mt off TOP_map.ncd TOP.ncd TOP.pcf 
 trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml TOP.twx TOP.ncd -o TOP.twr TOP.pcf -ucf MINI_SP6_UCF.ucf 
 bitgen -intstyle ise -f TOP.ut TOP.ncd 

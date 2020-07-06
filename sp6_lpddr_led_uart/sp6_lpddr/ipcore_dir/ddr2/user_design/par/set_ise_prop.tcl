@@ -2,7 +2,7 @@ project new test.xise
 
 project set "Device Family" "spartan6"
 
-project set "Device" "xc6slx45"
+project set "Device" "xc6slx25"
 
 project set "Package" "csg324"
 

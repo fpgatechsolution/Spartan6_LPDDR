@@ -1,7 +1,7 @@
 
 
 CORE Generator Options:
-   Target Device              : xc6slx45-csg324
+   Target Device              : xc6slx25-csg324
    Speed Grade                : -2
    HDL                        : vhdl
    Synthesis Tool             : Foundation_ISE
@@ -18,7 +18,7 @@ MIG Output Options:
 Controller Options : 
    Memory                  : LPDDR
    Interface               : NATIVE
-   Design Clock Frequency  : 5000 ps (200.00 MHz)
+   Design Clock Frequency  : 10000 ps (100.00 MHz)
    Memory Type             : Components
    Memory Part             : MT46H32M16XXXX-5
    Equivalent Part(s)      : MT46H32M16LFBF-5
@@ -35,24 +35,24 @@ Memory Options :
 
 User Interface Parameters :
    Configuration Type     : Four 32-bit bi-directional ports
-   Ports Selected         : Port0, Port1, Port2, Port3
+   Ports Selected         : Port0, Port1
    Memory Address Mapping : ROW_BANK_COLUMN
 
    Arbitration Algorithm  : Round Robin
 
    Arbitration            : 
-      Time Slot0 : 0123
-      Time Slot1 : 1230
-      Time Slot2 : 2301
-      Time Slot3 : 3012
-      Time Slot4 : 0123
-      Time Slot5 : 1230
-      Time Slot6 : 2301
-      Time Slot7 : 3012
-      Time Slot8 : 0123
-      Time Slot9 : 1230
-      Time Slot10: 2301
-      Time Slot11: 3012
+      Time Slot0 : 01
+      Time Slot1 : 10
+      Time Slot2 : 01
+      Time Slot3 : 10
+      Time Slot4 : 01
+      Time Slot5 : 10
+      Time Slot6 : 01
+      Time Slot7 : 10
+      Time Slot8 : 01
+      Time Slot9 : 10
+      Time Slot10: 01
+      Time Slot11: 10
 
 FPGA Options :
    Class for Address and Control       : II

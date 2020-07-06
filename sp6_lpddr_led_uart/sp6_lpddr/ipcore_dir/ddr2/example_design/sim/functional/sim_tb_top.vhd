@@ -95,10 +95,10 @@ function c3_sim_hw (val1:std_logic_vector( 31 downto 0); val2: std_logic_vector(
    end if;
    end function;		
 
-   constant  C3_MEMCLK_PERIOD : integer    := 5000;
+   constant  C3_MEMCLK_PERIOD : integer    := 10000;
    constant C3_RST_ACT_LOW : integer := 0;
    constant C3_INPUT_CLK_TYPE : string := "SINGLE_ENDED";
-   constant C3_CLK_PERIOD_NS   : real := 5000.0 / 1000.0;
+   constant C3_CLK_PERIOD_NS   : real := 10000.0 / 1000.0;
    constant C3_TCYC_SYS        : real := C3_CLK_PERIOD_NS/2.0;
    constant C3_TCYC_SYS_DIV2   : time := C3_TCYC_SYS * 1 ns;
    constant C3_NUM_DQ_PINS        : integer := 16;

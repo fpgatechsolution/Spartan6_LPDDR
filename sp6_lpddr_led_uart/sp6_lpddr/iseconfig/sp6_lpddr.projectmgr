@@ -7,17 +7,18 @@
    <ItemView engineview="SynthesisOnly" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/TOP - BEHAVIORAL E:|KITCODE|sp6_lpddr_v1|sp6_lpddr_led_uart|sp6_lpddr|TOP.vhd/Inst_ddr2_top - lpddr_control</ClosedNode>
          <ClosedNode>/TOP - BEHAVIORAL G:|sp6_lpddr_led_uart|sp6_lpddr|TOP.vhd/INST_UART_CONTROL - UART_CONTROL - UART_BEH/INST_UARTTRANSMITTER - UART - UART_BEH</ClosedNode>
          <ClosedNode>/TOP - BEHAVIORAL G:|sp6_lpddr_led_uart|sp6_lpddr|TOP.vhd/Inst_ddr2_top - lpddr_control</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>pico (E:/KITCODE/sp6_lpddr_v1/sp6_lpddr_led_uart/sp6_lpddr/pico.v)</SelectedItem>
+         <SelectedItem>TOP - BEHAVIORAL (E:/KITCODE/sp6_lpddr_v1/prj/sp6_lpddr/TOP.vhd)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000021f000000020000000000000000000000000200000064ffffffff0000008100000003000000020000021f0000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000214000000020000000000000000000000000200000064ffffffff000000810000000300000002000002140000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>pico (E:/KITCODE/sp6_lpddr_v1/sp6_lpddr_led_uart/sp6_lpddr/pico.v)</CurrentItem>
+      <CurrentItem>TOP - BEHAVIORAL (E:/KITCODE/sp6_lpddr_v1/prj/sp6_lpddr/TOP.vhd)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -64,15 +65,15 @@
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem/>
+         <SelectedItem>Design Summary/Reports</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000196000000010000000100000000000000000000000064ffffffff000000810000000000000001000001960000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001ba000000010000000100000000000000000000000064ffffffff000000810000000000000001000001ba0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
+      <CurrentItem>Design Summary/Reports</CurrentItem>
    </ItemView>
-   <SourceProcessView>000000ff00000000000000020000011b0000011b01000000050100000002</SourceProcessView>
+   <SourceProcessView>000000ff00000000000000020000007e000000cb01000000050100000002</SourceProcessView>
    <CurrentView>Implementation</CurrentView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_UCF" guiview="Process" >
       <ClosedNodes>
@@ -109,7 +110,7 @@
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000196000000010000000100000000000000000000000064ffffffff000000810000000000000001000001960000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000000000000000000019c000000010000000100000000000000000000000064ffffffff0000008100000000000000010000019c0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem>Check Syntax</CurrentItem>
    </ItemView>

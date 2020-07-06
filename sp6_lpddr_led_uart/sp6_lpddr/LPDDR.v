@@ -178,7 +178,7 @@ L_TO_P instance_wr_en_pls_a(
     .C1_MEM_BANKADDR_WIDTH(3)
 )
 
-uuuu_ddr2 (
+inst_ddr2 (
  
     .c3_sys_clk             (clk_100mhz),   
     .c3_sys_rst_i           (sys_rst_h),                        

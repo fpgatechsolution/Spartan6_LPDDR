@@ -1,0 +1,4 @@
+vhdtdtfi -prj sp6_lpddr -o E:/KITCODE/sp6_lpddr_v1/prj/sp6_lpddr/ddr_control.vhi -module ddr_control -template C:/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work ddr_control.vhd 
+vhdtdtfi -prj sp6_lpddr -o E:/KITCODE/sp6_lpddr_v1/prj/sp6_lpddr/ddr_control.vhi -module ddr_control -template C:/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work ddr_control.vhd 
+vhdtdtfi -prj sp6_lpddr -o E:/KITCODE/sp6_lpddr_v1/prj/sp6_lpddr/ddr_control.vhi -module ddr_control -template C:/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work ddr_control.vhd 
+vhdtdtfi -prj sp6_lpddr -o E:/KITCODE/sp6_lpddr_v1/prj/sp6_lpddr/ddr_control.vhi -module ddr_control -template C:/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work ddr_control.vhd 

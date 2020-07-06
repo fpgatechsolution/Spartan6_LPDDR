@@ -8,7 +8,7 @@ run
 #Target Parameters
 -ofn example_top
 -ofmt NGC
--p xc6slx45-2csg324
+-p xc6slx25-2csg324
 #AXI_ENABLE definition is not required for NATIVE interface
 #Source Options
 -top example_top
