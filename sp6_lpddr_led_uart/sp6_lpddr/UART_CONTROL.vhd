@@ -1,320 +1,676 @@
-
 ----------------------------------------------------------------------------------
--- Company     : FPGATECHSOLUTION
--- Module Name : UART_CONTROL
--- URL     		: WWW.FPGATECHSOLUTION.com
 ----------------------------------------------------------------------------------
-
+-- Company      : FPGATECHSOLUTION
+-- Module Name  : 
+-- URL     		: WWW.FPGATECHSOLUTION.COM
+-- Description	:
+----------------------------------------------------------------------------------
+----------------------------------------------------------------------------------
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.STD_LOGIC_ARITH.ALL;
 USE IEEE.STD_LOGIC_UNSIGNED.ALL;
 USE IEEE.NUMERIC_STD.ALL;
+USE work.ESP_FPGA_PACK.ALL;
 
 
-ENTITY UART_CONTROL IS
+ENTITY RAM_CONTROL IS
 PORT(		
-		RESET	: IN STD_LOGIC;
-		CLK		: IN STD_LOGIC;
-		RXD		: IN STD_LOGIC;
-		TXD 	: OUT STD_LOGIC;
-		TEST_LED: OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
-	);
-END ENTITY UART_CONTROL;
-
-ARCHITECTURE UART_BEH OF UART_CONTROL IS
-
-	CONSTANT CLK_FREQUENCY : INTEGER := 12000000;
-	CONSTANT BAUD          : INTEGER := 9600;
-
-	SIGNAL RXD_DATA_READY, TXD_BUSY,DELAY_ENB,DELAY_CLK,DELAY_FINISH,RX_STROBE : STD_LOGIC;
-	SIGNAL TXD_START : STD_LOGIC :='0';
-	SIGNAL RXD_DATA, TXD_DATA : STD_LOGIC_VECTOR(7 DOWNTO 0);
-	TYPE ROM_TYPE IS ARRAY (127 DOWNTO 0) OF STD_LOGIC_VECTOR (7 DOWNTO 0);
-	SIGNAL MSG_CNT:INTEGER:=0;
-	SIGNAL DELAY_COUNT,COMP_CNT: INTEGER:=0;
+		RESET	: IN STD_LOGIC; -- active high reset
+		SYSTEM_CLK_100MHZ	: IN STD_LOGIC; -- clock 100MHz
+		RXD	: IN STD_LOGIC; -- RXD to uart 
+		TXD 	: OUT STD_LOGIC;-- TXD to uart 	
+		RELAY   : OUT STD_LOGIC;
+		BUZZER  : OUT STD_LOGIC;
+		RGB_LED : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+		TEST_LED: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);-- test led
+		----------------ddr signal -----------------------
+		mcb3_dram_dq : INOUT std_logic_vector(15 downto 0);
+		mcb3_dram_udqs : INOUT std_logic;
+		mcb3_dram_dqs : INOUT std_logic;
+		mcb3_rzq : INOUT std_logic;      
+		mcb3_dram_a : OUT std_logic_vector(12 downto 0);
+		mcb3_dram_ba : OUT std_logic_vector(1 downto 0);
+		mcb3_dram_ras_n : OUT std_logic;
+		mcb3_dram_cas_n : OUT std_logic;
+		mcb3_dram_we_n : OUT std_logic;
+		mcb3_dram_cke : OUT std_logic;
+		mcb3_dram_dm : OUT std_logic;
+		mcb3_dram_udm : OUT std_logic;
+		mcb3_dram_ck : OUT std_logic;
+		mcb3_dram_ck_n : OUT std_logic
 		
-	TYPE STATE_TYPE IS (IDLE,MSG_BUFF,S1,S2,S3,S4,S5,S6,S7,S8,S9);
-	SIGNAL STATE : STATE_TYPE :=IDLE;
+	);
+END ENTITY RAM_CONTROL;
 
-	COMPONENT UART IS
-		GENERIC
-		(
-			FREQUENCY		: INTEGER := 12000000;
-			BAUD			: INTEGER:= 9600
-		);
+ARCHITECTURE RAM_CONTROL OF RAM_CONTROL IS
+
+	CONSTANT CLK_FREQUENCY : INTEGER := 100000000;
+	CONSTANT BAUD          : INTEGER := 115200;
+	
+	SIGNAL DEL_LED:STD_LOGIC;
+	
+	SIGNAL IO1:STD_LOGIC;
+	SIGNAL IO2:STD_LOGIC;
+	SIGNAL IO3:STD_LOGIC;
+	SIGNAL IO4:STD_LOGIC;
+	SIGNAL IO5:STD_LOGIC;
+	SIGNAL IO6:STD_LOGIC;
+	SIGNAL IO7:STD_LOGIC;
+	SIGNAL IO8:STD_LOGIC;
+	
+	SIGNAL IO9:STD_LOGIC;
+	SIGNAL IO10:STD_LOGIC;
+	SIGNAL IO11:STD_LOGIC;
+	
+	SIGNAL IO12:STD_LOGIC;
+	SIGNAL IO13:STD_LOGIC;
+	
+	SIGNAL LD1:STD_LOGIC;
+	SIGNAL LD2:STD_LOGIC;
+	SIGNAL LD3:STD_LOGIC;
+	SIGNAL LD4:STD_LOGIC;
+	SIGNAL LD5:STD_LOGIC;
+	SIGNAL LD6:STD_LOGIC;	
+	SIGNAL LD7:STD_LOGIC;
+	SIGNAL LD8:STD_LOGIC;
+
+	
+	
+	SIGNAL R:STD_LOGIC;
+	SIGNAL G:STD_LOGIC;
+	SIGNAL B:STD_LOGIC;
+	
+		
+	SIGNAL RL:STD_LOGIC;
+	SIGNAL BZ:STD_LOGIC;
+	SIGNAL PIN:STD_LOGIC;
+	
+	
+	COMPONENT sync_ram
 	PORT(
-		CLK				: IN STD_LOGIC;
-		RXD				: IN STD_LOGIC;
-		TXD				: OUT STD_LOGIC;
-		TXD_DATA		: IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-		TXD_START		: IN STD_LOGIC;
-		TXD_BUSY		: OUT STD_LOGIC;
-		RXD_DATA		: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-		RXD_DATA_READY	: OUT STD_LOGIC
+		clock : IN std_logic;
+		we : IN std_logic;
+		wr_add : IN std_logic_vector(7 downto 0);
+		rd_add : IN std_logic_vector(7 downto 0);
+		datain : IN std_logic_vector(7 downto 0);          
+		dataout : OUT std_logic_vector(7 downto 0)
 		);
-	END COMPONENT UART;
+	END COMPONENT;
 
 
-   FUNCTION CHAR_TO_HEX(C: CHARACTER) RETURN STD_LOGIC_VECTOR IS
-      VARIABLE L: STD_LOGIC_VECTOR(7 DOWNTO 0);
-   BEGIN
-      CASE C IS
-           WHEN 'A' => L:=X"41";
-           WHEN 'B' => L:=X"42";
-           WHEN 'C' => L:=X"43";
-           WHEN 'D' => L:=X"44";
-           WHEN 'E' => L:=X"45";
-           WHEN 'F' => L:=X"46";
-           WHEN 'G' => L:=X"47";
-           WHEN 'H' => L:=X"48";
-           WHEN 'I' => L:=X"49";
-           WHEN 'J' => L:=X"4A";
-           WHEN 'K' => L:=X"4B";
-           WHEN 'L' => L:=X"4C";
-           WHEN 'M' => L:=X"4D";
-           WHEN 'N' => L:=X"4E";
-           WHEN 'O' => L:=X"4F";
-           WHEN 'P' => L:=X"50";
-           WHEN 'Q' => L:=X"51";
-           WHEN 'R' => L:=X"52";
-           WHEN 'S' => L:=X"53";
-           WHEN 'T' => L:=X"54";
-           WHEN 'U' => L:=X"55";
-           WHEN 'V' => L:=X"56";
-           WHEN 'W' => L:=X"57";
-           WHEN 'X' => L:=X"58";
-           WHEN 'Y' => L:=X"59";
-           WHEN 'Z' => L:=X"5A";
-           WHEN '0' => L:=X"30";
-           WHEN '1' => L:=X"31";
-           WHEN '2' => L:=X"32";
-           WHEN '3' => L:=X"33";
-           WHEN '4' => L:=X"34";
-           WHEN '5' => L:=X"35";
-           WHEN '6' => L:=X"36";
-           WHEN '7' => L:=X"37";
-           WHEN '8' => L:=X"38";
-           WHEN '9' => L:=X"39";
-           WHEN '=' => L:=X"3D";
-           WHEN '*' => L:=X"2A";
-           WHEN '+' => L:=X"2B";
-           WHEN ' ' => L:=X"20";
-		   WHEN '.' => L:=X"2E";
-		   WHEN 'e' => L:=X"0A";
-		   WHEN 'd' => L:=X"0D";
-           WHEN OTHERS => L:=X"20";
-      END CASE;
-      RETURN L;
-   END FUNCTION CHAR_TO_HEX;
+	COMPONENT ddr_control
+	PORT(
+		clk_100Mhz : IN std_logic;
+		sys_reset : IN std_logic;
+		ddr_addr_wr : IN std_logic_vector(29 downto 0);
+		ddr_addr_rd : IN std_logic_vector(29 downto 0);
+		ddr_data_wr : IN std_logic_vector(31 downto 0);
+		wr_en_pls : IN std_logic;
+		rd_en_pls : IN std_logic;    
+		mcb3_dram_dq : INOUT std_logic_vector(15 downto 0);
+		mcb3_dram_udqs : INOUT std_logic;
+		mcb3_rzq : INOUT std_logic;
+		mcb3_dram_dqs : INOUT std_logic;      
+		c3_calib_done : OUT std_logic;
+--		c3_clk0 : OUT std_logic;
+		c3_rst0 : OUT std_logic;
+		mcb3_dram_a : OUT std_logic_vector(12 downto 0);
+		mcb3_dram_ba : OUT std_logic_vector(1 downto 0);
+		mcb3_dram_cke : OUT std_logic;
+		mcb3_dram_ras_n : OUT std_logic;
+		mcb3_dram_cas_n : OUT std_logic;
+		mcb3_dram_we_n : OUT std_logic;
+		mcb3_dram_dm : OUT std_logic;
+		mcb3_dram_udm : OUT std_logic;
+		mcb3_dram_ck : OUT std_logic;
+		mcb3_dram_ck_n : OUT std_logic;
+		ddr_data_rd : INOUT std_logic_vector(31 downto 0);
+		clk_ddr_fifo_out: OUT std_logic;
+		cmd_en_wr : in std_logic;
+		cmd_en_rd : in std_logic;
+		wr_full : OUT std_logic;
+		wr_empty : OUT std_logic;
+		rd_empty : OUT std_logic;
+		ddr_error : OUT std_logic
+		);
+	END COMPONENT;
 
-   
-FUNCTION TO_STD_LOGIC_VECTOR(S: STRING) RETURN STD_LOGIC_VECTOR IS 
-      VARIABLE SLV : STD_LOGIC_VECTOR(((S'HIGH)*8)-1 DOWNTO 0);
-      VARIABLE K   : INTEGER;
-         BEGIN  
-      K:=S'LOW;
-		FOR I IN S'RANGE LOOP
-            SLV((I*8)-1 DOWNTO((I*8)-1)-7):=CHAR_TO_HEX(S(I));
-            K :=K+1;
-		END LOOP;
-      RETURN SLV;
-END FUNCTION TO_STD_LOGIC_VECTOR;
-   
-   SIGNAL GEN_MSG :STRING(1 TO 70);
-   SIGNAL GEN_MSG_HEX1:STD_LOGIC_VECTOR((GEN_MSG'HIGH*8)-1 DOWNTO 0);
-   SIGNAL ALL_ZERO:STD_LOGIC_VECTOR((GEN_MSG'HIGH*8)-1 DOWNTO 0):=(OTHERS=>'0');
-
-   SIGNAL MSG_CHAR1 :STRING(1 TO 61);
-   SIGNAL MSG_HEX1:STD_LOGIC_VECTOR((MSG_CHAR1'HIGH*8)-1 DOWNTO 0);
-
-
-   SIGNAL MSG_CHAR2 :STRING(1 TO 37);
-   SIGNAL MSG_HEX2:STD_LOGIC_VECTOR((MSG_CHAR2'HIGH*8)-1 DOWNTO 0);
-
-   SIGNAL MSG_CHAR3 :STRING(1 TO 20);
-   SIGNAL MSG_HEX3:STD_LOGIC_VECTOR((MSG_CHAR3'HIGH*8)-1 DOWNTO 0);
-
-
-   SIGNAL MSG_CHAR4 :STRING(1 TO 20);
-   SIGNAL MSG_HEX4:STD_LOGIC_VECTOR((MSG_CHAR4'HIGH*8)-1 DOWNTO 0);
-
-
-   SIGNAL MSG_CHAR5 :STRING(1 TO 20);
-   SIGNAL MSG_HEX5:STD_LOGIC_VECTOR((MSG_CHAR5'HIGH*8)-1 DOWNTO 0);
-
-
-   SIGNAL MSG_CHAR6 :STRING(1 TO 20);
-   SIGNAL MSG_HEX6:STD_LOGIC_VECTOR((MSG_CHAR6'HIGH*8)-1 DOWNTO 0);
-
-
-   SIGNAL MSG_CHAR7 :STRING(1 TO 20);
-   SIGNAL MSG_HEX7:STD_LOGIC_VECTOR((MSG_CHAR7'HIGH*8)-1 DOWNTO 0);
-
-
-   SIGNAL MSG_CHAR8 :STRING(1 TO 20);
-   SIGNAL MSG_HEX8:STD_LOGIC_VECTOR((MSG_CHAR8'HIGH*8)-1 DOWNTO 0);
+ 
+      signal ddr_addr_wr :  std_logic_vector(29 downto 0);
+		signal ddr_addr_rd :  std_logic_vector(29 downto 0);
+		signal ddr_data_wr :  std_logic_vector(31 downto 0);
+		signal ddr_data_rd :  std_logic_vector(31 downto 0);
+		signal cmd_en_wr :  std_logic;
+		signal cmd_en_rd :  std_logic;
+		signal wr_full   :  std_logic;
+		signal wr_empty  :  std_logic;
+		signal rd_empty  :  std_logic;
+		signal ddr_error :  std_logic;		
+		signal wr_en_pls :  std_logic;
+		signal rd_en_pls :  std_logic;    
+ 
+      signal clk_ddr_fifo:  std_logic;
+      signal c3_calib_done:  std_logic;
+ 
+ 
 
 
 
 
-   
+SIGNAL rd_data_cmd:std_logic;--_vector(7 downto 0);
+SIGNAL rd_address:std_logic_vector(7 downto 0);
+SIGNAL wr_address:std_logic_vector(7 downto 0);
+SIGNAL wr_data:std_logic_vector(7 downto 0);
+SIGNAL rd_data:std_logic_vector(7 downto 0);
+SIGNAL address:std_logic_vector(7 downto 0);
+SIGNAL wr_data_cmd:std_logic;--_vector(7 downto 0);
+
+
+	
 BEGIN
-
-	MSG_CHAR1<="ed THIS FPGA KIT IS DESIGN AND DEVELOPED BY FPGATECHSOLUTION ";
+-------------------------------------------------------------
+----------AT command for sending data -------------
+	MSG_CHAR1<="  de";   
     MSG_HEX1<=TO_STD_LOGIC_VECTOR(MSG_CHAR1);
 
 
-	MSG_CHAR2<="ed VISIT US WWW.FPGATECHSOLUTION.COM ";
-    MSG_HEX2<=TO_STD_LOGIC_VECTOR(MSG_CHAR2);
+	MSG_CHAR4<=" COMMAND FOR READ WRIGHT de ";   
+    MSG_HEX4 <=TO_STD_LOGIC_VECTOR(MSG_CHAR4);
 
+
+
+	MSG_CHAR6<=" FOR READ $RA# **A IS ADDRESS   de ";   
+    MSG_HEX6 <=TO_STD_LOGIC_VECTOR(MSG_CHAR6);
+
+	MSG_CHAR7<=" FOR WRIGHT $WFD#  **F IS ADDRESS AND **D IS DATA    de ";   
+    MSG_HEX7 <=TO_STD_LOGIC_VECTOR(MSG_CHAR7);
+
+	
+	MSG_CHAR9<= " READ DATA REG ADDRESS 00 & REG DATA 0 de";
+	
+	MSG_CHAR10<=" WRIGHT DATA REG ADDRESS 00 & REG DATA 0 de";
 	
 
 
+-------------------------------------------------------------
+-----------------interfacing UART----------------------------
+
 	INST_UARTTRANSMITTER: UART 
-		GENERIC MAP
-	(
-		FREQUENCY		=> CLK_FREQUENCY,
-		BAUD			=> BAUD
-	)
+		GENERIC MAP(
+		FREQUENCY=> CLK_FREQUENCY,
+		BAUD	=> BAUD)
 	PORT MAP(
-		CLK =>CLK ,
+		CLK =>clk_100mhz ,
 		TXD =>TXD ,
         RXD=>RXD,
 		TXD_DATA =>TXD_DATA ,
 		TXD_START =>TXD_START ,
 		TXD_BUSY => TXD_BUSY,
         RXD_DATA=>RXD_DATA,
-        RXD_DATA_READY=>RX_STROBE
+        RXD_DATA_READY=>RX_STROBE);
+
+
+
+----------------ddr interface-----------------
+
+
+		Inst_ddr_control: ddr_control PORT MAP(
+		clk_100Mhz =>SYSTEM_CLK_100MHZ  ,
+		sys_reset =>RESET ,
+		c3_calib_done =>c3_calib_done,
+		clk_ddr_fifo_out =>clk_100mhz ,
+		c3_rst0 =>open ,
+		mcb3_dram_dq =>mcb3_dram_dq ,
+		mcb3_dram_a =>mcb3_dram_a ,
+		mcb3_dram_ba =>mcb3_dram_ba ,
+		mcb3_dram_cke =>mcb3_dram_cke ,
+		mcb3_dram_ras_n =>mcb3_dram_ras_n ,
+		mcb3_dram_cas_n =>mcb3_dram_cas_n ,
+		mcb3_dram_we_n =>mcb3_dram_we_n ,
+		mcb3_dram_dm =>mcb3_dram_dm ,
+		mcb3_dram_udqs =>mcb3_dram_udqs ,
+		mcb3_dram_udm =>mcb3_dram_udm ,
+		mcb3_dram_dqs =>mcb3_dram_dqs ,
+		mcb3_dram_ck =>mcb3_dram_ck ,
+		mcb3_dram_ck_n =>mcb3_dram_ck_n ,
+		mcb3_rzq=>mcb3_rzq,
+		ddr_addr_wr =>ddr_addr_wr ,
+		ddr_addr_rd =>ddr_addr_rd ,
+		ddr_data_wr =>ddr_data_wr ,
+		ddr_data_rd =>ddr_data_rd ,
+		cmd_en_wr =>cmd_en_wr ,
+		cmd_en_rd =>cmd_en_rd ,
+		wr_full =>wr_full ,
+		wr_en_pls =>wr_en_pls ,
+		rd_en_pls =>rd_en_pls,
+		wr_empty =>wr_empty ,
+		rd_empty =>rd_empty ,
+		ddr_error =>ddr_error 
 	);
 
 
-TEST_LED<=RXD_DATA;
+
+----------------------------------------------------------------
+TEST_LED(0)<=LD1;
+TEST_LED(1)<=LD2;
+TEST_LED(2)<=LD3;
+TEST_LED(3)<=LD4;
+TEST_LED(4)<=LD5;
+TEST_LED(5)<=LD6;
+TEST_LED(6)<=LD7;
+TEST_LED(7)<=LD8;
+
+BUZZER<=RL;
+RELAY<=BZ;
+
+RGB_LED(0)<=rd_data_cmd;--B;
+RGB_LED(1)<=wr_data_cmd;--G;
+RGB_LED(2)<=R;
 
 
 
-
-STATE_PROC: PROCESS(CLK,RXD_DATA_READY,RESET,DELAY_COUNT)
-	               VARIABLE T3,TOTAL_CHAR:INTEGER;
+-------------------------------------------------------------
+-------State machine for sending AT command to -------
+STATE_PROC: PROCESS(clk_100mhz,RXD_DATA_READY,RESET)	     
 		    BEGIN
-	                IF(RESET='1')THEN
-						DELAY_ENB<='0';
-						MSG_CNT<=0;
-						TXD_START <= '0';
-						STATE<=IDLE;
-							COMP_CNT<=240;
-					ELSIF RISING_EDGE(CLK) THEN
-						
-						CASE STATE IS
-
-							
-							WHEN IDLE=>
-													
-															
-								DELAY_ENB<='0';
-								TXD_START <= '0';
-								STATE<=IDLE;
-								COMP_CNT<=240;
-								STATE <= MSG_BUFF;
-						
-							WHEN MSG_BUFF=>
-	
-									CASE MSG_CNT IS
-										WHEN 0 =>
-						
-											GEN_MSG_HEX1<=(  ALL_ZERO((GEN_MSG_HEX1'HIGH-MSG_HEX1'HIGH)-1 DOWNTO 0) & MSG_HEX1);
-											TOTAL_CHAR:=(((MSG_HEX1'HIGH+1)/8));
-										WHEN 1 =>
-											GEN_MSG_HEX1<=(  ALL_ZERO((GEN_MSG_HEX1'HIGH-MSG_HEX2'HIGH)-1 DOWNTO 0) & MSG_HEX2);
-											TOTAL_CHAR:=(((MSG_HEX2'HIGH+1)/8));
-
-										WHEN OTHERS=>NULL;
-					
-										END CASE;
-								DELAY_ENB<='0';
-								STATE <= S1;
-					
-							WHEN S1=>
+				IF(RESET='1')THEN
+					txd_start<='0';
+					sending<='0';
+					total_char<=0;
+					last_rx_chars<=(OTHERS=>'0');
+					DELAY_COUNTER<=(OTHERS=>'0');
+					STATE<=IDLE;							
+				ELSIF RISING_EDGE(clk_100mhz) THEN
+					IF(SENDING='1')THEN
+						IF(CAR_COUNTER /= TOTAL_CHAR)THEN
+							IF(TXD_BUSY = '0')THEN
+								TXD_START<='1';
+								TXD_DATA<=GEN_MSG_HEX(((CAR_COUNTER+1)*8)-1 DOWNTO (CAR_COUNTER*8));
+								CAR_COUNTER<=CAR_COUNTER+1;
+							END IF;	
+						ELSE
+							SENDING<='0';
+							CAR_COUNTER<=0;
+							TXD_START<='0';
+						END IF;
+						ELSIF(DELAY_COUNTER/= 0) THEN
+							DELAY_COUNTER<= DELAY_COUNTER-1;
+							DEL_LED<='1';
+						ELSE	
+							DEL_LED<='0';				
+							CASE STATE IS
+								WHEN IDLE=>
 								
-								IF(DELAY_ENB='0' AND DELAY_FINISH='0')THEN	
-									DELAY_ENB<='1';
-									STATE <= S1;
-								ELSIF(DELAY_FINISH='1')THEN
-									STATE <= S2;
-								END IF;
-					
-							WHEN S2 =>
-								DELAY_ENB<='0';
-								T3:=0;
-								TXD_START <= '1';
-								STATE <= S3;	
-		              
-							WHEN S3 =>
-								IF(TXD_BUSY = '0' )THEN
-									TXD_DATA <= GEN_MSG_HEX1(((T3+1)*8)-1 DOWNTO (T3*8));
-									STATE <= S3;
-									T3:=T3+1;
-								ELSIF( T3 = TOTAL_CHAR)THEN--5
-									T3:=0;
-									STATE <= S4;
-									TXD_START <= '0';
-								END IF;	
+									DELAY_COUNTER<=(OTHERS =>'1');
+									STATE<=S1;
+			
+								WHEN S1=>
+										GEN_MSG_HEX<=(  ALL_ZERO((GEN_MSG_HEX'HIGH-MSG_HEX4'HIGH)-1 DOWNTO 0) & MSG_HEX4);
+										TOTAL_CHAR<=(((MSG_HEX4'HIGH+1)/8));
+										SENDING<='1';
+										DELAY_COUNTER<=(OTHERS =>'1');
+										STATE<=S2;
+								WHEN S2 =>
+										
+											GEN_MSG_HEX<=(  ALL_ZERO((GEN_MSG_HEX'HIGH-MSG_HEX7'HIGH)-1 DOWNTO 0) & MSG_HEX7);
+											TOTAL_CHAR<=(((MSG_HEX7'HIGH+1)/8));
+											SENDING<='1';
+											DELAY_COUNTER<= (OTHERS => '1');
+											LAST_RX_CHARS(4 DOWNTO 0)<= (OTHERS => '0');
+											STATE<=S3;
+										
+								WHEN S3 =>								
+									
+											GEN_MSG_HEX<=(  ALL_ZERO((GEN_MSG_HEX'HIGH-MSG_HEX6'HIGH)-1 DOWNTO 0) & MSG_HEX6);
+											TOTAL_CHAR<=(((MSG_HEX6'HIGH+1)/8));
+											SENDING<='1';
+											DELAY_COUNTER<= (OTHERS => '1');
+											LAST_RX_CHARS(4 DOWNTO 0)<= (OTHERS => '0');									
+											
+											STATE<=S4;
+																				
+								WHEN S4 =>		if(rd_data_cmd='1')then
 
-							WHEN S4 =>
-								IF(MSG_CNT<2) THEN 
-									MSG_CNT<=MSG_CNT+1;
-									STATE <= IDLE;
-								ELSE 
-									STATE <= S5;
-								END IF ;
-							WHEN S5 =>
-								STATE <= S5;
+											STATE<=S10;
+											
+											elsif(wr_data_cmd='1')then
+											
+														STATE<=S11;
+											end if;
+											
+											
+									
+								WHEN S10 =>								
+									
+											GEN_MSG_HEX<=(  ALL_ZERO((GEN_MSG_HEX'HIGH-MSG_HEX1'HIGH)-1 DOWNTO 0) & MSG_HEX1);
+											TOTAL_CHAR<=(((MSG_HEX1'HIGH+1)/8));
+											SENDING<='1';
+											DELAY_COUNTER<= (OTHERS => '1');
+											LAST_RX_CHARS(4 DOWNTO 0)<= (OTHERS => '0');									
+											
+											STATE<=S5;
+											
+													
+								WHEN S5 =>		
+								
+													 
+										MSG_HEX9 <=TO_STD_LOGIC_VECTOR(MSG_CHAR9);
+										MSG_HEX9( 199 downto 184) <=  "0011" & rd_address(3 DOWNTO 0) & "0011" & rd_address(7 DOWNTO 4)  ;
+										MSG_HEX9( 311 downto 296) <=  "0011" & rd_data(3 DOWNTO 0) & "0011" & rd_data(7 DOWNTO 4)  ;
+										
+										DELAY_COUNTER<= (OTHERS => '1');
+										LAST_RX_CHARS(4 DOWNTO 0)<= (OTHERS => '0');
+										STATE<=S6;
+										
+								WHEN S6 =>		
+										GEN_MSG_HEX<=(  ALL_ZERO((GEN_MSG_HEX'HIGH-MSG_HEX9'HIGH)-1 DOWNTO 0) & MSG_HEX9);
+										TOTAL_CHAR<=(((MSG_HEX9'HIGH+1)/8));
+										
+										SENDING<='1';
+										LAST_RX_CHARS(4 DOWNTO 0)<= (OTHERS => '0');
+										STATE<=S4;
+										
+								WHEN S11 =>								
+									
+											GEN_MSG_HEX<=(  ALL_ZERO((GEN_MSG_HEX'HIGH-MSG_HEX1'HIGH)-1 DOWNTO 0) & MSG_HEX1);
+											TOTAL_CHAR<=(((MSG_HEX1'HIGH+1)/8));
+											SENDING<='1';
+											DELAY_COUNTER<= (OTHERS => '1');
+											LAST_RX_CHARS(4 DOWNTO 0)<= (OTHERS => '0');									
+											
+											STATE<=S7;
+											
+
+								WHEN S7 =>		
+																					 
+										MSG_HEX10 <=TO_STD_LOGIC_VECTOR(MSG_CHAR10);										
+										MSG_HEX10( 215 downto 200) <=  "0011" & wr_address(3 DOWNTO 0) & "0011" & wr_address(7 DOWNTO 4)  ;
+										MSG_HEX10( 327 downto 312) <=  "0011" & wr_data(3 DOWNTO 0) & "0011"& wr_data(7 DOWNTO 4)  ;
+										
+										DELAY_COUNTER<= (OTHERS => '1');
+										LAST_RX_CHARS(4 DOWNTO 0)<= (OTHERS => '0');
+										STATE<=S8;
+										
+								WHEN S8 =>		
+										GEN_MSG_HEX<=(  ALL_ZERO((GEN_MSG_HEX'HIGH-MSG_HEX10'HIGH)-1 DOWNTO 0) & MSG_HEX10);
+										TOTAL_CHAR<=(((MSG_HEX10'HIGH+1)/8));
+										
+										SENDING<='1';
+										LAST_RX_CHARS(4 DOWNTO 0)<= (OTHERS => '0');
+										STATE<=S4;
+															
+																			
+							
+								WHEN S13 =>
+									STATE <= S10;
 
 
 							WHEN OTHERS=>NULL;
 					
 						END CASE;
 					END IF;
+					
+					
+					
+					
+	
+	
+
+	
+----------------------------------------------------------------------------------
+------------------DATA receiving from UART-------------------------------------				
+
+				IF(RX_STROBE='1') THEN
+					LAST_RX_CHARS<=LAST_RX_CHARS(LAST_RX_CHARS'HIGH-8 DOWNTO 0) & RXD_DATA;
+				END IF;
+
+-- $RFF#  --2452  23
+-- $WFFDD# --2457    23
+--rd_data_cmd
+--rd_address
+--wr_address
+--wr_data
+--wr_data_cmd		
+
+
+		
+				IF((LAST_RX_CHARS(31 DOWNTO 16)=X"2452") and LAST_RX_CHARS(7 DOWNTO 0)=X"23") THEN -- ASCII -- "$RFF#"  --2452FF23(ff is address)
+					rd_data_cmd<='1';
+					rd_address<=LAST_RX_CHARS(15 DOWNTO 8);
+				ELSE
+					rd_data_cmd<='0';
+				END IF;
+				
+				IF((LAST_RX_CHARS(39 DOWNTO 24)=X"2457") and LAST_RX_CHARS(7 DOWNTO 0)=X"23") THEN -- ASCII -- "$WFFDD#"  --2452FF23(ff is address)
+					wr_data_cmd<='1';
+					wr_address<=LAST_RX_CHARS(23 DOWNTO 16);
+					wr_data<=LAST_RX_CHARS(15 DOWNTO 8);
+				ELSE
+					wr_data_cmd<='0';
+				END IF;
+				
+				
+					
+				IF(LAST_RX_CHARS(39 DOWNTO 0)= X"713D302E39" )THEN -- ASCII FOR "q=0.9"
+					PIN<='1';
+				ELSE
+					PIN<='0';
+				END IF;
+				
+			
+				IF(LAST_RX_CHARS(55 DOWNTO 0)= X"50494E3D303031" )THEN -- ASCII FOR "pin=001\R\N"
+					IO1<='1';
+				ELSE
+					IO1<='0';
+				END IF;
+
+				IF(LAST_RX_CHARS(55 DOWNTO 0)= X"50494E3D303032" )THEN -- ASCII FOR "pin=002"
+					IO2<='1';
+				ELSE
+					IO2<='0';
+				END IF;
+				
+				IF(LAST_RX_CHARS(55 DOWNTO 0)= X"50494E3D303033" )THEN -- ASCII FOR "pin=003"
+					IO3<='1';
+				ELSE
+					IO3<='0';
+				END IF;
+				
+				IF(LAST_RX_CHARS(55 DOWNTO 0)= X"50494E3D303034" )THEN -- ASCII FOR "pin=004"
+					IO4<='1';
+				ELSE
+					IO4<='0';
+				END IF;
+				
+				IF(LAST_RX_CHARS(55 DOWNTO 0)= X"50494E3D303035" )THEN -- ASCII FOR "pin=005"
+					IO5<='1';
+				ELSE
+					IO5<='0';
+				END IF;				
+				
+				IF(LAST_RX_CHARS(55 DOWNTO 0)= X"50494E3D303036" )THEN -- ASCII FOR "pin=006"
+					IO6<='1';
+				ELSE
+					IO6<='0';
+				END IF;
+				
+				IF(LAST_RX_CHARS(55 DOWNTO 0)= X"50494E3D303037" )THEN -- ASCII FOR "pin=007"
+					IO7<='1';
+				ELSE
+					IO7<='0';
+				END IF;			
+				
+				IF(LAST_RX_CHARS(55 DOWNTO 0)= X"50494E3D303038" )THEN -- ASCII FOR "pin=008"
+					IO8<='1';
+				ELSE
+					IO8<='0';
+				END IF;
+				
+				IF(LAST_RX_CHARS(55 DOWNTO 0)= X"50494E3D303039" )THEN -- ASCII FOR "pin=009"
+					IO9<='1';
+				ELSE
+					IO9<='0';
+				END IF;			
+			
+				
+				IF(LAST_RX_CHARS(55 DOWNTO 0)= X"50494E3D303130" )THEN -- ASCII FOR "pin=010"
+					IO10<='1';
+				ELSE
+					IO10<='0';
+				END IF;
+				
+				IF(LAST_RX_CHARS(55 DOWNTO 0)= X"50494E3D303131" )THEN -- ASCII FOR "pin=011"
+					IO11<='1';
+				ELSE
+					IO11<='0';
+				END IF;			
+				
+				IF(LAST_RX_CHARS(55 DOWNTO 0)= X"50494E3D303132" )THEN -- ASCII FOR "pin=012"
+					IO12<='1';
+				ELSE
+					IO12<='0';
+				END IF;
+				
+				IF(LAST_RX_CHARS(55 DOWNTO 0)= X"50494E3D303133" )THEN -- ASCII FOR "pin=013"
+					IO13<='1';
+				ELSE
+					IO13<='0';
+				END IF;
+			
+			END IF;	
 		
 			END PROCESS STATE_PROC;
-	
-
-
-
-	
-			PROCESS(CLK)
-				VARIABLE T3:STD_LOGIC_VECTOR(1 DOWNTO 0):=(OTHERS=>'0');
-			BEGIN
-				IF CLK'EVENT AND CLK = '1' THEN
-					T3:=T3+1;
-				END IF;
-					DELAY_CLK<=T3(1);
-			END PROCESS;
-
-
-
-			PROCESS(DELAY_CLK,RESET,DELAY_ENB)
-				VARIABLE T3: INTEGER;
-			BEGIN
-				IF(RESET='1')THEN
-					T3:=0;
-				ELSIF RISING_EDGE(DELAY_CLK) THEN
-					IF(DELAY_ENB='0')THEN
-						T3:=0;
-						DELAY_FINISH<='0';
-					ELSIF(T3 < COMP_CNT)THEN
-						DELAY_FINISH<='0';
-						T3:=T3+1;
-					ELSE
-						DELAY_FINISH<='1';
-					END IF;
-				END IF;
-					DELAY_COUNT<=T3;
-			END PROCESS ;
+			
+			
+			
+					Inst_sync_ram: sync_ram PORT MAP(
+		clock =>clk_100mhz ,
+		we =>wr_data_cmd ,
+		wr_add =>wr_address ,
+		rd_add =>rd_address ,
+		datain =>wr_data ,
+		dataout =>rd_data 
+	);
 	
 	
+	PROCESS(IO1,RESET)	     
+		BEGIN
+			IF(RESET='1')THEN
+				LD1<='0';			
+			ELSIF (IO1 ='0' AND IO1'EVENT) THEN
+				LD1<=NOT LD1;
+			END IF;
+	END PROCESS;
 	
+	PROCESS(IO2,RESET)	     
+		BEGIN
+			IF(RESET='1')THEN
+				LD2<='0';			
+			ELSIF (IO2 ='0' AND IO2'EVENT) THEN
+				LD2<=NOT LD2;
+			END IF;
+	END PROCESS;	
+	
+	PROCESS(IO3,RESET)	     
+		BEGIN
+			IF(RESET='1')THEN
+				LD3<='0';			
+			ELSIF (IO3 ='0' AND IO3'EVENT) THEN
+				LD3<=NOT LD3;
+			END IF;
+	END PROCESS;
+	
+	PROCESS(IO4,RESET)	     
+		BEGIN
+			IF(RESET='1')THEN
+				LD4<='0';			
+			ELSIF (IO4 ='0' AND IO4'EVENT) THEN
+				LD4<=NOT LD4;
+			END IF;
+	END PROCESS;
+	
+	PROCESS(IO5,RESET)	     
+		BEGIN
+			IF(RESET='1')THEN
+				LD5<='0';			
+			ELSIF (IO5 ='0' AND IO5'EVENT) THEN
+				LD5<=NOT LD5;
+			END IF;
+	END PROCESS;
+	
+	PROCESS(IO6,RESET)	     
+		BEGIN
+			IF(RESET='1')THEN
+				LD6<='0';			
+			ELSIF (IO6 ='0' AND IO6'EVENT) THEN
+				LD6<=NOT LD6;
+			END IF;
+	END PROCESS;
+	
+	PROCESS(IO7,RESET)	     
+		BEGIN
+			IF(RESET='1')THEN
+				LD7<='0';			
+			ELSIF (IO7 ='0' AND IO7'EVENT) THEN
+				LD7<=NOT LD7;
+			END IF;
+	END PROCESS;
+	
+	PROCESS(IO8,RESET)	     
+		BEGIN
+			IF(RESET='1')THEN
+				LD8<='0';			
+			ELSIF (IO8 ='0' AND IO8'EVENT) THEN
+				LD8<=NOT LD8;
+			END IF;
+	END PROCESS;
 		
+	PROCESS(IO9,RESET)	     
+		BEGIN
+			IF(RESET='1')THEN
+				BZ<='0';			
+			ELSIF (IO9 ='0' AND IO9'EVENT) THEN
+				BZ<=NOT BZ;
+			END IF;
+	END PROCESS;			
+	
+	PROCESS(IO10,RESET)	     
+		BEGIN
+			IF(RESET='1')THEN
+				RL<='0';			
+			ELSIF (IO10 ='0' AND IO10'EVENT) THEN
+				RL<=NOT RL;
+			END IF;
+	END PROCESS;
+
+	PROCESS(IO11,RESET)	     
+		BEGIN
+			IF(RESET='1')THEN
+				R<='0';			
+			ELSIF (IO11='0' AND IO11'EVENT ) THEN
+				R<=NOT R;
+			END IF;
+	END PROCESS;
+	
+	PROCESS(IO12,RESET)	     
+		BEGIN
+			IF(RESET='1')THEN
+				G<='0';			
+			ELSIF (IO12='0' AND IO12'EVENT ) THEN
+				G<=NOT G;
+			END IF;
+	END PROCESS;
+	
+	PROCESS(IO13,RESET)	     
+		BEGIN
+			IF(RESET='1')THEN
+				B<='0';			
+			ELSIF (IO13='0' AND IO13'EVENT ) THEN
+				B<=NOT B;
+			END IF;
+	END PROCESS;
 	
 	
-END ARCHITECTURE UART_BEH;
+	
+END ARCHITECTURE RAM_CONTROL;

@@ -1,0 +1,102 @@
+Release 14.7 - xst P.20131013 (nt)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to E:/KITCODE/sp6_lpddr_v1/prj/sp6_lpddr/xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.28 secs
+ 
+--> Parameter xsthdpdir set to E:/KITCODE/sp6_lpddr_v1/prj/sp6_lpddr/xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.29 secs
+ 
+--> Reading design: TOP.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "E:\KITCODE\sp6_lpddr_v1\prj\sp6_lpddr\ipcore_dir\ddr2\user_design\rtl\iodrp_mcb_controller.vhd" into library work
+Parsing entity <iodrp_mcb_controller>.
+Parsing architecture <trans> of entity <iodrp_mcb_controller>.
+Parsing VHDL file "E:\KITCODE\sp6_lpddr_v1\prj\sp6_lpddr\ipcore_dir\ddr2\user_design\rtl\iodrp_controller.vhd" into library work
+Parsing entity <iodrp_controller>.
+Parsing architecture <trans> of entity <iodrp_controller>.
+Parsing VHDL file "E:\KITCODE\sp6_lpddr_v1\prj\sp6_lpddr\ipcore_dir\ddr2\user_design\rtl\mcb_soft_calibration.vhd" into library work
+Parsing entity <mcb_soft_calibration>.
+Parsing architecture <trans> of entity <mcb_soft_calibration>.
+Parsing VHDL file "E:\KITCODE\sp6_lpddr_v1\prj\sp6_lpddr\ipcore_dir\ddr2\user_design\rtl\mcb_soft_calibration_top.vhd" into library work
+Parsing entity <mcb_soft_calibration_top>.
+Parsing architecture <trans> of entity <mcb_soft_calibration_top>.
+Parsing VHDL file "E:\KITCODE\sp6_lpddr_v1\prj\sp6_lpddr\ipcore_dir\ddr2\user_design\rtl\mcb_raw_wrapper.vhd" into library work
+Parsing entity <mcb_raw_wrapper>.
+Parsing architecture <aarch> of entity <mcb_raw_wrapper>.
+Parsing VHDL file "E:\KITCODE\sp6_lpddr_v1\prj\sp6_lpddr\ipcore_dir\ddr2\user_design\rtl\memc3_wrapper.vhd" into library work
+Parsing entity <memc3_wrapper>.
+Parsing architecture <acch> of entity <memc3_wrapper>.
+Parsing VHDL file "E:\KITCODE\sp6_lpddr_v1\prj\sp6_lpddr\ipcore_dir\ddr2\user_design\rtl\memc3_infrastructure.vhd" into library work
+Parsing entity <memc3_infrastructure>.
+Parsing architecture <syn> of entity <memc3_infrastructure>.
+Parsing VHDL file "E:\KITCODE\sp6_lpddr_v1\prj\sp6_lpddr\ipcore_dir\ddr2\user_design\rtl\ddr2.vhd" into library work
+Parsing entity <ddr2>.
+Parsing architecture <arc> of entity <ddr2>.
+Parsing VHDL file "E:\KITCODE\sp6_lpddr_v1\prj\sp6_lpddr\Transmitter.vhd" into library work
+Parsing entity <UART_TRANSMITTER>.
+Parsing architecture <TRANSMITTER_BEH> of entity <uart_transmitter>.
+Parsing VHDL file "E:\KITCODE\sp6_lpddr_v1\prj\sp6_lpddr\Receiver.vhd" into library work
+Parsing entity <UART_RECEIVER>.
+Parsing architecture <RECEIVER_BEH> of entity <uart_receiver>.
+Parsing VHDL file "E:\KITCODE\sp6_lpddr_v1\prj\sp6_lpddr\UART.vhd" into library work
+Parsing entity <UART>.
+Parsing architecture <UART_BEH> of entity <uart>.
+Parsing VHDL file "E:\KITCODE\sp6_lpddr_v1\prj\sp6_lpddr\ram.vhd" into library work
+Parsing entity <sync_ram>.
+Parsing architecture <RTL> of entity <sync_ram>.
+Parsing VHDL file "E:\KITCODE\sp6_lpddr_v1\prj\sp6_lpddr\ESP_FPGA_PACK.vhd" into library work
+Parsing package <ESP_FPGA_PACK>.
+Parsing package body <ESP_FPGA_PACK>.
+Parsing VHDL file "E:\KITCODE\sp6_lpddr_v1\prj\sp6_lpddr\ddr_control.vhd" into library work
+Parsing entity <ddr_control>.
+Parsing architecture <Behavioral> of entity <ddr_control>.
+Parsing VHDL file "E:\KITCODE\sp6_lpddr_v1\prj\sp6_lpddr\UART_CONTROL.vhd" into library work
+Parsing entity <RAM_CONTROL>.
+Parsing architecture <RAM_CONTROL> of entity <ram_control>.
+Parsing VHDL file "E:\KITCODE\sp6_lpddr_v1\prj\sp6_lpddr\TOP.vhd" into library work
+Parsing entity <TOP>.
+Parsing architecture <BEHAVIORAL> of entity <top>.
+
+
+Total REAL time to Xst completion: 6.00 secs
+Total CPU time to Xst completion: 6.03 secs
+ 
+--> 
+
+Total memory usage is 203752 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+
