@@ -1,0 +1,7 @@
+vhdl work "UART.vhd"
+verilog work "latch.v"
+vhdl work "rs_232.vhd"
+vhdl work "pico_out_demux.vhd"
+vhdl work "PICO_CODE.vhd"
+verilog work "kcpsm6.v"
+vhdl work "pico_control.vhd"

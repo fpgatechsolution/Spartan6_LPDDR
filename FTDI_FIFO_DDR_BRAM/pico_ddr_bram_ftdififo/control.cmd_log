@@ -1,0 +1,23 @@
+xst -intstyle ise -ifn "E:/KITCODE/picoblaze_for sp6_mini/pico_uart/control.xst" -ofn "E:/KITCODE/picoblaze_for sp6_mini/pico_uart/control.syr" 
+xst -intstyle ise -ifn "E:/KITCODE/picoblaze_for sp6_mini/pico_uart/control.xst" -ofn "E:/KITCODE/picoblaze_for sp6_mini/pico_uart/control.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc6slx9-tqg144-2 "control.ngc" control.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc6slx9-tqg144-2 "control.ngc" control.ngd  
+map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o control_map.ncd control.ngd control.pcf 
+par -w -intstyle ise -ol high -mt off control_map.ncd control.ncd control.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml control.twx control.ncd -o control.twr control.pcf -ucf top.ucf 
+bitgen -intstyle ise -f control.ut control.ncd 
+xst -intstyle ise -ifn "E:/KITCODE/picoblaze_for sp6_mini/pico_uart/control.xst" -ofn "E:/KITCODE/picoblaze_for sp6_mini/pico_uart/control.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc6slx9-tqg144-2 "control.ngc" control.ngd  
+map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o control_map.ncd control.ngd control.pcf 
+par -w -intstyle ise -ol high -mt off control_map.ncd control.ncd control.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml control.twx control.ncd -o control.twr control.pcf -ucf top.ucf 
+bitgen -intstyle ise -f control.ut control.ncd 
+xst -intstyle ise -ifn "E:/KITCODE/picoblaze_for sp6_mini/pico_uart/control.xst" -ofn "E:/KITCODE/picoblaze_for sp6_mini/pico_uart/control.syr" 
+xst -intstyle ise -ifn "E:/KITCODE/picoblaze_for sp6_mini/pico_uart/control.xst" -ofn "E:/KITCODE/picoblaze_for sp6_mini/pico_uart/control.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc top.ucf -p xc6slx9-tqg144-2 "control.ngc" control.ngd  
+map -intstyle ise -p xc6slx9-tqg144-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o control_map.ncd control.ngd control.pcf 
+par -w -intstyle ise -ol high -mt off control_map.ncd control.ncd control.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml control.twx control.ncd -o control.twr control.pcf -ucf top.ucf 
+bitgen -intstyle ise -f control.ut control.ncd 
+vhdtdtfi -prj pico_uart -o E:/KITCODE/sp6_lpddr_v1/pico_ddr_bram_ftdififo/control.vhi -lib work E:/KITCODE/sp6_lpddr_v1/pico_ddr_bram_ftdififo//pico_control.vhd -module control -template C:/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror 
+vhdtdtfi -prj pico_uart -o E:/KITCODE/sp6_lpddr_v1/pico_ddr_bram_ftdififo/control.vhi -lib work E:/KITCODE/sp6_lpddr_v1/pico_ddr_bram_ftdififo//pico_control.vhd -module control -template C:/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror 

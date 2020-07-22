@@ -1,0 +1,394 @@
+;NAMEREG S1,
+;NAMEREG S2,HH
+;NAMEREG S3,TOGL_REG
+
+NAMEREG S0, REG1
+NAMEREG S1, REG2 
+NAMEREG S2, DDATA 
+NAMEREG S3, REG 
+NAMEREG S4, REG4 
+NAMEREG S5, TEMP 
+NAMEREG S6, DATA 
+NAMEREG S7, CNTR1
+NAMEREG S8, CNTR2
+NAMEREG S9, SPI_REG
+NAMEREG SA, ADDR1                   ; LSB ADDRES
+NAMEREG SB, ADDR2 
+NAMEREG SC, ADDR3
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;--------------------------------------------------
+       
+  
+CONSTANT RX_DT_RDY,02;////// INPUT     
+CONSTANT RX_DATA,03;////// INPUT     
+
+
+CONSTANT LED,01 
+CONSTANT TX_DATA,02 
+CONSTANT TX_STB,03
+CONSTANT RD_PULSE,04
+
+;//USB 
+
+CONSTANT    USB_DATA_OUT,0B       ;;DSOUT     2
+CONSTANT    USB_DATA_IN ,02       ;;DSIN      1
+CONSTANT    USB_RD_WR ,0A         ;;DSOUT     3
+CONSTANT    usb_rxf,04            ;;DSIN      3
+CONSTANT    usb_txe   ,03         ;;DSIN      2
+CONSTANT    usb_rd ,0C            ;;DSOUT     1
+CONSTANT    usb_wr,09             ;;DSOUT     4
+
+;// BRAM 
+
+CONSTANT    BRAM_DATA_IN ,05       ;;DSIN      1
+CONSTANT    BRAM_W ,08            ;;DSOUT     1
+CONSTANT    BRAM_ADR_70 ,06            ;;DSOUT     1
+CONSTANT    BRAM_ADR_158 ,07            ;;DSOUT  
+CONSTANT    BRAM_DATA_OUT ,05            ;;DSOUT  
+;*************************
+;; SCRATCHPAD MEMORY
+;*************************
+
+
+CONSTANT UR_DATA_RAM,01
+
+CONSTANT DDR_BRAM,02
+CONSTANT CMD_WR_RD,03
+
+
+CONSTANT ST_ADD_1,04
+CONSTANT ST_ADD_2,05
+
+CONSTANT N_OF_BYTE1,06
+CONSTANT N_OF_BYTE2,07
+
+CONSTANT BT_CNT1,08
+CONSTANT BT_CNT2,09
+
+CONSTANT BUFF_AD1,0A
+CONSTANT BUFF_AD2,0B
+
+
+
+;CONSTANT UR_DATA_RAM,01
+
+;CONSTANT UR_DATA_RAM,01
+
+;CONSTANT UR_DATA_RAM,01
+
+
+
+CONSTANT  DELL1,36
+CONSTANT  DELL2,37
+CONSTANT  DELL3,38
+CONSTANT  DELL4,39
+CONSTANT  DELL5,3A
+CONSTANT  DELL6,3B
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+CONSTANT  RDID_9F ,9F
+CONSTANT  WREN_06, 06
+CONSTANT  PP_02 ,02
+CONSTANT  READ_03, 03
+CONSTANT  RDSR_05,05
+CONSTANT  SE_D8,D8
+CONSTANT  WRSR_01,01
+CONSTANT  BE_C7,C7
+
+
+
+
+
+
+CONSTANT DELAY_1US_CONSTANT, 0B ;CONSTANT VALUE FOR DELAY RUTNS
+
+
+			
+			
+			
+			
+			
+			CHECK_FRAME:;$ D/B 12 34 R/W #** DATA
+			
+							call take_data_in_usb
+							COMPARE DDATA,"$"
+							JUMP NZ, CHECK_FRAME
+						
+							call take_data_in_usb
+							STORE DDATA,DDR_BRAM
+				
+							
+							call take_data_in_usb ;START ADDR1
+							STORE DDATA,ST_ADD_2
+							
+							call take_data_in_usb;START ADDR2
+							STORE DDATA,ST_ADD_1
+																				
+							call take_data_in_usb ;NO OF BYTES1
+							STORE DDATA,N_OF_BYTE2
+							
+							call take_data_in_usb;;NO OF BYTES2;;;;;7 TO 0
+							STORE DDATA,N_OF_BYTE1
+														
+							call take_data_in_usb
+							STORE DDATA,CMD_WR_RD
+			
+							call take_data_in_usb
+							COMPARE DDATA,"#"
+							JUMP NZ, CHECK_FRAME
+			
+			
+		
+					START:
+							;
+							FETCH DDATA,CMD_WR_RD
+							COMPARE DDATA,"R"
+							CALL Z, RD_DDR_RAM
+
+							COMPARE DDATA,"W"
+							CALL Z, WR_DDR_RAM
+							JUMP CHECK_FRAME
+							;
+							
+							;CALL  WR_DDR_RAM		
+							;CALL RD_DDR_RAM
+			
+							JUMP CHECK_FRAME
+			
+					HJGF: JUMP HJGF
+			
+			
+			WR_DDR_RAM:
+			
+							;CALL LED_BLINK
+							;LOAD DDATA, "W"
+							;CALL send_one_bt_usb
+							
+									
+							;call take_data_in_usb
+							;COMPARE DDATA,"*"
+							;JUMP NZ, CHECK_FRAME
+							
+							;call take_data_in_usb
+							;COMPARE DDATA,"*"
+							;JUMP NZ, CHECK_FRAME
+																		
+							
+							FETCH REG1, ST_ADD_1
+							STORE REG1,BUFF_AD1							
+							FETCH REG1, ST_ADD_2
+							STORE REG1,BUFF_AD2										
+							
+							LOAD REG1,00
+							STORE REG1,BT_CNT1
+							STORE REG1,BT_CNT2
+							
+			TAKE_NXT_BYT:
+																	
+							call take_data_in_usb 
+							CALL WR_BRAM_DATA
+							
+							FETCH     CNTR1, BT_CNT1
+							FETCH     CNTR2, BT_CNT2
+							
+							ADD       CNTR1, 01
+							ADDCY     CNTR2, 00
+							
+							STORE     CNTR1, BT_CNT1
+							STORE     CNTR2, BT_CNT2
+						
+							FETCH     ADDR1, N_OF_BYTE1
+							FETCH     ADDR2, N_OF_BYTE2
+							
+							COMPARE ADDR1,CNTR1
+							JUMP NZ,TAKE_NXT_BYT
+							COMPARE ADDR2,CNTR2
+							JUMP NZ,TAKE_NXT_BYT 
+							
+							RETURN
+			
+			RD_DDR_RAM:
+			
+							LOAD REG1,00
+							STORE REG1,BT_CNT1
+							STORE REG1,BT_CNT2
+							
+							FETCH REG1, ST_ADD_1
+							STORE REG1,BUFF_AD1
+							
+							FETCH REG1, ST_ADD_2
+							STORE REG1,BUFF_AD2
+											
+												
+							SEND_NXT_BYT:
+							CALL INC_BRAM_ADDRESS
+							INPUT DDATA,BRAM_DATA_IN
+							CALL send_one_bt_usb
+							
+							
+							
+							FETCH     CNTR1, BT_CNT1
+							FETCH     CNTR2, BT_CNT2
+							
+							ADD       CNTR1, 01
+							ADDCY      CNTR2, 00
+							
+							STORE     CNTR1, BT_CNT1
+							STORE     CNTR2, BT_CNT2
+							
+							FETCH     ADDR1, N_OF_BYTE1
+							FETCH     ADDR2, N_OF_BYTE2
+							
+							COMPARE ADDR1,CNTR1
+							JUMP NZ,SEND_NXT_BYT
+							COMPARE ADDR2,CNTR2
+							JUMP NZ,SEND_NXT_BYT
+							RETURN
+			
+			WR_BRAM_DATA:
+							
+							OUTPUT DDATA,BRAM_DATA_OUT
+							CALL INC_BRAM_ADDRESS
+							RETURN
+			
+			
+		INC_BRAM_ADDRESS:   FETCH     ADDR1, BUFF_AD1
+							FETCH     ADDR2, BUFF_AD2
+							ADD       ADDR1, 01
+							ADDCY     ADDR2, 00
+							OUTPUT ADDR1,BRAM_ADR_70
+							OUTPUT ADDR2,BRAM_ADR_158							
+							STORE     ADDR1, BUFF_AD1
+							STORE     ADDR2, BUFF_AD2
+							RETURN
+							
+								
+			
+		  CHK_DT_PRESENT:
+							INPUT        REG1, RX_DT_RDY
+							COMPARE      REG1, 00000001'b
+							JUMP         NZ, CHK_DT_PRESENT
+							OUTPUT       REG1, RD_PULSE
+							INPUT        REG1, RX_DATA
+							OUTPUT       REG1, LED				
+							RETURN
+			
+
+								
+		send_one_bt_usb: 
+			
+			 wr_rdy_chk: 
+							INPUT     REG1, usb_txe
+							TEST      REG1,00000001'b
+							JUMP      NZ, wr_rdy_chk
+							
+							LOAD      REG1, 00
+							OUTPUT    REG1, USB_RD_WR			
+							OUTPUT    DDATA, USB_DATA_OUT			
+							LOAD      REG1, 00
+							OUTPUT    REG1, usb_wr
+							LOAD      REG1, FF
+							OUTPUT    REG1, usb_wr
+							call DELAY_107US
+							call DELAY_107US
+							LOAD      REG1, FF
+							OUTPUT    REG1, USB_RD_WR			
+							RETURN  
+								
+								
+		take_data_in_usb: 
+							INPUT     REG1, usb_rxf
+							TEST      REG1,00000001'b
+							JUMP      NZ, take_data_in_usb
+							LOAD      REG1, FF
+							OUTPUT    REG1, USB_RD_WR							
+							OUTPUT    REG1, usb_rd
+							INPUT     DDATA, USB_DATA_IN
+							RETURN  					
+			
+								
+								
+								
+			  LED_BLINK:
+			        LP1:	SUB REG1, 01
+							LOAD DATA,AA
+							OUTPUT DATA, LED
+					
+							CALL DELAY_20MS
+							CALL DELAY_20MS
+							
+							LOAD DATA,55
+							OUTPUT DATA, LED
+					
+							CALL DELAY_20MS
+							CALL DELAY_20MS
+									CALL DELAY_20MS
+							CALL DELAY_20MS 
+							COMPARE REG1,00
+							JUMP NZ,LP1
+							RETURN
+					
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;ALL DELAY;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+			
+			;--
+			;|1000000/416NS
+			;|--------------------------===== CNT 
+			;|10
+			;|--------
+			
+			
+			
+			
+			; 10US IS 1000     (1000000/416 = 000018 HEX)   FOR 24MHZ
+			DELAY_10US: 
+					LOAD SF, 00
+							LOAD SE, 00
+							LOAD SD, 18
+							JUMP SOFTWARE_DELAY
+			
+			
+							; 10US IS 1000     (1000000/416 = 000101 HEX)   FOR 24MHZ
+			DELAY_107US: 
+					LOAD SF, 00
+							LOAD SE, 01
+							LOAD SD, 01
+							JUMP SOFTWARE_DELAY
+			
+			
+							; 1MS IS 1000     (1000/416 = 000963 HEX)   FOR 24MHZ
+			DELAY_1MS: 
+					LOAD SF, 00
+							LOAD SE, 09
+							LOAD SD, 63
+							JUMP SOFTWARE_DELAY
+							;
+							; 20MS IS 20,000  100NS  (20,000/416 = 00BBCD HEX)  FOR 24MHZ
+			
+				DELAY_20MS: LOAD SF, 00
+							LOAD SE, 5D
+							LOAD SD, C9
+							JUMP SOFTWARE_DELAY
+							;
+							;
+							; 1S IS 10,000,00 X 10NS      (1/416 = 24AE06 HEX)  FOR 24MHZ
+				DELAY_1S: LOAD SF, 24
+							LOAD SE, AE
+							LOAD SD, 06
+							JUMP SOFTWARE_DELAY
+							;
+							; THE DELAY LOOP DECREMENTS [S2,S1,S0] UNTIL IT REACHES ZERO
+							; EACH DECREMENT CYCLE IS 5 INSTRUCTIONS WHICH IS 10 CLOCK CYCLES (416NS AT 24MHZ)              
+			SOFTWARE_DELAY: LOAD SD, SD             ;PAD LOOP TO MAKE IT 10 CLOCK CYCLES (5 INSTRUCTIONS)
+							SUB SD, 1'd
+							SUBCY SE, 0'd
+							SUBCY SF, 0'd
+							JUMP NZ, SOFTWARE_DELAY
+							RETURN 
+							;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+			

@@ -1,0 +1,9 @@
+https://www.ftdichip.com/Support/Documents/ProgramGuides/D2XX_Programmer's_Guide(FT_000071).pdf
+
+https://www.ftdichip.com/Support/Documents/TechnicalNotes/TN_167_FIFO_Basics.pdf
+
+https://www.ftdichip.com/Support/Documents/AppNotes/AN_130_FT2232H_Used_In_FT245%20Synchronous%20FIFO%20Mode.pdf
+
+https://www.ftdichip.com/Support/Knowledgebase/index.html?ft_seteventnotification.htm
+
+https://www.ftdichip.com/Support/Documents/AppNotes/AN_135_MPSSE_Basics.pdf

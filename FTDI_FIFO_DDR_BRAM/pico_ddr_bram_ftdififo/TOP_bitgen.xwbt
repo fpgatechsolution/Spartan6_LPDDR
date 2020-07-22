@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\TOP.ncd
+OUTFILE=E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\TOP.bit
+FAMILY=Spartan6
+PART=xc6slx25-2csg324
+WORKINGDIR=E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo
+LICENSE=WebPack
+USER_INFO=__0_0_0

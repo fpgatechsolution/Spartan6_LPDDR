@@ -1,0 +1,31 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Tue Jul 21 23:32:55 2020
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "rd_n" LOCATE = SITE "K18" LEVEL 1;
+COMP "wr_n" LOCATE = SITE "K17" LEVEL 1;
+COMP "RESET" LOCATE = SITE "U16" LEVEL 1;
+PIN RESET_pin<0> = BEL "RESET" PINNAME PAD;
+PIN "RESET_pin<0>" CLOCK_DEDICATED_ROUTE = FALSE;
+COMP "rxf_n" LOCATE = SITE "H18" LEVEL 1;
+COMP "txe_n" LOCATE = SITE "J18" LEVEL 1;
+COMP "TEST_LED<0>" LOCATE = SITE "L6" LEVEL 1;
+COMP "TEST_LED<1>" LOCATE = SITE "M5" LEVEL 1;
+COMP "TEST_LED<2>" LOCATE = SITE "E4" LEVEL 1;
+COMP "TEST_LED<3>" LOCATE = SITE "C2" LEVEL 1;
+COMP "TEST_LED<4>" LOCATE = SITE "C1" LEVEL 1;
+COMP "TEST_LED<5>" LOCATE = SITE "P4" LEVEL 1;
+COMP "TEST_LED<6>" LOCATE = SITE "P3" LEVEL 1;
+COMP "TEST_LED<7>" LOCATE = SITE "N3" LEVEL 1;
+COMP "CLOCK_12MHZ" LOCATE = SITE "H17" LEVEL 1;
+COMP "usb_data<0>" LOCATE = SITE "C17" LEVEL 1;
+COMP "usb_data<1>" LOCATE = SITE "C18" LEVEL 1;
+COMP "usb_data<2>" LOCATE = SITE "D17" LEVEL 1;
+COMP "usb_data<3>" LOCATE = SITE "D18" LEVEL 1;
+COMP "usb_data<4>" LOCATE = SITE "E16" LEVEL 1;
+COMP "usb_data<5>" LOCATE = SITE "E18" LEVEL 1;
+COMP "usb_data<6>" LOCATE = SITE "F17" LEVEL 1;
+COMP "usb_data<7>" LOCATE = SITE "F18" LEVEL 1;
+SCHEMATIC END;
+

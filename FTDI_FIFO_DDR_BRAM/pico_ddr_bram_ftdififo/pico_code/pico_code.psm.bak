@@ -1,0 +1,251 @@
+;NAMEREG S1,
+;NAMEREG S2,HH
+;NAMEREG S3,TOGL_REG
+
+NAMEREG S0, REG1
+NAMEREG S1, REG2 
+NAMEREG S2, DDATA 
+NAMEREG S3, REG3 
+NAMEREG S4, REG4 
+NAMEREG S5, TEMP 
+NAMEREG S6, DATA 
+NAMEREG S7, CNTR1
+NAMEREG S8, CNTR2
+NAMEREG S9, SPI_REG
+NAMEREG SA, ADDR1                   ; LSB ADDRES
+NAMEREG SB, ADDR2 
+NAMEREG SC, ADDR3
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;--------------------------------------------------
+       
+  
+CONSTANT RX_DT_RDY,02;////// INPUT     
+CONSTANT RX_DATA,03;////// INPUT     
+
+
+CONSTANT LED,01 
+CONSTANT TX_DATA,02 
+CONSTANT TX_STB,03
+CONSTANT RD_PULSE,04
+
+
+;*************************
+;; SCRATCHPAD MEMORY
+;*************************
+
+
+CONSTANT UR_DATA_RAM,01
+CONSTANT  DELL1,36
+CONSTANT  DELL2,37
+CONSTANT  DELL3,38
+CONSTANT  DELL4,39
+CONSTANT  DELL5,3A
+CONSTANT  DELL6,3B
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+CONSTANT  RDID_9F ,9F
+CONSTANT  WREN_06, 06
+CONSTANT  PP_02 ,02
+CONSTANT  READ_03, 03
+CONSTANT  RDSR_05,05
+CONSTANT  SE_D8,D8
+CONSTANT  WRSR_01,01
+CONSTANT  BE_C7,C7
+
+
+CONSTANT A_1, 41
+CONSTANT B_1, 42
+CONSTANT C_1, 43
+CONSTANT D_1, 44
+CONSTANT E_1, 45
+CONSTANT F_1, 46
+CONSTANT G_1, 47
+CONSTANT H_1, 48
+CONSTANT I_1, 49
+CONSTANT J_1, 4A
+CONSTANT K_1, 4B
+CONSTANT L_1, 4C
+CONSTANT M_1, 4D
+CONSTANT N_1, 4E
+CONSTANT O_1, 4F
+CONSTANT P_1, 50
+CONSTANT Q_1, 51
+CONSTANT R_1, 52
+CONSTANT S_1, 53
+CONSTANT T_1, 54
+CONSTANT U_1, 55
+CONSTANT V_1, 56
+CONSTANT W_1, 57
+CONSTANT X_1, 58
+CONSTANT Y_1, 59
+CONSTANT Z_1, 5A
+CONSTANT BLK_1, 20
+CONSTANT DD_0, 30
+CONSTANT DD_1, 31
+CONSTANT DD_2, 32
+CONSTANT DD_3, 33
+CONSTANT DD_4, 34
+CONSTANT DD_5, 35
+CONSTANT DD_6, 36
+CONSTANT DD_7, 37
+CONSTANT DD_8, 38
+CONSTANT DD_9, 39
+CONSTANT BLK  , 20
+
+
+
+
+CONSTANT DELAY_1US_CONSTANT, 0B ;CONSTANT VALUE FOR DELAY RUTNS
+
+
+
+
+;LOOP: LOAD REG1,08
+
+;LOOP1:	       ;SUB REG1, 01;;;;;;;;;;;;; LED TEST
+	       ;LOAD DATA,AA
+	       ;OUTPUT DATA, LED
+	       ;CALL DELAY_1S
+
+	       ;LOAD DATA,55
+	       ;OUTPUT DATA, LED
+	       ;CALL DELAY_1S
+	       ;COMPARE REG1,00
+	       ;JUMP NZ,LOOP1
+
+
+
+start_send:
+           LOAD REG1, "H"
+           CALL SEND_ONE_BYTE
+
+           LOAD REG1, "E"
+           CALL SEND_ONE_BYTE
+
+           LOAD REG1, "L"
+           CALL SEND_ONE_BYTE
+
+           LOAD REG1, "L"
+           CALL SEND_ONE_BYTE
+ 
+           LOAD REG1, "O"
+           CALL SEND_ONE_BYTE
+
+           LOAD REG1, " "
+           CALL SEND_ONE_BYTE 
+
+
+           LOAD REG1, "W"
+           CALL SEND_ONE_BYTE
+
+           LOAD REG1, "O"
+           CALL SEND_ONE_BYTE
+
+           LOAD REG1, "R"
+           CALL SEND_ONE_BYTE
+
+           LOAD REG1, "L"
+           CALL SEND_ONE_BYTE
+ 
+           LOAD REG1, "D"
+           CALL SEND_ONE_BYTE
+
+            LOAD REG1, 0d
+           CALL SEND_ONE_BYTE
+
+           LOAD REG1, 0a
+           CALL SEND_ONE_BYTE
+
+;lo: jump lo
+
+main:
+CALL CHK_DT_PRESENT
+CALL DELAY_20MS
+CALL SEND_ONE_BYTE
+
+jump main
+
+
+
+
+CHK_DT_PRESENT:
+                    INPUT        REG1, RX_DT_RDY
+                    COMPARE      REG1, 00000001'b
+                    JUMP         NZ, CHK_DT_PRESENT
+                    OUTPUT       REG1, RD_PULSE
+                    INPUT        REG1, RX_DATA
+                    OUTPUT       REG1, LED
+         
+                    RETURN
+
+SEND_ONE_BYTE:
+
+		    OUTPUT        REG1, TX_DATA
+		    OUTPUT        REG1, TX_STB
+		    CALL DELAY_20MS
+                    RETURN
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;ALL DELAY;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;--
+;|1000000/416NS
+;|--------------------------===== CNT 
+;|10
+;|--------
+
+
+
+
+; 10US IS 1000     (1000000/416 = 000018 HEX)   FOR 24MHZ
+ DELAY_10US: 
+		LOAD SF, 00
+                LOAD SE, 00
+                LOAD SD, 18
+                JUMP SOFTWARE_DELAY
+
+
+                ; 10US IS 1000     (1000000/416 = 000101 HEX)   FOR 24MHZ
+ DELAY_107US: 
+		LOAD SF, 00
+                LOAD SE, 01
+                LOAD SD, 01
+                JUMP SOFTWARE_DELAY
+
+
+                ; 1MS IS 1000     (1000/416 = 000963 HEX)   FOR 24MHZ
+ DELAY_1MS: 
+		LOAD SF, 00
+                LOAD SE, 09
+                LOAD SD, 63
+                JUMP SOFTWARE_DELAY
+                ;
+                ; 20MS IS 20,000  100NS  (20,000/416 = 00BBCD HEX)  FOR 24MHZ
+
+     DELAY_20MS: LOAD SF, 00
+                LOAD SE, 5D
+                LOAD SD, C9
+                JUMP SOFTWARE_DELAY
+                ;
+                ;
+                ; 1S IS 10,000,00 X 10NS      (1/416 = 24AE06 HEX)  FOR 24MHZ
+      DELAY_1S: LOAD SF, 24
+                LOAD SE, AE
+                LOAD SD, 06
+                JUMP SOFTWARE_DELAY
+                ;
+                ; THE DELAY LOOP DECREMENTS [S2,S1,S0] UNTIL IT REACHES ZERO
+                ; EACH DECREMENT CYCLE IS 5 INSTRUCTIONS WHICH IS 10 CLOCK CYCLES (416NS AT 24MHZ)              
+SOFTWARE_DELAY: LOAD SD, SD             ;PAD LOOP TO MAKE IT 10 CLOCK CYCLES (5 INSTRUCTIONS)
+                SUB SD, 1'd
+                SUBCY SE, 0'd
+                SUBCY SF, 0'd
+                JUMP NZ, SOFTWARE_DELAY
+                RETURN 
+                ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
