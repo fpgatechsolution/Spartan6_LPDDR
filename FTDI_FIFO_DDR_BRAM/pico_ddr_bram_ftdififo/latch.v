@@ -18,34 +18,34 @@ endgenerate
  endmodule 
  
  
- module SRf1(set,reset,Q);
-	input set,reset;
-	output Q;
-  
-	FDC #(.INIT(1'b0))	
-	FDC_f1(
-				.Q(Q),
-				.CLR(reset),
-				.D(1'b1),
-				.C(set)
-			 );
-endmodule
+// module SRf1(set,reset,Q);
+//	input set,reset;
+//	output Q;
+//  
+//	FDC #(.INIT(1'b0))	
+//	FDC_f1(
+//				.Q(Q),
+//				.CLR(reset),
+//				.D(1'b1),
+//				.C(set)
+//			 );
+//endmodule
 
 
-module ready_ff(set,reset,rdyq);
-input set,reset;
-output rdyq;
-reg rdyq;
-
-always@(negedge set,negedge reset)
-begin
-if(~reset)
-rdyq= 1'b0;
-else
-if(~set)
-rdyq=1'b1;
-end
-endmodule
+//module ready_ff(set,reset,rdyq);
+//input set,reset;
+//output rdyq;
+//reg rdyq;
+//
+//always@(negedge set,negedge reset)
+//begin
+//if(~reset)
+//rdyq= 1'b0;
+//else
+//if(~set)
+//rdyq=1'b1;
+//end
+//endmodule
 
 //module input_buff( in_b, out_b,en);
 //parameter SIZE=8;

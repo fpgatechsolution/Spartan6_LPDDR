@@ -5,15 +5,22 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="info" file="LIT" num="243" delta="old" >Logical network <arg fmt="%s" index="1">SYSTEM_CLK_100MHZ</arg> has no load.
+<msg type="info" file="LIT" num="243" delta="old" >Logical network <arg fmt="%s" index="1">N30</arg> has no load.
 </msg>
 
-<msg type="info" file="LIT" num="395" delta="old" >The above <arg fmt="%s" index="1">info</arg> message is repeated <arg fmt="%d" index="2">1</arg> more times for the following (max. 5 shown):
-<arg fmt="%s" index="3">RESET_IBUF</arg>
+<msg type="info" file="LIT" num="395" delta="old" >The above <arg fmt="%s" index="1">info</arg> message is repeated <arg fmt="%d" index="2">244</arg> more times for the following (max. 5 shown):
+<arg fmt="%s" index="3">N31,
+N32,
+N33,
+N34,
+N35</arg>
 To see the details of these <arg fmt="%s" index="4">info</arg> messages, please use the -detail switch.
 </msg>
 
 <msg type="info" file="MapLib" num="562" delta="old" >No environment variables are currently set.
+</msg>
+
+<msg type="info" file="MapLib" num="159" delta="old" >Net Timing constraints on signal <arg fmt="%s" index="1">sys_clk</arg> are pushed forward through input buffer.
 </msg>
 
 <msg type="info" file="Pack" num="1716" delta="old" >Initializing temperature to <arg fmt="%0.3f" index="1">85.000</arg> Celsius. (default - Range: <arg fmt="%0.3f" index="2">0.000</arg> to <arg fmt="%0.3f" index="3">85.000</arg> Celsius)
@@ -29,6 +36,15 @@ To see the details of these <arg fmt="%s" index="4">info</arg> messages, please 
 </msg>
 
 <msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">Inst_control/out_port_no&lt;12&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">Inst_ddr_control/addr_rst_pico_r_sys_reset_AND_49_o</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">Inst_ddr_control/addr_rst_pico_r_sys_reset_AND_51_o</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="367" delta="old" >The signal &lt;<arg fmt="%s" index="1">Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/GLOBAL_LOGIC1</arg>&gt; is incomplete. The signal does not drive any load pins in the design.
 </msg>
 
 </messages>

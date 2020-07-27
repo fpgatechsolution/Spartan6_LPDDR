@@ -5,7 +5,7 @@ C:\Xilinx\14.7\ISE_DS\ISE\.
    "TOP" is an NCD, version 3.2, device xc6slx25, package csg324, speed -2
 Opened constraints file TOP.pcf.
 
-Tue Jul 21 23:33:44 2020
+Mon Jul 27 16:28:13 2020
 
 C:\Xilinx\14.7\ISE_DS\ISE\bin\nt\unwrapped\bitgen.exe -intstyle ise -w -g DebugBitstream:No -g Binary:no -g CRC:Enable -g Reset_on_err:No -g ConfigRate:2 -g ProgPin:PullUp -g TckPin:PullUp -g TdiPin:PullUp -g TdoPin:PullUp -g TmsPin:PullUp -g UnusedPin:PullDown -g UserID:0xFFFFFFFF -g ExtMasterCclk_en:No -g SPI_buswidth:1 -g TIMER_CFG:0xFFFF -g multipin_wakeup:No -g StartUpClk:CClk -g DONE_cycle:4 -g GTS_cycle:5 -g GWE_cycle:6 -g LCK_cycle:NoWait -g Security:None -g DonePipe:Yes -g DriveDone:No -g en_sw_gsr:No -g drive_awake:No -g sw_clk:Startupclk -g sw_gwe_cycle:5 -g sw_gts_cycle:4 TOP.ncd 
 
@@ -124,15 +124,28 @@ Summary of Bitgen Options:
  *  Default setting.
  ** The specified setting matches the default setting.
 
-There were 0 CONFIG constraint(s) processed from TOP.pcf.
+There were 1 CONFIG constraint(s) processed from TOP.pcf.
 
+   CONFIG VCCAUX = "2.5"
 
 Running DRC.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
    Inst_control/out_port_no<12> is sourced by a combinatorial pin. This is not
    good design practice. Use the CE pin to control the loading of data into the
    flip-flop.
-DRC detected 0 errors and 1 warnings.  Please see the previously displayed
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   Inst_ddr_control/addr_rst_pico_r_sys_reset_AND_49_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   Inst_ddr_control/addr_rst_pico_r_sys_reset_AND_51_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:367 - The signal
+   <Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper
+   _inst/gen_term_calib.mcb_soft_calibration_top_inst/GLOBAL_LOGIC1> is
+   incomplete. The signal does not drive any load pins in the design.
+DRC detected 0 errors and 4 warnings.  Please see the previously displayed
 individual error or warning messages for more details.
 Creating bit map...
 Saving bit stream in "top.bit".

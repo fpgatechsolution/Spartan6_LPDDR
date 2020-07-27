@@ -43,11 +43,43 @@ CONSTANT    usb_wr,09             ;;DSOUT     4
 
 ;// BRAM 
 
-CONSTANT    BRAM_DATA_IN ,05       ;;DSIN      1
+CONSTANT    BRAM_DATA_IN ,05      ;;DSIN      1
 CONSTANT    BRAM_W ,08            ;;DSOUT     1
-CONSTANT    BRAM_ADR_70 ,06            ;;DSOUT     1
-CONSTANT    BRAM_ADR_158 ,07            ;;DSOUT  
-CONSTANT    BRAM_DATA_OUT ,05            ;;DSOUT  
+CONSTANT    BRAM_ADR_70 ,06       ;;DSOUT     1
+CONSTANT    BRAM_ADR_158 ,07      ;;DSOUT  
+CONSTANT    BRAM_DATA_OUT ,05     ;;DSOUT  
+
+;//////////ddr write
+
+CONSTANT    DDR_DATA_W_31_24 , 13'd ;;DSOUT
+CONSTANT    DDR_DATA_W_23_16 , 14'd ;;DSOUT
+CONSTANT    DDR_DATA_W_15_8  , 15'd ;;DSOUT
+CONSTANT    DDR_DATA_W_7_0   , 16'd ;;DSOUT
+                                 
+CONSTANT    CMD_WR_PLS       , 17'd  ;;DSOUT   
+CONSTANT    WR_EN_PLS        , 18'd ;;DSOUT
+
+CONSTANT    WR_RD_CMD        , 19'd ;;DSOUT  ;;;0 for write 1 for read 
+
+
+
+
+
+
+;//////////ddr_read
+CONSTANT    DDR_DATA_R_31_24 , 06'd ;;DSIN
+CONSTANT    DDR_DATA_R_23_16 , 07'd ;;DSIN
+CONSTANT    DDR_DATA_R_15_8  , 08'd ;;DSIN
+CONSTANT    DDR_DATA_R_7_0   , 09'd ;;DSIN
+                                 
+CONSTANT	READ_EMPTY		, 12'd ;;DSIN			 
+								 
+								 
+CONSTANT    DDR_ADDRESS_INC_PLS  , 21'd ;;DSOUT  
+CONSTANT    RD_EN_PLS        , 22'd ;;DSOUT
+
+CONSTANT    DDR_ADDRESS_RESET_W , 23'd ;;DSOUT
+CONSTANT    DDR_ADDRESS_RESET_R , 23'd ;;DSOUT
 ;*************************
 ;; SCRATCHPAD MEMORY
 ;*************************
@@ -108,7 +140,46 @@ CONSTANT  BE_C7,C7
 
 CONSTANT DELAY_1US_CONSTANT, 0B ;CONSTANT VALUE FOR DELAY RUTNS
 
-
+	CALL send_one_bt_usb
+			
+		;test_ddr:	call take_data_in_usb
+		;			COMPARE DDATA,"$"
+		;			JUMP NZ, test_ddr
+		;					
+		;	
+		;	OUTPUT DDATA,DDR_ADDRESS_RESET_W
+		;	
+        ;
+		;	
+		;	CALL WRITE_1_WORD_DDR
+        ;
+		;	
+        ;
+		;	CALL DELAY_10US
+		;	OUTPUT DDATA,DDR_ADDRESS_RESET_R
+        ;
+		;	
+		;	CALL READ_1_WORD_DDR	
+        ;
+        ;
+        ;
+		;	
+		;	
+		;	CALL DELAY_10US
+		;	CALL DELAY_20MS
+		;	
+        ;
+		;	
+        ;call test_ddr
+        ;
+		;	     
+		;	       
+		;	ASD: JUMP ASD
+		;	
+			
+			
+			
+			
 			
 			
 			
@@ -146,7 +217,7 @@ CONSTANT DELAY_1US_CONSTANT, 0B ;CONSTANT VALUE FOR DELAY RUTNS
 			
 		
 					START:
-							;
+							
 							FETCH DDATA,CMD_WR_RD
 							COMPARE DDATA,"R"
 							CALL Z, RD_DDR_RAM
@@ -156,8 +227,7 @@ CONSTANT DELAY_1US_CONSTANT, 0B ;CONSTANT VALUE FOR DELAY RUTNS
 							JUMP CHECK_FRAME
 							;
 							
-							;CALL  WR_DDR_RAM		
-							;CALL RD_DDR_RAM
+
 			
 							JUMP CHECK_FRAME
 			
@@ -165,21 +235,7 @@ CONSTANT DELAY_1US_CONSTANT, 0B ;CONSTANT VALUE FOR DELAY RUTNS
 			
 			
 			WR_DDR_RAM:
-			
-							;CALL LED_BLINK
-							;LOAD DDATA, "W"
-							;CALL send_one_bt_usb
-							
-									
-							;call take_data_in_usb
-							;COMPARE DDATA,"*"
-							;JUMP NZ, CHECK_FRAME
-							
-							;call take_data_in_usb
-							;COMPARE DDATA,"*"
-							;JUMP NZ, CHECK_FRAME
-																		
-							
+						OUTPUT REG1,DDR_ADDRESS_RESET_W
 							FETCH REG1, ST_ADD_1
 							STORE REG1,BUFF_AD1							
 							FETCH REG1, ST_ADD_2
@@ -190,10 +246,28 @@ CONSTANT DELAY_1US_CONSTANT, 0B ;CONSTANT VALUE FOR DELAY RUTNS
 							STORE REG1,BT_CNT2
 							
 			TAKE_NXT_BYT:
-																	
+
+							FETCH DDATA,DDR_BRAM
+							COMPARE DDATA,"D"
+							JUMP Z, WR_DDR
+                            
+							FETCH DDATA,DDR_BRAM
+							COMPARE DDATA,"B"
+							JUMP Z, WR_BRAM
+							
+							RETURN
+							
+
+				WR_DDR:			
+							
+							CALL WRITE_1_WORD_DDR
+							JUMP NXT_LOOP
+							
+				WR_BRAM:
 							call take_data_in_usb 
 							CALL WR_BRAM_DATA
 							
+				NXT_LOOP:			
 							FETCH     CNTR1, BT_CNT1
 							FETCH     CNTR2, BT_CNT2
 							
@@ -214,7 +288,7 @@ CONSTANT DELAY_1US_CONSTANT, 0B ;CONSTANT VALUE FOR DELAY RUTNS
 							RETURN
 			
 			RD_DDR_RAM:
-			
+							OUTPUT REG1,DDR_ADDRESS_RESET_R
 							LOAD REG1,00
 							STORE REG1,BT_CNT1
 							STORE REG1,BT_CNT2
@@ -226,13 +300,30 @@ CONSTANT DELAY_1US_CONSTANT, 0B ;CONSTANT VALUE FOR DELAY RUTNS
 							STORE REG1,BUFF_AD2
 											
 												
-							SEND_NXT_BYT:
+			SEND_NXT_BYT:
+			
+							FETCH DDATA,DDR_BRAM
+							COMPARE DDATA,"D"
+							JUMP Z, RD_DDR
+                            
+							FETCH DDATA,DDR_BRAM
+							COMPARE DDATA,"B"
+							JUMP Z, RD_BRAM
+							
+							RETURN
+							
+
+				RD_DDR:			
+							
+							CALL READ_1_WORD_DDR
+							JUMP NXT_LOOP1
+							
+				RD_BRAM:
 							CALL INC_BRAM_ADDRESS
 							INPUT DDATA,BRAM_DATA_IN
 							CALL send_one_bt_usb
 							
-							
-							
+				NXT_LOOP1:	
 							FETCH     CNTR1, BT_CNT1
 							FETCH     CNTR2, BT_CNT2
 							
@@ -333,6 +424,110 @@ CONSTANT DELAY_1US_CONSTANT, 0B ;CONSTANT VALUE FOR DELAY RUTNS
 							COMPARE REG1,00
 							JUMP NZ,LP1
 							RETURN
+
+		DATA_OUT_DDR:
+ 	
+							call take_data_in_usb			
+							OUTPUT DDATA,DDR_DATA_W_31_24
+							
+							call take_data_in_usb		
+							OUTPUT DDATA,DDR_DATA_W_23_16
+							
+							call take_data_in_usb		
+							OUTPUT DDATA,DDR_DATA_W_15_8 
+							
+							call take_data_in_usb		
+							OUTPUT DDATA,DDR_DATA_W_7_0
+							
+						OUTPUT DDATA,WR_EN_PLS
+							
+							RETURN
+							
+							
+		WRITE_1_WORD_DDR:		
+ 
+							
+							CALL DATA_OUT_DDR							
+							CALL DATA_OUT_DDR							
+
+							
+							;OUTPUT DDATA,WR_EN_PLS 
+							
+							LOAD DDATA,00 			; write cmd 
+							OUTPUT DDATA,WR_RD_CMD  ; write cmd 
+							
+							OUTPUT DDATA,CMD_WR_PLS 
+				OUTPUT DDATA,DDR_ADDRESS_INC_PLS	 		
+							
+							
+							RETURN		
+
+		 READ_1_WORD_DDR:		
+
+
+
+		 
+							LOAD DDATA,01			; READ cmd 
+							OUTPUT DDATA,WR_RD_CMD  ; READ cmd 
+							
+							OUTPUT DDATA,CMD_WR_PLS 
+							
+							
+						WAIT_FOR_DATA1:		INPUT REG1,READ_EMPTY						
+							COMPARE REG1,01
+							JUMP Z,WAIT_FOR_DATA1			
+		
+						
+
+
+					
+						
+							CALL DATA_IN_DDR
+							CALL DATA_IN_DDR
+
+							
+					OUTPUT DDATA,DDR_ADDRESS_INC_PLS		
+							
+							RETURN
+
+		DATA_IN_DDR:
+		
+				WAIT_FOR_DATA:		INPUT REG1,READ_EMPTY						
+							COMPARE REG1,01
+							JUMP Z,WAIT_FOR_DATA
+
+							
+							;CALL DELAY_1S
+							
+							
+					
+							
+							INPUT DDATA,DDR_DATA_R_31_24
+							CALL send_one_bt_usb
+							
+							INPUT DDATA,DDR_DATA_R_23_16
+							CALL send_one_bt_usb
+							
+							INPUT DDATA,DDR_DATA_R_15_8 
+							CALL send_one_bt_usb
+							
+							INPUT DDATA,DDR_DATA_R_7_0  
+							CALL send_one_bt_usb
+	
+								OUTPUT DDATA,RD_EN_PLS	
+							
+							
+							RETURN
+
+
+
+
+
+
+
+
+							
+							
 					
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;ALL DELAY;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 			

@@ -5,7 +5,7 @@ USE  IEEE.STD_LOGIC_ARITH.all;
 USE  IEEE.STD_LOGIC_UNSIGNED.all;
 
 ENTITY PICO_OUT IS
-    generic(bus_width:INTEGER:=4);
+    generic(bus_width:INTEGER:=5);
     
 	PORT( strobe	: IN	STD_LOGIC;
 		OUT_PORT_NO: OUT	STD_LOGIC_VECTOR((2**bus_width-1) DOWNTO 0);

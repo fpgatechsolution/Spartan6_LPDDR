@@ -41,11 +41,16 @@ int main(int argc, char* argv[])
 					return 0;
 				}
 
+				
+				//unsigned char Tx_data_buf[9] = { 00,'$','D',00,00,00,8,'W','#' };
+				unsigned char Tx_data_buf[9] = { 00,'$','B',00,00,00,64,'W','#' };
 
 
-				unsigned char Tx_data_buf[9] = { 00,'$','B',00,00,00,30,'W','#' };
-				unsigned char Tx_data_buf1[30] = {'*', '*', 'F', 'P', 'G', 'A', 'T', 'E', 'C', 'H', 'S', 'O', 'L', 'U', 'T', 'I', 'O', 'N', '.', 'C', 'O', 'M', '1','2','3','4','5','6','7','8' };
-				unsigned char   Rx_CMD[9] =    { 00,'$','B',00,00,00,30,'R','#' };// '*', '*', 'F', 'P', 'G', 'A', 'T', 'E', 'C', 'H', 'S', 'O', 'L', 'U', 'T', 'I', 'O', 'N', '.', 'C', 'O', 'M', ' '};
+
+				unsigned char Tx_data_buf1[64] = { 'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
+					'1','2','3','4','5','6','7','8','9','0','@','#'};
+				//unsigned char   Rx_CMD[9] =    { 00,'$','D',00,00,00,8,'R','#' };// '*', '*', 'F', 'P', 'G', 'A', 'T', 'E', 'C', 'H', 'S', 'O', 'L', 'U', 'T', 'I', 'O', 'N', '.', 'C', 'O', 'M', ' '};
+				unsigned char   Rx_CMD[9] = { 00,'$','B',00,00,00,64,'R','#' };// '*', '*', 'F', 'P', 'G', 'A', 'T', 'E', 'C', 'H', 'S', 'O', 'L', 'U', 'T', 'I', 'O', 'N', '.', 'C', 'O', 'M', ' '};
 
 				status = FT_Write(fthandle, &Tx_data_buf, sizeof(Tx_data_buf), &data_written);
 
@@ -66,7 +71,7 @@ int main(int argc, char* argv[])
 
 				//}
 
-				for (int ii = 0; ii < 10; ii++)
+				for (int ii = 0; ii < 20; ii++)
 				{
 					printf("Waiting for Receiving Data \n");
 

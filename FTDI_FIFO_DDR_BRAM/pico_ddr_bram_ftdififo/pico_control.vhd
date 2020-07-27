@@ -13,44 +13,44 @@ library unisim;
 use unisim.vcomponents.all;
 
 entity control is
-    Port ( CLK_OSC : in  STD_LOGIC;
-           rx_232 : in  STD_LOGIC;
-			  tx_232 : out  STD_LOGIC;
+    Port ( 	CLK_OSC : in  STD_LOGIC;
+			reset : in  STD_LOGIC;
 			  
-			  usb_data  : inout std_logic_vector(7 downto 0);
-			  rxf_n : in    std_logic;
-			  txe_n : in    std_logic;
-			  rd_n  : out   std_logic;
-			  wr_n  : out   std_logic;
-			  
-			  bram_data_in: in  STD_LOGIC_VECTOR (7 downto 0);
-			  bram_data_out: out  STD_LOGIC_VECTOR (7 downto 0);
-			  Bram_w_r:out  STD_LOGIC;
-			  address_7_0: out  STD_LOGIC_VECTOR (7 downto 0);
-			  address_15_8: out  STD_LOGIC_VECTOR (7 downto 0);
-			  led_test :  out  STD_LOGIC_VECTOR (7 downto 0);	
-			  
-           reset : in  STD_LOGIC);
+			usb_data  : inout std_logic_vector(7 downto 0);
+			rxf_n : in    std_logic;
+			txe_n : in    std_logic;
+			rd_n  : out   std_logic;
+			wr_n  : out   std_logic;
+			
+			bram_data_in: in  STD_LOGIC_VECTOR (7 downto 0);
+			bram_data_out: out  STD_LOGIC_VECTOR (7 downto 0);
+			Bram_w_r:out  STD_LOGIC;
+			address_7_0: out  STD_LOGIC_VECTOR (7 downto 0);
+			address_15_8: out  STD_LOGIC_VECTOR (7 downto 0);
+			led_test :  out  STD_LOGIC_VECTOR (7 downto 0);	
+	
+		--///**** write & read control******
+
+			cmd_en_wr_a : out  std_logic;
+			WR_RD_CMD   : out  std_logic_vector(2 downto 0);	
+
+		--///**** write control******
+			wr_en_pls_a : out  std_logic;	
+			wr_full_a   : in  std_logic;
+			wr_data_a 	: out std_logic_vector(31 downto 0);
+			ddr_add_inc_pico: out  std_logic;
+			addr_rst_pico_w: out  std_logic;
+			addr_rst_pico_r: out  std_logic;		
+			
+		--///**** read control*****
+			rd_en_pls_a	: out  std_logic;
+			rd_data_a 	: in std_logic_vector(31 downto 0);
+			rd_empty_a	: in std_logic;
+		    ddr_error   : in std_logic	
+			);
 end control;
 
 architecture Behavioral of control is
-
-
-	COMPONENT rs_232
-	PORT(
-		clk_12 : IN std_logic;
-		reset : IN std_logic;
-		rx_232 : IN std_logic;
-		rd_pulse : IN std_logic;
-		tx_strobe : IN std_logic;
-		tx_data : IN std_logic_vector(7 downto 0);          
-		rx_strobe : OUT std_logic;
-		rx_data : OUT std_logic_vector(7 downto 0);
-		tx_232 : OUT std_logic
-		);
-	END COMPONENT;
-
-
 
 
  component kcpsm6 
@@ -90,8 +90,8 @@ architecture Behavioral of control is
 	COMPONENT PICO_OUT
 	PORT(
 		strobe : IN std_logic;
-		add : IN std_logic_vector(3 downto 0);          
-		OUT_PORT_NO : OUT std_logic_vector(15 downto 0)
+		add : IN std_logic_vector(4 downto 0);          
+		OUT_PORT_NO : OUT std_logic_vector(31 downto 0)
 		);
 	END COMPONENT;
 
@@ -155,7 +155,7 @@ signal	sleep: std_logic;
 
 --//***************** INTERNAL WIRE AND REG DEFINE FOR PICO****************************
 --//***********************************************************************************
-signal out_port_no :std_logic_vector(15 downto 0);
+signal out_port_no :std_logic_vector(31 downto 0);
 signal in_port_no:std_logic_vector(15 downto 0);
 --//***************** INTERNAL WIRE AND REG DEFINE FOR UART****************************
 --//***********************************************************************************
@@ -172,6 +172,10 @@ signal clk_50,clk_12: std_logic;
 signal reset_rdl: std_logic;
 signal usb_cntrl_rd_wr: std_logic;
 signal rd_n_buff,data_from_usb_rdy: std_logic;
+
+signal WR_RD_CMD_buf:std_logic_vector(7 downto 0);
+
+
 begin
 
 
@@ -243,7 +247,7 @@ end process;
 	Inst_PICO_OUT: PICO_OUT PORT MAP(
 		strobe =>write_strobe ,
 		OUT_PORT_NO =>out_port_no ,
-		add =>port_id(3 downto 0) 
+		add =>port_id(4 downto 0) 
 	);
 
 --	Inst_PICO_in: PICO_OUT PORT MAP(
@@ -254,38 +258,26 @@ end process;
 
 
 
-	Inst_rs_232: rs_232 PORT MAP(
-		clk_12 =>clk_12 ,
-		reset =>reset ,
-		rx_232 =>rx_232 ,
-		rx_strobe =>rx_strobe ,
-		rd_pulse =>rd_pulse ,
-		rx_data =>rx_data_o ,
-		tx_232 =>tx_232 ,
-		tx_strobe =>tx_strobe ,
-		tx_data =>tx_data 
-	);
 
 
-
---------------------------------------------for uart---------------------------------
-	Inst_latch_1: latch PORT MAP(
-		in_b =>out_port ,
-		clk => clk_12,
-		out_b => led_test,
-		en => out_port_no(1)
-	);
-
-	Inst_latch_2: latch PORT MAP(
-		in_b =>out_port ,
-		clk => clk_12,
-		out_b => tx_data,
-		en => out_port_no(2)
-	);
-
-
-tx_strobe<=out_port_no(3);
-rd_pulse<=out_port_no(4);
+----------------------------------------------for uart---------------------------------
+--	Inst_latch_1: latch PORT MAP(
+--		in_b =>out_port ,
+--		clk => clk_12,
+--		out_b => led_test,
+--		en => out_port_no(1)
+--	);
+--
+--	Inst_latch_2: latch PORT MAP(
+--		in_b =>out_port ,
+--		clk => clk_12,
+--		out_b => tx_data,
+--		en => out_port_no(2)
+--	);
+--
+--
+--tx_strobe<=out_port_no(3);
+--rd_pulse<=out_port_no(4);
 
 
 
@@ -306,16 +298,14 @@ rd_pulse<=out_port_no(4);
 		in_b =>out_port ,
 		clk => clk_12,
 		out_b => address_7_0,
-		en => out_port_no(6)
-	);
+		en => out_port_no(6));
 
 
 	Inst_latch_7: latch PORT MAP(
 		in_b =>out_port ,
 		clk => clk_12,
 		out_b => address_15_8,
-		en => out_port_no(7)
-	);
+		en => out_port_no(7));
 
 
 
@@ -364,33 +354,81 @@ rd_pulse<=out_port_no(4);
 		in_b =>out_port ,
 		clk => clk_12,
 		out_b => usb_data_out,
-		en => out_port_no(11)
-	);
+		en => out_port_no(11));
 	
 	
-rd_n_buff<=NOT out_port_no(12);
+		rd_n_buff<=NOT out_port_no(12);
+	
+----------ddr signals 	
+	
+		Inst_latch_13: latch PORT MAP(
+		in_b =>out_port ,
+		clk => clk_12,
+		out_b => wr_data_a(31 downto 24),
+		en => out_port_no(13));
+		
+		Inst_latch_14: latch PORT MAP(
+		in_b =>out_port ,
+		clk => clk_12,
+		out_b => wr_data_a(23 downto 16),
+		en => out_port_no(14));
+	
+		Inst_latch_15: latch PORT MAP(
+		in_b =>out_port ,
+		clk => clk_12,
+		out_b => wr_data_a(15 downto 8),
+		en => out_port_no(15));
+
+		Inst_latch_16: latch PORT MAP(
+		in_b =>out_port ,
+		clk => clk_12,
+		out_b => wr_data_a(7 downto 0),
+		en => out_port_no(16));
+		
+
+		cmd_en_wr_a<=out_port_no(17);	
+		
+		wr_en_pls_a <=out_port_no(18);
+		
+	
+		Inst_latch_19: latch PORT MAP(
+		in_b =>out_port ,
+		clk => clk_12,
+		out_b => WR_RD_CMD_buf(7 downto 0),
+		en => out_port_no(19));
+		
+		
+		WR_RD_CMD<=WR_RD_CMD_buf(2 downto 0);
+		
+		
+	--	addr_rstA_wr<=out_port_no(19);
+		
+	--	WR_RD_CMD_pls<=out_port_no(20);
+	
+	----///**** read control*****
+
 	
 	
-	
-	
+--		    FDPE_inst_latch_21 : FDE
+--   generic map (
+--      INIT => '0') -- Initial value of register ('0' or '1')  
+--   port map (
+--      Q => ddr_add_inc_pico,      -- Data output
+--      C => clk_12,      -- Clock input
+--      CE => out_port_no(21),    -- Clock enable input      
+--      D => out_port(0)       -- Data input
+--   );
+   
+   
+		ddr_add_inc_pico <=out_port_no(21);
+		
+		rd_en_pls_a <=out_port_no(22);
 
------------------------------------------------------------------------------------------------
---Inst_input_buff: input_buff PORT MAP(
---		in_b =>rx_data_o ,
---		out_b =>in_port ,
---		en =>in_port_no(3) 
---	);
+		addr_rst_pico_w<=out_port_no(23);
+		
+		addr_rst_pico_r<=out_port_no(24);
 
---TEST<=("0000000"&rx_strobe);
-
---	Inst_input_buff1: input_buff PORT MAP(
---		in_b =>TEST,
---		out_b =>in_port ,
---		en =>in_port_no(2) 
---	);
-
-
-
+			
 
 
   process(clk_12)
@@ -404,9 +442,19 @@ rd_n_buff<=NOT out_port_no(12);
                       
        -- when "0001" => in_port <= bram_data_in;
         when "0010" => in_port <= usb_data_in;
-		  when "0011" => in_port(0) <= txe_n;
- 		  when "0100" => in_port(0) <= rxf_n;--data_from_usb_rdy;
+		when "0011" => in_port(0) <= txe_n;
+ 		when "0100" => in_port(0) <= rxf_n;--data_from_usb_rdy;
         when "0101" => in_port <= bram_data_in;
+		
+		when "0110" => in_port<=rd_data_a(31 downto 24);
+		when "0111" => in_port<=rd_data_a(23 downto 16);
+		when "1000" => in_port<=rd_data_a(15 downto 8);
+		when "1001" => in_port<=rd_data_a(7 downto 0);
+		
+		when "1010" => in_port(0)<=ddr_error; 
+		when "1011" => in_port(0)<=wr_full_a ; 
+		when "1100" => in_port(0)<=rd_empty_a; 
+		
  
         when others =>    in_port <= "XXXXXXXX";  
 

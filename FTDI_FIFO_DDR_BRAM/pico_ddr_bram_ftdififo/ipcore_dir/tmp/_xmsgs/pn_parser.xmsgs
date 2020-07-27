@@ -8,7 +8,31 @@
 <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.    -->
 
 <messages>
-<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;E:/KITCODE/sp6_lpddr_v1/pico_ddr_bram_ftdififo/ipcore_dir/tmp/_cg/BRAM.v&quot; into library work</arg>
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;E:/KITCODE/sp6_lpddr_v1/pico_ddr_bram_ftdififo/ipcore_dir/ddr2/user_design/rtl/ddr2.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;E:/KITCODE/sp6_lpddr_v1/pico_ddr_bram_ftdififo/ipcore_dir/ddr2/user_design/rtl/infrastructure.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;E:/KITCODE/sp6_lpddr_v1/pico_ddr_bram_ftdififo/ipcore_dir/ddr2/user_design/rtl/mcb_controller/iodrp_controller.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;E:/KITCODE/sp6_lpddr_v1/pico_ddr_bram_ftdififo/ipcore_dir/ddr2/user_design/rtl/mcb_controller/iodrp_mcb_controller.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;E:/KITCODE/sp6_lpddr_v1/pico_ddr_bram_ftdififo/ipcore_dir/ddr2/user_design/rtl/mcb_controller/mcb_raw_wrapper.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;E:/KITCODE/sp6_lpddr_v1/pico_ddr_bram_ftdififo/ipcore_dir/ddr2/user_design/rtl/mcb_controller/mcb_soft_calibration.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;E:/KITCODE/sp6_lpddr_v1/pico_ddr_bram_ftdififo/ipcore_dir/ddr2/user_design/rtl/mcb_controller/mcb_soft_calibration_top.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;E:/KITCODE/sp6_lpddr_v1/pico_ddr_bram_ftdififo/ipcore_dir/ddr2/user_design/rtl/mcb_controller/mcb_ui_top.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;E:/KITCODE/sp6_lpddr_v1/pico_ddr_bram_ftdififo/ipcore_dir/ddr2/user_design/rtl/memc_wrapper.v&quot; into library work</arg>
 </msg>
 
 </messages>
