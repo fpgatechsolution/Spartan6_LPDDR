@@ -5,19 +5,19 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="92" delta="old" >"E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\pico_control.vhd" Line 231: <arg fmt="%s" index="1">usb_data</arg> should be on the sensitivity list of the process
+<msg type="warning" file="HDLCompiler" num="92" delta="old" >"E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\pico_control.vhd" Line 242: <arg fmt="%s" index="1">usb_data</arg> should be on the sensitivity list of the process
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="634" delta="old" >"E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\pico_control.vhd" Line 152: Net &lt;<arg fmt="%s" index="1">interrupt</arg>&gt; does not have a driver.
+<msg type="warning" file="HDLCompiler" num="634" delta="old" >"E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\pico_control.vhd" Line 163: Net &lt;<arg fmt="%s" index="1">interrupt</arg>&gt; does not have a driver.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="634" delta="old" >"E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\pico_control.vhd" Line 154: Net &lt;<arg fmt="%s" index="1">sleep</arg>&gt; does not have a driver.
+<msg type="warning" file="HDLCompiler" num="634" delta="old" >"E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\pico_control.vhd" Line 165: Net &lt;<arg fmt="%s" index="1">sleep</arg>&gt; does not have a driver.
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="1499" delta="old" >"E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ipcore_dir\BRAM.v" Line 39: Empty module &lt;<arg fmt="%s" index="1">BRAM</arg>&gt; remains a black box.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="439" delta="old" >"E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" Line 116: Formal port <arg fmt="%s" index="1">user_rd_error</arg> of mode <arg fmt="%s" index="2">out</arg> cannot be associated with actual port <arg fmt="%s" index="3">user_rd_error</arg> of mode <arg fmt="%s" index="4">in</arg>
+<msg type="warning" file="HDLCompiler" num="439" delta="old" >"E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" Line 123: Formal port <arg fmt="%s" index="1">user_rd_error</arg> of mode <arg fmt="%s" index="2">out</arg> cannot be associated with actual port <arg fmt="%s" index="3">user_rd_error</arg> of mode <arg fmt="%s" index="4">in</arg>
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="871" delta="old" >"E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" Line 244: Using initial value <arg fmt="%s" index="1">&apos;0&apos;</arg> for <arg fmt="%s" index="2">ld_addres_en</arg> since it is never assigned
@@ -1127,34 +1127,43 @@
 <msg type="warning" file="HDLCompiler" num="634" delta="old" >"E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ipcore_dir\ddr2\user_design\rtl\ddr2.v" Line 377: Net &lt;<arg fmt="%s" index="1">c3_p5_rd_en</arg>&gt; does not have a driver.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="439" delta="old" >"E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" Line 116: Formal port <arg fmt="%s" index="1">user_rd_error</arg> of mode <arg fmt="%s" index="2">out</arg> cannot be associated with actual port <arg fmt="%s" index="3">user_rd_error</arg> of mode <arg fmt="%s" index="4">in</arg>
+<msg type="warning" file="HDLCompiler" num="439" delta="old" >"E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" Line 123: Formal port <arg fmt="%s" index="1">user_rd_error</arg> of mode <arg fmt="%s" index="2">out</arg> cannot be associated with actual port <arg fmt="%s" index="3">user_rd_error</arg> of mode <arg fmt="%s" index="4">in</arg>
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="634" delta="old" >"E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" Line 178: Net &lt;<arg fmt="%s" index="1">user_ddr_addr_rd[27]</arg>&gt; does not have a driver.
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" Line 325: Assignment to <arg fmt="%s" index="1">interrupt</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="634" delta="old" >"E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" Line 179: Net &lt;<arg fmt="%s" index="1">user_rd_en_pls</arg>&gt; does not have a driver.
+<msg type="warning" file="HDLCompiler" num="634" delta="old" >"E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" Line 185: Net &lt;<arg fmt="%s" index="1">user_ddr_addr_rd[27]</arg>&gt; does not have a driver.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="634" delta="old" >"E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" Line 182: Net &lt;<arg fmt="%s" index="1">user_cmd_en_rd</arg>&gt; does not have a driver.
+<msg type="warning" file="HDLCompiler" num="634" delta="old" >"E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" Line 186: Net &lt;<arg fmt="%s" index="1">user_rd_en_pls</arg>&gt; does not have a driver.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd</arg>&quot; line <arg fmt="%s" index="2">197</arg>: Output port &lt;<arg fmt="%s" index="3">led_test</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">Inst_control</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="warning" file="HDLCompiler" num="634" delta="old" >"E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" Line 189: Net &lt;<arg fmt="%s" index="1">user_cmd_en_rd</arg>&gt; does not have a driver.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd</arg>&quot; line <arg fmt="%s" index="2">244</arg>: Output port &lt;<arg fmt="%s" index="3">user_ddr_data_rd</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">Inst_ddr_control</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd</arg>&quot; line <arg fmt="%s" index="2">217</arg>: Output port &lt;<arg fmt="%s" index="3">led_test</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">Inst_control</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd</arg>&quot; line <arg fmt="%s" index="2">244</arg>: Output port &lt;<arg fmt="%s" index="3">c3_calib_done</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">Inst_ddr_control</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd</arg>&quot; line <arg fmt="%s" index="2">217</arg>: Output port &lt;<arg fmt="%s" index="3">User_RegRE</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">Inst_control</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd</arg>&quot; line <arg fmt="%s" index="2">244</arg>: Output port &lt;<arg fmt="%s" index="3">clk_ddr_fifo_out</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">Inst_ddr_control</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd</arg>&quot; line <arg fmt="%s" index="2">271</arg>: Output port &lt;<arg fmt="%s" index="3">user_ddr_data_rd</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">Inst_ddr_control</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd</arg>&quot; line <arg fmt="%s" index="2">244</arg>: Output port &lt;<arg fmt="%s" index="3">c3_rst0</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">Inst_ddr_control</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd</arg>&quot; line <arg fmt="%s" index="2">271</arg>: Output port &lt;<arg fmt="%s" index="3">c3_calib_done</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">Inst_ddr_control</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd</arg>&quot; line <arg fmt="%s" index="2">244</arg>: Output port &lt;<arg fmt="%s" index="3">user_rd_empty</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">Inst_ddr_control</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd</arg>&quot; line <arg fmt="%s" index="2">271</arg>: Output port &lt;<arg fmt="%s" index="3">clk_ddr_fifo_out</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">Inst_ddr_control</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd</arg>&quot; line <arg fmt="%s" index="2">271</arg>: Output port &lt;<arg fmt="%s" index="3">c3_rst0</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">Inst_ddr_control</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd</arg>&quot; line <arg fmt="%s" index="2">271</arg>: Output port &lt;<arg fmt="%s" index="3">user_rd_error</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">Inst_ddr_control</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd</arg>&quot; line <arg fmt="%s" index="2">271</arg>: Output port &lt;<arg fmt="%s" index="3">user_rd_empty</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">Inst_ddr_control</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
 <msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">user_ddr_addr_rd</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
@@ -1169,13 +1178,13 @@
 <msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">reset</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\pico_control.vhd</arg>&quot; line <arg fmt="%s" index="2">187</arg>: Output port &lt;<arg fmt="%s" index="3">k_write_strobe</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">processor</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\pico_control.vhd</arg>&quot; line <arg fmt="%s" index="2">198</arg>: Output port &lt;<arg fmt="%s" index="3">k_write_strobe</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">processor</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\pico_control.vhd</arg>&quot; line <arg fmt="%s" index="2">187</arg>: Output port &lt;<arg fmt="%s" index="3">read_strobe</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">processor</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\pico_control.vhd</arg>&quot; line <arg fmt="%s" index="2">198</arg>: Output port &lt;<arg fmt="%s" index="3">read_strobe</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">processor</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\pico_control.vhd</arg>&quot; line <arg fmt="%s" index="2">187</arg>: Output port &lt;<arg fmt="%s" index="3">interrupt_ack</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">processor</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\pico_control.vhd</arg>&quot; line <arg fmt="%s" index="2">198</arg>: Output port &lt;<arg fmt="%s" index="3">interrupt_ack</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">processor</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
 <msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">led_test</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.

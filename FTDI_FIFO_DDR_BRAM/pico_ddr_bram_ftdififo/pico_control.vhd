@@ -29,6 +29,17 @@ entity control is
 			address_15_8: out  STD_LOGIC_VECTOR (7 downto 0);
 			led_test :  out  STD_LOGIC_VECTOR (7 downto 0);	
 	
+	
+	
+	       -- Register interface
+            User_RegAddr : out std_logic_vector(15 downto 0);
+            User_RegDataIn : in std_logic_vector(7 downto 0);
+            User_RegDataOut : out std_logic_vector(7 downto 0);
+            User_RegWE : out std_logic;
+            User_RegRE : out std_logic;
+				
+				
+				
 		--///**** write & read control******
 
 			cmd_en_wr_a : out  std_logic;
@@ -310,19 +321,18 @@ end process;
 
 
 
+				    FDPE_inst_latch_21 : FDE
+  generic map (
+     INIT => '0') -- Initial value of register ('0' or '1')  
+  port map (
+     Q => User_RegWE,      -- Data output
+     C => clk_12,      -- Clock input
+     CE => out_port_no(8),    -- Clock enable input      
+     D => out_port(0)       -- Data input
+  );
 
--- --FDE #(.INIT(1'b0))FDCE_f1(.Q(out_b[i]),.C(clk),.CE(en),.D(in_b[i]));
--- 
---    FDPE_inst_latch_8 : FDE
---   generic map (
---      INIT => '0') -- Initial value of register ('0' or '1')  
---   port map (
---      Q => Bram_w_r,      -- Data output
---      C => clk_12,      -- Clock input
---      CE => out_port_no(8),    -- Clock enable input      
---      D => out_port(0)       -- Data input
---   );
---	
+
+--User_RegWE<=out_port_no(8);
 	
 	
 	
@@ -401,6 +411,11 @@ end process;
 		WR_RD_CMD<=WR_RD_CMD_buf(2 downto 0);
 		
 		
+		
+		
+		
+		User_RegRE<=out_port_no(20);
+		
 	--	addr_rstA_wr<=out_port_no(19);
 		
 	--	WR_RD_CMD_pls<=out_port_no(20);
@@ -429,6 +444,29 @@ end process;
 		addr_rst_pico_r<=out_port_no(24);
 
 			
+			
+					Inst_latch_25: latch PORT MAP(
+		in_b =>out_port ,
+		clk => clk_12,
+		out_b => User_RegAddr(15 downto 8),
+		en => out_port_no(25));
+		
+		
+		Inst_latch_26: latch PORT MAP(
+		in_b =>out_port ,
+		clk => clk_12,
+		out_b => User_RegAddr(7 downto 0),
+		en => out_port_no(26));		
+			
+		Inst_latch_27: latch PORT MAP(
+		in_b =>out_port ,
+		clk => clk_12,
+		out_b => User_RegDataOut(7 downto 0),
+		en => out_port_no(27));				
+			
+			
+			
+			
 
 
   process(clk_12)
@@ -454,6 +492,7 @@ end process;
 		when "1010" => in_port(0)<=ddr_error; 
 		when "1011" => in_port(0)<=wr_full_a ; 
 		when "1100" => in_port(0)<=rd_empty_a; 
+		when "1101" => in_port <=User_RegDataIn;
 		
  
         when others =>    in_port <= "XXXXXXXX";  

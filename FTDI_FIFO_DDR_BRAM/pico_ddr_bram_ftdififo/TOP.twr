@@ -222,17 +222,17 @@ For more information, see Period Analysis in the Timing Closure User Guide (UG61
 
  480 paths analyzed, 99 endpoints analyzed, 0 failing endpoints
  0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
- Minimum period is   4.434ns.
+ Minimum period is   4.901ns.
 --------------------------------------------------------------------------------
 
-Paths for end point Inst_ddr_control/ddr_addr_a_pico_wr_2_P_2 (SLICE_X5Y66.A2), 8 paths
+Paths for end point Inst_ddr_control/ddr_addr_a_pico_wr_2_P_2 (SLICE_X4Y61.AX), 8 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     35.566ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     35.099ns (requirement - (data path - clock path skew + uncertainty))
   Source:               Inst_ddr_control/Inst_clkA_addr/T1 (FF)
   Destination:          Inst_ddr_control/ddr_addr_a_pico_wr_2_P_2 (FF)
   Requirement:          40.000ns
-  Data Path Delay:      4.331ns (Levels of Logic = 3)
-  Clock Path Skew:      0.015ns (0.597 - 0.582)
+  Data Path Delay:      4.800ns (Levels of Logic = 2)
+  Clock Path Skew:      0.017ns (0.475 - 0.458)
   Source Clock:         Inst_ddr_control/clk_ddr_fifo_out rising at 0.000ns
   Destination Clock:    Inst_ddr_control/clk_ddr_fifo_out rising at 40.000ns
   Clock Uncertainty:    0.118ns
@@ -246,65 +246,28 @@ Slack (setup path):     35.566ns (requirement - (data path - clock path skew + u
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X11Y63.AQ      Tcko                  0.430   Inst_ddr_control/Inst_clkA_addr/T1
+    SLICE_X8Y58.AQ       Tcko                  0.476   Inst_ddr_control/Inst_clkA_addr/T1
                                                        Inst_ddr_control/Inst_clkA_addr/T1
-    SLICE_X10Y63.A2      net (fanout=1)        1.171   Inst_ddr_control/Inst_clkA_addr/T1
-    SLICE_X10Y63.A       Tilo                  0.254   Inst_ddr_control/address_cnt_en
+    SLICE_X8Y58.A2       net (fanout=1)        1.155   Inst_ddr_control/Inst_clkA_addr/T1
+    SLICE_X8Y58.A        Tilo                  0.235   Inst_ddr_control/Inst_clkA_addr/T1
                                                        Inst_ddr_control/Inst_clkA_addr/PULSE1
-    SLICE_X4Y66.B3       net (fanout=13)       1.136   Inst_ddr_control/address_cnt_en
-    SLICE_X4Y66.BMUX     Tilo                  0.298   Inst_ddr_control/ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT<3>
+    SLICE_X2Y61.B2       net (fanout=13)       1.417   Inst_ddr_control/address_cnt_en
+    SLICE_X2Y61.BMUX     Tilo                  0.326   Inst_ddr_control/ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT<3>
                                                        Inst_ddr_control/Mmux_ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT211
-    SLICE_X5Y66.A2       net (fanout=2)        0.778   Inst_ddr_control/ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT<2>
-    SLICE_X5Y66.CLK      Tas                   0.264   Inst_ddr_control/ddr_addr_a_pico_wr_1_P_1
-                                                       Inst_ddr_control/ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT<2>_rt
+    SLICE_X4Y61.AX       net (fanout=2)        1.077   Inst_ddr_control/ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT<2>
+    SLICE_X4Y61.CLK      Tdick                 0.114   Inst_ddr_control/ddr_addr_a_pico_wr_2_P_2
                                                        Inst_ddr_control/ddr_addr_a_pico_wr_2_P_2
     -------------------------------------------------  ---------------------------
-    Total                                      4.331ns (1.246ns logic, 3.085ns route)
-                                                       (28.8% logic, 71.2% route)
+    Total                                      4.800ns (1.151ns logic, 3.649ns route)
+                                                       (24.0% logic, 76.0% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     36.001ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               Inst_ddr_control/Inst_clkA_addr/T1_0001 (FF)
-  Destination:          Inst_ddr_control/ddr_addr_a_pico_wr_2_P_2 (FF)
-  Requirement:          40.000ns
-  Data Path Delay:      3.896ns (Levels of Logic = 3)
-  Clock Path Skew:      0.015ns (0.597 - 0.582)
-  Source Clock:         Inst_ddr_control/clk_ddr_fifo_out rising at 0.000ns
-  Destination Clock:    Inst_ddr_control/clk_ddr_fifo_out rising at 40.000ns
-  Clock Uncertainty:    0.118ns
-
-  Clock Uncertainty:          0.118ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Discrete Jitter (DJ):       0.224ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: Inst_ddr_control/Inst_clkA_addr/T1_0001 to Inst_ddr_control/ddr_addr_a_pico_wr_2_P_2
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X10Y63.AMUX    Tshcko                0.576   Inst_ddr_control/address_cnt_en
-                                                       Inst_ddr_control/Inst_clkA_addr/T1_0001
-    SLICE_X10Y63.A1      net (fanout=1)        0.590   Inst_ddr_control/Inst_clkA_addr/T1_0001
-    SLICE_X10Y63.A       Tilo                  0.254   Inst_ddr_control/address_cnt_en
-                                                       Inst_ddr_control/Inst_clkA_addr/PULSE1
-    SLICE_X4Y66.B3       net (fanout=13)       1.136   Inst_ddr_control/address_cnt_en
-    SLICE_X4Y66.BMUX     Tilo                  0.298   Inst_ddr_control/ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT<3>
-                                                       Inst_ddr_control/Mmux_ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT211
-    SLICE_X5Y66.A2       net (fanout=2)        0.778   Inst_ddr_control/ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT<2>
-    SLICE_X5Y66.CLK      Tas                   0.264   Inst_ddr_control/ddr_addr_a_pico_wr_1_P_1
-                                                       Inst_ddr_control/ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT<2>_rt
-                                                       Inst_ddr_control/ddr_addr_a_pico_wr_2_P_2
-    -------------------------------------------------  ---------------------------
-    Total                                      3.896ns (1.392ns logic, 2.504ns route)
-                                                       (35.7% logic, 64.3% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     36.097ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     35.473ns (requirement - (data path - clock path skew + uncertainty))
   Source:               Inst_ddr_control/ddr_addr_a_pico_wr_1_C_1 (FF)
   Destination:          Inst_ddr_control/ddr_addr_a_pico_wr_2_P_2 (FF)
   Requirement:          40.000ns
-  Data Path Delay:      3.773ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.012ns (0.194 - 0.206)
+  Data Path Delay:      4.398ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.011ns (0.194 - 0.205)
   Source Clock:         Inst_ddr_control/clk_ddr_fifo_out rising at 0.000ns
   Destination Clock:    Inst_ddr_control/clk_ddr_fifo_out rising at 40.000ns
   Clock Uncertainty:    0.118ns
@@ -318,214 +281,29 @@ Slack (setup path):     36.097ns (requirement - (data path - clock path skew + u
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X5Y65.AMUX     Tshcko                0.518   Inst_ddr_control/ddr_addr_a_pico_wr_2_C_2
+    SLICE_X5Y61.AMUX     Tshcko                0.518   Inst_ddr_control/ddr_addr_a_pico_wr_3_P_3
                                                        Inst_ddr_control/ddr_addr_a_pico_wr_1_C_1
-    SLICE_X4Y66.A2       net (fanout=2)        0.685   Inst_ddr_control/ddr_addr_a_pico_wr_1_C_1
-    SLICE_X4Y66.BQ       Tad_logic             0.993   Inst_ddr_control/ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT<3>
+    SLICE_X2Y61.A1       net (fanout=2)        1.138   Inst_ddr_control/ddr_addr_a_pico_wr_1_C_1
+    SLICE_X2Y61.BQ       Tad_logic             1.010   Inst_ddr_control/ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT<3>
                                                        Inst_ddr_control/Madd_ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT_lut<1>
                                                        Inst_ddr_control/Madd_ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT_cy<4>
                                                        Inst_ddr_control/ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT<2>_rt
-    SLICE_X4Y66.B5       net (fanout=1)        0.237   Inst_ddr_control/ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT<2>
-    SLICE_X4Y66.BMUX     Tilo                  0.298   Inst_ddr_control/ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT<3>
+    SLICE_X2Y61.B5       net (fanout=1)        0.215   Inst_ddr_control/ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT<2>
+    SLICE_X2Y61.BMUX     Tilo                  0.326   Inst_ddr_control/ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT<3>
                                                        Inst_ddr_control/Mmux_ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT211
-    SLICE_X5Y66.A2       net (fanout=2)        0.778   Inst_ddr_control/ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT<2>
-    SLICE_X5Y66.CLK      Tas                   0.264   Inst_ddr_control/ddr_addr_a_pico_wr_1_P_1
-                                                       Inst_ddr_control/ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT<2>_rt
+    SLICE_X4Y61.AX       net (fanout=2)        1.077   Inst_ddr_control/ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT<2>
+    SLICE_X4Y61.CLK      Tdick                 0.114   Inst_ddr_control/ddr_addr_a_pico_wr_2_P_2
                                                        Inst_ddr_control/ddr_addr_a_pico_wr_2_P_2
     -------------------------------------------------  ---------------------------
-    Total                                      3.773ns (2.073ns logic, 1.700ns route)
-                                                       (54.9% logic, 45.1% route)
+    Total                                      4.398ns (1.968ns logic, 2.430ns route)
+                                                       (44.7% logic, 55.3% route)
 
 --------------------------------------------------------------------------------
-
-Paths for end point Inst_ddr_control/ddr_addr_a_pico_wr_1_P_1 (SLICE_X5Y66.CX), 6 paths
---------------------------------------------------------------------------------
-Slack (setup path):     35.679ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               Inst_ddr_control/Inst_clkA_addr/T1 (FF)
-  Destination:          Inst_ddr_control/ddr_addr_a_pico_wr_1_P_1 (FF)
+Slack (setup path):     35.627ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               Inst_ddr_control/ddr_addr_a_pico_wr_2_P_2 (FF)
+  Destination:          Inst_ddr_control/ddr_addr_a_pico_wr_2_P_2 (FF)
   Requirement:          40.000ns
-  Data Path Delay:      4.218ns (Levels of Logic = 2)
-  Clock Path Skew:      0.015ns (0.597 - 0.582)
-  Source Clock:         Inst_ddr_control/clk_ddr_fifo_out rising at 0.000ns
-  Destination Clock:    Inst_ddr_control/clk_ddr_fifo_out rising at 40.000ns
-  Clock Uncertainty:    0.118ns
-
-  Clock Uncertainty:          0.118ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Discrete Jitter (DJ):       0.224ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: Inst_ddr_control/Inst_clkA_addr/T1 to Inst_ddr_control/ddr_addr_a_pico_wr_1_P_1
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X11Y63.AQ      Tcko                  0.430   Inst_ddr_control/Inst_clkA_addr/T1
-                                                       Inst_ddr_control/Inst_clkA_addr/T1
-    SLICE_X10Y63.A2      net (fanout=1)        1.171   Inst_ddr_control/Inst_clkA_addr/T1
-    SLICE_X10Y63.A       Tilo                  0.254   Inst_ddr_control/address_cnt_en
-                                                       Inst_ddr_control/Inst_clkA_addr/PULSE1
-    SLICE_X5Y66.C4       net (fanout=13)       1.259   Inst_ddr_control/address_cnt_en
-    SLICE_X5Y66.CMUX     Tilo                  0.337   Inst_ddr_control/ddr_addr_a_pico_wr_1_P_1
-                                                       Inst_ddr_control/Mmux_ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT121
-    SLICE_X5Y66.CX       net (fanout=2)        0.653   Inst_ddr_control/ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT<1>
-    SLICE_X5Y66.CLK      Tdick                 0.114   Inst_ddr_control/ddr_addr_a_pico_wr_1_P_1
-                                                       Inst_ddr_control/ddr_addr_a_pico_wr_1_P_1
-    -------------------------------------------------  ---------------------------
-    Total                                      4.218ns (1.135ns logic, 3.083ns route)
-                                                       (26.9% logic, 73.1% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     36.114ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               Inst_ddr_control/Inst_clkA_addr/T1_0001 (FF)
-  Destination:          Inst_ddr_control/ddr_addr_a_pico_wr_1_P_1 (FF)
-  Requirement:          40.000ns
-  Data Path Delay:      3.783ns (Levels of Logic = 2)
-  Clock Path Skew:      0.015ns (0.597 - 0.582)
-  Source Clock:         Inst_ddr_control/clk_ddr_fifo_out rising at 0.000ns
-  Destination Clock:    Inst_ddr_control/clk_ddr_fifo_out rising at 40.000ns
-  Clock Uncertainty:    0.118ns
-
-  Clock Uncertainty:          0.118ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Discrete Jitter (DJ):       0.224ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: Inst_ddr_control/Inst_clkA_addr/T1_0001 to Inst_ddr_control/ddr_addr_a_pico_wr_1_P_1
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X10Y63.AMUX    Tshcko                0.576   Inst_ddr_control/address_cnt_en
-                                                       Inst_ddr_control/Inst_clkA_addr/T1_0001
-    SLICE_X10Y63.A1      net (fanout=1)        0.590   Inst_ddr_control/Inst_clkA_addr/T1_0001
-    SLICE_X10Y63.A       Tilo                  0.254   Inst_ddr_control/address_cnt_en
-                                                       Inst_ddr_control/Inst_clkA_addr/PULSE1
-    SLICE_X5Y66.C4       net (fanout=13)       1.259   Inst_ddr_control/address_cnt_en
-    SLICE_X5Y66.CMUX     Tilo                  0.337   Inst_ddr_control/ddr_addr_a_pico_wr_1_P_1
-                                                       Inst_ddr_control/Mmux_ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT121
-    SLICE_X5Y66.CX       net (fanout=2)        0.653   Inst_ddr_control/ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT<1>
-    SLICE_X5Y66.CLK      Tdick                 0.114   Inst_ddr_control/ddr_addr_a_pico_wr_1_P_1
-                                                       Inst_ddr_control/ddr_addr_a_pico_wr_1_P_1
-    -------------------------------------------------  ---------------------------
-    Total                                      3.783ns (1.281ns logic, 2.502ns route)
-                                                       (33.9% logic, 66.1% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     36.889ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               Inst_ddr_control/ddr_addr_a_pico_wr_1_C_1 (FF)
-  Destination:          Inst_ddr_control/ddr_addr_a_pico_wr_1_P_1 (FF)
-  Requirement:          40.000ns
-  Data Path Delay:      2.981ns (Levels of Logic = 2)
-  Clock Path Skew:      -0.012ns (0.194 - 0.206)
-  Source Clock:         Inst_ddr_control/clk_ddr_fifo_out rising at 0.000ns
-  Destination Clock:    Inst_ddr_control/clk_ddr_fifo_out rising at 40.000ns
-  Clock Uncertainty:    0.118ns
-
-  Clock Uncertainty:          0.118ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Discrete Jitter (DJ):       0.224ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: Inst_ddr_control/ddr_addr_a_pico_wr_1_C_1 to Inst_ddr_control/ddr_addr_a_pico_wr_1_P_1
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X5Y65.AMUX     Tshcko                0.518   Inst_ddr_control/ddr_addr_a_pico_wr_2_C_2
-                                                       Inst_ddr_control/ddr_addr_a_pico_wr_1_C_1
-    SLICE_X4Y66.A2       net (fanout=2)        0.685   Inst_ddr_control/ddr_addr_a_pico_wr_1_C_1
-    SLICE_X4Y66.AMUX     Topaa                 0.449   Inst_ddr_control/ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT<3>
-                                                       Inst_ddr_control/Madd_ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT_lut<1>
-                                                       Inst_ddr_control/Madd_ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT_cy<4>
-    SLICE_X5Y66.C5       net (fanout=1)        0.225   Inst_ddr_control/ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT<1>
-    SLICE_X5Y66.CMUX     Tilo                  0.337   Inst_ddr_control/ddr_addr_a_pico_wr_1_P_1
-                                                       Inst_ddr_control/Mmux_ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT121
-    SLICE_X5Y66.CX       net (fanout=2)        0.653   Inst_ddr_control/ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT<1>
-    SLICE_X5Y66.CLK      Tdick                 0.114   Inst_ddr_control/ddr_addr_a_pico_wr_1_P_1
-                                                       Inst_ddr_control/ddr_addr_a_pico_wr_1_P_1
-    -------------------------------------------------  ---------------------------
-    Total                                      2.981ns (1.418ns logic, 1.563ns route)
-                                                       (47.6% logic, 52.4% route)
-
---------------------------------------------------------------------------------
-
-Paths for end point Inst_ddr_control/ddr_addr_a_pico_wr_1_C_1 (SLICE_X5Y65.A4), 6 paths
---------------------------------------------------------------------------------
-Slack (setup path):     35.693ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               Inst_ddr_control/Inst_clkA_addr/T1 (FF)
-  Destination:          Inst_ddr_control/ddr_addr_a_pico_wr_1_C_1 (FF)
-  Requirement:          40.000ns
-  Data Path Delay:      4.205ns (Levels of Logic = 3)
-  Clock Path Skew:      0.016ns (0.598 - 0.582)
-  Source Clock:         Inst_ddr_control/clk_ddr_fifo_out rising at 0.000ns
-  Destination Clock:    Inst_ddr_control/clk_ddr_fifo_out rising at 40.000ns
-  Clock Uncertainty:    0.118ns
-
-  Clock Uncertainty:          0.118ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Discrete Jitter (DJ):       0.224ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: Inst_ddr_control/Inst_clkA_addr/T1 to Inst_ddr_control/ddr_addr_a_pico_wr_1_C_1
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X11Y63.AQ      Tcko                  0.430   Inst_ddr_control/Inst_clkA_addr/T1
-                                                       Inst_ddr_control/Inst_clkA_addr/T1
-    SLICE_X10Y63.A2      net (fanout=1)        1.171   Inst_ddr_control/Inst_clkA_addr/T1
-    SLICE_X10Y63.A       Tilo                  0.254   Inst_ddr_control/address_cnt_en
-                                                       Inst_ddr_control/Inst_clkA_addr/PULSE1
-    SLICE_X5Y66.C4       net (fanout=13)       1.259   Inst_ddr_control/address_cnt_en
-    SLICE_X5Y66.CMUX     Tilo                  0.337   Inst_ddr_control/ddr_addr_a_pico_wr_1_P_1
-                                                       Inst_ddr_control/Mmux_ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT121
-    SLICE_X5Y65.A4       net (fanout=2)        0.490   Inst_ddr_control/ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT<1>
-    SLICE_X5Y65.CLK      Tas                   0.264   Inst_ddr_control/ddr_addr_a_pico_wr_2_C_2
-                                                       Inst_ddr_control/ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT<1>_rt
-                                                       Inst_ddr_control/ddr_addr_a_pico_wr_1_C_1
-    -------------------------------------------------  ---------------------------
-    Total                                      4.205ns (1.285ns logic, 2.920ns route)
-                                                       (30.6% logic, 69.4% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     36.128ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               Inst_ddr_control/Inst_clkA_addr/T1_0001 (FF)
-  Destination:          Inst_ddr_control/ddr_addr_a_pico_wr_1_C_1 (FF)
-  Requirement:          40.000ns
-  Data Path Delay:      3.770ns (Levels of Logic = 3)
-  Clock Path Skew:      0.016ns (0.598 - 0.582)
-  Source Clock:         Inst_ddr_control/clk_ddr_fifo_out rising at 0.000ns
-  Destination Clock:    Inst_ddr_control/clk_ddr_fifo_out rising at 40.000ns
-  Clock Uncertainty:    0.118ns
-
-  Clock Uncertainty:          0.118ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Discrete Jitter (DJ):       0.224ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: Inst_ddr_control/Inst_clkA_addr/T1_0001 to Inst_ddr_control/ddr_addr_a_pico_wr_1_C_1
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X10Y63.AMUX    Tshcko                0.576   Inst_ddr_control/address_cnt_en
-                                                       Inst_ddr_control/Inst_clkA_addr/T1_0001
-    SLICE_X10Y63.A1      net (fanout=1)        0.590   Inst_ddr_control/Inst_clkA_addr/T1_0001
-    SLICE_X10Y63.A       Tilo                  0.254   Inst_ddr_control/address_cnt_en
-                                                       Inst_ddr_control/Inst_clkA_addr/PULSE1
-    SLICE_X5Y66.C4       net (fanout=13)       1.259   Inst_ddr_control/address_cnt_en
-    SLICE_X5Y66.CMUX     Tilo                  0.337   Inst_ddr_control/ddr_addr_a_pico_wr_1_P_1
-                                                       Inst_ddr_control/Mmux_ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT121
-    SLICE_X5Y65.A4       net (fanout=2)        0.490   Inst_ddr_control/ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT<1>
-    SLICE_X5Y65.CLK      Tas                   0.264   Inst_ddr_control/ddr_addr_a_pico_wr_2_C_2
-                                                       Inst_ddr_control/ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT<1>_rt
-                                                       Inst_ddr_control/ddr_addr_a_pico_wr_1_C_1
-    -------------------------------------------------  ---------------------------
-    Total                                      3.770ns (1.431ns logic, 2.339ns route)
-                                                       (38.0% logic, 62.0% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     36.914ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               Inst_ddr_control/ddr_addr_a_pico_wr_1_C_1 (FF)
-  Destination:          Inst_ddr_control/ddr_addr_a_pico_wr_1_C_1 (FF)
-  Requirement:          40.000ns
-  Data Path Delay:      2.968ns (Levels of Logic = 3)
+  Data Path Delay:      4.255ns (Levels of Logic = 2)
   Clock Path Skew:      0.000ns
   Source Clock:         Inst_ddr_control/clk_ddr_fifo_out rising at 0.000ns
   Destination Clock:    Inst_ddr_control/clk_ddr_fifo_out rising at 40.000ns
@@ -536,26 +314,205 @@ Slack (setup path):     36.914ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.224ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: Inst_ddr_control/ddr_addr_a_pico_wr_1_C_1 to Inst_ddr_control/ddr_addr_a_pico_wr_1_C_1
+  Maximum Data Path at Slow Process Corner: Inst_ddr_control/ddr_addr_a_pico_wr_2_P_2 to Inst_ddr_control/ddr_addr_a_pico_wr_2_P_2
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X5Y65.AMUX     Tshcko                0.518   Inst_ddr_control/ddr_addr_a_pico_wr_2_C_2
+    SLICE_X4Y61.AQ       Tcko                  0.476   Inst_ddr_control/ddr_addr_a_pico_wr_2_P_2
+                                                       Inst_ddr_control/ddr_addr_a_pico_wr_2_P_2
+    SLICE_X2Y61.B1       net (fanout=1)        1.105   Inst_ddr_control/ddr_addr_a_pico_wr_2_P_2
+    SLICE_X2Y61.BQ       Tad_logic             0.942   Inst_ddr_control/ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT<3>
+                                                       Inst_ddr_control/ddr_addr_a_pico_wr_24
+                                                       Inst_ddr_control/Madd_ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT_cy<4>
+                                                       Inst_ddr_control/ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT<2>_rt
+    SLICE_X2Y61.B5       net (fanout=1)        0.215   Inst_ddr_control/ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT<2>
+    SLICE_X2Y61.BMUX     Tilo                  0.326   Inst_ddr_control/ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT<3>
+                                                       Inst_ddr_control/Mmux_ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT211
+    SLICE_X4Y61.AX       net (fanout=2)        1.077   Inst_ddr_control/ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT<2>
+    SLICE_X4Y61.CLK      Tdick                 0.114   Inst_ddr_control/ddr_addr_a_pico_wr_2_P_2
+                                                       Inst_ddr_control/ddr_addr_a_pico_wr_2_P_2
+    -------------------------------------------------  ---------------------------
+    Total                                      4.255ns (1.858ns logic, 2.397ns route)
+                                                       (43.7% logic, 56.3% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point Inst_ddr_control/ddr_addr_a_pico_wr_2_C_2 (SLICE_X5Y61.AX), 8 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     35.112ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               Inst_ddr_control/Inst_clkA_addr/T1 (FF)
+  Destination:          Inst_ddr_control/ddr_addr_a_pico_wr_2_C_2 (FF)
+  Requirement:          40.000ns
+  Data Path Delay:      4.787ns (Levels of Logic = 2)
+  Clock Path Skew:      0.017ns (0.475 - 0.458)
+  Source Clock:         Inst_ddr_control/clk_ddr_fifo_out rising at 0.000ns
+  Destination Clock:    Inst_ddr_control/clk_ddr_fifo_out rising at 40.000ns
+  Clock Uncertainty:    0.118ns
+
+  Clock Uncertainty:          0.118ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.224ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: Inst_ddr_control/Inst_clkA_addr/T1 to Inst_ddr_control/ddr_addr_a_pico_wr_2_C_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X8Y58.AQ       Tcko                  0.476   Inst_ddr_control/Inst_clkA_addr/T1
+                                                       Inst_ddr_control/Inst_clkA_addr/T1
+    SLICE_X8Y58.A2       net (fanout=1)        1.155   Inst_ddr_control/Inst_clkA_addr/T1
+    SLICE_X8Y58.A        Tilo                  0.235   Inst_ddr_control/Inst_clkA_addr/T1
+                                                       Inst_ddr_control/Inst_clkA_addr/PULSE1
+    SLICE_X2Y61.B2       net (fanout=13)       1.417   Inst_ddr_control/address_cnt_en
+    SLICE_X2Y61.BMUX     Tilo                  0.326   Inst_ddr_control/ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT<3>
+                                                       Inst_ddr_control/Mmux_ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT211
+    SLICE_X5Y61.AX       net (fanout=2)        1.064   Inst_ddr_control/ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT<2>
+    SLICE_X5Y61.CLK      Tdick                 0.114   Inst_ddr_control/ddr_addr_a_pico_wr_3_P_3
+                                                       Inst_ddr_control/ddr_addr_a_pico_wr_2_C_2
+    -------------------------------------------------  ---------------------------
+    Total                                      4.787ns (1.151ns logic, 3.636ns route)
+                                                       (24.0% logic, 76.0% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     35.497ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               Inst_ddr_control/ddr_addr_a_pico_wr_1_C_1 (FF)
+  Destination:          Inst_ddr_control/ddr_addr_a_pico_wr_2_C_2 (FF)
+  Requirement:          40.000ns
+  Data Path Delay:      4.385ns (Levels of Logic = 2)
+  Clock Path Skew:      0.000ns
+  Source Clock:         Inst_ddr_control/clk_ddr_fifo_out rising at 0.000ns
+  Destination Clock:    Inst_ddr_control/clk_ddr_fifo_out rising at 40.000ns
+  Clock Uncertainty:    0.118ns
+
+  Clock Uncertainty:          0.118ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.224ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: Inst_ddr_control/ddr_addr_a_pico_wr_1_C_1 to Inst_ddr_control/ddr_addr_a_pico_wr_2_C_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X5Y61.AMUX     Tshcko                0.518   Inst_ddr_control/ddr_addr_a_pico_wr_3_P_3
                                                        Inst_ddr_control/ddr_addr_a_pico_wr_1_C_1
-    SLICE_X4Y66.A2       net (fanout=2)        0.685   Inst_ddr_control/ddr_addr_a_pico_wr_1_C_1
-    SLICE_X4Y66.AMUX     Topaa                 0.449   Inst_ddr_control/ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT<3>
+    SLICE_X2Y61.A1       net (fanout=2)        1.138   Inst_ddr_control/ddr_addr_a_pico_wr_1_C_1
+    SLICE_X2Y61.BQ       Tad_logic             1.010   Inst_ddr_control/ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT<3>
                                                        Inst_ddr_control/Madd_ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT_lut<1>
                                                        Inst_ddr_control/Madd_ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT_cy<4>
-    SLICE_X5Y66.C5       net (fanout=1)        0.225   Inst_ddr_control/ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT<1>
-    SLICE_X5Y66.CMUX     Tilo                  0.337   Inst_ddr_control/ddr_addr_a_pico_wr_1_P_1
-                                                       Inst_ddr_control/Mmux_ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT121
-    SLICE_X5Y65.A4       net (fanout=2)        0.490   Inst_ddr_control/ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT<1>
-    SLICE_X5Y65.CLK      Tas                   0.264   Inst_ddr_control/ddr_addr_a_pico_wr_2_C_2
-                                                       Inst_ddr_control/ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT<1>_rt
-                                                       Inst_ddr_control/ddr_addr_a_pico_wr_1_C_1
+                                                       Inst_ddr_control/ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT<2>_rt
+    SLICE_X2Y61.B5       net (fanout=1)        0.215   Inst_ddr_control/ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT<2>
+    SLICE_X2Y61.BMUX     Tilo                  0.326   Inst_ddr_control/ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT<3>
+                                                       Inst_ddr_control/Mmux_ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT211
+    SLICE_X5Y61.AX       net (fanout=2)        1.064   Inst_ddr_control/ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT<2>
+    SLICE_X5Y61.CLK      Tdick                 0.114   Inst_ddr_control/ddr_addr_a_pico_wr_3_P_3
+                                                       Inst_ddr_control/ddr_addr_a_pico_wr_2_C_2
     -------------------------------------------------  ---------------------------
-    Total                                      2.968ns (1.568ns logic, 1.400ns route)
-                                                       (52.8% logic, 47.2% route)
+    Total                                      4.385ns (1.968ns logic, 2.417ns route)
+                                                       (44.9% logic, 55.1% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     35.629ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               Inst_ddr_control/ddr_addr_a_pico_wr_2_P_2 (FF)
+  Destination:          Inst_ddr_control/ddr_addr_a_pico_wr_2_C_2 (FF)
+  Requirement:          40.000ns
+  Data Path Delay:      4.242ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.011ns (0.194 - 0.205)
+  Source Clock:         Inst_ddr_control/clk_ddr_fifo_out rising at 0.000ns
+  Destination Clock:    Inst_ddr_control/clk_ddr_fifo_out rising at 40.000ns
+  Clock Uncertainty:    0.118ns
+
+  Clock Uncertainty:          0.118ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.224ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: Inst_ddr_control/ddr_addr_a_pico_wr_2_P_2 to Inst_ddr_control/ddr_addr_a_pico_wr_2_C_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X4Y61.AQ       Tcko                  0.476   Inst_ddr_control/ddr_addr_a_pico_wr_2_P_2
+                                                       Inst_ddr_control/ddr_addr_a_pico_wr_2_P_2
+    SLICE_X2Y61.B1       net (fanout=1)        1.105   Inst_ddr_control/ddr_addr_a_pico_wr_2_P_2
+    SLICE_X2Y61.BQ       Tad_logic             0.942   Inst_ddr_control/ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT<3>
+                                                       Inst_ddr_control/ddr_addr_a_pico_wr_24
+                                                       Inst_ddr_control/Madd_ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT_cy<4>
+                                                       Inst_ddr_control/ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT<2>_rt
+    SLICE_X2Y61.B5       net (fanout=1)        0.215   Inst_ddr_control/ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT<2>
+    SLICE_X2Y61.BMUX     Tilo                  0.326   Inst_ddr_control/ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT<3>
+                                                       Inst_ddr_control/Mmux_ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT211
+    SLICE_X5Y61.AX       net (fanout=2)        1.064   Inst_ddr_control/ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT<2>
+    SLICE_X5Y61.CLK      Tdick                 0.114   Inst_ddr_control/ddr_addr_a_pico_wr_3_P_3
+                                                       Inst_ddr_control/ddr_addr_a_pico_wr_2_C_2
+    -------------------------------------------------  ---------------------------
+    Total                                      4.242ns (1.858ns logic, 2.384ns route)
+                                                       (43.8% logic, 56.2% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0 (MCB_X0Y1.P0CMDCA1), 2 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     35.144ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               Inst_ddr_control/ddr_addr_a_pico_wr_0_P_0 (FF)
+  Destination:          Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0 (CPU)
+  Requirement:          40.000ns
+  Data Path Delay:      4.782ns (Levels of Logic = 1)
+  Clock Path Skew:      0.044ns (0.616 - 0.572)
+  Source Clock:         Inst_ddr_control/clk_ddr_fifo_out rising at 0.000ns
+  Destination Clock:    Inst_ddr_control/clk_ddr_fifo_out rising at 40.000ns
+  Clock Uncertainty:    0.118ns
+
+  Clock Uncertainty:          0.118ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.224ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: Inst_ddr_control/ddr_addr_a_pico_wr_0_P_0 to Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X11Y54.AQ      Tcko                  0.430   Inst_ddr_control/ddr_addr_a_pico_wr_0_P_0
+                                                       Inst_ddr_control/ddr_addr_a_pico_wr_0_P_0
+    SLICE_X11Y54.A1      net (fanout=1)        1.198   Inst_ddr_control/ddr_addr_a_pico_wr_0_P_0
+    SLICE_X11Y54.AMUX    Tilo                  0.337   Inst_ddr_control/ddr_addr_a_pico_wr_0_P_0
+                                                       Inst_ddr_control/ddr_addr_a_pico_wr_01
+    MCB_X0Y1.P0CMDCA1    net (fanout=3)        2.401   Inst_ddr_control/ddr_addr_a_pico_wr_0
+    MCB_X0Y1.P0CMDCLK    Tmcbdck_CMDCA         0.416   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0
+    -------------------------------------------------  ---------------------------
+    Total                                      4.782ns (1.183ns logic, 3.599ns route)
+                                                       (24.7% logic, 75.3% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     35.927ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               Inst_ddr_control/ddr_addr_a_pico_wr_0_C_0 (FF)
+  Destination:          Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0 (CPU)
+  Requirement:          40.000ns
+  Data Path Delay:      4.001ns (Levels of Logic = 1)
+  Clock Path Skew:      0.046ns (0.616 - 0.570)
+  Source Clock:         Inst_ddr_control/clk_ddr_fifo_out rising at 0.000ns
+  Destination Clock:    Inst_ddr_control/clk_ddr_fifo_out rising at 40.000ns
+  Clock Uncertainty:    0.118ns
+
+  Clock Uncertainty:          0.118ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.224ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: Inst_ddr_control/ddr_addr_a_pico_wr_0_C_0 to Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X11Y55.DQ      Tcko                  0.430   Inst_ddr_control/ddr_addr_a_pico_wr_0_C_0
+                                                       Inst_ddr_control/ddr_addr_a_pico_wr_0_C_0
+    SLICE_X11Y54.A5      net (fanout=1)        0.417   Inst_ddr_control/ddr_addr_a_pico_wr_0_C_0
+    SLICE_X11Y54.AMUX    Tilo                  0.337   Inst_ddr_control/ddr_addr_a_pico_wr_0_P_0
+                                                       Inst_ddr_control/ddr_addr_a_pico_wr_01
+    MCB_X0Y1.P0CMDCA1    net (fanout=3)        2.401   Inst_ddr_control/ddr_addr_a_pico_wr_0
+    MCB_X0Y1.P0CMDCLK    Tmcbdck_CMDCA         0.416   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0
+    -------------------------------------------------  ---------------------------
+    Total                                      4.001ns (1.183ns logic, 2.818ns route)
+                                                       (29.6% logic, 70.4% route)
 
 --------------------------------------------------------------------------------
 
@@ -565,13 +522,13 @@ Hold Paths: PERIOD analysis for net "Inst_ddr_control/inst_ddr/memc3_infrastruct
 
 --------------------------------------------------------------------------------
 
-Paths for end point Inst_ddr_control/ddr_addr_a_pico_wr_9 (SLICE_X5Y67.C5), 1 path
+Paths for end point Inst_ddr_control/ddr_addr_a_pico_wr_9 (SLICE_X3Y63.C5), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      0.482ns (requirement - (clock path skew + uncertainty - data path))
+Slack (hold path):      0.478ns (requirement - (clock path skew + uncertainty - data path))
   Source:               Inst_ddr_control/ddr_addr_a_pico_wr_9 (FF)
   Destination:          Inst_ddr_control/ddr_addr_a_pico_wr_9 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.482ns (Levels of Logic = 1)
+  Data Path Delay:      0.478ns (Levels of Logic = 1)
   Clock Path Skew:      0.000ns
   Source Clock:         Inst_ddr_control/clk_ddr_fifo_out rising at 40.000ns
   Destination Clock:    Inst_ddr_control/clk_ddr_fifo_out rising at 40.000ns
@@ -581,25 +538,25 @@ Slack (hold path):      0.482ns (requirement - (clock path skew + uncertainty - 
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X5Y67.CQ       Tcko                  0.198   Inst_ddr_control/ddr_addr_a_pico_wr_11
+    SLICE_X3Y63.CQ       Tcko                  0.198   Inst_ddr_control/ddr_addr_a_pico_wr_11
                                                        Inst_ddr_control/ddr_addr_a_pico_wr_9
-    SLICE_X5Y67.C5       net (fanout=3)        0.069   Inst_ddr_control/ddr_addr_a_pico_wr_9
-    SLICE_X5Y67.CLK      Tah         (-Th)    -0.215   Inst_ddr_control/ddr_addr_a_pico_wr_11
+    SLICE_X3Y63.C5       net (fanout=3)        0.065   Inst_ddr_control/ddr_addr_a_pico_wr_9
+    SLICE_X3Y63.CLK      Tah         (-Th)    -0.215   Inst_ddr_control/ddr_addr_a_pico_wr_11
                                                        Inst_ddr_control/Mmux_ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT281
                                                        Inst_ddr_control/ddr_addr_a_pico_wr_9
     -------------------------------------------------  ---------------------------
-    Total                                      0.482ns (0.413ns logic, 0.069ns route)
-                                                       (85.7% logic, 14.3% route)
+    Total                                      0.478ns (0.413ns logic, 0.065ns route)
+                                                       (86.4% logic, 13.6% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point Inst_ddr_control/ddr_addr_a_pico_wr_15 (SLICE_X5Y69.B5), 1 path
+Paths for end point Inst_ddr_control/ddr_addr_a_pico_wr_15 (SLICE_X3Y65.B5), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      0.497ns (requirement - (clock path skew + uncertainty - data path))
+Slack (hold path):      0.493ns (requirement - (clock path skew + uncertainty - data path))
   Source:               Inst_ddr_control/ddr_addr_a_pico_wr_15 (FF)
   Destination:          Inst_ddr_control/ddr_addr_a_pico_wr_15 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.497ns (Levels of Logic = 1)
+  Data Path Delay:      0.493ns (Levels of Logic = 1)
   Clock Path Skew:      0.000ns
   Source Clock:         Inst_ddr_control/clk_ddr_fifo_out rising at 40.000ns
   Destination Clock:    Inst_ddr_control/clk_ddr_fifo_out rising at 40.000ns
@@ -609,25 +566,25 @@ Slack (hold path):      0.497ns (requirement - (clock path skew + uncertainty - 
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X5Y69.BQ       Tcko                  0.198   Inst_ddr_control/ddr_addr_a_pico_wr_19
+    SLICE_X3Y65.BQ       Tcko                  0.198   Inst_ddr_control/ddr_addr_a_pico_wr_19
                                                        Inst_ddr_control/ddr_addr_a_pico_wr_15
-    SLICE_X5Y69.B5       net (fanout=3)        0.084   Inst_ddr_control/ddr_addr_a_pico_wr_15
-    SLICE_X5Y69.CLK      Tah         (-Th)    -0.215   Inst_ddr_control/ddr_addr_a_pico_wr_19
+    SLICE_X3Y65.B5       net (fanout=3)        0.080   Inst_ddr_control/ddr_addr_a_pico_wr_15
+    SLICE_X3Y65.CLK      Tah         (-Th)    -0.215   Inst_ddr_control/ddr_addr_a_pico_wr_19
                                                        Inst_ddr_control/Mmux_ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT71
                                                        Inst_ddr_control/ddr_addr_a_pico_wr_15
     -------------------------------------------------  ---------------------------
-    Total                                      0.497ns (0.413ns logic, 0.084ns route)
-                                                       (83.1% logic, 16.9% route)
+    Total                                      0.493ns (0.413ns logic, 0.080ns route)
+                                                       (83.8% logic, 16.2% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point Inst_ddr_control/ddr_addr_a_pico_wr_23 (SLICE_X5Y71.B5), 1 path
+Paths for end point Inst_ddr_control/ddr_addr_a_pico_wr_23 (SLICE_X3Y66.B5), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      0.497ns (requirement - (clock path skew + uncertainty - data path))
+Slack (hold path):      0.496ns (requirement - (clock path skew + uncertainty - data path))
   Source:               Inst_ddr_control/ddr_addr_a_pico_wr_23 (FF)
   Destination:          Inst_ddr_control/ddr_addr_a_pico_wr_23 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.497ns (Levels of Logic = 1)
+  Data Path Delay:      0.496ns (Levels of Logic = 1)
   Clock Path Skew:      0.000ns
   Source Clock:         Inst_ddr_control/clk_ddr_fifo_out rising at 40.000ns
   Destination Clock:    Inst_ddr_control/clk_ddr_fifo_out rising at 40.000ns
@@ -637,15 +594,15 @@ Slack (hold path):      0.497ns (requirement - (clock path skew + uncertainty - 
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X5Y71.BQ       Tcko                  0.198   Inst_ddr_control/ddr_addr_a_pico_wr_23
+    SLICE_X3Y66.BQ       Tcko                  0.198   Inst_ddr_control/ddr_addr_a_pico_wr_23
                                                        Inst_ddr_control/ddr_addr_a_pico_wr_23
-    SLICE_X5Y71.B5       net (fanout=3)        0.084   Inst_ddr_control/ddr_addr_a_pico_wr_23
-    SLICE_X5Y71.CLK      Tah         (-Th)    -0.215   Inst_ddr_control/ddr_addr_a_pico_wr_23
+    SLICE_X3Y66.B5       net (fanout=3)        0.083   Inst_ddr_control/ddr_addr_a_pico_wr_23
+    SLICE_X3Y66.CLK      Tah         (-Th)    -0.215   Inst_ddr_control/ddr_addr_a_pico_wr_23
                                                        Inst_ddr_control/Mmux_ddr_addr_a_pico_wr[27]_ddr_addr_a_pico_wr[27]_mux_2_OUT161
                                                        Inst_ddr_control/ddr_addr_a_pico_wr_23
     -------------------------------------------------  ---------------------------
-    Total                                      0.497ns (0.413ns logic, 0.084ns route)
-                                                       (83.1% logic, 16.9% route)
+    Total                                      0.496ns (0.413ns logic, 0.083ns route)
+                                                       (83.3% logic, 16.7% route)
 
 --------------------------------------------------------------------------------
 
@@ -689,17 +646,17 @@ For more information, see Period Analysis in the Timing Closure User Guide (UG61
 
  11073 paths analyzed, 1100 endpoints analyzed, 0 failing endpoints
  0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
- Minimum period is   8.259ns.
+ Minimum period is   7.957ns.
 --------------------------------------------------------------------------------
 
-Paths for end point Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec_4 (SLICE_X2Y56.CE), 78 paths
+Paths for end point Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY_0 (SLICE_X4Y53.CE), 272 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     11.741ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd6 (FF)
-  Destination:          Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec_4 (FF)
+Slack (setup path):     12.043ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_0 (FF)
+  Destination:          Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY_0 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      8.135ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.020ns (0.482 - 0.502)
+  Data Path Delay:      7.809ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.044ns (0.471 - 0.515)
   Source Clock:         Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 0.000ns
   Destination Clock:    Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 20.000ns
   Clock Uncertainty:    0.104ns
@@ -709,35 +666,44 @@ Slack (setup path):     11.741ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.195ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd6 to Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec_4
+  Maximum Data Path at Slow Process Corner: Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_0 to Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY_0
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X1Y55.CQ       Tcko                  0.430   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd6
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd6
-    SLICE_X2Y42.A1       net (fanout=46)       2.398   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd6
-    SLICE_X2Y42.A        Tilo                  0.254   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value<7>
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_STATE<1>1
-    SLICE_X1Y52.B1       net (fanout=17)       1.659   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE<1>
-    SLICE_X1Y52.BMUX     Tilo                  0.337   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/mcb_ui_cmd_en
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1758_inv_SW0
-    SLICE_X1Y48.C2       net (fanout=1)        1.434   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/N21
-    SLICE_X1Y48.C        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE<3>_inv1_inv
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1758_inv
-    SLICE_X2Y56.CE       net (fanout=2)        1.051   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1758_inv
-    SLICE_X2Y56.CLK      Tceck                 0.313   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec<7>
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec_4
+    SLICE_X0Y49.AMUX     Tshcko                0.535   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value<6>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_0
+    SLICE_X7Y51.B2       net (fanout=10)       1.641   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value<0>
+    SLICE_X7Y51.B        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o1
+    SLICE_X7Y51.A5       net (fanout=1)        0.230   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o1
+    SLICE_X7Y51.A        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+    SLICE_X7Y51.D3       net (fanout=1)        0.391   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o2
+    SLICE_X7Y51.D        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o22
+    SLICE_X7Y51.C6       net (fanout=2)        0.152   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+    SLICE_X7Y51.C        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o23
+    SLICE_X1Y50.B4       net (fanout=2)        0.931   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o
+    SLICE_X1Y50.B        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1562_inv115
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv111
+    SLICE_X4Y53.D3       net (fanout=2)        1.161   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv11
+    SLICE_X4Y53.D        Tilo                  0.235   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY<3>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv
+    SLICE_X4Y53.CE       net (fanout=2)        0.924   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv
+    SLICE_X4Y53.CLK      Tceck                 0.314   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY<3>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY_0
     -------------------------------------------------  ---------------------------
-    Total                                      8.135ns (1.593ns logic, 6.542ns route)
-                                                       (19.6% logic, 80.4% route)
+    Total                                      7.809ns (2.379ns logic, 5.430ns route)
+                                                       (30.5% logic, 69.5% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     11.937ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd5 (FF)
-  Destination:          Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec_4 (FF)
+Slack (setup path):     12.354ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_2 (FF)
+  Destination:          Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY_0 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      7.939ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.020ns (0.482 - 0.502)
+  Data Path Delay:      7.498ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.044ns (0.471 - 0.515)
   Source Clock:         Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 0.000ns
   Destination Clock:    Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 20.000ns
   Clock Uncertainty:    0.104ns
@@ -747,269 +713,44 @@ Slack (setup path):     11.937ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.195ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd5 to Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec_4
+  Maximum Data Path at Slow Process Corner: Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_2 to Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY_0
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X1Y55.AQ       Tcko                  0.430   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd6
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd5
-    SLICE_X2Y42.A3       net (fanout=48)       2.202   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd5
-    SLICE_X2Y42.A        Tilo                  0.254   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value<7>
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_STATE<1>1
-    SLICE_X1Y52.B1       net (fanout=17)       1.659   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE<1>
-    SLICE_X1Y52.BMUX     Tilo                  0.337   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/mcb_ui_cmd_en
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1758_inv_SW0
-    SLICE_X1Y48.C2       net (fanout=1)        1.434   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/N21
-    SLICE_X1Y48.C        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE<3>_inv1_inv
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1758_inv
-    SLICE_X2Y56.CE       net (fanout=2)        1.051   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1758_inv
-    SLICE_X2Y56.CLK      Tceck                 0.313   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec<7>
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec_4
+    SLICE_X0Y49.BMUX     Tshcko                0.535   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value<6>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_2
+    SLICE_X7Y51.B4       net (fanout=12)       1.330   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value<2>
+    SLICE_X7Y51.B        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o1
+    SLICE_X7Y51.A5       net (fanout=1)        0.230   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o1
+    SLICE_X7Y51.A        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+    SLICE_X7Y51.D3       net (fanout=1)        0.391   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o2
+    SLICE_X7Y51.D        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o22
+    SLICE_X7Y51.C6       net (fanout=2)        0.152   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+    SLICE_X7Y51.C        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o23
+    SLICE_X1Y50.B4       net (fanout=2)        0.931   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o
+    SLICE_X1Y50.B        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1562_inv115
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv111
+    SLICE_X4Y53.D3       net (fanout=2)        1.161   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv11
+    SLICE_X4Y53.D        Tilo                  0.235   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY<3>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv
+    SLICE_X4Y53.CE       net (fanout=2)        0.924   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv
+    SLICE_X4Y53.CLK      Tceck                 0.314   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY<3>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY_0
     -------------------------------------------------  ---------------------------
-    Total                                      7.939ns (1.593ns logic, 6.346ns route)
-                                                       (20.1% logic, 79.9% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     12.321ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd2 (FF)
-  Destination:          Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec_4 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      7.556ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.019ns (0.482 - 0.501)
-  Source Clock:         Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 0.000ns
-  Destination Clock:    Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 20.000ns
-  Clock Uncertainty:    0.104ns
-
-  Clock Uncertainty:          0.104ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Discrete Jitter (DJ):       0.195ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd2 to Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec_4
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X2Y54.CQ       Tcko                  0.525   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd2
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd2
-    SLICE_X2Y42.A2       net (fanout=39)       1.724   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd2
-    SLICE_X2Y42.A        Tilo                  0.254   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value<7>
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_STATE<1>1
-    SLICE_X1Y52.B1       net (fanout=17)       1.659   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE<1>
-    SLICE_X1Y52.BMUX     Tilo                  0.337   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/mcb_ui_cmd_en
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1758_inv_SW0
-    SLICE_X1Y48.C2       net (fanout=1)        1.434   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/N21
-    SLICE_X1Y48.C        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE<3>_inv1_inv
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1758_inv
-    SLICE_X2Y56.CE       net (fanout=2)        1.051   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1758_inv
-    SLICE_X2Y56.CLK      Tceck                 0.313   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec<7>
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec_4
-    -------------------------------------------------  ---------------------------
-    Total                                      7.556ns (1.688ns logic, 5.868ns route)
-                                                       (22.3% logic, 77.7% route)
-
---------------------------------------------------------------------------------
-
-Paths for end point Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec_6 (SLICE_X2Y56.CE), 78 paths
---------------------------------------------------------------------------------
-Slack (setup path):     11.785ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd6 (FF)
-  Destination:          Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec_6 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      8.091ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.020ns (0.482 - 0.502)
-  Source Clock:         Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 0.000ns
-  Destination Clock:    Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 20.000ns
-  Clock Uncertainty:    0.104ns
-
-  Clock Uncertainty:          0.104ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Discrete Jitter (DJ):       0.195ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd6 to Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec_6
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X1Y55.CQ       Tcko                  0.430   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd6
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd6
-    SLICE_X2Y42.A1       net (fanout=46)       2.398   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd6
-    SLICE_X2Y42.A        Tilo                  0.254   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value<7>
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_STATE<1>1
-    SLICE_X1Y52.B1       net (fanout=17)       1.659   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE<1>
-    SLICE_X1Y52.BMUX     Tilo                  0.337   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/mcb_ui_cmd_en
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1758_inv_SW0
-    SLICE_X1Y48.C2       net (fanout=1)        1.434   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/N21
-    SLICE_X1Y48.C        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE<3>_inv1_inv
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1758_inv
-    SLICE_X2Y56.CE       net (fanout=2)        1.051   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1758_inv
-    SLICE_X2Y56.CLK      Tceck                 0.269   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec<7>
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec_6
-    -------------------------------------------------  ---------------------------
-    Total                                      8.091ns (1.549ns logic, 6.542ns route)
-                                                       (19.1% logic, 80.9% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     11.981ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd5 (FF)
-  Destination:          Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec_6 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      7.895ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.020ns (0.482 - 0.502)
-  Source Clock:         Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 0.000ns
-  Destination Clock:    Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 20.000ns
-  Clock Uncertainty:    0.104ns
-
-  Clock Uncertainty:          0.104ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Discrete Jitter (DJ):       0.195ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd5 to Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec_6
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X1Y55.AQ       Tcko                  0.430   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd6
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd5
-    SLICE_X2Y42.A3       net (fanout=48)       2.202   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd5
-    SLICE_X2Y42.A        Tilo                  0.254   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value<7>
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_STATE<1>1
-    SLICE_X1Y52.B1       net (fanout=17)       1.659   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE<1>
-    SLICE_X1Y52.BMUX     Tilo                  0.337   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/mcb_ui_cmd_en
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1758_inv_SW0
-    SLICE_X1Y48.C2       net (fanout=1)        1.434   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/N21
-    SLICE_X1Y48.C        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE<3>_inv1_inv
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1758_inv
-    SLICE_X2Y56.CE       net (fanout=2)        1.051   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1758_inv
-    SLICE_X2Y56.CLK      Tceck                 0.269   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec<7>
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec_6
-    -------------------------------------------------  ---------------------------
-    Total                                      7.895ns (1.549ns logic, 6.346ns route)
-                                                       (19.6% logic, 80.4% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     12.365ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd2 (FF)
-  Destination:          Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec_6 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      7.512ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.019ns (0.482 - 0.501)
-  Source Clock:         Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 0.000ns
-  Destination Clock:    Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 20.000ns
-  Clock Uncertainty:    0.104ns
-
-  Clock Uncertainty:          0.104ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Discrete Jitter (DJ):       0.195ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd2 to Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec_6
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X2Y54.CQ       Tcko                  0.525   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd2
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd2
-    SLICE_X2Y42.A2       net (fanout=39)       1.724   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd2
-    SLICE_X2Y42.A        Tilo                  0.254   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value<7>
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_STATE<1>1
-    SLICE_X1Y52.B1       net (fanout=17)       1.659   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE<1>
-    SLICE_X1Y52.BMUX     Tilo                  0.337   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/mcb_ui_cmd_en
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1758_inv_SW0
-    SLICE_X1Y48.C2       net (fanout=1)        1.434   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/N21
-    SLICE_X1Y48.C        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE<3>_inv1_inv
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1758_inv
-    SLICE_X2Y56.CE       net (fanout=2)        1.051   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1758_inv
-    SLICE_X2Y56.CLK      Tceck                 0.269   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec<7>
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec_6
-    -------------------------------------------------  ---------------------------
-    Total                                      7.512ns (1.644ns logic, 5.868ns route)
-                                                       (21.9% logic, 78.1% route)
-
---------------------------------------------------------------------------------
-
-Paths for end point Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec_7 (SLICE_X2Y56.CE), 78 paths
---------------------------------------------------------------------------------
-Slack (setup path):     11.788ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd6 (FF)
-  Destination:          Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec_7 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      8.088ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.020ns (0.482 - 0.502)
-  Source Clock:         Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 0.000ns
-  Destination Clock:    Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 20.000ns
-  Clock Uncertainty:    0.104ns
-
-  Clock Uncertainty:          0.104ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Discrete Jitter (DJ):       0.195ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd6 to Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec_7
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X1Y55.CQ       Tcko                  0.430   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd6
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd6
-    SLICE_X2Y42.A1       net (fanout=46)       2.398   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd6
-    SLICE_X2Y42.A        Tilo                  0.254   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value<7>
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_STATE<1>1
-    SLICE_X1Y52.B1       net (fanout=17)       1.659   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE<1>
-    SLICE_X1Y52.BMUX     Tilo                  0.337   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/mcb_ui_cmd_en
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1758_inv_SW0
-    SLICE_X1Y48.C2       net (fanout=1)        1.434   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/N21
-    SLICE_X1Y48.C        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE<3>_inv1_inv
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1758_inv
-    SLICE_X2Y56.CE       net (fanout=2)        1.051   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1758_inv
-    SLICE_X2Y56.CLK      Tceck                 0.266   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec<7>
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec_7
-    -------------------------------------------------  ---------------------------
-    Total                                      8.088ns (1.546ns logic, 6.542ns route)
-                                                       (19.1% logic, 80.9% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     11.984ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd5 (FF)
-  Destination:          Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec_7 (FF)
-  Requirement:          20.000ns
-  Data Path Delay:      7.892ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.020ns (0.482 - 0.502)
-  Source Clock:         Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 0.000ns
-  Destination Clock:    Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 20.000ns
-  Clock Uncertainty:    0.104ns
-
-  Clock Uncertainty:          0.104ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Discrete Jitter (DJ):       0.195ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd5 to Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec_7
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X1Y55.AQ       Tcko                  0.430   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd6
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd5
-    SLICE_X2Y42.A3       net (fanout=48)       2.202   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd5
-    SLICE_X2Y42.A        Tilo                  0.254   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value<7>
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_STATE<1>1
-    SLICE_X1Y52.B1       net (fanout=17)       1.659   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE<1>
-    SLICE_X1Y52.BMUX     Tilo                  0.337   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/mcb_ui_cmd_en
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1758_inv_SW0
-    SLICE_X1Y48.C2       net (fanout=1)        1.434   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/N21
-    SLICE_X1Y48.C        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE<3>_inv1_inv
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1758_inv
-    SLICE_X2Y56.CE       net (fanout=2)        1.051   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1758_inv
-    SLICE_X2Y56.CLK      Tceck                 0.266   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec<7>
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec_7
-    -------------------------------------------------  ---------------------------
-    Total                                      7.892ns (1.546ns logic, 6.346ns route)
-                                                       (19.6% logic, 80.4% route)
+    Total                                      7.498ns (2.379ns logic, 5.119ns route)
+                                                       (31.7% logic, 68.3% route)
 
 --------------------------------------------------------------------------------
 Slack (setup path):     12.368ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd2 (FF)
-  Destination:          Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec_7 (FF)
+  Source:               Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_Previous_1 (FF)
+  Destination:          Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY_0 (FF)
   Requirement:          20.000ns
-  Data Path Delay:      7.509ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.019ns (0.482 - 0.501)
+  Data Path Delay:      7.512ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.016ns (0.189 - 0.205)
   Source Clock:         Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 0.000ns
   Destination Clock:    Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 20.000ns
   Clock Uncertainty:    0.104ns
@@ -1019,27 +760,318 @@ Slack (setup path):     12.368ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.195ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd2 to Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec_7
+  Maximum Data Path at Slow Process Corner: Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_Previous_1 to Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY_0
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X2Y54.CQ       Tcko                  0.525   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd2
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd2
-    SLICE_X2Y42.A2       net (fanout=39)       1.724   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_FSM_FFd2
-    SLICE_X2Y42.A        Tilo                  0.254   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value<7>
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE_STATE<1>1
-    SLICE_X1Y52.B1       net (fanout=17)       1.659   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE<1>
-    SLICE_X1Y52.BMUX     Tilo                  0.337   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/mcb_ui_cmd_en
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1758_inv_SW0
-    SLICE_X1Y48.C2       net (fanout=1)        1.434   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/N21
-    SLICE_X1Y48.C        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/STATE<3>_inv1_inv
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1758_inv
-    SLICE_X2Y56.CE       net (fanout=2)        1.051   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1758_inv
-    SLICE_X2Y56.CLK      Tceck                 0.266   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec<7>
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/counter_dec_7
+    SLICE_X5Y51.AQ       Tcko                  0.430   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_Previous<7>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_Previous_1
+    SLICE_X0Y50.B1       net (fanout=6)        1.375   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_Previous<1>
+    SLICE_X0Y50.BMUX     Topbb                 0.428   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Msub_Max_Value_Delta_Up_cy<3>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Msub_Max_Value_Delta_Up_lut<1>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Msub_Max_Value_Delta_Up_cy<3>
+    SLICE_X1Y50.C2       net (fanout=1)        1.177   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_Delta_Up<1>
+    SLICE_X1Y50.C        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1562_inv115
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1562_inv115
+    SLICE_X1Y50.A2       net (fanout=1)        0.542   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1562_inv115
+    SLICE_X1Y50.A        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1562_inv115
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1562_inv116
+    SLICE_X1Y50.B6       net (fanout=2)        0.149   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1562_inv11
+    SLICE_X1Y50.B        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1562_inv115
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv111
+    SLICE_X4Y53.D3       net (fanout=2)        1.161   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv11
+    SLICE_X4Y53.D        Tilo                  0.235   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY<3>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv
+    SLICE_X4Y53.CE       net (fanout=2)        0.924   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv
+    SLICE_X4Y53.CLK      Tceck                 0.314   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY<3>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY_0
     -------------------------------------------------  ---------------------------
-    Total                                      7.509ns (1.641ns logic, 5.868ns route)
-                                                       (21.9% logic, 78.1% route)
+    Total                                      7.512ns (2.184ns logic, 5.328ns route)
+                                                       (29.1% logic, 70.9% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY_1 (SLICE_X4Y53.CE), 272 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     12.053ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_0 (FF)
+  Destination:          Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.799ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.044ns (0.471 - 0.515)
+  Source Clock:         Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 0.000ns
+  Destination Clock:    Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 20.000ns
+  Clock Uncertainty:    0.104ns
+
+  Clock Uncertainty:          0.104ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.195ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_0 to Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y49.AMUX     Tshcko                0.535   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value<6>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_0
+    SLICE_X7Y51.B2       net (fanout=10)       1.641   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value<0>
+    SLICE_X7Y51.B        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o1
+    SLICE_X7Y51.A5       net (fanout=1)        0.230   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o1
+    SLICE_X7Y51.A        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+    SLICE_X7Y51.D3       net (fanout=1)        0.391   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o2
+    SLICE_X7Y51.D        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o22
+    SLICE_X7Y51.C6       net (fanout=2)        0.152   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+    SLICE_X7Y51.C        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o23
+    SLICE_X1Y50.B4       net (fanout=2)        0.931   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o
+    SLICE_X1Y50.B        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1562_inv115
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv111
+    SLICE_X4Y53.D3       net (fanout=2)        1.161   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv11
+    SLICE_X4Y53.D        Tilo                  0.235   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY<3>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv
+    SLICE_X4Y53.CE       net (fanout=2)        0.924   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv
+    SLICE_X4Y53.CLK      Tceck                 0.304   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY<3>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY_1
+    -------------------------------------------------  ---------------------------
+    Total                                      7.799ns (2.369ns logic, 5.430ns route)
+                                                       (30.4% logic, 69.6% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     12.364ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_2 (FF)
+  Destination:          Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.488ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.044ns (0.471 - 0.515)
+  Source Clock:         Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 0.000ns
+  Destination Clock:    Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 20.000ns
+  Clock Uncertainty:    0.104ns
+
+  Clock Uncertainty:          0.104ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.195ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_2 to Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y49.BMUX     Tshcko                0.535   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value<6>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_2
+    SLICE_X7Y51.B4       net (fanout=12)       1.330   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value<2>
+    SLICE_X7Y51.B        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o1
+    SLICE_X7Y51.A5       net (fanout=1)        0.230   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o1
+    SLICE_X7Y51.A        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+    SLICE_X7Y51.D3       net (fanout=1)        0.391   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o2
+    SLICE_X7Y51.D        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o22
+    SLICE_X7Y51.C6       net (fanout=2)        0.152   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+    SLICE_X7Y51.C        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o23
+    SLICE_X1Y50.B4       net (fanout=2)        0.931   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o
+    SLICE_X1Y50.B        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1562_inv115
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv111
+    SLICE_X4Y53.D3       net (fanout=2)        1.161   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv11
+    SLICE_X4Y53.D        Tilo                  0.235   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY<3>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv
+    SLICE_X4Y53.CE       net (fanout=2)        0.924   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv
+    SLICE_X4Y53.CLK      Tceck                 0.304   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY<3>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY_1
+    -------------------------------------------------  ---------------------------
+    Total                                      7.488ns (2.369ns logic, 5.119ns route)
+                                                       (31.6% logic, 68.4% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     12.378ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_Previous_1 (FF)
+  Destination:          Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY_1 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.502ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.016ns (0.189 - 0.205)
+  Source Clock:         Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 0.000ns
+  Destination Clock:    Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 20.000ns
+  Clock Uncertainty:    0.104ns
+
+  Clock Uncertainty:          0.104ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.195ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_Previous_1 to Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X5Y51.AQ       Tcko                  0.430   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_Previous<7>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_Previous_1
+    SLICE_X0Y50.B1       net (fanout=6)        1.375   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_Previous<1>
+    SLICE_X0Y50.BMUX     Topbb                 0.428   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Msub_Max_Value_Delta_Up_cy<3>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Msub_Max_Value_Delta_Up_lut<1>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Msub_Max_Value_Delta_Up_cy<3>
+    SLICE_X1Y50.C2       net (fanout=1)        1.177   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_Delta_Up<1>
+    SLICE_X1Y50.C        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1562_inv115
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1562_inv115
+    SLICE_X1Y50.A2       net (fanout=1)        0.542   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1562_inv115
+    SLICE_X1Y50.A        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1562_inv115
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1562_inv116
+    SLICE_X1Y50.B6       net (fanout=2)        0.149   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1562_inv11
+    SLICE_X1Y50.B        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1562_inv115
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv111
+    SLICE_X4Y53.D3       net (fanout=2)        1.161   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv11
+    SLICE_X4Y53.D        Tilo                  0.235   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY<3>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv
+    SLICE_X4Y53.CE       net (fanout=2)        0.924   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv
+    SLICE_X4Y53.CLK      Tceck                 0.304   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY<3>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY_1
+    -------------------------------------------------  ---------------------------
+    Total                                      7.502ns (2.174ns logic, 5.328ns route)
+                                                       (29.0% logic, 71.0% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY_3 (SLICE_X4Y53.CE), 272 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     12.068ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_0 (FF)
+  Destination:          Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY_3 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.784ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.044ns (0.471 - 0.515)
+  Source Clock:         Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 0.000ns
+  Destination Clock:    Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 20.000ns
+  Clock Uncertainty:    0.104ns
+
+  Clock Uncertainty:          0.104ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.195ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_0 to Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y49.AMUX     Tshcko                0.535   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value<6>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_0
+    SLICE_X7Y51.B2       net (fanout=10)       1.641   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value<0>
+    SLICE_X7Y51.B        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o1
+    SLICE_X7Y51.A5       net (fanout=1)        0.230   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o1
+    SLICE_X7Y51.A        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+    SLICE_X7Y51.D3       net (fanout=1)        0.391   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o2
+    SLICE_X7Y51.D        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o22
+    SLICE_X7Y51.C6       net (fanout=2)        0.152   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+    SLICE_X7Y51.C        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o23
+    SLICE_X1Y50.B4       net (fanout=2)        0.931   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o
+    SLICE_X1Y50.B        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1562_inv115
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv111
+    SLICE_X4Y53.D3       net (fanout=2)        1.161   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv11
+    SLICE_X4Y53.D        Tilo                  0.235   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY<3>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv
+    SLICE_X4Y53.CE       net (fanout=2)        0.924   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv
+    SLICE_X4Y53.CLK      Tceck                 0.289   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY<3>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY_3
+    -------------------------------------------------  ---------------------------
+    Total                                      7.784ns (2.354ns logic, 5.430ns route)
+                                                       (30.2% logic, 69.8% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     12.379ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_2 (FF)
+  Destination:          Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY_3 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.473ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.044ns (0.471 - 0.515)
+  Source Clock:         Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 0.000ns
+  Destination Clock:    Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 20.000ns
+  Clock Uncertainty:    0.104ns
+
+  Clock Uncertainty:          0.104ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.195ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_2 to Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X0Y49.BMUX     Tshcko                0.535   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value<6>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_2
+    SLICE_X7Y51.B4       net (fanout=12)       1.330   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value<2>
+    SLICE_X7Y51.B        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o1
+    SLICE_X7Y51.A5       net (fanout=1)        0.230   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o1
+    SLICE_X7Y51.A        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+    SLICE_X7Y51.D3       net (fanout=1)        0.391   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o2
+    SLICE_X7Y51.D        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o22
+    SLICE_X7Y51.C6       net (fanout=2)        0.152   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+    SLICE_X7Y51.C        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o21
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o23
+    SLICE_X1Y50.B4       net (fanout=2)        0.931   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value[7]_Max_Value_Previous[7]_LessThan_191_o
+    SLICE_X1Y50.B        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1562_inv115
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv111
+    SLICE_X4Y53.D3       net (fanout=2)        1.161   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv11
+    SLICE_X4Y53.D        Tilo                  0.235   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY<3>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv
+    SLICE_X4Y53.CE       net (fanout=2)        0.924   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv
+    SLICE_X4Y53.CLK      Tceck                 0.289   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY<3>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY_3
+    -------------------------------------------------  ---------------------------
+    Total                                      7.473ns (2.354ns logic, 5.119ns route)
+                                                       (31.5% logic, 68.5% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     12.393ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_Previous_1 (FF)
+  Destination:          Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY_3 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      7.487ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.016ns (0.189 - 0.205)
+  Source Clock:         Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 0.000ns
+  Destination Clock:    Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 20.000ns
+  Clock Uncertainty:    0.104ns
+
+  Clock Uncertainty:          0.104ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.195ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_Previous_1 to Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X5Y51.AQ       Tcko                  0.430   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_Previous<7>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_Previous_1
+    SLICE_X0Y50.B1       net (fanout=6)        1.375   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_Previous<1>
+    SLICE_X0Y50.BMUX     Topbb                 0.428   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Msub_Max_Value_Delta_Up_cy<3>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Msub_Max_Value_Delta_Up_lut<1>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Msub_Max_Value_Delta_Up_cy<3>
+    SLICE_X1Y50.C2       net (fanout=1)        1.177   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Max_Value_Delta_Up<1>
+    SLICE_X1Y50.C        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1562_inv115
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1562_inv115
+    SLICE_X1Y50.A2       net (fanout=1)        0.542   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1562_inv115
+    SLICE_X1Y50.A        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1562_inv115
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1562_inv116
+    SLICE_X1Y50.B6       net (fanout=2)        0.149   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1562_inv11
+    SLICE_X1Y50.B        Tilo                  0.259   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1562_inv115
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv111
+    SLICE_X4Y53.D3       net (fanout=2)        1.161   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv11
+    SLICE_X4Y53.D        Tilo                  0.235   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY<3>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv
+    SLICE_X4Y53.CE       net (fanout=2)        0.924   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/_n1684_inv
+    SLICE_X4Y53.CLK      Tceck                 0.289   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY<3>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/TARGET_DQS_DELAY_3
+    -------------------------------------------------  ---------------------------
+    Total                                      7.487ns (2.159ns logic, 5.328ns route)
+                                                       (28.8% logic, 71.2% route)
 
 --------------------------------------------------------------------------------
 
@@ -1049,84 +1081,85 @@ Hold Paths: PERIOD analysis for net "Inst_ddr_control/inst_ddr/memc3_infrastruct
 
 --------------------------------------------------------------------------------
 
-Paths for end point Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_controller/shift_through_reg_4 (SLICE_X11Y40.SR), 1 path
+Paths for end point Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/IODRPCTRLR_R_WB (SLICE_X5Y50.SR), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      0.346ns (requirement - (clock path skew + uncertainty - data path))
+Slack (hold path):      0.367ns (requirement - (clock path skew + uncertainty - data path))
   Source:               Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/RST_reg (FF)
-  Destination:          Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_controller/shift_through_reg_4 (FF)
+  Destination:          Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/IODRPCTRLR_R_WB (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.337ns (Levels of Logic = 0)
-  Clock Path Skew:      -0.009ns (0.225 - 0.234)
+  Data Path Delay:      0.356ns (Levels of Logic = 0)
+  Clock Path Skew:      -0.011ns (0.325 - 0.336)
   Source Clock:         Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 20.000ns
   Destination Clock:    Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 20.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/RST_reg to Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_controller/shift_through_reg_4
+  Minimum Data Path at Fast Process Corner: Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/RST_reg to Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/IODRPCTRLR_R_WB
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X9Y41.AQ       Tcko                  0.198   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/RST_reg
+    SLICE_X4Y45.CQ       Tcko                  0.200   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/RST_reg
                                                        Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/RST_reg
-    SLICE_X11Y40.SR      net (fanout=50)       0.270   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/RST_reg
-    SLICE_X11Y40.CLK     Tcksr       (-Th)     0.131   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_controller/shift_through_reg<7>
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_controller/shift_through_reg_4
+    SLICE_X5Y50.SR       net (fanout=48)       0.287   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/RST_reg
+    SLICE_X5Y50.CLK      Tcksr       (-Th)     0.131   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/IODRPCTRLR_R_WB
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/IODRPCTRLR_R_WB
     -------------------------------------------------  ---------------------------
-    Total                                      0.337ns (0.067ns logic, 0.270ns route)
-                                                       (19.9% logic, 80.1% route)
+    Total                                      0.356ns (0.069ns logic, 0.287ns route)
+                                                       (19.4% logic, 80.6% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_controller/shift_through_reg_5 (SLICE_X11Y40.SR), 1 path
+Paths for end point Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/pre_sysrst_cnt_3 (SLICE_X8Y53.C5), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      0.349ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/RST_reg (FF)
-  Destination:          Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_controller/shift_through_reg_5 (FF)
+Slack (hold path):      0.382ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/pre_sysrst_cnt_2 (FF)
+  Destination:          Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/pre_sysrst_cnt_3 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.340ns (Levels of Logic = 0)
-  Clock Path Skew:      -0.009ns (0.225 - 0.234)
+  Data Path Delay:      0.382ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
   Source Clock:         Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 20.000ns
   Destination Clock:    Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 20.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/RST_reg to Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_controller/shift_through_reg_5
+  Minimum Data Path at Fast Process Corner: Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/pre_sysrst_cnt_2 to Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/pre_sysrst_cnt_3
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X9Y41.AQ       Tcko                  0.198   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/RST_reg
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/RST_reg
-    SLICE_X11Y40.SR      net (fanout=50)       0.270   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/RST_reg
-    SLICE_X11Y40.CLK     Tcksr       (-Th)     0.128   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_controller/shift_through_reg<7>
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_controller/shift_through_reg_5
+    SLICE_X8Y53.CQ       Tcko                  0.200   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/pre_sysrst_cnt<2>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/pre_sysrst_cnt_2
+    SLICE_X8Y53.C5       net (fanout=1)        0.061   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/pre_sysrst_cnt<2>
+    SLICE_X8Y53.CLK      Tah         (-Th)    -0.121   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/pre_sysrst_cnt<2>
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/Mcount_pre_sysrst_cnt_xor<3>11
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/pre_sysrst_cnt_3
     -------------------------------------------------  ---------------------------
-    Total                                      0.340ns (0.070ns logic, 0.270ns route)
-                                                       (20.6% logic, 79.4% route)
+    Total                                      0.382ns (0.321ns logic, 0.061ns route)
+                                                       (84.0% logic, 16.0% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_controller/shift_through_reg_7 (SLICE_X11Y40.SR), 1 path
+Paths for end point Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_controller/state_FSM_FFd3 (SLICE_X3Y43.DX), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      0.350ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/RST_reg (FF)
-  Destination:          Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_controller/shift_through_reg_7 (FF)
+Slack (hold path):      0.408ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_controller/state_FSM_FFd5 (FF)
+  Destination:          Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_controller/state_FSM_FFd3 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.341ns (Levels of Logic = 0)
-  Clock Path Skew:      -0.009ns (0.225 - 0.234)
+  Data Path Delay:      0.408ns (Levels of Logic = 0)
+  Clock Path Skew:      0.000ns
   Source Clock:         Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 20.000ns
   Destination Clock:    Inst_ddr_control/inst_ddr/c3_mcb_drp_clk rising at 20.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/RST_reg to Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_controller/shift_through_reg_7
+  Minimum Data Path at Fast Process Corner: Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_controller/state_FSM_FFd5 to Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_controller/state_FSM_FFd3
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X9Y41.AQ       Tcko                  0.198   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/RST_reg
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/RST_reg
-    SLICE_X11Y40.SR      net (fanout=50)       0.270   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/RST_reg
-    SLICE_X11Y40.CLK     Tcksr       (-Th)     0.127   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_controller/shift_through_reg<7>
-                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_controller/shift_through_reg_7
+    SLICE_X3Y43.CQ       Tcko                  0.198   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_controller/state_FSM_FFd2-In
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_controller/state_FSM_FFd5
+    SLICE_X3Y43.DX       net (fanout=3)        0.151   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_controller/state_FSM_FFd3-In
+    SLICE_X3Y43.CLK      Tckdi       (-Th)    -0.059   Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_controller/state_FSM_FFd2-In
+                                                       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_controller/state_FSM_FFd3
     -------------------------------------------------  ---------------------------
-    Total                                      0.341ns (0.071ns logic, 0.270ns route)
-                                                       (20.8% logic, 79.2% route)
+    Total                                      0.408ns (0.257ns logic, 0.151ns route)
+                                                       (63.0% logic, 37.0% route)
 
 --------------------------------------------------------------------------------
 
@@ -1234,9 +1267,9 @@ Slack: 19.000ns (period - min period limit)
 Slack: 19.520ns (period - min period limit)
   Period: 20.000ns
   Min period limit: 0.480ns (2083.333MHz) (Tcp)
-  Physical resource: Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/IODRPCTRLR_READ_DATA<7>/CLK
-  Logical resource: Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_controller/read_data_4/CK
-  Location pin: SLICE_X6Y40.CLK
+  Physical resource: Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_controller/state_FSM_FFd7/CLK
+  Logical resource: Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/iodrp_controller/AddressPhase/CK
+  Location pin: SLICE_X2Y42.CLK
   Clock network: Inst_ddr_control/inst_ddr/c3_mcb_drp_clk
 --------------------------------------------------------------------------------
 
@@ -1343,7 +1376,7 @@ Derived Constraints for Inst_ddr_control/inst_ddr/memc3_infrastructure_inst/sys_
 |           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
 |                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-|Inst_ddr_control/inst_ddr/memc3|     10.000ns|      3.334ns|      4.130ns|            0|            0|            0|        11553|
+|Inst_ddr_control/inst_ddr/memc3|     10.000ns|      3.334ns|      3.978ns|            0|            0|            0|        11553|
 |_infrastructure_inst/sys_clk_ib|             |             |             |             |             |             |             |
 |ufg                            |             |             |             |             |             |             |             |
 | Inst_ddr_control/inst_ddr/memc|      5.000ns|      1.052ns|      1.599ns|            0|            0|            0|            0|
@@ -1355,10 +1388,10 @@ Derived Constraints for Inst_ddr_control/inst_ddr/memc3_infrastructure_inst/sys_
 | 80                            |             |             |             |             |             |             |             |
 |  Inst_ddr_control/inst_ddr/c3_|      5.000ns|      1.599ns|          N/A|            0|            0|            0|            0|
 |  sysclk_2x_180                |             |             |             |             |             |             |             |
-| Inst_ddr_control/inst_ddr/memc|     40.000ns|      4.434ns|          N/A|            0|            0|          480|            0|
+| Inst_ddr_control/inst_ddr/memc|     40.000ns|      4.901ns|          N/A|            0|            0|          480|            0|
 | 3_infrastructure_inst/clk0_buf|             |             |             |             |             |             |             |
 | g_in                          |             |             |             |             |             |             |             |
-| Inst_ddr_control/inst_ddr/memc|     20.000ns|      8.259ns|          N/A|            0|            0|        11073|            0|
+| Inst_ddr_control/inst_ddr/memc|     20.000ns|      7.957ns|          N/A|            0|            0|        11073|            0|
 | 3_infrastructure_inst/mcb_drp_|             |             |             |             |             |             |             |
 | clk_bufg_in                   |             |             |             |             |             |             |             |
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
@@ -1396,7 +1429,7 @@ Clock to Setup on destination clock clk_100mhz
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk_100mhz     |    8.259|         |         |         |
+clk_100mhz     |    7.957|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
@@ -1405,16 +1438,16 @@ Timing summary:
 
 Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
 
-Constraints cover 11553 paths, 0 nets, and 1610 connections
+Constraints cover 11553 paths, 0 nets, and 1602 connections
 
 Design statistics:
-   Minimum period:   8.259ns{1}   (Maximum frequency: 121.080MHz)
+   Minimum period:   7.957ns{1}   (Maximum frequency: 125.676MHz)
 
 
 ------------------------------------Footnotes-----------------------------------
 1)  The minimum period statistic assumes all single cycle delays.
 
-Analysis completed Mon Jul 27 16:28:04 2020 
+Analysis completed Wed Jul 29 00:53:39 2020 
 --------------------------------------------------------------------------------
 
 Trace Settings:

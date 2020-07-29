@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Mon Jul 27 16:27:19 2020
+// Written by: Map P.20131013 on Wed Jul 29 00:53:00 2020
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -98,7 +98,7 @@ PIN
         "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0"
         PINNAME P1RDCLK;
 PIN
-        Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<252>
+        Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<251>
         = BEL
         "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0"
         PINNAME P1WRCLK;
@@ -133,7 +133,7 @@ TIMEGRP Inst_ddr_control_inst_ddr_memc3_infrastructure_inst_clk0_bufg_in = BEL
         PIN
         "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<245>"
         PIN
-        "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<252>"
+        "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<251>"
         PIN
         "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<107>"
         PIN
@@ -145,7 +145,7 @@ TIMEGRP Inst_ddr_control_inst_ddr_memc3_infrastructure_inst_clk0_bufg_in = BEL
         PIN
         "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<245>"
         PIN
-        "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<252>"
+        "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<251>"
         PIN
         "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<107>"
         PIN
@@ -157,7 +157,7 @@ TIMEGRP Inst_ddr_control_inst_ddr_memc3_infrastructure_inst_clk0_bufg_in = BEL
         PIN
         "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<245>"
         PIN
-        "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<252>"
+        "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<251>"
         PIN
         "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<107>"
         PIN
@@ -169,7 +169,7 @@ TIMEGRP Inst_ddr_control_inst_ddr_memc3_infrastructure_inst_clk0_bufg_in = BEL
         PIN
         "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<245>"
         PIN
-        "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<252>"
+        "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<251>"
         PIN
         "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<107>"
         PIN
@@ -181,7 +181,7 @@ TIMEGRP Inst_ddr_control_inst_ddr_memc3_infrastructure_inst_clk0_bufg_in = BEL
         PIN
         "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<245>"
         PIN
-        "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<252>"
+        "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<251>"
         PIN
         "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<107>"
         PIN
@@ -193,7 +193,7 @@ TIMEGRP Inst_ddr_control_inst_ddr_memc3_infrastructure_inst_clk0_bufg_in = BEL
         PIN
         "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<245>"
         PIN
-        "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<252>"
+        "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<251>"
         BEL "Inst_ddr_control/inst_ddr/memc3_infrastructure_inst/U_BUFG_CLK0"
         BEL "Inst_ddr_control/Inst_rd_en_pls/T1" BEL
         "Inst_ddr_control/Inst_rd_en_pls/T1_0001" BEL
@@ -212,14 +212,14 @@ TIMEGRP Inst_ddr_control_inst_ddr_memc3_infrastructure_inst_clk0_bufg_in = BEL
         "Inst_ddr_control/ddr_addr_a_pico_wr_0_C_0" BEL
         "Inst_ddr_control/ddr_addr_a_pico_wr_0_P_0";
 PIN
-        Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<627>
+        Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<626>
         = BEL
         "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0"
         PINNAME UICLK;
 TIMEGRP
         Inst_ddr_control_inst_ddr_memc3_infrastructure_inst_mcb_drp_clk_bufg_in
         = PIN
-        "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<627>"
+        "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<626>"
         BEL
         "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/IODRP2_RZQ"
         BEL
@@ -634,7 +634,7 @@ TIMEGRP
         "Inst_ddr_control/inst_ddr/memc3_infrastructure_inst/powerup_pll_locked"
         BEL "Inst_ddr_control/inst_ddr/memc3_infrastructure_inst/U_BUFG_CLK1";
 PIN
-        Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<609>
+        Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<608>
         = BEL
         "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0"
         PINNAME PLLCLK1;
@@ -729,7 +729,7 @@ PIN
         "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_dq[15].oserdes2_dq_0"
         PINNAME CLK0;
 TIMEGRP Inst_ddr_control_inst_ddr_memc3_infrastructure_inst_clk_2x_180 = PIN
-        "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<609>"
+        "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<608>"
         PIN
         "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/ioi_udm_0_pins<0>"
         PIN
@@ -767,7 +767,7 @@ TIMEGRP Inst_ddr_control_inst_ddr_memc3_infrastructure_inst_clk_2x_180 = PIN
         PIN
         "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_dq[15].oserdes2_dq_0_pins<0>";
 PIN
-        Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<608>
+        Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<607>
         = BEL
         "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0"
         PINNAME PLLCLK0;
@@ -897,7 +897,7 @@ PIN
         "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/ioi_ck_0"
         PINNAME CLK0;
 TIMEGRP Inst_ddr_control_inst_ddr_memc3_infrastructure_inst_clk_2x_0 = PIN
-        "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<608>"
+        "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<607>"
         PIN
         "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_addr_oserdes2[0].ioi_addr_0_pins<0>"
         PIN
@@ -980,7 +980,7 @@ TS_Inst_ddr_control_inst_ddr_memc3_infrastructure_inst_clk0_bufg_in = PERIOD
         "Inst_ddr_control_inst_ddr_memc3_infrastructure_inst_clk0_bufg_in"
         TS_SYS_CLK3 / 0.25 HIGH 50%;
 PIN
-        Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<614>
+        Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<613>
         = BEL
         "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0"
         PINNAME SELFREFRESHMODE;
@@ -988,7 +988,7 @@ PIN Inst_ddr_control/inst_ddr/memc3_infrastructure_inst/BUFPLL_MCB1_pins<3> =
         BEL "Inst_ddr_control/inst_ddr/memc3_infrastructure_inst/BUFPLL_MCB1"
         PINNAME LOCK;
 PIN
-        "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<614>"
+        "Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/samc_0_pins<613>"
         TIG;
 PIN "Inst_ddr_control/inst_ddr/memc3_infrastructure_inst/BUFPLL_MCB1_pins<3>"
         TIG;

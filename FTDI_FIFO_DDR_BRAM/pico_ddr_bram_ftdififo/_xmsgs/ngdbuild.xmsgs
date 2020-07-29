@@ -24,6 +24,9 @@
 <msg type="info" file="ConstraintSystem" num="0" >The Period constraint &lt;Net clk_100mhz PERIOD = 10000 ps;&gt; [hw_top.ucf(52)], is specified using the Net Period method which is not recommended. Please use the Timespec PERIOD method.
 </msg>
 
+<msg type="warning" file="NgdBuild" num="452" delta="old" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">N29</arg>&apos; has no driver
+</msg>
+
 <msg type="warning" file="NgdBuild" num="452" delta="old" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">N30</arg>&apos; has no driver
 </msg>
 
@@ -102,7 +105,7 @@
 <msg type="warning" file="NgdBuild" num="452" delta="old" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">N55</arg>&apos; has no driver
 </msg>
 
-<msg type="warning" file="NgdBuild" num="452" delta="old" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">N56</arg>&apos; has no driver
+<msg type="warning" file="NgdBuild" num="452" delta="old" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">Inst_control/User_RegRE</arg>&apos; has no driver
 </msg>
 
 <msg type="warning" file="NgdBuild" num="452" delta="old" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">Inst_ddr_control/c3_calib_done</arg>&apos; has no driver

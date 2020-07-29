@@ -77,7 +77,14 @@ ARCHITECTURE BEHAVIORAL OF TOP IS
 			addr_rst_pico_w: out  std_logic;
 			addr_rst_pico_r: out  std_logic;	
 
-
+	       -- Register interface
+            User_RegAddr : out std_logic_vector(15 downto 0);
+            User_RegDataIn : in std_logic_vector(7 downto 0);
+            User_RegDataOut : out std_logic_vector(7 downto 0);
+            User_RegWE : out std_logic;
+            User_RegRE : out std_logic;
+				
+				
 		wr_en_pls_a : OUT std_logic;
 		wr_data_a : OUT std_logic_vector(31 downto 0);
 		ddr_add_inc_pico : OUT std_logic;
@@ -186,6 +193,19 @@ ARCHITECTURE BEHAVIORAL OF TOP IS
 	signal addr_rst_pico_r:	std_logic;
 
 		
+			       -- Register interface
+   signal    User_RegAddr :  std_logic_vector(15 downto 0);
+   signal    User_RegDataIn :  std_logic_vector(7 downto 0);
+   signal    User_RegDataOut :  std_logic_vector(7 downto 0);
+   signal    User_RegWE :  std_logic;
+    signal   User_RegRE :  std_logic;
+		
+		    -- Interrupt signal
+    signal Interrupt : std_logic;
+
+    -- Registers
+    signal user_reg : std_logic_vector(7 downto 0);
+	signal user_reg1 : std_logic_vector(7 downto 0);	
 		
 	
 BEGIN
@@ -210,6 +230,13 @@ BEGIN
 		Bram_w_r =>Bram_w_r,
 		address_7_0 =>address_7_0 ,
 		address_15_8 =>address_15_8, 
+		----///**** User register ******
+		User_RegAddr    =>User_RegAddr,    
+		User_RegDataIn 	=>User_RegDataOut, 	
+		User_RegDataOut	=>User_RegDataIn ,	
+		User_RegWE 		=>User_RegWE, 		
+		User_RegRE 		=>User_RegRE, 	
+		
 		----///**** ddr control******		
 		cmd_en_wr_a   =>cmd_en_wr_a ,
 		WR_RD_CMD     =>WR_RD_CMD ,
@@ -288,16 +315,45 @@ BEGIN
 		
 	
 
-	TEST_LED(7 downto 1)<="0000000";
-
-	TEST_LED(0)<=user_rd_error or ddr_error ;--c3_calib_done;
 	
 
-		
-
-		
-			
+	--TEST_LED(0)<=user_rd_error or ddr_error ;--c3_calib_done;
 	
+-------------------------------------------------------------------------------
+	-- Implement register write
+
+    process (RESET, CLOCK_12MHZ,User_RegWE,User_RegAddr)
+    begin
+
+		if (CLOCK_12MHZ'event and CLOCK_12MHZ='1') then
+            if (User_RegWE='1') then
+
+                case User_RegAddr is
+                    when X"1000" => Interrupt <= '1';
+                    when X"1063" => user_reg <= User_RegDataIn + 1; Interrupt <= '0'; -- 99 decimal
+					     when X"1011" => user_reg1 <= User_RegDataIn ; --  decimal
+                    when others => Interrupt <= '0';
+                end case;
+
+            else
+                Interrupt <= '0';
+            end if;
+        end if;
+    end process;
+
+    -- Implement register read
+    process (User_RegAddr, user_reg,user_reg1)
+    begin
+        case User_RegAddr is
+            when X"1063" => User_RegDataOut <= user_reg; -- 99 decimal
+			   when X"1011" => User_RegDataOut <= user_reg1; --  decimal
+            when others => User_RegDataOut <= X"00";
+        end case;
+    end process;
+
+	TEST_LED<=user_reg1;
+
+
 		
 	
 END BEHAVIORAL;
