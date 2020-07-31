@@ -1,0 +1,87 @@
+Release 14.7 - xst P.20131013 (nt)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to E:/pico_ddr_bram_ftdififo/xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.36 secs
+ 
+--> Parameter xsthdpdir set to E:/pico_ddr_bram_ftdififo/xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.36 secs
+ 
+--> Reading design: control.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "E:\pico_ddr_bram_ftdififo\latch.v" into library work
+Parsing module <latch>.
+Analyzing Verilog file "E:\pico_ddr_bram_ftdififo\kcpsm6.v" into library work
+Parsing module <kcpsm6>.
+Analyzing Verilog file "E:\pico_ddr_bram_ftdififo\ipcore_dir\ddr2\user_design\rtl\infrastructure.v" into library work
+Parsing module <infrastructure>.
+Analyzing Verilog file "E:\pico_ddr_bram_ftdififo\ipcore_dir\ddr2\user_design\rtl\mcb_controller\iodrp_controller.v" into library work
+Parsing module <iodrp_controller>.
+Analyzing Verilog file "E:\pico_ddr_bram_ftdififo\ipcore_dir\ddr2\user_design\rtl\mcb_controller\iodrp_mcb_controller.v" into library work
+Parsing module <iodrp_mcb_controller>.
+Analyzing Verilog file "E:\pico_ddr_bram_ftdififo\ipcore_dir\ddr2\user_design\rtl\mcb_controller\mcb_raw_wrapper.v" into library work
+Parsing module <mcb_raw_wrapper>.
+Analyzing Verilog file "E:\pico_ddr_bram_ftdififo\ipcore_dir\ddr2\user_design\rtl\mcb_controller\mcb_soft_calibration.v" into library work
+Parsing module <mcb_soft_calibration>.
+Analyzing Verilog file "E:\pico_ddr_bram_ftdififo\ipcore_dir\ddr2\user_design\rtl\mcb_controller\mcb_soft_calibration_top.v" into library work
+Parsing module <mcb_soft_calibration_top>.
+Analyzing Verilog file "E:\pico_ddr_bram_ftdififo\ipcore_dir\ddr2\user_design\rtl\mcb_controller\mcb_ui_top.v" into library work
+Parsing module <mcb_ui_top>.
+Analyzing Verilog file "E:\pico_ddr_bram_ftdififo\ipcore_dir\ddr2\user_design\rtl\memc_wrapper.v" into library work
+Parsing module <memc_wrapper>.
+Parsing VHDL file "E:\pico_ddr_bram_ftdififo\pico_out_demux.vhd" into library work
+Parsing entity <PICO_OUT>.
+Parsing architecture <BEH> of entity <pico_out>.
+Parsing VHDL file "E:\pico_ddr_bram_ftdififo\PICO_CODE.vhd" into library work
+Parsing package <jtag_loader_pkg>.
+Parsing package body <jtag_loader_pkg>.
+Parsing entity <PICO_CODE>.
+Parsing architecture <low_level_definition> of entity <pico_code>.
+Parsing entity <jtag_loader_6>.
+Parsing architecture <Behavioral> of entity <jtag_loader_6>.
+Parsing VHDL file "E:\pico_ddr_bram_ftdififo\pico_control.vhd" into library work
+Parsing entity <control>.
+Parsing architecture <Behavioral> of entity <control>.
+
+
+Total REAL time to Xst completion: 8.00 secs
+Total CPU time to Xst completion: 8.27 secs
+ 
+--> 
+
+Total memory usage is 203752 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

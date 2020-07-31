@@ -1,0 +1,2 @@
+vhdtdtfi -prj pico_uart -o E:/KITCODE/sp6_lpddr_v1/pico_ddr_bram_ftdififo/control.vhi -lib work E:/KITCODE/sp6_lpddr_v1/pico_ddr_bram_ftdififo//pico_control.vhd -module control -template C:/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror 
+vhdtdtfi -prj pico_uart -o E:/pico_ddr_bram_ftdififo/control.vhi -lib work E:/pico_ddr_bram_ftdififo//pico_control.vhd -module control -template C:/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror 

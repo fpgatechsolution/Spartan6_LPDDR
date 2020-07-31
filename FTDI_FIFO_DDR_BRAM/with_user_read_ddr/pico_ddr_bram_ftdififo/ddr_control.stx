@@ -1,0 +1,83 @@
+Release 14.7 - xst P.20131013 (nt)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to E:/KITCODE/sp6_lpddr_v1/pico_ddr_bram_ftdififo/xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.30 secs
+ 
+--> Parameter xsthdpdir set to E:/KITCODE/sp6_lpddr_v1/pico_ddr_bram_ftdififo/xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.30 secs
+ 
+--> Reading design: ddr_control.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ipcore_dir\ddr2\user_design\rtl\mcb_controller\iodrp_mcb_controller.v" into library work
+Parsing module <iodrp_mcb_controller>.
+Analyzing Verilog file "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ipcore_dir\ddr2\user_design\rtl\mcb_controller\iodrp_controller.v" into library work
+Parsing module <iodrp_controller>.
+Analyzing Verilog file "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ipcore_dir\ddr2\user_design\rtl\mcb_controller\mcb_soft_calibration.v" into library work
+Parsing module <mcb_soft_calibration>.
+Analyzing Verilog file "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ipcore_dir\ddr2\user_design\rtl\mcb_controller\mcb_soft_calibration_top.v" into library work
+Parsing module <mcb_soft_calibration_top>.
+Analyzing Verilog file "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ipcore_dir\ddr2\user_design\rtl\mcb_controller\mcb_raw_wrapper.v" into library work
+Parsing module <mcb_raw_wrapper>.
+Analyzing Verilog file "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ipcore_dir\ddr2\user_design\rtl\mcb_controller\mcb_ui_top.v" into library work
+Parsing module <mcb_ui_top>.
+Analyzing Verilog file "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ipcore_dir\ddr2\user_design\rtl\memc_wrapper.v" into library work
+Parsing module <memc_wrapper>.
+Analyzing Verilog file "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ipcore_dir\ddr2\user_design\rtl\infrastructure.v" into library work
+Parsing module <infrastructure>.
+Analyzing Verilog file "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ipcore_dir\ddr2\user_design\rtl\ddr2.v" into library work
+Parsing module <ddr2>.
+Parsing VHDL file "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\l_to_p.vhd" into library work
+Parsing entity <L_TO_P>.
+Parsing architecture <Beh> of entity <l_to_p>.
+Parsing VHDL file "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" into library work
+Parsing entity <ddr_control>.
+Parsing architecture <Behavioral> of entity <ddr_control>.
+ERROR:HDLCompiler:1731 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" Line 277: found '0' definitions of operator "+", cannot determine exact overloaded matching definition for "+"
+ERROR:HDLCompiler:69 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" Line 289: <cmd_wr_rd_pls> is not declared.
+ERROR:HDLCompiler:192 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" Line 289: Actual of formal out port pulse cannot be an expression
+ERROR:HDLCompiler:69 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" Line 356: <cmd_wr_rd_pls> is not declared.
+ERROR:HDLCompiler:69 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" Line 380: <ddr_data_wr> is not declared.
+WARNING:HDLCompiler:439 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" Line 393: Formal port c3_p1_rd_error of mode out cannot be associated with actual port user_rd_error of mode in
+ERROR:HDLCompiler:100 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" Line 393: user_rd_error with mode 'in' cannot be updated
+ERROR:HDLCompiler:69 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" Line 397: <ddr_error> is not declared.
+ERROR:HDLCompiler:854 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" Line 90: Unit <behavioral> ignored due to previous errors.
+VHDL file E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd ignored due to errors
+--> 
+
+Total memory usage is 196256 kilobytes
+
+Number of errors   :    8 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

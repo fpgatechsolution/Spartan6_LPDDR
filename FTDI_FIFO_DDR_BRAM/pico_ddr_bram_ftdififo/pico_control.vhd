@@ -38,8 +38,11 @@ entity control is
             User_RegWE : out std_logic;
             User_RegRE : out std_logic;
 				
-				
-				
+		-- ddr user test 
+
+			User_read_start : out std_logic;
+			User_ddrDataIn1: in std_logic_vector(31 downto 0);
+			User_ddrDataIn2: in std_logic_vector(31 downto 0);	
 		--///**** write & read control******
 
 			cmd_en_wr_a : out  std_logic;
@@ -293,6 +296,18 @@ end process;
 
 
 
+				    FDPE_inst_latch_4 : FDE
+  generic map (
+     INIT => '0') -- Initial value of register ('0' or '1')  
+  port map (
+     Q => User_read_start,      -- Data output
+     C => clk_12,      -- Clock input
+     CE => out_port_no(4),    -- Clock enable input      
+     D => out_port(0)       -- Data input
+  );
+
+  
+
 ------------------------for bram--------------------------------------
 	Inst_latch_5: latch PORT MAP(
 		in_b =>out_port ,
@@ -473,26 +488,36 @@ end process;
   begin
     if clk_12'event and clk_12 = '1' then
 	-- if(read_strobe ='1') then
-      case port_id(3 downto 0) is
+      case port_id(4 downto 0) is
 
 
         --when "0000" => in_port <= bram_data_in;
                       
        -- when "0001" => in_port <= bram_data_in;
-        when "0010" => in_port <= usb_data_in;
-		when "0011" => in_port(0) <= txe_n;
- 		when "0100" => in_port(0) <= rxf_n;--data_from_usb_rdy;
-        when "0101" => in_port <= bram_data_in;
+        when "00010" => in_port <= usb_data_in;
+		when "00011" => in_port(0) <= txe_n;
+ 		when "00100" => in_port(0) <= rxf_n;--data_from_usb_rdy;
+        when "00101" => in_port <= bram_data_in;
 		
-		when "0110" => in_port<=rd_data_a(31 downto 24);
-		when "0111" => in_port<=rd_data_a(23 downto 16);
-		when "1000" => in_port<=rd_data_a(15 downto 8);
-		when "1001" => in_port<=rd_data_a(7 downto 0);
+		when "00110" => in_port<=rd_data_a(31 downto 24);
+		when "00111" => in_port<=rd_data_a(23 downto 16);
+		when "01000" => in_port<=rd_data_a(15 downto 8);
+		when "01001" => in_port<=rd_data_a(7 downto 0);		
+		when "01010" => in_port(0)<=ddr_error; 
+		when "01011" => in_port(0)<=wr_full_a ; 
+		when "01100" => in_port(0)<=rd_empty_a; 
+		when "01101" => in_port <=User_RegDataIn;
 		
-		when "1010" => in_port(0)<=ddr_error; 
-		when "1011" => in_port(0)<=wr_full_a ; 
-		when "1100" => in_port(0)<=rd_empty_a; 
-		when "1101" => in_port <=User_RegDataIn;
+		when "01110" => in_port <=User_ddrDataIn1(31 downto 24);
+		when "01111" => in_port <=User_ddrDataIn1(23 downto 16);
+		when "00000" => in_port <=User_ddrDataIn1(15 downto 8);
+		when "00001" => in_port <=User_ddrDataIn1(7 downto 0);
+		
+		
+		when "10001" => in_port <=User_ddrDataIn2(31 downto 24);
+		when "10010" => in_port <=User_ddrDataIn2(23 downto 16);
+		when "10011" => in_port <=User_ddrDataIn2(15 downto 8);
+		when "10101" => in_port <=User_ddrDataIn2(7 downto 0);
 		
  
         when others =>    in_port <= "XXXXXXXX";  

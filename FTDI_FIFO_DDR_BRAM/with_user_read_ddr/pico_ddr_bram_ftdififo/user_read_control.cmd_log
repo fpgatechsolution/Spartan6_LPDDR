@@ -1,0 +1,1 @@
+vhdtdtfi -prj pico_uart -o E:/KITCODE/sp6_lpddr_v1/pico_ddr_bram_ftdififo/user_read_control.vhi -lib work E:/KITCODE/sp6_lpddr_v1/pico_ddr_bram_ftdififo//user_read_ddr.vhd -module user_read_control -template C:/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror 

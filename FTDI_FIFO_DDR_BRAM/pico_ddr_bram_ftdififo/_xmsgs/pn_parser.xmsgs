@@ -11,5 +11,29 @@
 <msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;E:/KITCODE/sp6_lpddr_v1/pico_ddr_bram_ftdififo/PICO_CODE.vhd&quot; into library work</arg>
 </msg>
 
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;E:/KITCODE/sp6_lpddr_v1/pico_ddr_bram_ftdififo/ddr_control.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;E:/KITCODE/sp6_lpddr_v1/pico_ddr_bram_ftdififo/kcpsm6.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;E:/KITCODE/sp6_lpddr_v1/pico_ddr_bram_ftdififo/l_to_p.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;E:/KITCODE/sp6_lpddr_v1/pico_ddr_bram_ftdififo/latch.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;E:/KITCODE/sp6_lpddr_v1/pico_ddr_bram_ftdififo/pico_control.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;E:/KITCODE/sp6_lpddr_v1/pico_ddr_bram_ftdififo/pico_out_demux.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;E:/KITCODE/sp6_lpddr_v1/pico_ddr_bram_ftdififo/top.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;E:/KITCODE/sp6_lpddr_v1/pico_ddr_bram_ftdififo/user_read_ddr.vhd&quot; into library work</arg>
+</msg>
+
 </messages>
 

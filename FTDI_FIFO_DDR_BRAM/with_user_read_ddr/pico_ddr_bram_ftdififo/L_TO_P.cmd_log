@@ -1,0 +1,1 @@
+vhdtdtfi -prj pico_uart -o E:/KITCODE/sp6_lpddr_v1/pico_ddr_bram_ftdififo/L_TO_P.vhi -lib work E:/KITCODE/sp6_lpddr_v1/pico_ddr_bram_ftdififo//l_to_p.vhd -module L_TO_P -template C:/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror 

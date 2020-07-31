@@ -83,7 +83,10 @@ ARCHITECTURE BEHAVIORAL OF TOP IS
             User_RegDataOut : out std_logic_vector(7 downto 0);
             User_RegWE : out std_logic;
             User_RegRE : out std_logic;
-				
+			
+					User_read_start : out std_logic;
+						User_ddrDataIn1: in std_logic_vector(31 downto 0);
+			User_ddrDataIn2: in std_logic_vector(31 downto 0);	
 				
 		wr_en_pls_a : OUT std_logic;
 		wr_data_a : OUT std_logic_vector(31 downto 0);
@@ -114,14 +117,10 @@ ARCHITECTURE BEHAVIORAL OF TOP IS
 		wr_en_pls_a : IN std_logic;
 		wr_data_a : IN std_logic_vector(31 downto 0);
 		ddr_add_inc_pico : IN std_logic;
-			addr_rst_pico_w: in  std_logic;
-	addr_rst_pico_r: in  std_logic;
+		addr_rst_pico_w: in  std_logic;
+		addr_rst_pico_r: in  std_logic;
 		rd_en_pls_a : IN std_logic;
-		ddr_error : OUT std_logic;
-		user_ddr_addr_rd : IN std_logic_vector(27 downto 0);
-		user_rd_en_pls : IN std_logic;
-		user_rd_error : IN std_logic;
-		user_cmd_en_rd : IN std_logic;    
+		ddr_error : OUT std_logic;   
 		mcb3_dram_dq : INOUT std_logic_vector(15 downto 0);
 		mcb3_dram_udqs : INOUT std_logic;
 		mcb3_rzq : INOUT std_logic;
@@ -141,9 +140,13 @@ ARCHITECTURE BEHAVIORAL OF TOP IS
 		mcb3_dram_ck_n : OUT std_logic;
 		wr_full_a : OUT std_logic;
 		rd_data_a : OUT std_logic_vector(31 downto 0);
-		rd_empty_a : OUT std_logic;
-		user_ddr_data_rd : OUT std_logic_vector(31 downto 0);
-		user_rd_empty : OUT std_logic
+		rd_empty_a : OUT std_logic;	
+		USER_ADDRESS_RES:  in  STD_LOGIC;
+		load_start_address: in  STD_LOGIC;
+		start_address: in  std_logic_vector(27 downto 0);-- must be in multiple of 2 ( address start from )
+		start_read:in  STD_LOGIC;
+		DATA_OUT1: OUT std_logic_vector(31 downto 0);
+		DATA_OUT2: OUT std_logic_vector(31 downto 0)		
 		);
 	END COMPONENT;
 
@@ -187,6 +190,22 @@ ARCHITECTURE BEHAVIORAL OF TOP IS
 	signal user_rd_error    :	std_logic;
 	signal user_rd_empty    :	std_logic;
 	signal user_cmd_en_rd	:	std_logic;
+	
+	signal USER_ADDRESS_RES:    STD_LOGIC:= '0';
+	signal load_start_address:   STD_LOGIC:= '0';
+	signal start_address:   std_logic_vector(27 downto 0);-- must be in multiple of 2 ( address start from )
+	signal start_read:  STD_LOGIC:= '0';
+	signal DATA_OUT1:  std_logic_vector(31 downto 0);
+	signal DATA_OUT2:  std_logic_vector(31 downto 0);
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	signal c3_calib_done:	std_logic;
 	
 	signal addr_rst_pico_w:	std_logic;
@@ -206,7 +225,10 @@ ARCHITECTURE BEHAVIORAL OF TOP IS
     -- Registers
     signal user_reg : std_logic_vector(7 downto 0);
 	signal user_reg1 : std_logic_vector(7 downto 0);	
-		
+	
+
+signal start_rd_user_ddr, start_read_pico : std_logic;
+	
 	
 BEGIN
 
@@ -237,6 +259,10 @@ BEGIN
 		User_RegWE 		=>User_RegWE, 		
 		User_RegRE 		=>User_RegRE, 	
 		
+		User_read_start =>start_read_pico,
+		User_ddrDataIn1  =>DATA_OUT1,
+		User_ddrDataIn2	 =>DATA_OUT2,
+			
 		----///**** ddr control******		
 		cmd_en_wr_a   =>cmd_en_wr_a ,
 		WR_RD_CMD     =>WR_RD_CMD ,
@@ -304,17 +330,17 @@ BEGIN
 		rd_empty_a  => rd_empty_a,
 		ddr_error=>ddr_error,
 		-- user read interface 
-		user_ddr_data_rd =>user_ddr_data_rd ,
-		user_ddr_addr_rd =>user_ddr_addr_rd ,
-		user_rd_en_pls =>user_rd_en_pls ,
-		user_rd_error =>user_rd_error ,
-		user_rd_empty =>user_rd_empty ,
-		user_cmd_en_rd =>user_cmd_en_rd
+		USER_ADDRESS_RES =>USER_ADDRESS_RES ,
+		load_start_address =>load_start_address ,
+		start_address =>start_address ,
+		start_read =>start_read ,
+		DATA_OUT1 =>DATA_OUT1 ,
+		DATA_OUT2 =>DATA_OUT2 
 	);
 	
 		
 	
-
+start_read<=start_rd_user_ddr or start_read_pico;
 	
 
 	--TEST_LED(0)<=user_rd_error or ddr_error ;--c3_calib_done;
@@ -329,9 +355,22 @@ BEGIN
             if (User_RegWE='1') then
 
                 case User_RegAddr is
-                    when X"1000" => Interrupt <= '1';
-                    when X"1063" => user_reg <= User_RegDataIn + 1; Interrupt <= '0'; -- 99 decimal
-					     when X"1011" => user_reg1 <= User_RegDataIn ; --  decimal
+                    when X"1000" => Interrupt <= '1';start_rd_user_ddr<= '1';
+					when X"1001" => Interrupt <= '0';start_rd_user_ddr<= '0';
+                    when X"1063" => user_reg <= User_RegDataIn + 1; -- 99 decimal
+					when X"1011" => user_reg1 <= User_RegDataIn ; --  decimal
+					
+					when X"1022" => start_address(27 downto 24) <= User_RegDataIn(3 downto 0); --  decimal
+					when X"1023" => start_address(23 downto 16) <= User_RegDataIn ; --  decimal					
+					when X"1024" => start_address(15 downto 8) <= User_RegDataIn ; --  decimal
+					when X"1025" => start_address(7 downto 0)  <= User_RegDataIn ; --  decimal	
+					
+					when X"1026" =>  USER_ADDRESS_RES<='1' ; --  decimal
+					when X"1027" =>  USER_ADDRESS_RES<='0' ; --  decimal					
+					when X"1028" =>  load_start_address<='1' ; --  decimal
+					when X"1029" =>  load_start_address<='0' ; --  decimal						 
+						 
+						 
                     when others => Interrupt <= '0';
                 end case;
 
@@ -346,7 +385,21 @@ BEGIN
     begin
         case User_RegAddr is
             when X"1063" => User_RegDataOut <= user_reg; -- 99 decimal
-			   when X"1011" => User_RegDataOut <= user_reg1; --  decimal
+			--when X"1011" => User_RegDataOut <= user_reg1; --  decimal
+			
+			when X"1011" => User_RegDataOut <= DATA_OUT1(31 downto 24); --  decimal
+			when X"1012" => User_RegDataOut <= DATA_OUT1(23 downto 16); --  decimal
+			when X"1013" => User_RegDataOut <= DATA_OUT1(15 downto 8); --  decimal
+			when X"1014" => User_RegDataOut <= DATA_OUT1(7 downto 0); --  decimal
+
+			when X"1015" => User_RegDataOut <= DATA_OUT2(31 downto 24);
+			when X"1016" => User_RegDataOut <= DATA_OUT2(23 downto 16);
+			when X"1017" => User_RegDataOut <= DATA_OUT2(15 downto 8); 
+			when X"1018" => User_RegDataOut <= DATA_OUT2(7 downto 0); 
+
+
+			
+			
             when others => User_RegDataOut <= X"00";
         end case;
     end process;

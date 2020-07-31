@@ -92,6 +92,21 @@ CONSTANT 	USER_REGWE			, 8'd ;;DSOUT
 CONSTANT 	USER_REGRE 			, 20'd ;;DSOUT 
 CONSTANT 	USER_REGDATAIN 		, 13'd ;;DSIN 
 
+;;;;;;;;;;;;
+CONSTANT USER_READ_START , 4'd ;;DSOUT
+CONSTANT USER_DDR_DATA1   , 1'd ;;DSIN 
+CONSTANT USER_DDR_DATA2   , 0'd ;;DSIN 
+CONSTANT USER_DDR_DATA3   , 15'd ;;DSIN 
+CONSTANT USER_DDR_DATA4   , 14'd ;;DSIN 
+
+CONSTANT USER_DDR_DATA5   , 17'd ;;DSIN 
+CONSTANT USER_DDR_DATA6   , 18'd ;;DSIN 
+CONSTANT USER_DDR_DATA7   , 19'd ;;DSIN 
+CONSTANT USER_DDR_DATA8   , 21'd ;;DSIN
+
+
+
+
 
 
 
@@ -152,47 +167,41 @@ CONSTANT DELAY_1US_CONSTANT, 0B ;CONSTANT VALUE FOR DELAY RUTNS
 
 	CALL send_one_bt_usb
 
+	TEST_USER:
+	LOAD DDATA,FF 
+	OUTPUT DDATA,USER_READ_START
+	
+	LOAD DDATA,00 
+	OUTPUT DDATA,USER_READ_START	
 			
-		;test_ddr:	call take_data_in_usb
-		;			COMPARE DDATA,"$"
-		;			JUMP NZ, test_ddr
-		;					
-		;	
-		;	OUTPUT DDATA,DDR_ADDRESS_RESET_W
-		;	
-        ;
-		;	
-		;	CALL WRITE_1_WORD_DDR
-        ;
-		;	
-        ;
-		;	CALL DELAY_10US
-		;	OUTPUT DDATA,DDR_ADDRESS_RESET_R
-        ;
-		;	
-		;	CALL READ_1_WORD_DDR	
-        ;
-        ;
-        ;
-		;	
-		;	
-		;	CALL DELAY_10US
-		;	CALL DELAY_20MS
-		;	
-        ;
-		;	
-        ;call test_ddr
-        ;
-		;	     
-		;	       
-		;	ASD: JUMP ASD
-		;	
+	INPUT DDATA,USER_DDR_DATA1
+	CALL send_one_bt_usb		
 			
-			
-			
-			
-			
-			
+	INPUT DDATA,USER_DDR_DATA2
+	CALL send_one_bt_usb		
+	
+	INPUT DDATA,USER_DDR_DATA3
+	CALL send_one_bt_usb
+
+	INPUT DDATA,USER_DDR_DATA4
+	CALL send_one_bt_usb
+	
+	INPUT DDATA,USER_DDR_DATA5
+	CALL send_one_bt_usb
+	
+	INPUT DDATA,USER_DDR_DATA6
+	CALL send_one_bt_usb
+	
+	INPUT DDATA,USER_DDR_DATA7
+	CALL send_one_bt_usb
+	
+	INPUT DDATA,USER_DDR_DATA8
+	CALL send_one_bt_usb
+	
+	
+	
+	
+			JUMP TEST_USER
 			
 			
 			;$ G 12 04 R/W # DATA

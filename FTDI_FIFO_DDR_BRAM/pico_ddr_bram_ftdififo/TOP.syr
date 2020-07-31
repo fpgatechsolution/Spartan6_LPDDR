@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.26 secs
+Total CPU time to Xst completion: 0.25 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.26 secs
+Total CPU time to Xst completion: 0.25 secs
  
 --> Reading design: TOP.prj
 
@@ -132,6 +132,9 @@ Analyzing Verilog file "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\kcpsm6.v"
 Parsing module <kcpsm6>.
 Analyzing Verilog file "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ipcore_dir\BRAM.v" into library work
 Parsing module <BRAM>.
+Parsing VHDL file "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\user_read_ddr.vhd" into library work
+Parsing entity <user_read_control>.
+Parsing architecture <BEHAVIORAL> of entity <user_read_control>.
 Parsing VHDL file "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\pico_out_demux.vhd" into library work
 Parsing entity <PICO_OUT>.
 Parsing architecture <BEH> of entity <pico_out>.
@@ -256,7 +259,7 @@ Back to vhdl to continue elaboration
 Elaborating entity <PICO_CODE> (architecture <low_level_definition>) with generics from library <work>.
 
 Elaborating entity <jtag_loader_6> (architecture <Behavioral>) with generics from library <work>.
-WARNING:HDLCompiler:92 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\pico_control.vhd" Line 242: usb_data should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\pico_control.vhd" Line 245: usb_data should be on the sensitivity list of the process
 
 Elaborating entity <PICO_OUT> (architecture <BEH>) with generics from library <work>.
 Going to verilog side to elaborate module latch
@@ -287,21 +290,19 @@ Going to verilog side to elaborate module latch
 Back to vhdl to continue elaboration
 Going to verilog side to elaborate module latch
 Back to vhdl to continue elaboration
-WARNING:HDLCompiler:634 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\pico_control.vhd" Line 163: Net <interrupt> does not have a driver.
-WARNING:HDLCompiler:634 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\pico_control.vhd" Line 165: Net <sleep> does not have a driver.
+WARNING:HDLCompiler:634 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\pico_control.vhd" Line 166: Net <interrupt> does not have a driver.
+WARNING:HDLCompiler:634 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\pico_control.vhd" Line 168: Net <sleep> does not have a driver.
 Going to verilog side to elaborate module BRAM
 
 Elaborating module <BRAM>.
 WARNING:HDLCompiler:1499 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ipcore_dir\BRAM.v" Line 39: Empty module <BRAM> remains a black box.
 Back to vhdl to continue elaboration
-WARNING:HDLCompiler:439 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" Line 123: Formal port user_rd_error of mode out cannot be associated with actual port user_rd_error of mode in
-INFO:HDLCompiler:1408 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" Line 84. user_rd_error is declared here
 
 Elaborating entity <ddr_control> (architecture <Behavioral>) from library <work>.
-WARNING:HDLCompiler:871 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" Line 244: Using initial value '0' for ld_addres_en since it is never assigned
+WARNING:HDLCompiler:871 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" Line 261: Using initial value '0' for ld_addres_en since it is never assigned
 
 Elaborating entity <L_TO_P> (architecture <Beh>) from library <work>.
-WARNING:HDLCompiler:92 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" Line 276: clk_ddr_fifo should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" Line 298: clk_ddr_fifo should be on the sensitivity list of the process
 Going to verilog side to elaborate module ddr2
 
 Elaborating module <ddr2(C3_P0_MASK_SIZE=4,C3_P0_DATA_PORT_SIZE=32,C3_P1_MASK_SIZE=4,C3_P1_DATA_PORT_SIZE=32,DEBUG_EN=0,C3_MEMCLK_PERIOD=10000,C3_CALIB_SOFT_IP="TRUE",C3_SIMULATION="FALSE",C3_RST_ACT_LOW=0,C3_INPUT_CLK_TYPE="SINGLE_ENDED",C3_MEM_ADDR_ORDER="ROW_BANK_COLUMN",C3_NUM_DQ_PINS=16,C3_MEM_ADDR_WIDTH=13,C3_MEM_BANKADDR_WIDTH=2)>.
@@ -772,12 +773,19 @@ WARNING:HDLCompiler:634 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ipcore
 WARNING:HDLCompiler:634 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ipcore_dir\ddr2\user_design\rtl\ddr2.v" Line 376: Net <c3_p5_rd_clk> does not have a driver.
 WARNING:HDLCompiler:634 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ipcore_dir\ddr2\user_design\rtl\ddr2.v" Line 377: Net <c3_p5_rd_en> does not have a driver.
 Back to vhdl to continue elaboration
-WARNING:HDLCompiler:439 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" Line 123: Formal port user_rd_error of mode out cannot be associated with actual port user_rd_error of mode in
-INFO:HDLCompiler:1408 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" Line 84. user_rd_error is declared here
-WARNING:HDLCompiler:1127 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" Line 325: Assignment to interrupt ignored, since the identifier is never used
-WARNING:HDLCompiler:634 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" Line 185: Net <user_ddr_addr_rd[27]> does not have a driver.
-WARNING:HDLCompiler:634 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" Line 186: Net <user_rd_en_pls> does not have a driver.
-WARNING:HDLCompiler:634 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" Line 189: Net <user_cmd_en_rd> does not have a driver.
+
+Elaborating entity <user_read_control> (architecture <BEHAVIORAL>) from library <work>.
+WARNING:HDLCompiler:92 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\user_read_ddr.vhd" Line 52: reset should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\user_read_ddr.vhd" Line 132: user_address_res should be on the sensitivity list of the process
+WARNING:HDLCompiler:1127 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" Line 351: Assignment to interrupt ignored, since the identifier is never used
+WARNING:HDLCompiler:92 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" Line 390: data_out1 should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" Line 391: data_out1 should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" Line 392: data_out1 should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" Line 393: data_out1 should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" Line 395: data_out2 should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" Line 396: data_out2 should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" Line 397: data_out2 should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" Line 398: data_out2 should be on the sensitivity list of the process
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -785,44 +793,42 @@ WARNING:HDLCompiler:634 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vh
 
 Synthesizing Unit <TOP>.
     Related source file is "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd".
-INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" line 217: Output port <led_test> of the instance <Inst_control> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" line 217: Output port <User_RegRE> of the instance <Inst_control> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" line 271: Output port <user_ddr_data_rd> of the instance <Inst_ddr_control> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" line 271: Output port <c3_calib_done> of the instance <Inst_ddr_control> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" line 271: Output port <clk_ddr_fifo_out> of the instance <Inst_ddr_control> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" line 271: Output port <c3_rst0> of the instance <Inst_ddr_control> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" line 271: Output port <user_rd_error> of the instance <Inst_ddr_control> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" line 271: Output port <user_rd_empty> of the instance <Inst_ddr_control> is unconnected or connected to loadless signal.
-WARNING:Xst:653 - Signal <user_ddr_addr_rd> is used but never assigned. This sourceless signal will be automatically connected to value GND.
-WARNING:Xst:653 - Signal <user_rd_en_pls> is used but never assigned. This sourceless signal will be automatically connected to value GND.
-WARNING:Xst:653 - Signal <user_cmd_en_rd> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" line 239: Output port <led_test> of the instance <Inst_control> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" line 239: Output port <User_RegRE> of the instance <Inst_control> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" line 297: Output port <c3_calib_done> of the instance <Inst_ddr_control> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" line 297: Output port <clk_ddr_fifo_out> of the instance <Inst_ddr_control> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\top.vhd" line 297: Output port <c3_rst0> of the instance <Inst_ddr_control> is unconnected or connected to loadless signal.
+    Found 1-bit register for signal <start_rd_user_ddr>.
     Found 8-bit register for signal <user_reg>.
     Found 8-bit register for signal <TEST_LED>.
-    Found 8-bit adder for signal <User_RegDataIn[7]_GND_6_o_add_1_OUT> created at line 333.
+    Found 28-bit register for signal <start_address>.
+    Found 1-bit register for signal <USER_ADDRESS_RES>.
+    Found 1-bit register for signal <load_start_address>.
+    Found 8-bit adder for signal <User_RegDataIn[7]_GND_6_o_add_1_OUT> created at line 360.
     Summary:
 	inferred   1 Adder/Subtractor(s).
-	inferred  16 D-type flip-flop(s).
+	inferred  47 D-type flip-flop(s).
 Unit <TOP> synthesized.
 
 Synthesizing Unit <control>.
     Related source file is "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\pico_control.vhd".
 WARNING:Xst:647 - Input <reset> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\pico_control.vhd" line 198: Output port <k_write_strobe> of the instance <processor> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\pico_control.vhd" line 198: Output port <read_strobe> of the instance <processor> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\pico_control.vhd" line 198: Output port <interrupt_ack> of the instance <processor> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\pico_control.vhd" line 201: Output port <k_write_strobe> of the instance <processor> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\pico_control.vhd" line 201: Output port <read_strobe> of the instance <processor> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\pico_control.vhd" line 201: Output port <interrupt_ack> of the instance <processor> is unconnected or connected to loadless signal.
 WARNING:Xst:653 - Signal <led_test> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <interrupt> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <sleep> is used but never assigned. This sourceless signal will be automatically connected to value GND.
     Found 8-bit register for signal <in_port>.
-    Found 8-bit 12-to-1 multiplexer for signal <port_id[3]_X_8_o_wide_mux_3_OUT> created at line 476.
-    Found 1-bit tristate buffer for signal <usb_data<7>> created at line 233
-    Found 1-bit tristate buffer for signal <usb_data<6>> created at line 233
-    Found 1-bit tristate buffer for signal <usb_data<5>> created at line 233
-    Found 1-bit tristate buffer for signal <usb_data<4>> created at line 233
-    Found 1-bit tristate buffer for signal <usb_data<3>> created at line 233
-    Found 1-bit tristate buffer for signal <usb_data<2>> created at line 233
-    Found 1-bit tristate buffer for signal <usb_data<1>> created at line 233
-    Found 1-bit tristate buffer for signal <usb_data<0>> created at line 233
+    Found 8-bit 20-to-1 multiplexer for signal <port_id[4]_X_8_o_wide_mux_3_OUT> created at line 491.
+    Found 1-bit tristate buffer for signal <usb_data<7>> created at line 236
+    Found 1-bit tristate buffer for signal <usb_data<6>> created at line 236
+    Found 1-bit tristate buffer for signal <usb_data<5>> created at line 236
+    Found 1-bit tristate buffer for signal <usb_data<4>> created at line 236
+    Found 1-bit tristate buffer for signal <usb_data<3>> created at line 236
+    Found 1-bit tristate buffer for signal <usb_data<2>> created at line 236
+    Found 1-bit tristate buffer for signal <usb_data<1>> created at line 236
+    Found 1-bit tristate buffer for signal <usb_data<0>> created at line 236
 WARNING:Xst:737 - Found 1-bit latch for signal <usb_data_in<6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <usb_data_in<5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <usb_data_in<4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
@@ -1121,24 +1127,24 @@ Unit <latch> synthesized.
 
 Synthesizing Unit <ddr_control>.
     Related source file is "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd".
-INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 319: Output port <c3_p0_wr_count> of the instance <inst_ddr> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 319: Output port <c3_p0_rd_count> of the instance <inst_ddr> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 319: Output port <c3_p1_wr_count> of the instance <inst_ddr> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 319: Output port <c3_p1_rd_count> of the instance <inst_ddr> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 319: Output port <c3_p0_cmd_empty> of the instance <inst_ddr> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 319: Output port <c3_p0_cmd_full> of the instance <inst_ddr> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 319: Output port <c3_p0_wr_empty> of the instance <inst_ddr> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 319: Output port <c3_p0_wr_underrun> of the instance <inst_ddr> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 319: Output port <c3_p0_rd_full> of the instance <inst_ddr> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 319: Output port <c3_p0_rd_overflow> of the instance <inst_ddr> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 319: Output port <c3_p1_cmd_empty> of the instance <inst_ddr> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 319: Output port <c3_p1_cmd_full> of the instance <inst_ddr> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 319: Output port <c3_p1_wr_full> of the instance <inst_ddr> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 319: Output port <c3_p1_wr_empty> of the instance <inst_ddr> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 319: Output port <c3_p1_wr_underrun> of the instance <inst_ddr> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 319: Output port <c3_p1_wr_error> of the instance <inst_ddr> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 319: Output port <c3_p1_rd_full> of the instance <inst_ddr> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 319: Output port <c3_p1_rd_overflow> of the instance <inst_ddr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 341: Output port <c3_p0_wr_count> of the instance <inst_ddr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 341: Output port <c3_p0_rd_count> of the instance <inst_ddr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 341: Output port <c3_p1_wr_count> of the instance <inst_ddr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 341: Output port <c3_p1_rd_count> of the instance <inst_ddr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 341: Output port <c3_p0_cmd_empty> of the instance <inst_ddr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 341: Output port <c3_p0_cmd_full> of the instance <inst_ddr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 341: Output port <c3_p0_wr_empty> of the instance <inst_ddr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 341: Output port <c3_p0_wr_underrun> of the instance <inst_ddr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 341: Output port <c3_p0_rd_full> of the instance <inst_ddr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 341: Output port <c3_p0_rd_overflow> of the instance <inst_ddr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 341: Output port <c3_p1_cmd_empty> of the instance <inst_ddr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 341: Output port <c3_p1_cmd_full> of the instance <inst_ddr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 341: Output port <c3_p1_wr_full> of the instance <inst_ddr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 341: Output port <c3_p1_wr_empty> of the instance <inst_ddr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 341: Output port <c3_p1_wr_underrun> of the instance <inst_ddr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 341: Output port <c3_p1_wr_error> of the instance <inst_ddr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 341: Output port <c3_p1_rd_full> of the instance <inst_ddr> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd" line 341: Output port <c3_p1_rd_overflow> of the instance <inst_ddr> is unconnected or connected to loadless signal.
     Found 1-bit register for signal <ddr_addr_a_pico_wr<27>>.
     Found 1-bit register for signal <ddr_addr_a_pico_wr<26>>.
     Found 1-bit register for signal <ddr_addr_a_pico_wr<25>>.
@@ -1167,7 +1173,7 @@ INFO:Xst:3210 - "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\ddr_control.vhd"
     Found 1-bit register for signal <ddr_addr_a_pico_wr<2>>.
     Found 1-bit register for signal <ddr_addr_a_pico_wr<1>>.
     Found 1-bit register for signal <ddr_addr_a_pico_wr<0>>.
-    Found 28-bit adder for signal <ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT> created at line 280.
+    Found 28-bit adder for signal <ddr_addr_a_pico_wr[27]_GND_86_o_add_1_OUT> created at line 302.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred  28 D-type flip-flop(s).
@@ -2433,9 +2439,9 @@ INFO:Xst:1799 - State 111010 is never reached in FSM <STATE>.
     Found 8-bit adder for signal <counter_dec[7]_GND_101_o_add_221_OUT> created at line 1495.
     Found 15-bit adder for signal <_n0861> created at line 480.
     Found 15-bit adder for signal <n0470> created at line 480.
-    Found 13-bit adder for signal <_n0873> created at line 480.
+    Found 13-bit adder for signal <_n0868> created at line 480.
     Found 13-bit adder for signal <n0478> created at line 480.
-    Found 13-bit adder for signal <_n0875> created at line 480.
+    Found 13-bit adder for signal <_n0872> created at line 480.
     Found 13-bit adder for signal <n0460> created at line 480.
     Found 10-bit comparator greater for signal <RstCounter[9]_GND_101_o_LessThan_16_o> created at line 550
     Found 8-bit comparator greater for signal <Dec_Flag> created at line 760
@@ -2533,11 +2539,68 @@ WARNING:Xst:647 - Input <drp_ioi_addr> is never used. This port will be preserve
 	inferred   1 Finite State Machine(s).
 Unit <iodrp_mcb_controller> synthesized.
 
+Synthesizing Unit <user_read_control>.
+    Related source file is "E:\KITCODE\sp6_lpddr_v1\pico_ddr_bram_ftdififo\user_read_ddr.vhd".
+WARNING:Xst:647 - Input <user_rd_error> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 1-bit register for signal <user_rd_en_pls>.
+    Found 1-bit register for signal <user_cmd_en_rd>.
+    Found 1-bit register for signal <address_cnt_en>.
+    Found 4-bit register for signal <M_STATE>.
+    Found 32-bit register for signal <DATA_OUT1>.
+    Found 32-bit register for signal <DATA_OUT2>.
+    Found 1-bit register for signal <ddr_addr<27>>.
+    Found 1-bit register for signal <ddr_addr<26>>.
+    Found 1-bit register for signal <ddr_addr<25>>.
+    Found 1-bit register for signal <ddr_addr<24>>.
+    Found 1-bit register for signal <ddr_addr<23>>.
+    Found 1-bit register for signal <ddr_addr<22>>.
+    Found 1-bit register for signal <ddr_addr<21>>.
+    Found 1-bit register for signal <ddr_addr<20>>.
+    Found 1-bit register for signal <ddr_addr<19>>.
+    Found 1-bit register for signal <ddr_addr<18>>.
+    Found 1-bit register for signal <ddr_addr<17>>.
+    Found 1-bit register for signal <ddr_addr<16>>.
+    Found 1-bit register for signal <ddr_addr<15>>.
+    Found 1-bit register for signal <ddr_addr<14>>.
+    Found 1-bit register for signal <ddr_addr<13>>.
+    Found 1-bit register for signal <ddr_addr<12>>.
+    Found 1-bit register for signal <ddr_addr<11>>.
+    Found 1-bit register for signal <ddr_addr<10>>.
+    Found 1-bit register for signal <ddr_addr<9>>.
+    Found 1-bit register for signal <ddr_addr<8>>.
+    Found 1-bit register for signal <ddr_addr<7>>.
+    Found 1-bit register for signal <ddr_addr<6>>.
+    Found 1-bit register for signal <ddr_addr<5>>.
+    Found 1-bit register for signal <ddr_addr<4>>.
+    Found 1-bit register for signal <ddr_addr<3>>.
+    Found 1-bit register for signal <ddr_addr<2>>.
+    Found 1-bit register for signal <ddr_addr<1>>.
+    Found 1-bit register for signal <ddr_addr<0>>.
+INFO:Xst:1799 - State s9 is never reached in FSM <M_STATE>.
+    Found finite state machine <FSM_3> for signal <M_STATE>.
+    -----------------------------------------------------------------------
+    | States             | 10                                             |
+    | Transitions        | 20                                             |
+    | Inputs             | 3                                              |
+    | Outputs            | 7                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Power Up State     | s0                                             |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 28-bit adder for signal <ddr_addr[27]_GND_158_o_add_15_OUT> created at line 138.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  95 D-type flip-flop(s).
+	inferred   2 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <user_read_control> synthesized.
+
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 38
+# Adders/Subtractors                                   : 39
  10-bit adder                                          : 5
  11-bit adder                                          : 3
  12-bit adder                                          : 3
@@ -2545,7 +2608,7 @@ Macro Statistics
  14-bit adder                                          : 1
  15-bit adder                                          : 2
  16-bit adder                                          : 1
- 28-bit adder                                          : 1
+ 28-bit adder                                          : 2
  3-bit adder                                           : 2
  4-bit adder                                           : 1
  6-bit adder                                           : 2
@@ -2555,14 +2618,16 @@ Macro Statistics
  8-bit addsub                                          : 1
  8-bit subtractor                                      : 3
  9-bit adder                                           : 1
-# Registers                                            : 132
- 1-bit register                                        : 91
+# Registers                                            : 169
+ 1-bit register                                        : 125
  10-bit register                                       : 2
  16-bit register                                       : 1
  18-bit register                                       : 1
  2-bit register                                        : 1
  25-bit register                                       : 1
+ 28-bit register                                       : 1
  3-bit register                                        : 2
+ 32-bit register                                       : 2
  4-bit register                                        : 2
  5-bit register                                        : 1
  6-bit register                                        : 4
@@ -2576,20 +2641,20 @@ Macro Statistics
  7-bit comparator equal                                : 1
  8-bit comparator greater                              : 8
  8-bit comparator lessequal                            : 2
-# Multiplexers                                         : 70
+# Multiplexers                                         : 72
  1-bit 2-to-1 multiplexer                              : 21
  10-bit 2-to-1 multiplexer                             : 1
  18-bit 2-to-1 multiplexer                             : 2
- 28-bit 2-to-1 multiplexer                             : 1
+ 28-bit 2-to-1 multiplexer                             : 3
  32-bit 2-to-1 multiplexer                             : 1
  6-bit 2-to-1 multiplexer                              : 5
  7-bit 2-to-1 multiplexer                              : 3
- 8-bit 12-to-1 multiplexer                             : 1
  8-bit 2-to-1 multiplexer                              : 33
+ 8-bit 20-to-1 multiplexer                             : 1
  9-bit 2-to-1 multiplexer                              : 2
 # Tristates                                            : 11
  1-bit tristate buffer                                 : 11
-# FSMs                                                 : 3
+# FSMs                                                 : 4
 
 =========================================================================
 
@@ -2639,7 +2704,7 @@ The following registers are absorbed into counter <DQS_DELAY>: 1 register on sig
 The following registers are absorbed into counter <counter_inc>: 1 register on signal <counter_inc>.
 The following registers are absorbed into counter <counter_dec>: 1 register on signal <counter_dec>.
 	The following adders/subtractors are grouped into adder tree <Madd_n0460_Madd1> :
- 	<Madd_n0701[10:0]_Madd> in block <mcb_soft_calibration>, 	<Madd_n0704[11:0]_Madd> in block <mcb_soft_calibration>, 	<Madd__n0875_Madd> in block <mcb_soft_calibration>.
+ 	<Madd_n0701[10:0]_Madd> in block <mcb_soft_calibration>, 	<Madd_n0704[11:0]_Madd> in block <mcb_soft_calibration>, 	<Madd__n0872_Madd> in block <mcb_soft_calibration>.
 	The following adders/subtractors are grouped into adder tree <Madd_n0730[9:0]1> :
  	<Madd_n0724[7:0]> in block <mcb_soft_calibration>, 	<Madd_n0727[8:0]> in block <mcb_soft_calibration>, 	<Madd_n0730[9:0]> in block <mcb_soft_calibration>.
 Unit <mcb_soft_calibration> synthesized (advanced).
@@ -2648,11 +2713,11 @@ Unit <mcb_soft_calibration> synthesized (advanced).
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 21
+# Adders/Subtractors                                   : 22
  10-bit adder                                          : 7
  11-bit adder                                          : 1
  12-bit adder                                          : 1
- 28-bit adder                                          : 1
+ 28-bit adder                                          : 2
  6-bit adder                                           : 1
  7-bit adder                                           : 1
  7-bit subtractor                                      : 1
@@ -2670,25 +2735,25 @@ Macro Statistics
  6-bit up counter                                      : 1
  8-bit up counter                                      : 3
  8-bit updown counter                                  : 1
-# Registers                                            : 526
- Flip-Flops                                            : 526
+# Registers                                            : 653
+ Flip-Flops                                            : 653
 # Comparators                                          : 13
  10-bit comparator greater                             : 1
  6-bit comparator greater                              : 1
  7-bit comparator equal                                : 1
  8-bit comparator greater                              : 8
  8-bit comparator lessequal                            : 2
-# Multiplexers                                         : 93
+# Multiplexers                                         : 95
  1-bit 2-to-1 multiplexer                              : 53
  18-bit 2-to-1 multiplexer                             : 1
- 28-bit 2-to-1 multiplexer                             : 1
+ 28-bit 2-to-1 multiplexer                             : 3
  32-bit 2-to-1 multiplexer                             : 1
  6-bit 2-to-1 multiplexer                              : 4
  7-bit 2-to-1 multiplexer                              : 3
- 8-bit 12-to-1 multiplexer                             : 1
  8-bit 2-to-1 multiplexer                              : 28
+ 8-bit 20-to-1 multiplexer                             : 1
  9-bit 2-to-1 multiplexer                              : 1
-# FSMs                                                 : 3
+# FSMs                                                 : 4
 
 =========================================================================
 
@@ -2799,6 +2864,22 @@ Optimizing FSM <Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb
  1000  | 1100
  1001  | 1101
 -------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <Inst_ddr_control/Inst_user_read_control/FSM_3> on signal <M_STATE[1:4]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ s0    | 0000
+ s1    | 0001
+ s2    | 0010
+ s3    | 0011
+ s4    | 0100
+ s5    | 0101
+ s6    | 0110
+ s7    | 0111
+ s8    | 1000
+ s9    | unreached
+-------------------
 WARNING:Xst:1710 - FF/Latch <IODRPCTRLR_WRITE_DATA_7> (without init value) has a constant value of 0 in block <mcb_soft_calibration>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <TARGET_DQS_DELAY_7> (without init value) has a constant value of 0 in block <mcb_soft_calibration>. This FF/Latch will be trimmed during the optimization process.
 INFO:Xst:1901 - Instance U_BUFG_CLK1 in unit infrastructure of type BUFGCE has been replaced by BUFGMUX
@@ -2895,6 +2976,8 @@ Optimizing unit <iodrp_mcb_controller> ...
 
 Optimizing unit <infrastructure> ...
 
+Optimizing unit <user_read_control> ...
+
 Optimizing unit <L_TO_P> ...
 WARNING:Xst:1710 - FF/Latch <SELFREFRESH_REQ_R1> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <SELFREFRESH_MCB_REQ> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
@@ -2911,6 +2994,10 @@ WARNING:Xst:1710 - FF/Latch <memcell_addr_reg_6> (without init value) has a cons
 WARNING:Xst:1710 - FF/Latch <data_reg_7> (without init value) has a constant value of 0 in block <iodrp_mcb_controller>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SELFREFRESH_REQ_R2> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SELFREFRESH_REQ_R3> (without init value) has a constant value of 0 in block <mcb_soft_calibration_inst>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <start_address_24> of sequential type is unconnected in block <TOP>.
+WARNING:Xst:2677 - Node <start_address_25> of sequential type is unconnected in block <TOP>.
+WARNING:Xst:2677 - Node <start_address_26> of sequential type is unconnected in block <TOP>.
+WARNING:Xst:2677 - Node <start_address_27> of sequential type is unconnected in block <TOP>.
 WARNING:Xst:2677 - Node <ddr_addr_a_pico_wr_26> of sequential type is unconnected in block <Inst_ddr_control>.
 WARNING:Xst:2677 - Node <ddr_addr_a_pico_wr_25> of sequential type is unconnected in block <Inst_ddr_control>.
 WARNING:Xst:2677 - Node <ddr_addr_a_pico_wr_24> of sequential type is unconnected in block <Inst_ddr_control>.
@@ -2926,6 +3013,10 @@ WARNING:Xst:2677 - Node <read_data_4> of sequential type is unconnected in block
 WARNING:Xst:2677 - Node <read_data_5> of sequential type is unconnected in block <iodrp_mcb_controller>.
 WARNING:Xst:2677 - Node <read_data_6> of sequential type is unconnected in block <iodrp_mcb_controller>.
 WARNING:Xst:2677 - Node <read_data_7> of sequential type is unconnected in block <iodrp_mcb_controller>.
+WARNING:Xst:2677 - Node <ddr_addr_27> of sequential type is unconnected in block <Inst_user_read_control>.
+WARNING:Xst:2677 - Node <ddr_addr_26> of sequential type is unconnected in block <Inst_user_read_control>.
+WARNING:Xst:2677 - Node <ddr_addr_25> of sequential type is unconnected in block <Inst_user_read_control>.
+WARNING:Xst:2677 - Node <ddr_addr_24> of sequential type is unconnected in block <Inst_user_read_control>.
 WARNING:Xst:2677 - Node <WAIT_SELFREFRESH_EXIT_DQS_CAL> of sequential type is unconnected in block <mcb_soft_calibration_inst>.
 WARNING:Xst:2677 - Node <PERFORM_START_DYN_CAL_AFTER_SELFREFRESH> of sequential type is unconnected in block <mcb_soft_calibration_inst>.
 WARNING:Xst:2677 - Node <WaitCountEnable> of sequential type is unconnected in block <mcb_soft_calibration_inst>.
@@ -2985,7 +3076,7 @@ WARNING:Xst:1293 - FF/Latch <sync_interrupt_flop> has a constant value of 0 in b
 WARNING:Xst:1293 - FF/Latch <sync_sleep_flop> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <sync_interrupt_flop> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block TOP, actual ratio is 1.
+Found area constraint ratio of 100 (+ 5) on block TOP, actual ratio is 2.
 INFO:Xst:2260 - The FF/Latch <sync_sleep_flop> in Unit <processor> is equivalent to the following FF/Latch : <sync_interrupt_flop> 
 INFO:Xst:2260 - The FF/Latch <sync_sleep_flop> in Unit <processor> is equivalent to the following FF/Latch : <sync_interrupt_flop> 
 INFO:Xst:2260 - The FF/Latch <sync_sleep_flop> in Unit <processor> is equivalent to the following FF/Latch : <sync_interrupt_flop> 
@@ -3005,8 +3096,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 509
- Flip-Flops                                            : 509
+# Registers                                            : 632
+ Flip-Flops                                            : 632
 
 =========================================================================
 WARNING:Xst:1293 - FF/Latch <sync_sleep_flop> has a constant value of 0 in block <processor>. This FF/Latch will be trimmed during the optimization process.
@@ -3035,27 +3126,27 @@ Top Level Output File Name         : TOP.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 823
-#      GND                         : 9
-#      INV                         : 11
-#      LUT1                        : 37
-#      LUT2                        : 76
-#      LUT3                        : 91
-#      LUT4                        : 59
-#      LUT5                        : 43
-#      LUT6                        : 215
+# BELS                             : 1045
+#      GND                         : 10
+#      INV                         : 12
+#      LUT1                        : 59
+#      LUT2                        : 78
+#      LUT3                        : 96
+#      LUT4                        : 82
+#      LUT5                        : 123
+#      LUT6                        : 250
 #      LUT6_2                      : 50
 #      MULT_AND                    : 6
-#      MUXCY                       : 104
-#      MUXF7                       : 4
-#      VCC                         : 8
-#      XORCY                       : 110
-# FlipFlops/Latches                : 521
-#      FD                          : 76
-#      FDC                         : 29
+#      MUXCY                       : 126
+#      MUXF7                       : 11
+#      VCC                         : 9
+#      XORCY                       : 133
+# FlipFlops/Latches                : 644
+#      FD                          : 80
+#      FDC                         : 53
 #      FDCE                        : 23
-#      FDE                         : 173
-#      FDP                         : 30
+#      FDE                         : 265
+#      FDP                         : 33
 #      FDR                         : 88
 #      FDRE                        : 87
 #      FDS                         : 5
@@ -3093,18 +3184,18 @@ Selected Device : 6slx25csg324-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             513  out of  30064     1%  
- Number of Slice LUTs:                  606  out of  15032     4%  
-    Number used as Logic:               582  out of  15032     3%  
+ Number of Slice Registers:             636  out of  30064     2%  
+ Number of Slice LUTs:                  774  out of  15032     5%  
+    Number used as Logic:               750  out of  15032     4%  
     Number used as Memory:               24  out of   3664     0%  
        Number used as RAM:               24
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    863
-   Number with an unused Flip Flop:     350  out of    863    40%  
-   Number with an unused LUT:           257  out of    863    29%  
-   Number of fully used LUT-FF pairs:   256  out of    863    29%  
-   Number of unique control sets:        69
+ Number of LUT Flip Flop pairs used:   1096
+   Number with an unused Flip Flop:     460  out of   1096    41%  
+   Number with an unused LUT:           322  out of   1096    29%  
+   Number of fully used LUT-FF pairs:   314  out of   1096    28%  
+   Number of unique control sets:        76
 
 IO Utilization: 
  Number of IOs:                          65
@@ -3138,11 +3229,11 @@ Clock Information:
 -----------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+-------+
 Clock Signal                                                                                               | Clock buffer(FF name)                                                                                                                | Load  |
 -----------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+-------+
-CLOCK_12MHZ                                                                                                | BUFGP                                                                                                                                | 220   |
+CLOCK_12MHZ                                                                                                | BUFGP                                                                                                                                | 248   |
 Inst_control/Inst_PICO_OUT/OUT_PORT_NO<12>(Inst_control/Inst_PICO_OUT/Mmux_OUT_PORT_NO41:O)                | NONE(*)(Inst_control/usb_data_in_6)                                                                                                  | 8     |
 Inst_control/program_rom/instantiate_loader.jtag_loader_6_inst/jtag_clk                                    | NONE(Inst_control/program_rom/ram_1k_generate.s6.kcpsm6_rom)                                                                         | 7     |
 Inst_control/program_rom/instantiate_loader.jtag_loader_6_inst/drck                                        | BUFG                                                                                                                                 | 31    |
-clk_100mhz                                                                                                 | PLL_ADV:CLKOUT2                                                                                                                      | 62    |
+clk_100mhz                                                                                                 | PLL_ADV:CLKOUT2                                                                                                                      | 157   |
 clk_100mhz                                                                                                 | PLL_ADV:CLKOUT3                                                                                                                      | 205   |
 Inst_ddr_control/addr_rst_pico_r_sys_reset_AND_49_o(Inst_ddr_control/addr_rst_pico_r_sys_reset_AND_49_o1:O)| NONE(*)(Inst_ddr_control/ddr_addr_a_pico_wr_3_LDC)                                                                                   | 1     |
 Inst_ddr_control/addr_rst_pico_r_sys_reset_AND_51_o(Inst_ddr_control/addr_rst_pico_r_sys_reset_AND_51_o1:O)| NONE(*)(Inst_ddr_control/ddr_addr_a_pico_wr_2_LDC)                                                                                   | 1     |
@@ -3162,9 +3253,9 @@ Timing Summary:
 Speed Grade: -2
 
    Minimum period: 8.961ns (Maximum Frequency: 111.595MHz)
-   Minimum input arrival time before clock: 6.938ns
-   Maximum output required time after clock: 11.177ns
-   Maximum combinational path delay: 5.694ns
+   Minimum input arrival time before clock: 7.237ns
+   Maximum output required time after clock: 11.391ns
+   Maximum combinational path delay: 5.993ns
 
 Timing Details:
 ---------------
@@ -3173,7 +3264,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'CLOCK_12MHZ'
   Clock period: 8.961ns (frequency: 111.595MHz)
-  Total number of paths / destination ports: 12307 / 581
+  Total number of paths / destination ports: 15776 / 637
 -------------------------------------------------------------------------
 Delay:               8.961ns (Levels of Logic = 10)
   Source:            Inst_control/program_rom/ram_1k_generate.s6.kcpsm6_rom (RAM)
@@ -3250,7 +3341,7 @@ Delay:               2.049ns (Levels of Logic = 1)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk_100mhz'
   Clock period: 4.914ns (frequency: 203.521MHz)
-  Total number of paths / destination ports: 11490 / 570
+  Total number of paths / destination ports: 12100 / 665
 -------------------------------------------------------------------------
 Delay:               9.827ns (Levels of Logic = 7)
   Source:            Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/DQS_DELAY_2 (FF)
@@ -3279,7 +3370,7 @@ Delay:               9.827ns (Levels of Logic = 7)
 Timing constraint: Default OFFSET IN BEFORE for Clock 'CLOCK_12MHZ'
   Total number of paths / destination ports: 38 / 8
 -------------------------------------------------------------------------
-Offset:              3.904ns (Levels of Logic = 5)
+Offset:              3.996ns (Levels of Logic = 5)
   Source:            rxf_n (PAD)
   Destination:       Inst_control/in_port_0 (FF)
   Destination Clock: CLOCK_12MHZ rising
@@ -3290,13 +3381,13 @@ Offset:              3.904ns (Levels of Logic = 5)
     ----------------------------------------  ------------
      IBUF:I->O             1   1.328   1.137  rxf_n_IBUF (rxf_n_IBUF)
      begin scope: 'Inst_control:rxf_n'
-     LUT6:I0->O            1   0.254   0.682  Mmux_port_id[3]_X_8_o_wide_mux_3_OUT_7 (Mmux_port_id[3]_X_8_o_wide_mux_3_OUT_7)
-     LUT5:I4->O            1   0.254   0.000  port_id<3>1_G (N9)
-     MUXF7:I1->O           1   0.175   0.000  port_id<3>1 (port_id[3]_X_8_o_wide_mux_3_OUT<0>)
+     LUT6:I0->O            1   0.254   0.790  Mmux_port_id[4]_X_8_o_wide_mux_3_OUT_9 (Mmux_port_id[4]_X_8_o_wide_mux_3_OUT_9)
+     LUT6:I4->O            1   0.250   0.000  Mmux_port_id[4]_X_8_o_wide_mux_3_OUT_4 (Mmux_port_id[4]_X_8_o_wide_mux_3_OUT_4)
+     MUXF7:I0->O           1   0.163   0.000  Mmux_port_id[4]_X_8_o_wide_mux_3_OUT_2_f7 (port_id[4]_X_8_o_wide_mux_3_OUT<0>)
      FD:D                      0.074          in_port_0
     ----------------------------------------
-    Total                      3.904ns (2.085ns logic, 1.819ns route)
-                                       (53.4% logic, 46.6% route)
+    Total                      3.996ns (2.069ns logic, 1.927ns route)
+                                       (51.8% logic, 48.2% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'Inst_control/program_rom/instantiate_loader.jtag_loader_6_inst/jtag_clk'
@@ -3341,9 +3432,9 @@ Offset:              3.259ns (Levels of Logic = 2)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk_100mhz'
-  Total number of paths / destination ports: 171 / 130
+  Total number of paths / destination ports: 333 / 290
 -------------------------------------------------------------------------
-Offset:              6.938ns (Levels of Logic = 9)
+Offset:              7.237ns (Levels of Logic = 9)
   Source:            RESET (PAD)
   Destination:       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/RST_reg (FF)
   Destination Clock: clk_100mhz rising 0.5X
@@ -3352,7 +3443,7 @@ Offset:              6.938ns (Levels of Logic = 9)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             7   1.328   0.910  RESET_IBUF (RESET_IBUF)
+     IBUF:I->O            17   1.328   1.209  RESET_IBUF (RESET_IBUF)
      begin scope: 'Inst_ddr_control:sys_reset'
      begin scope: 'Inst_ddr_control/inst_ddr:c3_sys_rst_i'
      begin scope: 'Inst_ddr_control/inst_ddr/memc3_infrastructure_inst:sys_rst_i'
@@ -3367,14 +3458,14 @@ Offset:              6.938ns (Levels of Logic = 9)
      LUT2:I0->O            1   0.250   0.681  non_violating_rst1 (non_violating_rst)
      FDP:PRE                   0.459          RST_reg
     ----------------------------------------
-    Total                      6.938ns (2.545ns logic, 4.393ns route)
-                                       (36.7% logic, 63.3% route)
+    Total                      7.237ns (2.545ns logic, 4.692ns route)
+                                       (35.2% logic, 64.8% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'Inst_ddr_control/addr_rst_pico_r_sys_reset_AND_49_o'
   Total number of paths / destination ports: 1 / 1
 -------------------------------------------------------------------------
-Offset:              3.930ns (Levels of Logic = 3)
+Offset:              4.229ns (Levels of Logic = 3)
   Source:            RESET (PAD)
   Destination:       Inst_ddr_control/ddr_addr_a_pico_wr_3_LDC (LATCH)
   Destination Clock: Inst_ddr_control/addr_rst_pico_r_sys_reset_AND_49_o falling
@@ -3383,19 +3474,19 @@ Offset:              3.930ns (Levels of Logic = 3)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             7   1.328   1.018  RESET_IBUF (RESET_IBUF)
+     IBUF:I->O            17   1.328   1.317  RESET_IBUF (RESET_IBUF)
      begin scope: 'Inst_ddr_control:sys_reset'
      LUT3:I1->O            6   0.250   0.875  addr_rst_pico_r_sys_reset_AND_51_o1 (addr_rst_pico_r_sys_reset_AND_51_o)
      LDC:CLR                   0.459          ddr_addr_a_pico_wr_3_LDC
     ----------------------------------------
-    Total                      3.930ns (2.037ns logic, 1.893ns route)
-                                       (51.8% logic, 48.2% route)
+    Total                      4.229ns (2.037ns logic, 2.192ns route)
+                                       (48.2% logic, 51.8% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'Inst_ddr_control/addr_rst_pico_r_sys_reset_AND_51_o'
   Total number of paths / destination ports: 1 / 1
 -------------------------------------------------------------------------
-Offset:              3.826ns (Levels of Logic = 3)
+Offset:              4.125ns (Levels of Logic = 3)
   Source:            RESET (PAD)
   Destination:       Inst_ddr_control/ddr_addr_a_pico_wr_2_LDC (LATCH)
   Destination Clock: Inst_ddr_control/addr_rst_pico_r_sys_reset_AND_51_o falling
@@ -3404,19 +3495,19 @@ Offset:              3.826ns (Levels of Logic = 3)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             7   1.328   0.910  RESET_IBUF (RESET_IBUF)
+     IBUF:I->O            17   1.328   1.209  RESET_IBUF (RESET_IBUF)
      begin scope: 'Inst_ddr_control:sys_reset'
      LUT2:I1->O            6   0.254   0.875  addr_rst_pico_r_sys_reset_AND_49_o1 (addr_rst_pico_r_sys_reset_AND_49_o)
      LDC:CLR                   0.459          ddr_addr_a_pico_wr_2_LDC
     ----------------------------------------
-    Total                      3.826ns (2.041ns logic, 1.785ns route)
-                                       (53.3% logic, 46.7% route)
+    Total                      4.125ns (2.041ns logic, 2.084ns route)
+                                       (49.5% logic, 50.5% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'CLOCK_12MHZ'
   Total number of paths / destination ports: 119 / 86
 -------------------------------------------------------------------------
-Offset:              11.177ns (Levels of Logic = 7)
+Offset:              11.391ns (Levels of Logic = 7)
   Source:            Inst_control/program_rom/ram_1k_generate.s6.kcpsm6_rom (RAM)
   Destination:       rd_n (PAD)
   Source Clock:      CLOCK_12MHZ rising
@@ -3428,7 +3519,7 @@ Offset:              11.177ns (Levels of Logic = 7)
      RAMB16BWER:CLKA->DOA12   16   2.100   1.181  ram_1k_generate.s6.kcpsm6_rom (instruction<12>)
      end scope: 'Inst_control/program_rom:instruction<12>'
      begin scope: 'Inst_control/processor:instruction<12>'
-     LUT6_2:I4->O5        40   0.710   2.109  data_path_loop[2].output_data.sy_kk_mux_lut (port_id<2>)
+     LUT6_2:I4->O5        56   0.710   2.323  data_path_loop[2].output_data.sy_kk_mux_lut (port_id<2>)
      end scope: 'Inst_control/processor:port_id<2>'
      begin scope: 'Inst_control/Inst_PICO_OUT:add<2>'
      LUT6:I0->O            9   0.254   0.975  Mmux_OUT_PORT_NO41 (OUT_PORT_NO<12>)
@@ -3437,8 +3528,8 @@ Offset:              11.177ns (Levels of Logic = 7)
      end scope: 'Inst_control:rd_n'
      OBUF:I->O                 2.912          rd_n_OBUF (rd_n)
     ----------------------------------------
-    Total                     11.177ns (6.231ns logic, 4.946ns route)
-                                       (55.7% logic, 44.3% route)
+    Total                     11.391ns (6.231ns logic, 5.160ns route)
+                                       (54.7% logic, 45.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'Inst_control/program_rom/instantiate_loader.jtag_loader_6_inst/drck'
@@ -3461,7 +3552,7 @@ Offset:              1.206ns (Levels of Logic = 0)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_100mhz'
-  Total number of paths / destination ports: 186 / 90
+  Total number of paths / destination ports: 212 / 116
 -------------------------------------------------------------------------
 Offset:              4.767ns (Levels of Logic = 6)
   Source:            Inst_ddr_control/inst_ddr/memc3_infrastructure_inst/powerup_pll_locked (FF)
@@ -3538,7 +3629,7 @@ Offset:              2.685ns (Levels of Logic = 3)
 Timing constraint: Default path analysis
   Total number of paths / destination ports: 747 / 665
 -------------------------------------------------------------------------
-Delay:               5.694ns (Levels of Logic = 8)
+Delay:               5.993ns (Levels of Logic = 8)
   Source:            RESET (PAD)
   Destination:       Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/IODRP2_RZQ:T (PAD)
 
@@ -3546,7 +3637,7 @@ Delay:               5.694ns (Levels of Logic = 8)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             7   1.328   0.910  RESET_IBUF (RESET_IBUF)
+     IBUF:I->O            17   1.328   1.209  RESET_IBUF (RESET_IBUF)
      begin scope: 'Inst_ddr_control:sys_reset'
      begin scope: 'Inst_ddr_control/inst_ddr:c3_sys_rst_i'
      begin scope: 'Inst_ddr_control/inst_ddr/memc3_infrastructure_inst:sys_rst_i'
@@ -3560,8 +3651,8 @@ Delay:               5.694ns (Levels of Logic = 8)
      INV:I->O              0   0.255   0.000  RZQ_ZIO_ODATAIN1_INV_0 (RZQ_ZIO_ODATAIN)
     IODRP2:ODATAIN             0.000          IODRP2_RZQ
     ----------------------------------------
-    Total                      5.694ns (2.091ns logic, 3.603ns route)
-                                       (36.7% logic, 63.3% route)
+    Total                      5.993ns (2.091ns logic, 3.902ns route)
+                                       (34.9% logic, 65.1% route)
 
 =========================================================================
 
@@ -3574,8 +3665,9 @@ Clock to Setup on destination clock CLOCK_12MHZ
 Source Clock                                                           |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -----------------------------------------------------------------------+---------+---------+---------+---------+
 CLOCK_12MHZ                                                            |    8.961|         |         |         |
-Inst_control/Inst_PICO_OUT/OUT_PORT_NO<12>                             |    3.086|         |         |         |
+Inst_control/Inst_PICO_OUT/OUT_PORT_NO<12>                             |    3.997|         |         |         |
 Inst_control/program_rom/instantiate_loader.jtag_loader_6_inst/jtag_clk|    2.074|         |         |         |
+clk_100mhz                                                             |    6.610|         |         |         |
 -----------------------------------------------------------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock Inst_control/program_rom/instantiate_loader.jtag_loader_6_inst/drck
@@ -3601,7 +3693,7 @@ Clock to Setup on destination clock Inst_ddr_control/addr_rst_pico_r_sys_reset_A
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-CLOCK_12MHZ    |         |         |    9.083|         |
+CLOCK_12MHZ    |         |         |    9.137|         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock Inst_ddr_control/addr_rst_pico_r_sys_reset_AND_51_o
@@ -3609,7 +3701,7 @@ Clock to Setup on destination clock Inst_ddr_control/addr_rst_pico_r_sys_reset_A
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-CLOCK_12MHZ    |         |         |    8.993|         |
+CLOCK_12MHZ    |         |         |    9.047|         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock clk_100mhz
@@ -3617,7 +3709,7 @@ Clock to Setup on destination clock clk_100mhz
                                                    | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                                       |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------------------------------------------+---------+---------+---------+---------+
-CLOCK_12MHZ                                        |    9.493|         |         |         |
+CLOCK_12MHZ                                        |    9.547|         |         |         |
 Inst_ddr_control/addr_rst_pico_r_sys_reset_AND_49_o|         |    4.623|         |         |
 Inst_ddr_control/addr_rst_pico_r_sys_reset_AND_51_o|         |    4.796|         |         |
 clk_100mhz                                         |    9.827|         |         |         |
@@ -3626,14 +3718,14 @@ clk_100mhz                                         |    9.827|         |        
 =========================================================================
 
 
-Total REAL time to Xst completion: 43.00 secs
-Total CPU time to Xst completion: 42.60 secs
+Total REAL time to Xst completion: 46.00 secs
+Total CPU time to Xst completion: 45.92 secs
  
 --> 
 
-Total memory usage is 289640 kilobytes
+Total memory usage is 290216 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings : 1129 (   0 filtered)
-Number of infos    :  187 (   0 filtered)
+Number of warnings : 1140 (   0 filtered)
+Number of infos    :  185 (   0 filtered)
 

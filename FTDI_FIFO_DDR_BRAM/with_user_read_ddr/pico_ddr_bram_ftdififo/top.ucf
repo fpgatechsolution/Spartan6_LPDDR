@@ -1,0 +1,48 @@
+
+#CLK_OSC : in  STD_LOGIC;
+#           rx_232 : in  STD_LOGIC;
+#			  tx_232 : out  STD_LOGIC;
+#			  led_test : out  STD_LOGIC_VECTOR (7 downto 0);
+#           reset : in  STD_LOGIC);
+#
+##
+########################################################################################################################################
+
+
+NET "CLK_OSC" CLOCK_DEDICATED_ROUTE = FALSE;
+
+
+
+NET CLK_OSC LOC=p87;
+NET RESET LOC=p7;
+
+
+
+
+
+
+
+NET led_test<0> loc=p16 ; 
+NET led_test<1> loc=p15 ;
+NET led_test<2> loc=p12 ;
+NET led_test<3> loc=p11 ;
+NET led_test<4> loc=p9 ;
+NET led_test<5> loc=p8 ;
+NET led_test<6> loc=p6 ;
+NET led_test<7> loc=p5 ;
+
+NET tx_232 LOC = "p85"   ;
+NET rx_232 LOC = "p88"  ;
+
+#
+#NET LED_RED   LOC = "p93"   ;
+#NET LED_GREEN LOC = "p94"   ;
+#NET LED_BLUE  LOC = "p95"   ;
+#
+#
+#NET DIP_SW<0> loc=p80 ; 
+#NET DIP_SW<1> loc=p81 ;
+#NET DIP_SW<2> loc=p82 ;
+#NET DIP_SW<3> loc=p83 ;
+#			  
+			  
