@@ -525,6 +525,7 @@ end process;
 		when "00000" => in_port <=User_ddrDataIn1(15 downto 8);
 		when "00001" => in_port <=User_ddrDataIn1(7 downto 0);
 		
+		when "10100" => in_port <=User_ddrDataIn1(31 downto 24);
 		
 		when "10001" => in_port <=User_ddrDataIn2(31 downto 24);
 		when "10010" => in_port <=User_ddrDataIn2(23 downto 16);

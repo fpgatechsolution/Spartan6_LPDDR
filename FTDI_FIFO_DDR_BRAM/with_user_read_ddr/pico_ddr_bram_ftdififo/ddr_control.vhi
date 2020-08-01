@@ -1,5 +1,5 @@
 
--- VHDL Instantiation Created from source file ddr_control.vhd -- 22:04:28 07/30/2020
+-- VHDL Instantiation Created from source file ddr_control.vhd -- 22:52:12 07/31/2020
 --
 -- Notes: 
 -- 1) This instantiation template has been automatically generated using types
@@ -19,9 +19,7 @@
 		rd_en_pls_a : IN std_logic;
 		ddr_add_inc_rd : IN std_logic;
 		cmd_en_rd_a : IN std_logic;
-		USER_ADDRESS_RES : IN std_logic;
-		load_start_address : IN std_logic;
-		start_address : IN std_logic_vector(27 downto 0);
+		user_rd_address : IN std_logic_vector(27 downto 0);
 		start_read : IN std_logic;    
 		mcb3_dram_dq : INOUT std_logic_vector(15 downto 0);
 		mcb3_dram_udqs : INOUT std_logic;
@@ -41,11 +39,15 @@
 		mcb3_dram_ck : OUT std_logic;
 		mcb3_dram_ck_n : OUT std_logic;
 		wr_full_a : OUT std_logic;
+		ddr_addr_wr_out : OUT std_logic_vector(27 downto 0);
 		rd_data_a : OUT std_logic_vector(31 downto 0);
 		rd_empty_a : OUT std_logic;
+		ddr_addr_rd_out : OUT std_logic_vector(27 downto 0);
 		ddr_error : OUT std_logic;
+		user_data_valid : OUT std_logic;
 		DATA_OUT1 : OUT std_logic_vector(31 downto 0);
-		DATA_OUT2 : OUT std_logic_vector(31 downto 0)
+		DATA_OUT2 : OUT std_logic_vector(31 downto 0);
+		user_rd_err : OUT std_logic
 		);
 	END COMPONENT;
 
@@ -76,18 +78,20 @@
 		wr_data_a => ,
 		ddr_add_inc_wr => ,
 		cmd_en_wr_a => ,
+		ddr_addr_wr_out => ,
 		rd_en_pls_a => ,
 		rd_data_a => ,
 		rd_empty_a => ,
 		ddr_add_inc_rd => ,
 		cmd_en_rd_a => ,
+		ddr_addr_rd_out => ,
 		ddr_error => ,
-		USER_ADDRESS_RES => ,
-		load_start_address => ,
-		start_address => ,
+		user_data_valid => ,
+		user_rd_address => ,
 		start_read => ,
 		DATA_OUT1 => ,
-		DATA_OUT2 => 
+		DATA_OUT2 => ,
+		user_rd_err => 
 	);
 
 

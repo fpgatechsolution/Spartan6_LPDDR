@@ -69,7 +69,9 @@ entity ddr_control is
 	wr_data_a 	: in std_logic_vector(31 downto 0);	
 	ddr_add_inc_wr: in  std_logic;
 	cmd_en_wr_a : in  std_logic;
-
+	ddr_addr_wr_out: out std_logic_vector(27 downto 0);
+	
+	
 --///**** read control*****
 	rd_en_pls_a	: in  std_logic;
 	rd_data_a 	: out std_logic_vector(31 downto 0);
@@ -77,19 +79,21 @@ entity ddr_control is
 	ddr_add_inc_rd: in  std_logic;
 	cmd_en_rd_a : in  std_logic;
 	
+	ddr_addr_rd_out: out std_logic_vector(27 downto 0);
+	
 	ddr_error   : out std_logic;
 
 	
 	
 	--///**** read control*****
    
-	USER_ADDRESS_RES:  in  STD_LOGIC;
-    load_start_address: in  STD_LOGIC;
-    start_address: in  std_logic_vector(27 downto 0);-- must be in multiple of 2 ( address start from )
+
+    user_data_valid: out STD_LOGIC;
+    user_rd_address: in  std_logic_vector(27 downto 0);-- must be in multiple of 2 ( address start from )
     start_read:in  STD_LOGIC;
     DATA_OUT1: OUT std_logic_vector(31 downto 0);
-    DATA_OUT2: OUT std_logic_vector(31 downto 0)
-  
+    DATA_OUT2: OUT std_logic_vector(31 downto 0);
+    user_rd_err: out STD_LOGIC
    );
 	end ddr_control;
 
@@ -242,20 +246,18 @@ architecture Behavioral of ddr_control is
 
 		COMPONENT user_read_control
 	PORT(
-		clk : IN std_logic;
-		reset : IN std_logic;
-		USER_ADDRESS_RES : IN std_logic;
-		load_start_address : IN std_logic;
-		start_address : IN std_logic_vector(27 downto 0);
-		start_read : IN std_logic;
-		user_ddr_data_rd : IN std_logic_vector(31 downto 0);
-		user_rd_error : IN std_logic;
-		user_rd_empty : IN std_logic;          
-		DATA_OUT1 : OUT std_logic_vector(31 downto 0);
-		DATA_OUT2 : OUT std_logic_vector(31 downto 0);
-		user_ddr_addr_rd : OUT std_logic_vector(29 downto 0);
-		user_rd_en_pls : OUT std_logic;
-		user_cmd_en_rd : OUT std_logic
+	        clk,reset : in  STD_LOGIC;    
+           start_read:in  STD_LOGIC;
+           DATA_OUT1: OUT std_logic_vector(31 downto 0);
+           DATA_OUT2: OUT std_logic_vector(31 downto 0);
+			  user_data_valid: OUT std_logic;
+           
+           
+           user_ddr_data_rd :	in std_logic_vector(31 downto 0);
+           user_rd_en_pls   :   out std_logic;
+           user_rd_error    :   in std_logic;
+           user_rd_empty    :   in std_logic;
+           user_cmd_en_rd   :   out std_logic
 		);
 	END COMPONENT;
 	
@@ -383,7 +385,9 @@ begin
  
  ddr_addr_wr<=ddr_addr_a_pico_wr & "00"; 
  ddr_addr_rd<=ddr_addr_a_pico_rd & "00"; 
---user_ddr_addr<=user_ddr_addr_rd & "00";
+
+ddr_addr_wr_out<=ddr_addr_a_pico_wr;
+ddr_addr_rd_out<=ddr_addr_a_pico_rd;
 
 clk_ddr_fifo_out<=clk_ddr_fifo;
 
@@ -484,21 +488,19 @@ clk_ddr_fifo_out<=clk_ddr_fifo;
 	);
 
 ddr_error<=wr_error or rd_error;
-
-
+user_ddr_addr_rd<=user_rd_address & "00";
+user_rd_err<=user_rd_error;
 
 	Inst_user_read_control: user_read_control PORT MAP(
 		clk =>clk_ddr_fifo ,
 		reset =>sys_reset ,
-		USER_ADDRESS_RES =>USER_ADDRESS_RES ,
-		load_start_address =>load_start_address ,
-		start_address =>start_address ,
+		user_data_valid=>user_data_valid,
+
 		start_read =>start_read ,
 		DATA_OUT1 =>DATA_OUT1 ,
 		DATA_OUT2 =>DATA_OUT2 ,
 		
-		user_ddr_data_rd =>user_ddr_data_rd ,
-		user_ddr_addr_rd =>user_ddr_addr_rd ,
+		user_ddr_data_rd =>user_ddr_data_rd,
 		user_rd_en_pls =>user_rd_en_pls ,
 		user_rd_error =>user_rd_error ,
 		user_rd_empty =>user_rd_empty ,

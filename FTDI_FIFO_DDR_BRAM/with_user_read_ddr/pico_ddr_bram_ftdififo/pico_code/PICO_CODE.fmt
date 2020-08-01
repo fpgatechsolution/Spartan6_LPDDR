@@ -72,7 +72,7 @@
                   CONSTANT USER_DDR_DATA1, 1'd       ;;DSIN
                   CONSTANT USER_DDR_DATA2, 0'd       ;;DSIN
                   CONSTANT USER_DDR_DATA3, 15'd      ;;DSIN
-                  CONSTANT USER_DDR_DATA4, 14'd      ;;DSIN
+                  CONSTANT USER_DDR_DATA4, 20'd      ;;DSIN
                   CONSTANT USER_DDR_DATA5, 17'd      ;;DSIN
                   CONSTANT USER_DDR_DATA6, 18'd      ;;DSIN
                   CONSTANT USER_DDR_DATA7, 19'd      ;;DSIN
@@ -109,15 +109,15 @@
                   CONSTANT DELAY_1US_CONSTANT, 0B    ;CONSTANT VALUE FOR DELAY RUTNS
                   LOAD DDATA, 00
                   CALL send_one_bt_usb
-                  ;JUMP CHECK_FRAME
-                  CALL RSER_RD_TEST
-                  CALL RSER_RD_TEST
-                  CALL RSER_RD_TEST
-                  CALL RSER_RD_TEST
-                  CALL RSER_RD_TEST
-                  CALL RSER_RD_TEST
-                  CALL RSER_RD_TEST
-                  CALL RSER_RD_TEST
+                  JUMP CHECK_FRAME
+                  ;CALL RSER_RD_TEST
+                  ;CALL RSER_RD_TEST
+                  ;CALL RSER_RD_TEST
+                  ;CALL RSER_RD_TEST
+                  ;CALL RSER_RD_TEST
+                  ;CALL RSER_RD_TEST
+                  ;CALL RSER_RD_TEST
+                  ;CALL RSER_RD_TEST
        TEST_USER: JUMP TEST_USER
     RSER_RD_TEST: 
                   LOAD DDATA, FF
@@ -125,6 +125,7 @@
                   LOAD DDATA, 00
                   OUTPUT DDATA, USER_READ_START
                   INPUT DDATA, USER_DDR_DATA4
+                  ;load  DDATA,38
                   CALL send_one_bt_usb
                   INPUT DDATA, USER_DDR_DATA3
                   CALL send_one_bt_usb
@@ -139,6 +140,9 @@
                   INPUT DDATA, USER_DDR_DATA7
                   CALL send_one_bt_usb
                   INPUT DDATA, USER_DDR_DATA8
+                  CALL send_one_bt_usb
+                  CALL DELAY_107US
+                  LOAD DDATA, 20
                   CALL send_one_bt_usb
                   RETURN 
                   ;$ G 12 04 R/W # DATA
@@ -233,7 +237,12 @@
                   JUMP NXT_LOOP1
          RD_BRAM: 
                   CALL INC_BRAM_ADDRESS
-                  INPUT DDATA, BRAM_DATA_IN
+                  ;INPUT DDATA,BRAM_DATA_IN
+                  FETCH DDATA, N_OF_BYTE2
+                  CALL send_one_bt_usb
+                  FETCH DDATA, N_OF_BYTE1
+                  CALL send_one_bt_usb
+                  LOAD DDATA, 20
                   CALL send_one_bt_usb
        NXT_LOOP1: 
                   FETCH CNTR1, BT_CNT1

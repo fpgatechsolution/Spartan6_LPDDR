@@ -8,17 +8,14 @@
 
   ENTITY user_read_control IS
 	PORT ( 
-	       clk,reset : in  STD_LOGIC;
-	       USER_ADDRESS_RES:  in  STD_LOGIC;
-           load_start_address: in  STD_LOGIC;
-           start_address: in  std_logic_vector(27 downto 0);-- must be in multiple of 2 ( address start from )
+	        clk,reset : in  STD_LOGIC;    
            start_read:in  STD_LOGIC;
            DATA_OUT1: OUT std_logic_vector(31 downto 0);
            DATA_OUT2: OUT std_logic_vector(31 downto 0);
+			  user_data_valid: OUT std_logic;
            
            
            user_ddr_data_rd :	in std_logic_vector(31 downto 0);
-           user_ddr_addr_rd :   out std_logic_vector(29 downto 0);
            user_rd_en_pls   :   out std_logic;
            user_rd_error    :   in std_logic;
            user_rd_empty    :   in std_logic;
@@ -53,14 +50,14 @@ SIGNAL ddr_addr:std_logic_vector(27 downto 0):= "0000000000000000000000001000";
 address_cnt_en<='0';
 user_rd_en_pls<='0';
 user_cmd_en_rd<='0';
-    
+user_data_valid<='0';    
     ELSIF CLK'EVENT AND CLK = '1' THEN
         
                 CASE M_STATE IS		
                 
                     WHEN S0=>
 					
-address_cnt_en<='0';
+user_data_valid<='0';
 							
 							IF(start_read='1')THEN
                                 M_STATE <= S1;
@@ -79,53 +76,49 @@ address_cnt_en<='0';
                             user_cmd_en_rd<='0';
 							M_STATE <= S3;
  
-					WHEN S3=>
-					
-						--	user_rd_en_pls<='1';
-								M_STATE <= S4;
-							
-      
-					WHEN S4=>
-                   --             user_rd_en_pls<='0';
-							     M_STATE <= S5;
 										 
-					WHEN S5=>					 
+					WHEN S3=>					 
 										if(user_rd_empty ='0')then
-										 user_rd_en_pls<='1';
-			                             M_STATE <= S6;			                             
+										
+			                             M_STATE <= S4;			                             
 			                             ELSE
-			                             M_STATE <= S5;
+			                             M_STATE <= S3;
 			                             END IF;
 										 
-					WHEN S6=>
-                                        user_rd_en_pls<='0';
-													  DATA_OUT1<= user_ddr_data_rd;
-													 M_STATE <= S7;
+					WHEN S4=>
+					
+											user_rd_en_pls<='1';
+                                       M_STATE <= S5;
 													 
-					WHEN S7=>
-                                        --user_rd_en_pls<='0';									 
+					WHEN S5=>
+                                       							 
+												 user_rd_en_pls<='0';
+													 DATA_OUT1<= user_ddr_data_rd;	
+													 M_STATE <= S6;	 
 													 
-													 
-                                       
-										M_STATE <= S8;
+                WHEN S6=>      
+															 
+											M_STATE <= S7;
 										
 										
-				    WHEN S8=>
+				    WHEN S7=>
                                      user_rd_en_pls<='1';
-                                     M_STATE <= S9;	
+                                     M_STATE <= S8;	
+
+					WHEN S8=>
+                                     user_rd_en_pls<='0';												 
+                                     M_STATE <= S9;
+												DATA_OUT2<= user_ddr_data_rd;												 
 
 					WHEN S9=>
-                                     user_rd_en_pls<='0';
-												 DATA_OUT2<= user_ddr_data_rd;
-                                     M_STATE <= S10;									 
+												
+												M_STATE <= S10;
 
-				    WHEN S10=>
-                                   --  user_rd_en_pls<='0';
-                                      
-                                      address_cnt_en<='1';
-                                     M_STATE <= S0;	
-                                     
-                                     	 
+				    WHEN S10=>                                                                      
+                                     user_data_valid<='1';
+                                     M_STATE <= S11;	
+                WHEN S11=>                      
+                                     	   M_STATE <= S0;
  
                     WHEN OTHERS=>	NULL;
                         
@@ -138,22 +131,9 @@ address_cnt_en<='0';
     
     
     
-    	PROCESS(clk,RESET,load_start_address, address_cnt_en)	     
-        BEGIN
-   
-            IF( RESET='1' or USER_ADDRESS_RES='1' )THEN
-                ddr_addr<="0000000000000000000000001000";    
-            ELSIF (clk'EVENT AND clk='1')THEN
-                IF(load_start_address='1')THEN
-                    ddr_addr<=start_address;
-                elsif(address_cnt_en='1' ) THEN
-                    ddr_addr<=ddr_addr+ddr_burst_length_user+1; -- increment address with burst length 
-                END IF;
-            END IF;
-    END PROCESS;
+
     
-    
-    user_ddr_addr_rd<=ddr_addr &"00";
+
    
     END BEHAVIORAL;
 
