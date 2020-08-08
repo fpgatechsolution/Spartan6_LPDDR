@@ -325,7 +325,7 @@ begin
 				ddr_addr_a_pico_wr<="0000000000000000000000001000";		
 			ELSIF (clk_ddr_fifo'EVENT AND clk_ddr_fifo='1')THEN
 				if(ddr_add_wr='1' ) THEN
-					ddr_addr_a_pico_wr<=ddr_addr_a_pico_wr+ddr_burst_length_pico+1; -- increment address with burst length 
+					ddr_addr_a_pico_wr<=ddr_addr_a_pico_wr+2;--ddr_burst_length_pico+1; -- increment address with burst length 
 				END IF;
 			END IF;
 	END PROCESS;
@@ -335,10 +335,11 @@ begin
 	PROCESS(ddr_add_rd,sys_reset,addr_rst_pico_w,addr_rst_pico_r)	     
 		BEGIN
 			IF(sys_reset='1' or addr_rst_pico_r='1')THEN
-				ddr_addr_a_pico_rd<="0000000000000000000000001000";	
+				ddr_addr_a_pico_rd<="0000000000000000000000001000";
+--ddr_addr_a_pico_rd<="0000000000000000000000000111";				
 			ELSIF (clk_ddr_fifo'EVENT AND clk_ddr_fifo='1')THEN
 				if(ddr_add_rd='1' ) THEN
-					ddr_addr_a_pico_rd<=ddr_addr_a_pico_rd+ddr_burst_length_pico+1; -- increment address with burst length 
+					ddr_addr_a_pico_rd<=ddr_addr_a_pico_rd+2;--ddr_burst_length_pico+1; -- increment address with burst length 
 				END IF;
 			END IF;
 	END PROCESS;	

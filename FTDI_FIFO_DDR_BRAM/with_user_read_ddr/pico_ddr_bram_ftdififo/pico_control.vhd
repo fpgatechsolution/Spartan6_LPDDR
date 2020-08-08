@@ -345,7 +345,7 @@ end process;
 
 
 
-				    FDPE_inst_latch_21 : FDE
+				    FDPE_inst_latch_8 : FDE
   generic map (
      INIT => '0') -- Initial value of register ('0' or '1')  
   port map (
@@ -420,10 +420,35 @@ end process;
 		en => out_port_no(16));
 		
 
-		cmd_en_wr_a<=out_port_no(17);	
+		--cmd_en_wr_a<=out_port_no(17);	
 		
-		wr_en_pls_a <=out_port_no(18);
+						    FDPE_inst_latch_17 : FDE
+   generic map (
+      INIT => '0') -- Initial value of register ('0' or '1')  
+   port map (
+      Q => cmd_en_wr_a,      -- Data output
+      C => clk_12,      -- Clock input
+      CE => out_port_no(17),    -- Clock enable input      
+      D => out_port(0)       -- Data input
+   );
+	
+	
+		--wr_en_pls_a <=out_port_no(18);
 		
+	
+				    FDPE_inst_latch_18 : FDE
+   generic map (
+      INIT => '0') -- Initial value of register ('0' or '1')  
+   port map (
+      Q => wr_en_pls_a,      -- Data output
+      C => clk_12,      -- Clock input
+      CE => out_port_no(18),    -- Clock enable input      
+      D => out_port(0)       -- Data input
+   );
+	
+	
+	
+	
 	
 --		Inst_latch_19: latch PORT MAP(
 --		in_b =>out_port ,
@@ -435,8 +460,19 @@ end process;
 --		WR_RD_CMD<=WR_RD_CMD_buf(2 downto 0);
 --		
 		
-		cmd_en_rd_a<=out_port_no(19);
+		--cmd_en_rd_a<=out_port_no(19);
 		
+					    FDPE_inst_latch_19 : FDE
+   generic map (
+      INIT => '0') -- Initial value of register ('0' or '1')  
+   port map (
+      Q => cmd_en_rd_a,      -- Data output
+      C => clk_12,      -- Clock input
+      CE => out_port_no(19),    -- Clock enable input      
+      D => out_port(0)       -- Data input
+   );
+	
+	
 		
 		
 		User_RegRE<=out_port_no(20);
@@ -462,9 +498,34 @@ end process;
 	--		ddr_add_inc_pico <=out_port_no(21);
 	
 	
-		ddr_add_inc_wr<=out_port_no(21);
+			    FDPE_inst_latch_21 : FDE
+   generic map (
+      INIT => '0') -- Initial value of register ('0' or '1')  
+   port map (
+      Q => ddr_add_inc_wr,      -- Data output
+      C => clk_12,      -- Clock input
+      CE => out_port_no(21),    -- Clock enable input      
+      D => out_port(0)       -- Data input
+   );
+	
+	
+		--ddr_add_inc_wr<=out_port_no(21);
 		
-		rd_en_pls_a <=out_port_no(22);
+		
+					    FDPE_inst_latch_22 : FDE
+   generic map (
+      INIT => '0') -- Initial value of register ('0' or '1')  
+   port map (
+      Q => rd_en_pls_a,      -- Data output
+      C => clk_12,      -- Clock input
+      CE => out_port_no(22),    -- Clock enable input      
+      D => out_port(0)       -- Data input
+   );
+	
+	
+	
+		
+	--	rd_en_pls_a <=out_port_no(22);
 
 		addr_rst_pico_w<=out_port_no(23);
 		
@@ -492,8 +553,29 @@ end process;
 		en => out_port_no(27));				
 			
 			
-		ddr_add_inc_rd	<=out_port_no(28);
+		--ddr_add_inc_rd	<=out_port_no(28);
 			
+
+		    FDPE_inst_latch_28 : FDE
+   generic map (
+      INIT => '0') -- Initial value of register ('0' or '1')  
+   port map (
+      Q => ddr_add_inc_rd,      -- Data output
+      C => clk_12,      -- Clock input
+      CE => out_port_no(28),    -- Clock enable input      
+      D => out_port(0)       -- Data input
+   );
+
+
+
+
+
+
+
+
+
+
+
 
 
   process(clk_12)
