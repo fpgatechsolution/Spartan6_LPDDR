@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2020-08-11T18:01:49</DateModified>
+  <DateModified>2020-08-11T21:27:39</DateModified>
   <ModuleName>TOP</ModuleName>
-  <SummaryTimeStamp>2020-08-11T15:09:22</SummaryTimeStamp>
+  <SummaryTimeStamp>2020-08-11T18:29:48</SummaryTimeStamp>
   <SavedFilePath>E:/sanu/pico_ddr_bram_ftdififo/iseconfig/TOP.xreport</SavedFilePath>
   <ImplementationReportsDirectory>E:/sanu/pico_ddr_bram_ftdififo\</ImplementationReportsDirectory>
   <DateInitialized>2020-07-21T17:13:51</DateInitialized>

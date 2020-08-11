@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.27 secs
+Total CPU time to Xst completion: 0.26 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.27 secs
+Total CPU time to Xst completion: 0.26 secs
  
 --> Reading design: TOP.prj
 
@@ -143,7 +143,7 @@ Parsing architecture <BEH> of entity <pico_out>.
 Parsing VHDL file "E:\sanu\pico_ddr_bram_ftdififo\PICO_CODE.vhd" into library work
 Parsing package <jtag_loader_pkg>.
 Parsing package body <jtag_loader_pkg>.
-Parsing entity <pico_code>.
+Parsing entity <PICO_CODE>.
 Parsing architecture <low_level_definition> of entity <pico_code>.
 Parsing entity <jtag_loader_6>.
 Parsing architecture <Behavioral> of entity <jtag_loader_6>.
@@ -270,7 +270,7 @@ Elaborating module <LUT6(INIT=64'b1111111100000000111100001111000011001100110011
 Elaborating module <RAM64M(INIT_A=64'b0,INIT_B=64'b0,INIT_C=64'b0,INIT_D=64'b0)>.
 Back to vhdl to continue elaboration
 
-Elaborating entity <pico_code> (architecture <low_level_definition>) with generics from library <work>.
+Elaborating entity <PICO_CODE> (architecture <low_level_definition>) with generics from library <work>.
 
 Elaborating entity <jtag_loader_6> (architecture <Behavioral>) with generics from library <work>.
 WARNING:HDLCompiler:92 - "E:\sanu\pico_ddr_bram_ftdififo\pico_control.vhd" Line 254: usb_data should be on the sensitivity list of the process
@@ -1071,14 +1071,14 @@ Synthesizing Unit <kcpsm6>.
 	no macro.
 Unit <kcpsm6> synthesized.
 
-Synthesizing Unit <pico_code>.
+Synthesizing Unit <PICO_CODE>.
     Related source file is "E:\sanu\pico_ddr_bram_ftdififo\PICO_CODE.vhd".
         C_FAMILY = "S6"
         C_RAM_SIZE_KWORDS = 1
         C_JTAG_LOADER_ENABLE = 1
     Summary:
 	no macro.
-Unit <pico_code> synthesized.
+Unit <PICO_CODE> synthesized.
 
 Synthesizing Unit <jtag_loader_6>.
     Related source file is "E:\sanu\pico_ddr_bram_ftdififo\PICO_CODE.vhd".
@@ -2874,7 +2874,7 @@ Optimizing unit <mcb_ui_top> ...
 
 Optimizing unit <kcpsm6> ...
 
-Optimizing unit <pico_code> ...
+Optimizing unit <PICO_CODE> ...
 
 Optimizing unit <latch> ...
 
@@ -3562,12 +3562,12 @@ clk_100mhz     |    9.827|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 40.00 secs
-Total CPU time to Xst completion: 40.02 secs
+Total REAL time to Xst completion: 43.00 secs
+Total CPU time to Xst completion: 42.63 secs
  
 --> 
 
-Total memory usage is 291176 kilobytes
+Total memory usage is 291432 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings : 1101 (   0 filtered)
