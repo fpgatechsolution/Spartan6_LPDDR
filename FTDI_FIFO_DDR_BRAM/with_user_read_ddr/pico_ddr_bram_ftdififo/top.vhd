@@ -147,7 +147,12 @@ ARCHITECTURE BEHAVIORAL OF TOP IS
 		);
 	END COMPONENT;
 
-
+	COMPONENT CMK_DCM
+	PORT(
+CLK_IN1:in std_logic;
+CLK_OUT1:OUT std_logic
+	 ); END COMPONENT;
+	 
 
 
 	signal	  bram_data_in:   STD_LOGIC_VECTOR (7 downto 0);
@@ -227,7 +232,7 @@ ARCHITECTURE BEHAVIORAL OF TOP IS
 	signal user_reg1 : std_logic_vector(7 downto 0);	
 	
 
-signal start_rd_user_ddr, start_read_pico : std_logic;
+signal start_rd_user_ddr, start_read_pico,CLK_96 : std_logic;
 	
 	
 BEGIN
@@ -235,9 +240,16 @@ BEGIN
 
 
 
+	Inst_CMK_DCM: CMK_DCM PORT MAP(
+		CLK_IN1 =>CLOCK_12MHZ ,
+		CLK_OUT1 =>CLK_96);
+
+--CLK_96<=CLOCK_12MHZ;
+
+
 
 	Inst_control: control PORT MAP(
-		CLK_OSC =>CLOCK_12MHZ ,
+		CLK_OSC =>CLK_96 ,
 		led_test =>OPEN,--TEST_LED(7 downto 0) ,
 		reset =>reset,
 		----///**** USB fifo control ******
@@ -288,7 +300,7 @@ BEGIN
 		
 
 	Inst_BRAM: BRAM PORT MAP(
-		clka=>CLOCK_12MHZ,
+		clka=>CLK_96,
 		wea=>Bram_w_r_en,
 		addra=>bram_address,
 		dina=>bram_data_out,
@@ -349,21 +361,21 @@ BEGIN
 		start_read =>start_read ,
 		DATA_OUT1 =>DATA_OUT1 ,
 		DATA_OUT2 =>DATA_OUT2 ,
-		user_rd_err=> user_rd_err
+		user_rd_err=> user_rd_error
 	);
 	
 	
 
--- user read address
-	PROCESS(user_data_valid,RESET)	     
-		BEGIN
-			IF(RESET='1' )THEN
-				user_rd_address<="0000000000000000000000001000";			
-				elsif( user_data_valid'EVENT AND user_data_valid='1' ) THEN
-					user_rd_address<=user_rd_address+2; -- increment address with burst length 
-				END IF;
-			
-	END PROCESS;	
+---- user read address
+--	PROCESS(user_data_valid,RESET)	     
+--		BEGIN
+--			IF(RESET='1' )THEN
+--				user_rd_address<="0000000000000000000000001000";			
+--				elsif( user_data_valid'EVENT AND user_data_valid='1' ) THEN
+--					user_rd_address<=user_rd_address+2; -- increment address with burst length 
+--				END IF;
+--			
+--	END PROCESS;	
 
 	
 
@@ -379,27 +391,26 @@ start_read<=start_read_pico ;--start_rd_user_ddr or  ;
 -------------------------------------------------------------------------------
 	-- Implement register write
 
-    process (RESET, CLOCK_12MHZ,User_RegWE,User_RegAddr)
+    process (RESET, CLK_96,User_RegWE,User_RegAddr)
     begin
 
-		if (CLOCK_12MHZ'event and CLOCK_12MHZ='1') then
+		if (CLK_96'event and CLK_96='1') then
             if (User_RegWE='1') then
 
                 case User_RegAddr is
-                    when X"1000" => Interrupt <= '1';start_rd_user_ddr<= '1';
-					when X"1001" => Interrupt <= '0';start_rd_user_ddr<= '0';
-                    when X"1063" => user_reg <= User_RegDataIn + 1; -- 99 decimal
-					when X"1011" => user_reg1 <= User_RegDataIn ; --  decimal
+              when X"1063" => user_reg <= User_RegDataIn;
+					when X"1064" => user_reg1 <= User_RegDataIn;
 					
---					when X"1022" => start_address(27 downto 24) <= User_RegDataIn(3 downto 0); --  decimal
---					when X"1023" => start_address(23 downto 16) <= User_RegDataIn ; --  decimal					
---					when X"1024" => start_address(15 downto 8) <= User_RegDataIn ; --  decimal
---					when X"1025" => start_address(7 downto 0)  <= User_RegDataIn ; --  decimal	
 					
---					when X"1026" =>  USER_ADDRESS_RES<='1' ; --  decimal
---					when X"1027" =>  USER_ADDRESS_RES<='0' ; --  decimal					
---					when X"1028" =>  load_start_address<='1' ; --  decimal
---					when X"1029" =>  load_start_address<='0' ; --  decimal						 
+					when X"1025" => user_rd_address(7 downto 0)  <= User_RegDataIn ; --  decimal	
+					when X"1026" => user_rd_address(15 downto 8) <= User_RegDataIn ; --  decimal
+					when X"1027" => user_rd_address(23 downto 16) <= User_RegDataIn ; --  decimal					
+					when X"1028" => user_rd_address(27 downto 24) <= User_RegDataIn(3 downto 0); --  decimal
+
+					when X"1029" =>  start_rd_user_ddr<='1';
+					when X"102a" =>  start_rd_user_ddr<='0';					
+					when X"102b" =>  TEST_LED<=User_RegDataIn;					
+					 
 						 
 						 
                     when others => Interrupt <= '0';
@@ -415,8 +426,10 @@ start_read<=start_read_pico ;--start_rd_user_ddr or  ;
     process (User_RegAddr, user_reg,user_reg1)
     begin
         case User_RegAddr is
-            when X"1063" => User_RegDataOut <= user_reg; -- 99 decimal
-			--when X"1011" => User_RegDataOut <= user_reg1; --  decimal
+			when X"1063" => User_RegDataOut <= user_reg; 
+			when X"1064" => User_RegDataOut <= user_reg1;
+			
+			when X"1010" => User_RegDataOut <= "0000000"&user_data_valid; --  decimal
 			
 			when X"1011" => User_RegDataOut <= DATA_OUT1(31 downto 24); --  decimal
 			when X"1012" => User_RegDataOut <= DATA_OUT1(23 downto 16); --  decimal
@@ -427,6 +440,15 @@ start_read<=start_read_pico ;--start_rd_user_ddr or  ;
 			when X"1016" => User_RegDataOut <= DATA_OUT2(23 downto 16);
 			when X"1017" => User_RegDataOut <= DATA_OUT2(15 downto 8); 
 			when X"1018" => User_RegDataOut <= DATA_OUT2(7 downto 0); 
+			
+			when X"1019" => User_RegDataOut <= "0000000"&start_rd_user_ddr; 
+
+		   when X"1025" => User_RegDataOut <= user_rd_address(7 downto 0);
+			when X"1026" => User_RegDataOut <= user_rd_address(15 downto 8);
+			when X"1027" => User_RegDataOut <= user_rd_address(23 downto 16); 
+			when X"1028" => User_RegDataOut <= "0000"&user_rd_address(27 downto 24); 
+			
+			when X"1029" => User_RegDataOut <= "0000000"&user_rd_error; 
 
 
 			
@@ -435,9 +457,9 @@ start_read<=start_read_pico ;--start_rd_user_ddr or  ;
         end case;
     end process;
 
-	TEST_LED(6 downto 0)<=user_reg1(6 downto 0);
+	--TEST_LED(6 downto 0)<=user_reg1(6 downto 0);
 	
-TEST_LED(7)<= DATA_OUT1(27);
+--TEST_LED(7)<= DATA_OUT1(27);
 
 		
 	

@@ -5,7 +5,7 @@ Command Line: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt\unwrapped\ngdbuild.exe -intstyle
 ise -dd _ngo -sd ipcore_dir -nt timestamp -uc hw_top.ucf -p xc6slx25-csg324-2
 TOP.ngc TOP.ngd
 
-Reading NGO file "E:/pico_ddr_bram_ftdififo/TOP.ngc" ...
+Reading NGO file "E:/sanu/pico_ddr_bram_ftdififo/TOP.ngc" ...
 Loading design module "ipcore_dir/BRAM.ngc"...
 Gathering constraint information from source properties...
 Done.
@@ -57,42 +57,33 @@ INFO:ConstraintSystem - The Period constraint <Net clk_100mhz PERIOD = 10000
 Done...
 
 Checking expanded design ...
-WARNING:NgdBuild:452 - logical net 'N33' has no driver
-WARNING:NgdBuild:452 - logical net 'N34' has no driver
-WARNING:NgdBuild:452 - logical net 'N35' has no driver
-WARNING:NgdBuild:452 - logical net 'N36' has no driver
-WARNING:NgdBuild:452 - logical net 'N37' has no driver
-WARNING:NgdBuild:452 - logical net 'N38' has no driver
-WARNING:NgdBuild:452 - logical net 'N39' has no driver
-WARNING:NgdBuild:452 - logical net 'N40' has no driver
-WARNING:NgdBuild:452 - logical net 'N41' has no driver
-WARNING:NgdBuild:452 - logical net 'N42' has no driver
-WARNING:NgdBuild:452 - logical net 'N43' has no driver
-WARNING:NgdBuild:452 - logical net 'N44' has no driver
-WARNING:NgdBuild:452 - logical net 'N45' has no driver
-WARNING:NgdBuild:452 - logical net 'N46' has no driver
-WARNING:NgdBuild:452 - logical net 'N47' has no driver
-WARNING:NgdBuild:452 - logical net 'N48' has no driver
-WARNING:NgdBuild:452 - logical net 'N49' has no driver
-WARNING:NgdBuild:452 - logical net 'N50' has no driver
-WARNING:NgdBuild:452 - logical net 'N51' has no driver
-WARNING:NgdBuild:452 - logical net 'N52' has no driver
-WARNING:NgdBuild:452 - logical net 'N53' has no driver
 WARNING:NgdBuild:452 - logical net 'N54' has no driver
 WARNING:NgdBuild:452 - logical net 'N55' has no driver
 WARNING:NgdBuild:452 - logical net 'N56' has no driver
 WARNING:NgdBuild:452 - logical net 'N57' has no driver
 WARNING:NgdBuild:452 - logical net 'N58' has no driver
 WARNING:NgdBuild:452 - logical net 'N59' has no driver
-WARNING:NgdBuild:452 - logical net 'Inst_control/User_RegRE' has no driver
-WARNING:NgdBuild:452 - logical net 'Inst_ddr_control/user_rd_address<27>' has no
-   driver
-WARNING:NgdBuild:452 - logical net 'Inst_ddr_control/user_rd_address<26>' has no
-   driver
-WARNING:NgdBuild:452 - logical net 'Inst_ddr_control/user_rd_address<25>' has no
-   driver
-WARNING:NgdBuild:452 - logical net 'Inst_ddr_control/user_rd_address<24>' has no
-   driver
+WARNING:NgdBuild:452 - logical net 'N60' has no driver
+WARNING:NgdBuild:452 - logical net 'N61' has no driver
+WARNING:NgdBuild:452 - logical net 'N62' has no driver
+WARNING:NgdBuild:452 - logical net 'N63' has no driver
+WARNING:NgdBuild:452 - logical net 'N64' has no driver
+WARNING:NgdBuild:452 - logical net 'N65' has no driver
+WARNING:NgdBuild:452 - logical net 'N66' has no driver
+WARNING:NgdBuild:452 - logical net 'N67' has no driver
+WARNING:NgdBuild:452 - logical net 'N68' has no driver
+WARNING:NgdBuild:452 - logical net 'N69' has no driver
+WARNING:NgdBuild:452 - logical net 'N70' has no driver
+WARNING:NgdBuild:452 - logical net 'N71' has no driver
+WARNING:NgdBuild:452 - logical net 'N72' has no driver
+WARNING:NgdBuild:452 - logical net 'N73' has no driver
+WARNING:NgdBuild:452 - logical net 'N74' has no driver
+WARNING:NgdBuild:452 - logical net 'N75' has no driver
+WARNING:NgdBuild:452 - logical net 'N76' has no driver
+WARNING:NgdBuild:452 - logical net 'N77' has no driver
+WARNING:NgdBuild:452 - logical net 'N78' has no driver
+WARNING:NgdBuild:452 - logical net 'N79' has no driver
+WARNING:NgdBuild:452 - logical net 'N80' has no driver
 WARNING:NgdBuild:452 - logical net 'Inst_ddr_control/c3_calib_done' has no
    driver
 WARNING:NgdBuild:452 - logical net
@@ -111,6 +102,7 @@ WARNING:NgdBuild:452 - logical net
    'Inst_ddr_control/inst_ddr/c3_p1_cmd_byte_addr<27>' has no driver
 WARNING:NgdBuild:452 - logical net
    'Inst_ddr_control/inst_ddr/c3_p1_cmd_byte_addr<26>' has no driver
+WARNING:NgdBuild:452 - logical net 'Inst_control/User_RegRE' has no driver
 
 Partition Implementation Status
 -------------------------------
@@ -121,9 +113,9 @@ Partition Implementation Status
 
 NGDBUILD Design Results Summary:
   Number of errors:     0
-  Number of warnings:  41
+  Number of warnings:  37
 
-Total memory usage is 148096 kilobytes
+Total memory usage is 147712 kilobytes
 
 Writing NGD file "TOP.ngd" ...
 Total REAL time to NGDBUILD completion:  7 sec

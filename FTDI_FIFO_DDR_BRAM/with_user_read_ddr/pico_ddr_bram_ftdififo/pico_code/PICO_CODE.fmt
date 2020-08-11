@@ -291,20 +291,15 @@ INC_BRAM_ADDRESS: FETCH ADDR1, BUFF_AD1
                   LOAD REG1, 00
                   OUTPUT REG1, usb_wr
                   LOAD REG1, FF
-                  LOAD REG1, FF
-                  LOAD REG1, FF
                   OUTPUT REG1, usb_wr
-                  ;call DELAY_107US
-                  ;call DELAY_107US
-                  LOAD REG1, FF
                   OUTPUT REG1, USB_RD_WR
                   RETURN 
 take_data_in_usb: 
                   INPUT REG1, usb_rxf
                   TEST REG1, 00000001'b
                   JUMP NZ, take_data_in_usb
-                  LOAD REG1, FF
-                  OUTPUT REG1, USB_RD_WR
+                  ;LOAD      REG1, FF
+                  ;OUTPUT    REG1, USB_RD_WR
                   OUTPUT REG1, usb_rd
                   INPUT DDATA, USB_DATA_IN
                   RETURN 
@@ -323,7 +318,7 @@ take_data_in_usb:
                   COMPARE REG1, 00
                   JUMP NZ, LP1
                   RETURN 
-    DATA_OUT_DDR: 
+WRITE_1_WORD_DDR: 
                   CALL take_data_in_usb
                   OUTPUT DDATA, DDR_DATA_W_31_24
                   CALL take_data_in_usb
@@ -332,80 +327,53 @@ take_data_in_usb:
                   OUTPUT DDATA, DDR_DATA_W_15_8
                   CALL take_data_in_usb
                   OUTPUT DDATA, DDR_DATA_W_7_0
-                  CALL DELAY_10US
-                  LOAD DDATA, FF
-                  LOAD DDATA, FF
-                  LOAD DDATA, FF
-                  LOAD DDATA, FF
-                  LOAD DDATA, FF
-                  LOAD DDATA, FF
                   LOAD DDATA, FF
                   OUTPUT DDATA, WR_EN_PLS
                   LOAD DDATA, 00
                   LOAD DDATA, 00
-                  LOAD DDATA, 00
-                  LOAD DDATA, 00
-                  LOAD DDATA, 00
-                  LOAD DDATA, 00
                   OUTPUT DDATA, WR_EN_PLS
-                  RETURN 
-WRITE_1_WORD_DDR: 
-                  CALL DELAY_10US
-                  CALL DATA_OUT_DDR
-                  CALL DATA_OUT_DDR
+                  CALL take_data_in_usb
+                  OUTPUT DDATA, DDR_DATA_W_31_24
+                  CALL take_data_in_usb
+                  OUTPUT DDATA, DDR_DATA_W_23_16
+                  CALL take_data_in_usb
+                  OUTPUT DDATA, DDR_DATA_W_15_8
+                  CALL take_data_in_usb
+                  OUTPUT DDATA, DDR_DATA_W_7_0
+                  LOAD DDATA, FF
+                  OUTPUT DDATA, WR_EN_PLS
+                  LOAD DDATA, 00
+                  ;LOAD DDATA,00
+                  OUTPUT DDATA, WR_EN_PLS
                   LOAD DDATA, FF
                   OUTPUT DDATA, CMD_WR_PLS
                   LOAD DDATA, 00
-                  LOAD DDATA, 00
-                  LOAD DDATA, 00
+                  ;LOAD DDATA,00
                   OUTPUT DDATA, CMD_WR_PLS
-                  LOAD DDATA, 00
-                  LOAD DDATA, 00
                   LOAD DDATA, FF
                   OUTPUT DDATA, DDR_ADDRESS_INC_WR
                   LOAD DDATA, 00
-                  LOAD DDATA, 00
-                  LOAD DDATA, 00
+                  ;LOAD DDATA,00
                   OUTPUT DDATA, DDR_ADDRESS_INC_WR
                   RETURN 
  READ_1_WORD_DDR: 
-                  ;LOAD DDATA,01   ; READ cmd
-                  ;OUTPUT DDATA,WR_RD_CMD  ; READ cmd
                   LOAD DDATA, FF
                   OUTPUT DDATA, CMD_RD_PLS
                   LOAD DDATA, 00
-                  LOAD DDATA, 00
-                  LOAD DDATA, 00
+                  ;LOAD DDATA,00
                   OUTPUT DDATA, CMD_RD_PLS
-                  ;WAIT_FOR_DATA1:  INPUT REG1,READ_EMPTY
-                  ; COMPARE REG1,01
-                  ; JUMP Z,WAIT_FOR_DATA1
-                  LOAD DDATA, 00
-                  LOAD DDATA, 00
-                  LOAD DDATA, 00
-                  LOAD DDATA, 00
-                  LOAD DDATA, 00
-                  LOAD DDATA, 00
-                  CALL DELAY_10US
                   CALL DATA_IN_DDR
                   CALL DATA_IN_DDR
                   LOAD DDATA, FF
                   OUTPUT DDATA, DDR_ADDRESS_INC_RD
                   LOAD DDATA, 00
-                  LOAD DDATA, 00
-                  LOAD DDATA, 00
+                  ;LOAD DDATA,00
                   OUTPUT DDATA, DDR_ADDRESS_INC_RD
                   RETURN 
      DATA_IN_DDR: 
    WAIT_FOR_DATA: INPUT REG1, READ_EMPTY
                   COMPARE REG1, 01
                   JUMP Z, WAIT_FOR_DATA
-                  ;CALL DELAY_1S
-                  LOAD DDATA, DDATA
-                  LOAD DDATA, DDATA
-                  LOAD DDATA, DDATA
-                  LOAD DDATA, DDATA
-                  LOAD DDATA, DDATA
                   INPUT DDATA, DDR_DATA_R_31_24
                   CALL send_one_bt_usb
                   INPUT DDATA, DDR_DATA_R_23_16
@@ -417,8 +385,8 @@ WRITE_1_WORD_DDR:
                   LOAD DDATA, FF
                   OUTPUT DDATA, RD_EN_PLS
                   LOAD DDATA, 00
-                  LOAD DDATA, 00
-                  LOAD DDATA, 00
+                  ;LOAD DDATA,00
+                  ;LOAD DDATA,00
                   OUTPUT DDATA, RD_EN_PLS
                   RETURN 
      REG_CONTROL: 
@@ -445,8 +413,8 @@ WRITE_1_WORD_DDR:
                   OUTPUT DDATA, USER_REGADDR_15_8
                   FETCH DDATA, ST_ADD_1
                   OUTPUT DDATA, USER_REGADDR_7_0
-                  FETCH DDATA, N_OF_BYTE2            ;; NOT USED
-                  FETCH DDATA, N_OF_BYTE1            ;; NOT USED
+                  ;FETCH DDATA,N_OF_BYTE2 ;; NOT USED
+                  ;FETCH DDATA,N_OF_BYTE1 ;; NOT USED
                   OUTPUT DDATA, USER_REGRE           ;; READ ENABLE PULSE
                   LOAD DDATA, "%"
                   CALL send_one_bt_usb

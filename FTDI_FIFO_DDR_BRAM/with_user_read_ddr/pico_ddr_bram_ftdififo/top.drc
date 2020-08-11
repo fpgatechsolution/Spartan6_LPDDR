@@ -1,7 +1,7 @@
 Release 14.7 Drc P.20131013 (nt)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Sat Aug 08 10:26:11 2020
+Tue Aug 11 18:29:30 2020
 
 drc -z TOP.ncd TOP.pcf
 
@@ -9,6 +9,9 @@ WARNING:PhysDesignRules:372 - Gated clock. Clock net
    Inst_control/out_port_no<12> is sourced by a combinatorial pin. This is not
    good design practice. Use the CE pin to control the loading of data into the
    flip-flop.
+INFO:PhysDesignRules:1861 - To achieve optimal frequency synthesis performance
+   with the CLKFX and CLKFX180 outputs of the DCM comp Inst_CMK_DCM/dcm_sp_inst,
+   consult the device Data Sheet.
 WARNING:PhysDesignRules:367 - The signal
    <Inst_ddr_control/inst_ddr/memc3_wrapper_inst/mcb_ui_top_inst/mcb_raw_wrapper
    _inst/gen_term_calib.mcb_soft_calibration_top_inst/GLOBAL_LOGIC1> is

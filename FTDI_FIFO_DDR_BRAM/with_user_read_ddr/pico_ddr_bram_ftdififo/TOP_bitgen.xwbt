@@ -1,8 +1,8 @@
 INTSTYLE=ise
-INFILE=E:\pico_ddr_bram_ftdififo\TOP.ncd
-OUTFILE=E:\pico_ddr_bram_ftdififo\TOP.bit
+INFILE=E:\sanu\pico_ddr_bram_ftdififo\TOP.ncd
+OUTFILE=E:\sanu\pico_ddr_bram_ftdififo\TOP.bit
 FAMILY=Spartan6
 PART=xc6slx25-2csg324
-WORKINGDIR=E:\pico_ddr_bram_ftdififo
+WORKINGDIR=E:\sanu\pico_ddr_bram_ftdififo
 LICENSE=WebPack
 USER_INFO=__0_0_0
